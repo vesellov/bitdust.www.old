@@ -1,0 +1,20 @@
+.automatpng {
+    max-width: 1050px;
+    width: 100%;
+}
+
+.automatpng p {
+    max-width: 1050px;
+    width: 100%;
+}
+
+.automatpng img {
+    max-width: 1050px;
+    width: 100%;
+    padding: 20px;
+    color: #fff;
+    border-radius: 40px;
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    background-color: rgba(255,255,255,.05);
+}

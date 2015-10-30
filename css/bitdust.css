@@ -1,0 +1,154 @@
+@font-face { 
+    font-family: 'myfont Gothic Local'; 
+    src:  url('fonts/century_gothic.eot'); 
+    src:  url('fonts/century_gothic.eot?#iefix') format('embedded-opentype'), 
+          url('fonts/century_gothic.svg#Century Gothic') format('svg'), 
+          url('fonts/century_gothic.woff') format('woff'), 
+          url('fonts/century_gothic.ttf') format('truetype'); 
+    font-weight: normal; 
+    font-style: normal;
+}
+
+#top_menu {
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+    width: 100%;
+    padding: 0px;
+    margin: 0px auto;
+    border-bottom: 1px solid #ddd;
+}
+
+#top_menu ul li {
+  list-style: none;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding: 0px 5px;
+}
+
+#top_menu ul li:first-child {
+}
+
+#top_menu ul li a {
+    /* display: block; */
+}
+
+.top-menu-item {
+    padding: 0px 10px; 
+    margin: 0px;
+    font-size: 1.1em;
+    /* color: #fff; */
+    cursor: pointer; 
+}
+
+#top_menu a:link {
+    /* color: #fff; */
+    text-decoration: none;
+}
+
+#top_menu a:visited {
+    /* color: #fff; */
+    text-decoration: none;
+}
+
+#top_menu a:hover {
+    /* color: #fff; */
+    text-decoration: none;
+    background: rgba(255,255,255,.5);
+}
+
+#top_menu a:active {
+    /* color: #fff; */
+    text-decoration: none;
+}
+
+#top_menu ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+
+#top_area {
+    position: fixed;
+    display: block;
+    top: 0px;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+#top_area nav.navbar {
+    margin-bottom: 0px;
+}
+
+    
+#bottom_area {
+    position: fixed;
+    display: block;
+    bottom: 0px;
+    height: 19px;
+    line-height: 19px;
+    width: 100%;
+    overflow: hidden;
+    vertical-align:bottom;
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+    font-size: 8pt;
+    border-top: 1px solid #ddd;
+}
+
+
+#copyright a {
+    /* color: #abf; */
+    overflow: hidden;
+}
+
+#page_container {
+	/* display: none; */
+	position: fixed;
+    top: 52px;
+}
+
+#page_content {
+    max-width: 1200px;
+    min-width: 400px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* color: #fff; */
+    text-align: justify;
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    line-height: 1.7;  
+    word-spacing: 0.2em;
+    letter-spacing: 0.04em;
+}
+
+.Center-Container.is-Inline { 
+    text-align: center;
+    overflow: auto;
+    position: fixed;
+    top: 0px; 
+    bottom:20px;
+    right:0px;
+    left:0px;
+}
+
+.Center-Container.is-Inline:after,
+.is-Inline .Center-Block {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.Center-Container.is-Inline:after {
+    content: '';
+    height: 100%;
+    margin-left: -0.25em; 
+}
+
+.is-Inline .Center-Block {
+    max-width: 99%; 
+    /* max-width: calc(100% - 0.25em) */ 
+}
+
+
