@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang='en'>
-<head>
+    <head>
+
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +11,9 @@
 
     <title>Give me a Job?</title>
 
+    <meta property="fb:admins" content="1097958228"/>
+    <meta property="fb:app_id" content="543329652498581"/>
+    
     <meta name="author" content="Veselin Penev">
     <meta name="description" content="BitDust is a distributed on-line storage, in which only data owner has an access to his data.">    
     <meta name="keywords" content="BitDust, BitDust.IO, python, data storage, data storage, online data storage, distributed data storage, file storage,
@@ -27,6 +32,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/ie10-viewport-bug-workaround.js"></script> 
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/topmenu.css" rel="stylesheet" type="text/css">
     <link href="css/bitdust.css" rel="stylesheet" type="text/css">
     
     <!-- <link href="css/reset.css" rel="stylesheet" type="text/css"> -->
@@ -41,6 +47,16 @@
 </head>
 
 <body>
+    
+<!-- Facebook Init -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=543329652498581";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>    
 
 <div id=page_container class="Center-Container is-Inline">
 <div class="Center-Block">
@@ -111,7 +127,7 @@
 
 <h5 id="Software-Engineer,-«New-Information-Technology-in-Aviation»,-2003---2007">Software Engineer, «New Information Technology in Aviation», 2003 - 2007</h5>
 
-<p><a href="http://www.en.nita.ru">http://www.en.nita.ru</a></p>
+<p><a href="http://en.nita.ru">http://en.nita.ru</a></p>
 
 <ul>
 <li>Developed 3D visualization systems for a complex flight simulator</li>
@@ -213,42 +229,96 @@ All rights reserved.
 
 
 <div id="top_area">
-<nav class="navbar navbar-default navbar-static-top">
-<div class="container">
-<div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    </button>
-</div>
-<div id="navbar" class="navbar-collapse collapse">
-<ul class="nav navbar-nav">
-    <li><a href="index.html#">BitDust</a></li>
-    <!-- <li><a href="download.html">download</a></li> -->
-    <li><a href="intro.html">about</a></li>
-    <li><a href="concept.html">concept</a></li>
-    <li><a href="principle.html">principle</a></li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">docs<span class="caret"></span></a>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="toc.html">table of contents</a></li>
-        <li><a href="glossary.html">glossary</a></li>
-        <li><a href="identities.html">identities</a></li>
-        <li><a href="storage.html">storage</a></li>
-        <li><a href="security.html">security</a></li>
-        <li><a href="rebuilding.html">rebuilding</a></li>
-        <li><a href="automats.html">state machines</a></li>
-        <li><a href="roadmap.html">roadmap</a></li>
-      </ul>
-    </li>
-    <li><a href="donate.html">donate</a></li>
-    <li><a href="givejob.html">give me a job?</a></li>
-</ul>
-</div><!--/.nav-collapse -->   
-</div>
-</nav>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <div id="top_search_panel">
+                    <input type="text" id="top_search_input" placeholder="have a question?">
+                    <button type="button" id="top_search_button">ask</button>
+                </div>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <!-- <li><a href=""><span style="font-size: 1.5em;">BitDust</span></a></li> -->
+                    <!-- <li><a href="download.html">download</a></li> -->
+                    <!-- 
+                    <li><a href="intro.html">about</a></li>
+                    <li><a href="concept.html">concept</a></li>
+                    <li><a href="principle.html">principle</a></li>
+                    <li><a href="donate.html">donate</a></li>
+                    <li><a href="givejob.html">give me a job?</a></li>
+                    -->
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="" id="main_download" class="btn btn-primary btn-lg top_menu_button" >DOWNLOAD</a>
+                    </li>
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                            Why Bitdust?
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="">NO PASSWORDS!</a></li>
+                            <li><a href="security.html">100% Security</a></li>
+                            <li><a href="">P2P Anonymous</a></li>
+                            <li><a href="">Open Source</a></li>
+                            <li><a href="">Good Team</a></li>
+                            <li><a href="roadmap.html">Road Map</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                            Docs
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="toc.html">Table of contents</a></li>
+                            <li><a href="intro.html">Intro</a></li>
+                            <li><a href="concept.html">Concept</a></li>
+                            <li><a href="principle.html">Principle</a></li>
+                            <li><a href="glossary.html">Glossary</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                            Team
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="develop.html">Get a Task!</a></li>
+                            <li><a href="donate.html">Donate $</a></li>
+                            <li><a href="givejob.html">Give me a Job?</a></li>
+                            <li><a href="">Project Founders</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="https://github.com/vesellov" target="blank" class="top_menu_button" id="github_button">GitHub</a>
+                    </li>
+                    
+                    <li>
+                    <!-- <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div> -->
+                    </li>
+                </ul>
+                
+            </div><!--/.nav-collapse -->   
+        </div>
+    </nav>
 </div>
 
 
@@ -268,8 +338,9 @@ All rights reserved.
 })(document, window, "yandex_metrika_callbacks");
 </script>
 <noscript><div><img src="//mc.yandex.ru/watch/28171152" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 
+
+<!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -278,6 +349,8 @@ All rights reserved.
   ga('create', 'UA-59191888-1', 'auto');
   ga('send', 'pageview');
 </script>
+
+
 
 </body>
 </html>

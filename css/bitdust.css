@@ -150,3 +150,7 @@
     max-width: 99%; 
     /* max-width: calc(100% - 0.25em) */ 
 }
+.fb-comments {
+    margin-top: 50px;
+    border-top: 1px #ddd solid;
+}
