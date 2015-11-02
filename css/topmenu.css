@@ -1,0 +1,45 @@
+#top_search_panel {
+    margin-top: 12px;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+.top_menu_button {
+    margin-top: 11px!important;
+    margin-left: 15px!important;
+    margin-right: 15px!important;
+    padding: 5px!important;
+    text-decoration: none!important;
+    border-radius: 6px!important;
+    font: bold 15px Arial!important;
+    border: #fff 1px solid!important;
+    cursor: pointer!important;
+    text-align: center;
+}
+.top_menu_button:hover{
+    background-color: #2FA4E7!important;
+    color: #fff!important;
+    border: #fff 1px solid!important;
+}
+
+#top_area a.dropdown-toggle {
+    color: #FFF;
+    background: none!important;
+}
+#top_area a.dropdown-toggle:hover {
+    color: #FFF;
+    background-color: #2FA4E7;
+}
+#main_download {
+    background-color: hsl(110, 66%, 33%) ; 
+    background-repeat: repeat-x; 
+    background-image: linear-gradient(#6fdd59, #2f8b1c); 
+    border-color: #2f8b1c #2f8b1c hsl(110, 66%, 26%); 
+}
+#main_download:hover {
+    background-image: linear-gradient(#7fed69, #3fab2c); 
+}
+#github_button {
+    color: #48d;
+    background-color: #fff;
+}
