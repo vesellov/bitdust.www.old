@@ -123,50 +123,70 @@ which establishes all key collaborations in the BitDust program:</p>
 <a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l244"><code>contact_status()</code></a>,
 which has four states.</p>
 
+<div class=automatpng>
+
 <p><a href="p2p/contact_status.pdf"><img src="p2p/contact_status.png" alt="contact_status()" /></a></p>
 
+</div>
+
 <p>There are following elements:</p>
+
+<div id=table01>
+
+<style>
+div#table01 td, th { padding: 0px 15px; white-space: nowrap; }
+div#table01 img { max-width: 100px; }
+</style> </p>
 
 <table>
 <thead>
 <tr>
-  <th>states</th>
-  <th>events</th>
-  <th>conditions</th>
-  <th>actions</th>
-  <th>variables</th>
+  <th align="left">states</th>
+  <th align="left">events</th>
+  <th align="left">conditions</th>
+  <th align="left">actions</th>
+  <th align="left">variables</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td><strong>OFFLINE</strong></td>
-  <td>outbox-packet</td>
-  <td>isPingPacket()</td>
-  <td>doRepaint()</td>
-  <td>AckCounter</td>
+  <td align="left"><strong>OFFLINE</strong></td>
+  <td align="left">outbox-packet</td>
+  <td align="left">isPingPacket()</td>
+  <td align="left">doRepaint()</td>
+  <td align="left">AckCounter</td>
 </tr>
 <tr>
-  <td><strong>CONNECTED</strong></td>
-  <td>inbox-packet</td>
-  <td>isDataPacket()</td>
-  <td>doRememberTime()</td>
+  <td align="left"><strong>CONNECTED</strong></td>
+  <td align="left">inbox-packet</td>
+  <td align="left">isDataPacket()</td>
+  <td align="left">doRememberTime()</td>
+  <td align="left">&nbsp;</td>
 </tr>
 <tr>
-  <td><strong>PING</strong></td>
-  <td>file-sent</td>
+  <td align="left"><strong>PING</strong></td>
+  <td align="left">file-sent</td>
+  <td align="left">&nbsp;</td>
+  <td align="left">&nbsp;</td>
+  <td align="left">&nbsp;</td>
 </tr>
 <tr>
-  <td><strong>ACK?</strong></td>
-  <td>sent-done</td>
+  <td align="left"><strong>ACK?</strong></td>
+  <td align="left">sent-done</td>
+  <td align="left"></td>
+  <td align="left"></td>
+  <td align="left">&nbsp;</td>
 </tr>
 <tr>
-  <td>sent-failed</td>
+  <td align="left">sent-failed</td>
 </tr>
 <tr>
-  <td>timer-20sec</td>
+  <td align="left">timer-20sec</td>
 </tr>
 </tbody>
 </table>
+
+</div>
 
 <p>The automat <code>contact_status()</code> works as follows:</p>
 
@@ -344,7 +364,7 @@ method of <code>Automat</code> class, for example after receiving new incoming p
 <p>A small tool called <a href="http://gitlab.bitdust.io/devel/visio2python/tree/master"><code>visio2python</code></a> was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
 It can translate the transition graphs, created in Microsoft Visio into the code in Python or JavaScript languages.</p>
 
-<p><a href="http://gitlab.bitdust.io/devel/visio2python/tree/master">!(visio2python)[http://bitdust.io/visio2python/visio2python-screen1.png]</a></p>
+<p><a href="http://gitlab.bitdust.io/devel/visio2python/tree/master">http://gitlab.bitdust.io/devel/visio2python</a></p>
 
 <h2 id="BitDust-Finite-State-Machines">BitDust Finite State Machines</h2>
 
