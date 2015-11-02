@@ -1,78 +1,14 @@
-<!DOCTYPE html>
-<html lang='en'>
-    <head>
-
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="canonical" href="http://bitdust.io">
-
-    <title>User Indentification</title>
-
-    <meta property="fb:admins" content="1097958228"/>
-    <meta property="fb:app_id" content="543329652498581"/>
-    
-    <meta name="author" content="Veselin Penev">
-    <meta name="description" content="BitDust is a distributed on-line storage, in which only data owner has an access to his data.">    
-    <meta name="keywords" content="BitDust, BitDust.IO, python, data storage, data storage, online data storage, distributed data storage, file storage,
-        storage of files, save files, secure data storage, secure data storage, safely store the data, encrypted data storage,
-        encrypted file storage, secure storage of files, save files, save folders safely save, store information,
-        securely store information encrypted distributed data storage, cloud storage, backup, storage, backup data storage,
-        data backup, anonymous messages decentralized online data storage, encrypt a message, encrypted messages, secure communication,
-        communicate safely stored safely, securely store data, information storage, safe storage of information, communication,
-        safely transmit information securely store information">
-
-    <link rel="icon" href="favicon.ico"> 
-
-    <script src="js/ba-debug.min.js" type="text/javascript"></script>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/ie10-viewport-bug-workaround.js"></script> 
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/topmenu.css" rel="stylesheet" type="text/css">
-    <link href="css/bitdust.css" rel="stylesheet" type="text/css">
-    
-    <!-- <link href="css/reset.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="css/styles.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="css/main.css" rel="stylesheet" type="text/css"> -->
-    <link href="css/automat.css" rel="stylesheet" type="text/css">
-    <!--[if IE 7]>
-    <link href="css/ie7.css" rel="stylesheet" type="text/css">
-    <![endif]-->
-    <!-- <link href="css/responsive.css" rel="stylesheet" type="text/css"> -->
-   
-</head>
-
-<body>
-    
-<!-- Facebook Init -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=543329652498581";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>    
-
-<div id=page_container class="Center-Container is-Inline">
-<div class="Center-Block">
-<div id=page_content>
-
-<h1 id="User-Indentification">User Indentification</h1>
+<h1>User Indentification</h1>
 
 <ul>
-<li><a href="identities.html#identity-files">Identity files</a></li>
-<li><a href="identities.html#id-servers">ID-servers</a></li>
-<li><a href="identities.html#idurl-address">IDURL address</a></li>
-<li><a href="identities.html#digital-signature">Digital-signature</a></li>
-<li><a href="identities.html#private-key">Private key</a></li>
+<li><a href="#identity-files">Identity files</a></li>
+<li><a href="#id-servers">ID-servers</a></li>
+<li><a href="#idurl-address">IDURL address</a></li>
+<li><a href="#digital-signature">Digital-signature</a></li>
+<li><a href="#private-key">Private key</a></li>
 </ul>
 
-<h2 id="Identity-files">Identity files</h2>
+<h2>Identity files</h2>
 
 <p>For other nodes to connect to the user machine they have to know the address of his computer in the Internet. These contacts are stored in XML file, which is called <strong>Identity</strong>. By connecting to other nodes the download of identity files preliminarily takes place and then received information is used for direct transfer of service packets. </p>
 
@@ -89,7 +25,7 @@
 
 <p>For BitDust network logon each user needs to create a personal identity file – this happens automatically whem the BitDust program starts first time.</p>
 
-<h2 id="ID-servers">ID-servers</h2>
+<h2>ID-servers</h2>
 
 <p>In theory the location of user identity file can be of any kind, important about it is to be easily accessed for all other nodes in the network. For example, user can allocate the given file on his personal website. By doing so he needs to assure the possibility of easy update of the given copy from the original, which is stored on the machine of the user himself. For guaranteeing a more secure and fault tolerant interaction between nodes in the network you can store multiple copies of your identity in several places. </p>
 
@@ -99,7 +35,7 @@
 
 <p>It is preferably that machines running ID-servers had correctly adjusted domain names. Then users’ IDURL, whose identity files are stored there, will look attractive. Bellow you can read more about that.</p>
 
-<h2 id="IDURL-address">IDURL address</h2>
+<h2>IDURL address</h2>
 
 <p>Each BitDust user is identified by IDURL key – this is an address of his identity file in the global Internet network. One can draw an analogy: identity file is kind of a regular passport and IDURL is his last, first and middle names.</p>
 
@@ -151,7 +87,7 @@
 
 <p>The system is designed in such a way that even in case of failure of one or more servers that store your Identity file, other users can download it from other ID-servers and able to connect with you. The program continuously monitors your ID-servers and in case of failure triggers automatic distribution of your Identity file on another available ID-servers, and notifies your active nodes immediately.</p>
 
-<h2 id="Digital-signature">Digital signature</h2>
+<h2>Digital signature</h2>
 
 <p>By creating or adjusting users identity the generation of digital-signature takes place – it is connected to the file content and serves for protection from evil modifications from third side. Digital-signature is calculated from the file content via Hash-function and for its creation you need a Private Key, which is stored only on his machine.</p>
 
@@ -159,7 +95,7 @@
 
 <p>This framework helps absolutely safely store and distribute user identity files through any sources, which include also ID-servers. Machine owner, who started an ID-server, does not have any possibility to substitute content of stored there files. But he can easily delete them or turn off the server – for loss prevention identity file of each user is stored on several servers all over the world. </p>
 
-<h2 id="Private-Key">Private Key</h2>
+<h2>Private Key</h2>
 
 <p>By first start of BitDust program the private key is generated, this key protects identity file and your personal  data. Only having this key one can get an access to the personal user data or make adjustments to the identity file.</p>
 
@@ -173,7 +109,7 @@
 <li>no centralized storages of member accounts</li>
 </ul>
 
-<h4 id="ATTENTION!!!">ATTENTION!!!</h4>
+<h4>ATTENTION!!!</h4>
 
 <pre><code>In case of losing private key the user completely loses access to all uploaded files. 
 It is highly recommended to make two or three copies of secret key on reliable and 
@@ -184,151 +120,6 @@ compact media just after the program set up and hide them in secure places.
 
 <p>We recommend using modern anti-virus software, extra defence from network attacks and other methods of increasing security level of your personal computer. In addition to this, we advise you to look through useful information resources on this topic in order to raise your awareness. </p>
 
-<div class="fb-comments" data-href="http://bitdust.io/identities.html" data-width="500" data-numposts="5">
+<div class=fbcomments>
 
 </div>
-
-
-</div>
-</div>
-</div>
-
-
-<div id="bottom_area">
-<div id=copyright>
-© Copyright 2015 BitDust LLC. 
-Using web site, software and other products
-branded  <b>BitDust</b> means agree with the
-<a href="http://bitdust.io/license.html"> license agreement </a>.
-All rights reserved.
-</div>
-</div>
-
-
-
-<div id="top_area">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </button>
-                <div id="top_search_panel">
-                    <input type="text" id="top_search_input" placeholder="have a question?">
-                    <button type="button" id="top_search_button">ask</button>
-                </div>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-left">
-                    <!-- <li><a href=""><span style="font-size: 1.5em;">BitDust</span></a></li> -->
-                    <!-- <li><a href="download.html">download</a></li> -->
-                    <!-- 
-                    <li><a href="intro.html">about</a></li>
-                    <li><a href="concept.html">concept</a></li>
-                    <li><a href="principle.html">principle</a></li>
-                    <li><a href="donate.html">donate</a></li>
-                    <li><a href="givejob.html">give me a job?</a></li>
-                    -->
-                </ul>
-                
-                <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="" id="main_download" class="btn btn-primary btn-lg top_menu_button" >DOWNLOAD</a>
-                    </li>
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                            Why Bitdust?
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="">NO PASSWORDS!</a></li>
-                            <li><a href="security.html">100% Security</a></li>
-                            <li><a href="">P2P Anonymous</a></li>
-                            <li><a href="">Open Source</a></li>
-                            <li><a href="">Good Team</a></li>
-                            <li><a href="roadmap.html">Road Map</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                            Docs
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="toc.html">Table of contents</a></li>
-                            <li><a href="intro.html">Intro</a></li>
-                            <li><a href="concept.html">Concept</a></li>
-                            <li><a href="principle.html">Principle</a></li>
-                            <li><a href="glossary.html">Glossary</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                            Team
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="develop.html">Get a Task!</a></li>
-                            <li><a href="donate.html">Donate $</a></li>
-                            <li><a href="givejob.html">Give me a Job?</a></li>
-                            <li><a href="">Project Founders</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li>
-                        <a href="https://github.com/vesellov" target="blank" class="top_menu_button" id="github_button">GitHub</a>
-                    </li>
-                    
-                    <li>
-                    <!-- <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div> -->
-                    </li>
-                </ul>
-                
-            </div><!--/.nav-collapse -->   
-        </div>
-    </nav>
-</div>
-
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-(function (d, w, c) {    (w[c] = w[c] || []).push(function() {
-        try {            w.yaCounter28171152 = new Ya.Metrika({id:28171152,
-        webvisor:true,                    clickmap:true,                    trackLinks:true,                    accurateTrackBounce:true});
-        } catch(e) { }    });
-    var n = d.getElementsByTagName("script")[0],
-        s = d.createElement("script"),
-        f = function () { n.parentNode.insertBefore(s, n); };
-    s.type = "text/javascript";
-    s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-    if (w.opera == "[object Opera]") {        d.addEventListener("DOMContentLoaded", f, false);    } else { f(); }
-})(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="//mc.yandex.ru/watch/28171152" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-
-<!-- Google Analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59191888-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-</body>
-</html>
