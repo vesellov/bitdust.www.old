@@ -110,8 +110,8 @@
 }
 
 #page_content {
-    max-width: 1200px;
-    min-width: 400px;
+    max-width: 1125px;
+    /* min-width: 400px; */
     margin-left: 10px;
     margin-right: 10px;
     /* color: #fff; */
@@ -147,7 +147,7 @@
 }
 
 .is-Inline .Center-Block {
-    max-width: 99%; 
+    /* max-width: 99%;  */
     /* max-width: calc(100% - 0.25em) */ 
 }
 .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
