@@ -27,10 +27,10 @@
       $header[] = "From: {$to}<{$to}>";
       $header[] = "Content-type:text/html; charset=iso-8859-1";
       $header[] = "Content-Transfer-Encoding: 7bit";
-      $body = '\r\n\r\n';
-      $body = $body . 'IP: ' . $_SERVER['REMOTE_ADDR'] . '\r\n';
-      $body = $body . 'Contact: ' . $address . '\r\n';
-      $body = $body . 'Message:\r\n' . $message . '\r\n';
+      $body = '<html><head><title>message received from [bitdust.io]</title></head><body>';
+      $body = $body . '<br><br>IP: <b>' . $_SERVER['REMOTE_ADDR'] . '</b><br><br>';
+      $body = $body . '<br>Contact: <b>' . $address . '</b><br><br>';
+      $body = $body . '<br>Message: <br><br>' . $message;
       if(mail($to, 'message received from [bitdust.io]', $body, implode("\r\n", $header)))
           return true; 
       return false;
