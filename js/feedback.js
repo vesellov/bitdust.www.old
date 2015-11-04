@@ -15,6 +15,9 @@ $(document).ready(function() {
     });
 
     $('#top_search_button').click(function() {
+        $('#feedback_panel').show();
+        $('.feedback_alert').html('');
+        $('.feedback_alert').hide();
         if ($('#top_search_input').val()) {
             $('#feedback_message').val($('#top_search_input').val());
         }
@@ -23,6 +26,9 @@ $(document).ready(function() {
     });
 
     $('#top_search_input').bind("enterKey", function(e) {
+        $('#feedback_panel').show();
+        $('.feedback_alert').html('');
+        $('.feedback_alert').hide();
         if ($('#top_search_input').val()) {
             $('#feedback_message').val($('#top_search_input').val());
         }
@@ -38,7 +44,7 @@ $(document).ready(function() {
 
     var form = $('#feedback_form'); // contact form
     var submit = $('#feedback_submit_button');  // submit button
-    var alert = $('.alert'); // alert div for show alert message
+    var alert = $('.feedback_alert'); // alert div for show alert message
 
     // form submit event
     form.on('submit', function(e) {
@@ -50,20 +56,22 @@ $(document).ready(function() {
           dataType: 'html', // request type html/json/xml
           data: form.serialize(), // serialize form data 
           beforeSend: function() {
-            alert.fadeOut();
+            $('.feedback_alert').html('');
+            $('.feedback_alert').fadeOut();
+            $('#feedback_panel').show();
             submit.html('sending....'); // change submit button text
           },
           success: function(data) {
-            alert.html("<h1>Great thanks for your feedback.!</h1><br>BitDust Team will create a ticket or answer your question directly ASAP.<br>Let's be in touch!");
+            $('.feedback_alert').html("<h1>Great thanks for your feedback.!</h1><br>BitDust Team will create a ticket or answer your question directly ASAP.<br>Let's be in touch!");
+            $('.feedback_alert').fadeIn(); // fade in response data
             $('#feedback_panel').hide();
-            alert.html(data).fadeIn(); // fade in response data
             form.trigger('reset'); // reset form
             submit.html('get fast response from developers'); // reset submit button text
           },
           error: function(e) {
-            alert.html("<h1>Error happened while sending ...</h1>");
+            $('.feedback_alert').html("<h1>Error happened while sending ...</h1>");
+            $('.feedback_alert').fadeIn(); // fade in response data
             $('#feedback_panel').hide();
-            alert.html(data).fadeIn(); // fade in response data
             form.trigger('reset'); // reset form
             submit.html('get fast response from developers'); // reset submit button text
           }

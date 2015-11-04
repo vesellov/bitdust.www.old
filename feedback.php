@@ -35,7 +35,11 @@
       /* Set message content type HTML*/
       $header[] = "Content-type:text/html; charset=iso-8859-1";
       $header[] = "Content-Transfer-Encoding: 7bit";
-      if( mail($to, 'Message received from http://BitDust.IO', $address . '\r\n\r\n' . $message, implode("\r\n", $header)) )
+      $body = '\r\n';
+      $body += 'IP: ' . $_SERVER['REMOTE_ADDR'] . '\n\n';
+      $body += 'Contact: ' . $address . '\n\n';
+      $body += 'Message:\n' . $message . '\n\n';
+      if( mail($to, 'message received from [bitdust.io]', $body, implode("\r\n", $header)) )
           return true; 
       return false;
     }
