@@ -51,15 +51,21 @@ $(document).ready(function() {
           data: form.serialize(), // serialize form data 
           beforeSend: function() {
             alert.fadeOut();
-            submit.html('Sending....'); // change submit button text
+            submit.html('sending....'); // change submit button text
           },
           success: function(data) {
+            alert.html("<h1>Great thanks for your feedback.!</h1><br>BitDust Team will create a ticket or answer your question directly ASAP.<br>Let's be in touch!");
+            $('#feedback_panel').hide();
             alert.html(data).fadeIn(); // fade in response data
             form.trigger('reset'); // reset form
-            submit.html('Send Email'); // reset submit button text
+            submit.html('get fast response from developers'); // reset submit button text
           },
           error: function(e) {
-            console.log(e)
+            alert.html("<h1>Error happened while sending ...</h1>");
+            $('#feedback_panel').hide();
+            alert.html(data).fadeIn(); // fade in response data
+            form.trigger('reset'); // reset form
+            submit.html('get fast response from developers'); // reset submit button text
           }
         });
     });
