@@ -60,7 +60,7 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="Data-Storage">Data Storage</h1>
+<h1 id="data-storage">Data Storage</h1>
 
 <ul>
 <li><a href="storage.html#Intro">Introduction</a></li>
@@ -71,11 +71,11 @@
 <li><a href="storage.html#hardware-resources">Hardware Resources</a></li>
 </ul>
 
-<h2 id="Intro">Intro</h2>
+<h2 id="intro">Intro</h2>
 
 <p>BitDust network consists of multiple equal node, whose owners voluntarily give a part of hardware resources of their personal computers to each other. By sharing the resources the network users get more reliable, secured and fully independent storage for their own data.</p>
 
-<h2 id="Suppliers-and-Clients">Suppliers and Clients</h2>
+<h2 id="suppliers-and-clients">Suppliers and Clients</h2>
 
 <p>User data allocation takes place on a fixed combination of nodes chosen beforehand, these nodes are called "suppliers". The user at the same time becomes a "client" for all these nodes – figuratively speaking he "rents" a portion of hard disk drive from each of his suppliers.</p>
 
@@ -93,7 +93,7 @@
 
 <p>The number of clients whom each user can support theoretically is not limited. However by having too many of them the possible sessions number can be exceeded – this parameter depends on operation system, which runs the given BitDust node. Apart from this by simultaneous upload/download from user machine the network channel which each client receives will be severely restricted – only nodes with very wide data through-put will be able to support a great number of clients.</p>
 
-<h2 id="Upload-in-the-Network">Upload in the Network</h2>
+<h2 id="upload-in-the-network">Upload in the Network</h2>
 
 <p>Each of the suppliers gets even portions of the total volume of uploaded user data. Each fragment of uploaded data is marked with a number of the supplier from the general combination to whom it is designed. By changing one supplier for another the new node gets exactly those data which correspond to his order number in the combination. </p>
 
@@ -116,7 +116,7 @@
 
 <p>In program settings the user can state the maximum and desired block size by data backupping – this will influence the final portion size, which one by one will be uploaded and stored at suppliers’. By very big block size the value of loss by upload increases critically, as by connection fault current portion upload will be interrupted and should begin from the start. On the other hand by very small block size the total number of portions increases and overall program performance and volume of consumable random access memory decreases critically.</p>
 
-<h2 id="Data-Redundancy">Data Redundancy</h2>
+<h2 id="data-redundancy">Data Redundancy</h2>
 
 <p>In the section <a href="rebuilding.html">Automatic Data Rebuilding</a> the method of converting the input data before allocating them on suppliers’ nodes is explained more in detail. Uploaded in the network data are stored with double redundancy and organized in a RAID array for ensuring a possibility of their recovery in the case of loss. </p>
 
@@ -132,7 +132,7 @@ RAID array is organized in a way that each Parity fragment allows restoring corr
 
 <p>By building a RAID array so-called EEC codes are used – this are the combinations of Data and Parity allocation on suppliers’ machines. For each of the possible suppliers combinations the optimal EEC code was calculated – it defines the framework of the mutual bracing of the Data and Parity fragments in the layers and maximum quantity of simultaneous errors, which may occur without block sustainability loss.</p>
 
-<h2 id="Download-from-the-Network">Download from the Network</h2>
+<h2 id="download-from-the-network">Download from the Network</h2>
 
 <p>For downloading allocated in the BitDust network data back on user’s machine you need to: </p>
 
@@ -147,7 +147,7 @@ RAID array is organized in a way that each Parity fragment allows restoring corr
 
 <p>In case some fragments are lost, for example, due to the fault in connection to some of suppliers, the mechanism of lost data recovery in the Data layer from the on hand fragments of Parity layer will be started.</p>
 
-<h2 id="Hardware-Resources">Hardware Resources</h2>
+<h2 id="hardware-resources">Hardware Resources</h2>
 
 <p>All nodes in the BitDust network are absolutely equal. There are no nodes of the higher order, having special authority, managing global processes and network structure, doing routing or data acquisition etc. All users voluntarily start BitDust program on their machines and have a chance to use hardware resources of other nodes and give part of their personal computer resources in the network: </p>
 
@@ -256,7 +256,7 @@ All rights reserved.
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="develop.html">Get a Task!</a></li>
                             <li><a href="donate.html">Donate $</a></li>
-                            <li><a href="givejob.html">Give me a Job?</a></li>
+                            <li><a href="givejob.html">Hire developer</a></li>
                             <li><a href="">Project Founders</a></li>
                         </ul>
                     </li>
@@ -308,7 +308,7 @@ All rights reserved.
             <span aria-hidden="true">&times;</span>
         </button>
         <center> 
-            <h3>Contact BitDust Team</h3> 
+            <h3 id="feedback_head">Contact BitDust Team</h3> 
         </center>
 		<div class="feedback_alert text-left"></div>
         <div id="feedback_panel">

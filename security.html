@@ -60,7 +60,7 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="Data-Security">Data Security</h1>
+<h1 id="data-security">Data Security</h1>
 
 <ul>
 <li><a href="security.html#brief-summary">Brief Summary</a></li>
@@ -75,7 +75,7 @@
 <li><a href="security.html#full-control">Full Control</a></li>
 </ul>
 
-<h2 id="Brief-Summary">Brief Summary</h2>
+<h2 id="brief-summary">Brief Summary</h2>
 
 <ul>
 <li>Data encryption algorithm: <code>DES3</code></li>
@@ -85,7 +85,7 @@
 <li>Hash-function for digital signature: <code>SHA1</code></li>
 </ul>
 
-<h2 id="Private-Key">Private Key</h2>
+<h2 id="private-key">Private Key</h2>
 
 <p>Data security in BitDust system is based upon crypto-system with an open key. For data encryption and digital signature creation this asymmetric algorithm uses a key consisting of two parts: public key and private key. It is a secret key and only this key protects authenticity and user's personal data.</p>
 
@@ -93,7 +93,7 @@
 
 <p>On each start of BitDust program the key will be loaded into the operational memory of the computer and will be used for user data protection. After program stops, this temporary copy of the private key will be automatically deleted during the memory cleaning.</p>
 
-<h4 id="ATTENTION!">ATTENTION!</h4>
+<h4 id="attention!">ATTENTION!</h4>
 
 <pre><code>It is highly recommended to make several backup copies of the key, record it on different media
 and hide in safe places just after secret key generation.
@@ -105,7 +105,7 @@ The reliability of your personal information security is completely dependent
 on the private key safety.
 </code></pre>
 
-<h2 id="Public-Key">Public Key</h2>
+<h2 id="public-key">Public Key</h2>
 
 <p>The scheme of two-way user authentication in BitDust network is described in the section User Identification.</p>
 
@@ -115,7 +115,7 @@ on the private key safety.
 
 <p>Thus public key must be forwarded to all the nodes with which you want to maintain a safe connection. For this purposes BitDust program has a functional for distributing identity user files to each other.</p>
 
-<h2 id="Digital-signature">Digital signature</h2>
+<h2 id="digital-signature">Digital signature</h2>
 
 <p>All user identity files are secured with digital signature. 
 By creating or changing user identity the generation of an digital signature takes place – it is connected to the file content and serves for security from changes.</p>
@@ -124,7 +124,7 @@ By creating or changing user identity the generation of an digital signature tak
 
 <p>The general principle of user identity protection from changes is based on the fact that all other nodes check the correspondence between digital signature and file content each time when they receive a new copy of its identity – this standard method in cryptography is called VerifySignature.</p>
 
-<h2 id="Service-Traffic">Service Traffic</h2>
+<h2 id="service-traffic">Service Traffic</h2>
 
 <p>Digital signature is used not only for protection of user identity file from modifications but also all service data which are forwarded from one node to another in the BitDust network. </p>
 
@@ -143,7 +143,7 @@ By creating or changing user identity the generation of an digital signature tak
 <li><code>Signature</code> – digital signature</li>
 </ul>
 
-<h2 id="Data-Transfer">Data Transfer</h2>
+<h2 id="data-transfer">Data Transfer</h2>
 
 <p>To hide the data another class of packages is used, it is called "encrypted block".
 These data blocks are forwarded inside the service packages and the field <code>Command</code> will have a value "Data" – which means that the given package contains encrypted data block.</p>
@@ -169,7 +169,7 @@ These data blocks are forwarded inside the service packages and the field <code>
 <li><code>Signature</code> – digital signature</li>
 </ul>
 
-<h2 id="Encryption">Encryption</h2>
+<h2 id="encryption">Encryption</h2>
 
 <p>At the moment the encryption of data recorded in the field <code>EncryptedData</code> is done by the DES3 algorithm.</p>
 
@@ -184,7 +184,7 @@ These data blocks are forwarded inside the service packages and the field <code>
 
 <p>We are looking forward to adding a support of AES3 and BlowFish algorithms and give users a chance to choose desired method of symmetric encryption in the program settings.</p>
 
-<h2 id="Storage">Storage</h2>
+<h2 id="storage">Storage</h2>
 
 <p>Session key is not available to anyone except for the user himself – he and only he can decrypt the field <code>EncryptedSessionKey</code> with the help of the private key and extract the session key. Thus user data which get to supplier’s machine are kept in an encrypted form and they are not available for reading to the supplier.</p>
 
@@ -192,7 +192,7 @@ These data blocks are forwarded inside the service packages and the field <code>
 
 <p>When user requests his data back from supplier’s machine they are back in the source encrypted form, but again wrapped in the service pack structure for change security. Then the user decrypts field <code>EncryptedSessionKey</code> (with his private key) and extracts from there the session key, which then decrypts the source data block from the field <code>EncryptedData</code>.</p>
 
-<h2 id="Data-Integrity">Data Integrity</h2>
+<h2 id="data-integrity">Data Integrity</h2>
 
 <p>The information uploaded in the BitDust network loses its integrity, as each supplier allocates at his machines only encrypted blocks. Nodes storing user data cannot be identified and read in any way. </p>
 
@@ -200,7 +200,7 @@ These data blocks are forwarded inside the service packages and the field <code>
 
 <p>The given fact allows storing data of any sensitivity level in the BitDust network, as only the owner of data has an access to them. </p>
 
-<h1 id="Full-Control">Full Control</h1>
+<h1 id="full-control">Full Control</h1>
 
 <p>In addition to a possibility of storing your data distributed on the remote machines, BitDust project offers another, absolutely unique possibility to have a total control over your distributed space and secure the data from <strong>theft</strong> or <strong>elimination</strong>.</p>
 
@@ -306,7 +306,7 @@ All rights reserved.
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="develop.html">Get a Task!</a></li>
                             <li><a href="donate.html">Donate $</a></li>
-                            <li><a href="givejob.html">Give me a Job?</a></li>
+                            <li><a href="givejob.html">Hire developer</a></li>
                             <li><a href="">Project Founders</a></li>
                         </ul>
                     </li>
@@ -358,7 +358,7 @@ All rights reserved.
             <span aria-hidden="true">&times;</span>
         </button>
         <center> 
-            <h3>Contact BitDust Team</h3> 
+            <h3 id="feedback_head">Contact BitDust Team</h3> 
         </center>
 		<div class="feedback_alert text-left"></div>
         <div id="feedback_panel">

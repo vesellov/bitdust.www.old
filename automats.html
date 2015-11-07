@@ -60,7 +60,7 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="Finite-State-Machines">Finite State Machines</h1>
+<h1 id="finite-state-machines">Finite State Machines</h1>
 
 <ul>
 <li><a href="automats.html#introduction">Introduction</a></li>
@@ -72,7 +72,7 @@
 <li><a href="automats.html#visio2python">visio2python Tool</a></li>
 </ul>
 
-<h2 id="Introduction">Introduction</h2>
+<h2 id="introduction">Introduction</h2>
 
 <p>BitDust project is developed on the principles of <a href="https://en.wikipedia.org/wiki/automata-based_programming">automata-based programming</a> and <a href="http://is.ifmo.ru/works/open_doc/">open project documentation movement</a>.</p>
 
@@ -87,7 +87,7 @@ on Wikipedia.</p>
 
 <p>As a general principle the use of finite state machines for the realization of program logic as well as the automation of compilation of transition graphs to the source code in Python allow to optimize the development process considerably.</p>
 
-<h2 id="Method">Method</h2>
+<h2 id="method">Method</h2>
 
 <p>I use a slightly modified method of automata-based programming. On the arcs of transition graphs the events, conditions and actions are marked in the format which is as close as possible to Python language syntax, moreover the color keys and text formatting are used. </p>
 
@@ -113,7 +113,7 @@ which establishes all key collaborations in the BitDust program:</p>
 <li>manages debug log in the program</li>
 </ul>
 
-<h2 id="Example">Example</h2>
+<h2 id="example">Example</h2>
 
 <p>As an example, consider a simple finite state machine which is designed for tracking the current status of user’s  connection to the given node in the BitDust network.</p>
 
@@ -198,7 +198,7 @@ div#table01 img { max-width: 100px; }
 <p>Proper operation of the automat helps constantly tracking the current status of connection with the given node – you just need to check the value written in the <code>state</code> variable, which is the <code>ContactStatus</code> class member. 
 For instance <code>self.state == 'CONNECTED'</code> means that user is on-line at the current moment.</p>
 
-<h2 id="The-Core">The Core</h2>
+<h2 id="the-core">The Core</h2>
 
 <p>All this logic is concentrated in the kernel of the finite state machine in the method <a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l264"><code>A(event, arg)</code></a>
 of <code>ContactStatus</code> class:</p>
@@ -265,7 +265,7 @@ The source files of the project can be automatically updated after any modificat
 <li>functional development and tests</li>
 </ul>
 
-<h2 id="Relation-to-the-Code">Relation to the Code</h2>
+<h2 id="relation-to-the-code">Relation to the Code</h2>
 
 <p>Let's see on example below, the given method
 <a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l321"><code>doRememberTime()</code></a>
@@ -297,7 +297,7 @@ method of <code>Automat</code> class, for example after receiving new incoming p
 
 <p>This approach reduces the likelihood of logic errors in the program to zero, while troubleshooting in most cases is the most complex and high-runner process at the stage of development and tests. As a rule the functional of software is divided into multiple methods, which can be programmed and tweaked separately or in a specially created test environment with the use of different automatic test and tweak procedures. </p>
 
-<h2 id="Transition-Graphs">Transition Graphs</h2>
+<h2 id="transition-graphs">Transition Graphs</h2>
 
 <p>Transition graph is a graphical representation of the multiple conditions of the automat and functions of transitions between them. In the visual framework of the finite state machine you can see the logic of algorithm and all the possible process stages, outcomes and interconnections. States and transitions form the program behavioral model of the control over the specific unit or process.</p>
 
@@ -364,7 +364,7 @@ It can translate the transition graphs, created in Microsoft Visio into the code
 
 <p><a href="http://gitlab.bitdust.io/devel/visio2python/tree/master">http://gitlab.bitdust.io/devel/visio2python</a></p>
 
-<h2 id="BitDust-Finite-State-Machines">BitDust Finite State Machines</h2>
+<h2 id="bitdust-finite-state-machines">BitDust Finite State Machines</h2>
 
 <ul>
 <li><a href="automat_backup.html">backup()</a></li>
@@ -491,7 +491,7 @@ All rights reserved.
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="develop.html">Get a Task!</a></li>
                             <li><a href="donate.html">Donate $</a></li>
-                            <li><a href="givejob.html">Give me a Job?</a></li>
+                            <li><a href="givejob.html">Hire developer</a></li>
                             <li><a href="">Project Founders</a></li>
                         </ul>
                     </li>
@@ -543,7 +543,7 @@ All rights reserved.
             <span aria-hidden="true">&times;</span>
         </button>
         <center> 
-            <h3>Contact BitDust Team</h3> 
+            <h3 id="feedback_head">Contact BitDust Team</h3> 
         </center>
 		<div class="feedback_alert text-left"></div>
         <div id="feedback_panel">
