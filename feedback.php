@@ -28,7 +28,8 @@ if (trim($_POST['valTrFal'])!='valTrFal_true') {
             $body = $body . 'E-mail: ' . $txtemail . '\n\n';
             $body = $body . 'Message: \n\n' . $comments; 
       
-			mail($mailto,'=?'.$charset.'?B?'.base64_encode($themsLat).'?=',$body,$headers);
+			mail($mailto,$themsLat,$body,$headers);
+			//mail($mailto,'=?'.$charset.'?B?'.base64_encode($themsLat).'?=',$body,$headers);
 	
 			//echo '<script language="JavaScript">window.location.href="/";</script>';
             return true;
