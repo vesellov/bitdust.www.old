@@ -86,14 +86,14 @@
 	cursor: pointer;
 	color: #fff;
 	font-family: 'tahoma', sans-serif;
-	background: -webkit-gradient(linear, left top, right top, from(#3d51c8), to(#051fb8));
-	background: -webkit-linear-gradient(top, #3d51c8, #051fb8);
-	background: -moz-linear-gradient(top, #3d51c8, #051fb8);
-	background: -o-linear-gradient(top, #3d51c8, #051fb8);
-	background: -ms-linear-gradient(top, #3d51c8, #051fb8);
-	background: linear-gradient(top, #3d51c8, #051fb8);
-	background-color: #3d51c8;
-	border: 1px solid #061fb8;
+	background: -webkit-gradient(linear, left top, right top, from(#808080), to(#000));
+	background: -webkit-linear-gradient(top, #808080, #000);
+	background: -moz-linear-gradient(top, #808080, #000);
+	background: -o-linear-gradient(top, #808080, #000);
+	background: -ms-linear-gradient(top, #808080, #000);
+	background: linear-gradient(top, #808080, #000);
+	background-color: #808080;
+	border: 1px solid #929292;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	-o-border-radius: 50%;
@@ -103,13 +103,13 @@
 	box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 .popup .close_order:hover {
-	background: -webkit-gradient(linear, left top, right top, from(#051fb8), to(#3d51c8));
-	background: -webkit-linear-gradient(top, #051fb8, #3d51c8);
-	background: -moz-linear-gradient(top, #ff5f0, #3d51c87);
-	background: -o-linear-gradient(top, #051fb8, #3d51c8);
-	background: -ms-linear-gradient(top, #051fb8, #3d51c8);
-	background: linear-gradient(top, #051fb8, #3d51c8);
-	background-color: #051fb8;
+	background: -webkit-gradient(linear, left top, right top, from(#000), to(#808080));
+	background: -webkit-linear-gradient(top, #000, #808080);
+	background: -moz-linear-gradient(top, #ff5f0, #8080807);
+	background: -o-linear-gradient(top, #000, #808080);
+	background: -ms-linear-gradient(top, #000, #808080);
+	background: linear-gradient(top, #000, #808080);
+	background-color: #000;
 	border: 1px solid #00385E;
 }
 .popup .close_order:active {
@@ -177,13 +177,13 @@
     /* user-select: none; */    
 }
 #contactform .button{
-	background: -webkit-gradient(linear, left top, right top, from(#3d51c8), to(#051fb8));
-	background: -webkit-linear-gradient(top, #3d51c8, #051fb8);
-	background: -moz-linear-gradient(top, #3d51c8, #051fb8);
-	background: -o-linear-gradient(top, #3d51c8, #051fb8);
-	background: -ms-linear-gradient(top, #3d51c8, #051fb8);
-	background: linear-gradient(top, #3d51c8, #051fb8);
-	background-color: #3d51c8;
+	background: -webkit-gradient(linear, left top, right top, from(#808080), to(#000));
+	background: -webkit-linear-gradient(top, #808080, #000);
+	background: -moz-linear-gradient(top, #808080, #000);
+	background: -o-linear-gradient(top, #808080, #000);
+	background: -ms-linear-gradient(top, #808080, #000);
+	background: linear-gradient(top, #808080, #000);
+	background-color: #808080;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	-o-border-radius: 4px;
@@ -206,25 +206,25 @@
 	box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 #contactform .button:hover {
-	background: -webkit-gradient(linear, left top, right top, from(#051fb8), to(#3d51c8));
-	background: -webkit-linear-gradient(top, #051fb8, #3d51c8);
-	background: -moz-linear-gradient(top, #ff5f0, #3d51c87);
-	background: -o-linear-gradient(top, #051fb8, #3d51c8);
-	background: -ms-linear-gradient(top, #051fb8, #3d51c8);
-	background: linear-gradient(top, #051fb8, #3d51c8);
-	background-color: #051fb8;
+	background: -webkit-gradient(linear, left top, right top, from(#000), to(#808080));
+	background: -webkit-linear-gradient(top, #000, #808080);
+	background: -moz-linear-gradient(top, #ff5f0, #8080807);
+	background: -o-linear-gradient(top, #000, #808080);
+	background: -ms-linear-gradient(top, #000, #808080);
+	background: linear-gradient(top, #000, #808080);
+	background-color: #000;
 	border: 1px solid #00385E;
 	text-decoration: none;
 }
 #contactform .button:active, #contactform input[type="submit"].button:disabled {
 	opacity: 0.5;
-	background: -webkit-gradient(linear, left top, right top, from(#3d51c8), to(#051fb8));
-	background: -webkit-linear-gradient(top, #3d51c8, #051fb8);
-	background: -moz-linear-gradient(top, #3d51c8, #051fb8);
-	background: -o-linear-gradient(top, #3d51c8, #051fb8);
-	background: -ms-linear-gradient(top, #3d51c8, #051fb8);
-	background: linear-gradient(top, #3d51c8, #051fb8);
-	background-color: #3d51c8;
+	background: -webkit-gradient(linear, left top, right top, from(#808080), to(#000));
+	background: -webkit-linear-gradient(top, #808080, #000);
+	background: -moz-linear-gradient(top, #808080, #000);
+	background: -o-linear-gradient(top, #808080, #000);
+	background: -ms-linear-gradient(top, #808080, #000);
+	background: linear-gradient(top, #808080, #000);
+	background-color: #808080;
 	cursor: default;
 }
 #contactform .phoneFormat {
