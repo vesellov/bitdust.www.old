@@ -3,9 +3,10 @@
 ini_set("display_errors", 1); 
     
 if (trim($_POST['valTrFal'])!='valTrFal_true') {
-	echo '<script language="JavaScript">window.location.href="/";</script>';
-}
-else {
+	//echo '<script language="JavaScript">window.location.href="/";</script>';
+    return false;
+    
+} else {
 	
 	if(isset($_POST['btnsend'])) {
 
@@ -29,7 +30,9 @@ else {
       
 			mail($mailto,'=?'.$charset.'?B?'.base64_encode($themsLat).'?=',$body,$headers);
 	
-			echo '<script language="JavaScript">window.location.href="/";</script>';
+			//echo '<script language="JavaScript">window.location.href="/";</script>';
+            return true;
+
 	}
 }
 
