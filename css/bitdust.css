@@ -1,16 +1,4 @@
-@font-face { 
-    font-family: 'myfont Gothic Local'; 
-    src:  url('fonts/century_gothic.eot'); 
-    src:  url('fonts/century_gothic.eot?#iefix') format('embedded-opentype'), 
-          url('fonts/century_gothic.svg#Century Gothic') format('svg'), 
-          url('fonts/century_gothic.woff') format('woff'), 
-          url('fonts/century_gothic.ttf') format('truetype'); 
-          font-weight: normal; 
-    font-style: normal;
-}
-
 #top_menu {
-    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
     width: 100%;
     padding: 0px;
     margin: 0px auto;
@@ -37,7 +25,6 @@
 .top-menu-item {
     padding: 0px 10px; 
     margin: 0px;
-    font-size: 1.1em;
     /* color: #fff; */
     cursor: pointer; 
 }
@@ -76,7 +63,6 @@
     top: 0px;
     width: 100%;
     /* border-bottom: 1px solid #ddd; */
-    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
 }
 
 #top_area nav.navbar {
@@ -94,8 +80,6 @@
     width: 100%;
     overflow: hidden;
     vertical-align:bottom;
-    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
-    font-size: 8pt;
     border-top: 1px solid #ddd;
 }
 
@@ -118,9 +102,6 @@
     margin-right: 10px;
     /* color: #fff; */
     text-align: justify;
-    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
-    font-size: 1.1em;
-    font-weight: 500;
     line-height: 1.7;  
     word-spacing: 0.2em;
     letter-spacing: 0.04em;

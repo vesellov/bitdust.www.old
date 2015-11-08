@@ -35,6 +35,7 @@ $(document).ready(function(){
     });
 
     $('#top_search_input').bind("enterKey", function(e) {
+        e.preventDefault();    
         $('.popup, .overlay').css('opacity','1');
         $('.popup, .overlay').css('visibility','visible');
         $('#feedback_panel').show();
@@ -44,16 +45,21 @@ $(document).ready(function(){
         if ($('#top_search_input').val()) {
             $('#feedback_message').val($('#top_search_input').val());
         }
-        e.preventDefault();    
     });
 
     $('#top_search_input').keyup(function(e){
+        debug.log(e);
         if(e.keyCode == 13) {
             $(this).trigger("enterKey");
             e.preventDefault();
         }
     });  
     
+    $("#top_search_panel form").submit(function (e) {
+        debug.log(e);
+        e.preventDefault(); 
+        $(this).trigger("enterKey");
+    });
     
     var form = $('#contactform'); // contact form
     var submit = $('#feedback_submit_button');  // submit button
