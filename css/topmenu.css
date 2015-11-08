@@ -1,9 +1,21 @@
 #top_search_panel {
     margin-top: 2px;
-    /* margin-left: 5px; */
+    margin-left: 20px; 
 /*     margin-right: 20px; */
 }
 
+#top_search_panel .navbar-form .form-control {
+    width: auto;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+@media (max-width: 767px) {
+    #github_button {
+        margin-left: 0px!important;
+    }
+}
+    
 .top_menu_button {
     padding-top: 15px;
     padding-bottom: 15px;    
@@ -44,5 +56,6 @@
 #github_button {
     /* color: #48d; */
      /* background-color: #f2f2f2;  */
+     text-align: left;
 }
 
