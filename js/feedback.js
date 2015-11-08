@@ -73,7 +73,7 @@ $(document).ready(function(){
             submit.html('&nbsp;&nbsp;Sending....&nbsp;&nbsp;'); // change submit button text
           },
           success: function(data) {
-            $('.feedback_alert').html("<h5 align=center>Great thanks for your feedback!</h5>BitDust Team will create a new Q.A. page from your request or answer your question directly.<br>We'll contact you soon, let's keep contact!");
+            $('.feedback_alert').html("<h4 align=center>Great thanks for your feedback!</h4>BitDust Team will create a new Q.A. page from your request or answer your question directly.<br>We'll contact you soon, let's keep contact!");
             $('.feedback_alert').fadeIn(); // fade in response data
             $('#feedback_panel').hide();
             $('#feedback_head').hide();
@@ -81,7 +81,7 @@ $(document).ready(function(){
             submit.html('&nbsp;&nbsp;Submit&nbsp;&nbsp;'); // reset submit button text
           },
           error: function(e) {
-            $('.feedback_alert').html("<h5 style='color: red;' align=center>Error happened while sending ...</h5>");
+            $('.feedback_alert').html("<h4 style='color: red;' align=center>Error happened while sending ...</h4>");
             $('.feedback_alert').fadeIn(); // fade in response data
             $('#feedback_panel').hide();
             $('#feedback_head').hide();
