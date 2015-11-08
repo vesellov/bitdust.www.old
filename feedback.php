@@ -1,4 +1,7 @@
 <?php
+    
+ini_set("display_errors", 1); 
+    
 if (trim($_POST['valTrFal'])!='valTrFal_true') {
 	echo '<script language="JavaScript">window.location.href="/";</script>';
 }
@@ -9,23 +12,20 @@ else {
 			$mailto = "bitdust.io@gmail.com"; 
 			$charset = 'utf-8';
 			$headers = "Content-type: text/plain; charset={$charset}\n";		
-			$headers .= "From: feedback received from [bitdust.io]";
-
+			$headers .= "From: bitdust.io@gmail.com";
 			$txtname = trim($_POST['txtname']);
 
-			//$txtphone = trim($_POST['txtphone']);
             $themsLat = 'message received from [bitdust.io]';
 
 			$txtemail = trim($_POST['txtemail']);
 
 			$comments = trim($_POST['message']);
 
-            $body = '<html><head><title>$themsLat</title></head><body>';
-            $body = $body . '<br>IP: <b>' . $_SERVER['REMOTE_ADDR'] . '</b><br>';
-            $body = $body . '<br>Name: <b>' . $txtname . '</b><br>';
-            $body = $body . '<br>E-mail:<b>' . $txtemail . '</b><br>';
-            $body = $body . '<br>Message: <br><br>' . $comments;
-            $body = $body . '</body></html>';
+            $body = '$themsLat\n\n';
+            $body = $body . 'IP: ' . $_SERVER['REMOTE_ADDR'] . '\n\n';
+            $body = $body . 'Name: ' . $txtname . '\n\n';
+            $body = $body . 'E-mail: ' . $txtemail . '\n\n';
+            $body = $body . 'Message: \n\n' . $comments; 
       
 			mail($mailto,'=?'.$charset.'?B?'.base64_encode($themsLat).'?=',$body,$headers);
 	
