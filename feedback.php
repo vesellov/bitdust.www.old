@@ -21,7 +21,7 @@ else {
 
 			$comments = trim($_POST['message']);
 
-            $body = '$themsLat\n\n';
+            $body = $themsLat . '\n\n';
             $body = $body . 'IP: ' . $_SERVER['REMOTE_ADDR'] . '\n\n';
             $body = $body . 'Name: ' . $txtname . '\n\n';
             $body = $body . 'E-mail: ' . $txtemail . '\n\n';
