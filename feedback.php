@@ -14,16 +14,18 @@ else {
 			$txtname = trim($_POST['txtname']);
 
 			//$txtphone = trim($_POST['txtphone']);
+            $themsLat = 'message received from [bitdust.io]'
 
 			$txtemail = trim($_POST['txtemail']);
 
 			$comments = trim($_POST['message']);
 
-            $body = '<html><head><title>message received from [bitdust.io]</title></head><body>';
+            $body = '<html><head><title>$themsLat</title></head><body>';
             $body = $body . '<br>IP: <b>' . $_SERVER['REMOTE_ADDR'] . '</b><br>';
             $body = $body . '<br>Name: <b>' . $txtname . '</b><br>';
             $body = $body . '<br>E-mail:<b>' . $txtemail . '</b><br>';
             $body = $body . '<br>Message: <br><br>' . $comments;
+            $body = $body . '</body></html>';
       
 			mail($mailto,'=?'.$charset.'?B?'.base64_encode($themsLat).'?=',$body,$headers);
 	
