@@ -39,7 +39,6 @@
     <link href="css/navbar.css"  rel="stylesheet" type="text/css">
     <link href="css/automat.css" rel="stylesheet" type="text/css">
     <link href="css/table.css"   rel="stylesheet" type="text/css">
-    <link href="css/overlay.css" rel="stylesheet" type="text/css">
     <link href="css/feedback.css" rel="stylesheet" type="text/css">
 
     <script src="js/feedback.js"></script> 
@@ -48,18 +47,6 @@
 
 <body>
     
-<!-- Facebook Init -->
-<!-- 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=543329652498581";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>    
--->
-
 <div id=page_container class="Center-Container is-Inline">
 <div class="Center-Block">
 <div id=page_content>
@@ -81,9 +68,11 @@
 <div id="bottom_area">
 <div id=copyright>
 © Copyright 2015 BitDust LLC. 
+<!--
 Using web site, software and other products
 branded  <b>BitDust</b> means agree with the
 <a href="http://bitdust.io/license.html"> license agreement </a>.
+-->
 All rights reserved.
 </div>
 </div>
@@ -182,65 +171,6 @@ All rights reserved.
     </nav>
 </div>
 
-
-<!-- Yandex.Metrika counter -->
-<!--
-<script type="text/javascript">
-(function (d, w, c) {    (w[c] = w[c] || []).push(function() {
-        try {            w.yaCounter28171152 = new Ya.Metrika({id:28171152,
-        webvisor:true,                    clickmap:true,                    trackLinks:true,                    accurateTrackBounce:true});
-        } catch(e) { }    });
-    var n = d.getElementsByTagName("script")[0],
-        s = d.createElement("script"),
-        f = function () { n.parentNode.insertBefore(s, n); };
-    s.type = "text/javascript";
-    s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-    if (w.opera == "[object Opera]") {        d.addEventListener("DOMContentLoaded", f, false);    } else { f(); }
-})(document, window, "yandex_metrika_callbacks");
-</script>
-<noscript><div><img src="//mc.yandex.ru/watch/28171152" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
--->
-
-<!-- Google Analytics -->
-<!--
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59191888-1', 'auto');
-  ga('send', 'pageview');
-</script>
--->
-
-<!--
-<div class="popup_overlay" id="message_overlay">
-    <div class="popup"> 
-        <button type="button" class="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <center> 
-            <h3 id="feedback_head">Contact BitDust Team</h3> 
-        </center>
-		<div class="feedback_alert text-left"></div>
-        <div id="feedback_panel">
-          <form id="feedback_form" action="" method="post">
-            <div class="form-group text-left">
-                <label for="first">Your message:</label>
-                <textarea cols="30" rows="3" name="message" class="form-control" id="feedback_message" placeholder="Ask your question"></textarea>
-            </div>
-            <div class="form-group text-left">
-                <label for="first">Reply-to address:</label>
-                <input type="text" name="address" class="form-control" id="feedback_address" placeholder="E-mail, Skype, other contact" value="" >
-            </div>
-            <button id="feedback_submit_button" type="submit" class="btn btn-default">&nbsp;&nbsp;submit&nbsp;&nbsp;</button>
-          </form>
-        </div>
-    </div>
-</div>
--->
-
 <div class="overlay" title="окно"></div>
 <div class="popup">
     <div class="close_order">x</div>
@@ -259,6 +189,46 @@ All rights reserved.
         </form>
     </div>
 </div>
+
+<!-- Facebook Init -->
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=543329652498581";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>    
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {    (w[c] = w[c] || []).push(function() {
+        try {            w.yaCounter28171152 = new Ya.Metrika({id:28171152,
+        webvisor:true,                    clickmap:true,                    trackLinks:true,                    accurateTrackBounce:true});
+        } catch(e) { }    });
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    if (w.opera == "[object Opera]") {        d.addEventListener("DOMContentLoaded", f, false);    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/28171152" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-59191888-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
 
 </body>
 </html>
