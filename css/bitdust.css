@@ -5,7 +5,7 @@
           url('fonts/century_gothic.svg#Century Gothic') format('svg'), 
           url('fonts/century_gothic.woff') format('woff'), 
           url('fonts/century_gothic.ttf') format('truetype'); 
-    font-weight: normal; 
+          font-weight: normal; 
     font-style: normal;
 }
 
@@ -75,7 +75,8 @@
     display: block;
     top: 0px;
     width: 100%;
-    border-bottom: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
 }
 
 #top_area nav.navbar {
@@ -84,6 +85,7 @@
 
     
 #bottom_area {
+    text-align: center;
     position: fixed;
     display: block;
     bottom: 0px;

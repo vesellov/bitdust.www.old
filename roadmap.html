@@ -36,6 +36,7 @@
     
     <link href="css/bitdust.css" rel="stylesheet" type="text/css">
     <link href="css/topmenu.css" rel="stylesheet" type="text/css">
+    <link href="css/navbar.css"  rel="stylesheet" type="text/css">
     <link href="css/overlay.css" rel="stylesheet" type="text/css">
     <link href="css/automat.css" rel="stylesheet" type="text/css">
     <link href="css/table.css"   rel="stylesheet" type="text/css">
@@ -63,22 +64,22 @@
 <h1 id="development-plans">Development plans</h1>
 
 <ul>
-<li><a href="roadmap.html#Graphical-user-interface">Graphical user interface</a></li>
-<li><a href="roadmap.html#Data-share">Data share</a></li>
-<li><a href="roadmap.html#Distributed-data-rebuilding">Distributed data rebuilding</a></li>
-<li><a href="roadmap.html#Global-search">Global search</a></li>
-<li><a href="roadmap.html#Chat/Video/Conferencing">Chat/Video/Conferencing</a></li>
-<li><a href="roadmap.html#Decentralized-Mail">Decentralized Mail</a></li>
-<li><a href="roadmap.html#Monetization-through-cryptocurrency">Monetization through cryptocurrency</a></li>
-<li><a href="roadmap.html#Anonymous-logon">Anonymous logon</a></li>
-<li><a href="roadmap.html#Decentralized-social-network">Decentralized social network</a></li>
-<li><a href="roadmap.html#Distributed-WEB-hosting">Distributed WEB-hosting</a></li>
-<li><a href="roadmap.html#Endless-virtual-worlds">Endless virtual worlds</a></li>
+<li><a href="roadmap.html#graphical-user-interface">Graphical user interface</a></li>
+<li><a href="roadmap.html#data-share">Data share</a></li>
+<li><a href="roadmap.html#distributed-data-rebuilding">Distributed data rebuilding</a></li>
+<li><a href="roadmap.html#global-search">Global search</a></li>
+<li><a href="roadmap.html#chat/video/conferencing">Chat/Video/Conferencing</a></li>
+<li><a href="roadmap.html#decentralized-mail">Decentralized Mail</a></li>
+<li><a href="roadmap.html#monetization-through-cryptocurrency">Monetization through cryptocurrency</a></li>
+<li><a href="roadmap.html#anonymous-logon">Anonymous logon</a></li>
+<li><a href="roadmap.html#decentralized-social-network">Decentralized social network</a></li>
+<li><a href="roadmap.html#distributed-web-hosting">Distributed WEB-hosting</a></li>
+<li><a href="roadmap.html#endless-virtual-worlds">Endless virtual worlds</a></li>
 </ul>
 
 <h2 id="graphical-user-interface">Graphical user interface</h2>
 
-<p>Has already begun work on creating a visual user interface for BitPie.NET software.</p>
+<p>Has already begun work on creating a visual user interface for BitDust software.</p>
 
 <p>Interaction with the user will be implemented using a standard Internet browser,
 which is present in almost any operating system.
@@ -116,12 +117,12 @@ Imagine, if you posses appropriate permissions:</p>
 
 <h2 id="distributed-data-rebuilding">Distributed data rebuilding</h2>
 
-<p>At this point in the BitPie.NET software implemented a mechanism for automatic data rebuilding,
+<p>At this point in the BitDust software implemented a mechanism for automatic data rebuilding,
 to be able to reconstruct a missing data segments when updating a lost supplier.
 The whole process is fully automatic and does not require any actions from user in order
-to maintain downloaded   data into the BitPie.NET network.</p>
+to maintain downloaded   data into the BitDust network.</p>
 
-<p>Automatic rebuilding occurs on the data owner's node and requires constant work of BitPie.NET
+<p>Automatic rebuilding occurs on the data owner's node and requires constant work of BitDust
 software on its machine and stable Internet connection.</p>
 
 <p>Possible to transfer this functionality on other nodes that will support the downloaded data
@@ -131,26 +132,26 @@ computers to rebuild user's data on new suppliers.</p>
 
 <p>An interesting feature of the proposed approach is that the scrubbers do not have access
 to user's data, since they always operate with encrypted data.
-This allows you to safely authorize to scrub your data to any nodes in the BitPie.NET network 
+This allows you to safely authorize to scrub your data to any nodes in the BitDust network 
 and repeatedly increase storage reliability and speed up of uploading and downloading data.
 The whole process of the remote automatic recovery will occur entirely without
 the participation of the user. After downloading the data to the network,
-you can shutdown your computer, or simply stop the BitPie.NET software.</p>
+you can shutdown your computer, or simply stop the BitDust software.</p>
 
 <p>Together with the ability to share data, the implementation of this phase will make possible
 to completely anonymous transmission and dissemination of data on the Internet.
-Imagine, the owner of the data use a temporary IP address at first time he enters in the BitPie.NET network
+Imagine, the owner of the data use a temporary IP address at first time he enters in the BitDust network
 and made initial data uploading. Then he never use this identity file to enter the network again. 
 This way his supplies actually will have no real information about him - it's like make a call
 from a stolen SIM-card and throw it out.
 His scrubbers thus will continue to engage in automatic restoring and maintaining downloaded data 
-in the BitPie.NET network, so that data stay  available for everyone.
+in the BitDust network, so that data stay  available for everyone.
 Later, the owner of the data can go and download them using a different identity, this way
 he will not be recognized.</p>
 
 <h2 id="global-search">Global search</h2>
 
-<p>We would like to add a search engine in the BitPie.NET software.
+<p>We would like to add a search engine in the BitDust software.
 This should let users find a data in the global space which is granted a full read access - just
 like a well-known torrents.
 To any folder or file can be created and text description, on its base will be formed
@@ -162,7 +163,7 @@ Special "crawlers" sooner or later will visit the newly created topic,
 validate it and make the appropriate changes in the global index.</p>
 
 <p>This functionality will provide a completely safe and independent data distribution over 
-the BitPie.NET network, uncensored and possibility to exert any pressure on users by third parties.
+the BitDust network, uncensored and possibility to exert any pressure on users by third parties.
 This is a significant advantage in comparison with classical torrent trackers.
 Their WEB sites are  under pressure from the copyright holders of content that is distributed there.</p>
 
@@ -187,20 +188,20 @@ It is proposed to use a  mail SMTP / POP3 / IMAP client, which the user  usual u
 transmitting/receiving e-mails.
 This does not require to install anything else.</p>
 
-<p>In the BitPie.NET software has already been implemented a basic functionality for direct transfer 
+<p>In the BitDust software has already been implemented a basic functionality for direct transfer 
 of protected messages from one node to another.
 Our plan is to use standard protocols SMTP, POP3 and IMAP for
-create a universal interfaces between user and other nodes in the BitPie.NET network.</p>
+create a universal interfaces between user and other nodes in the BitDust network.</p>
 
 <p>At the begining of the client software, will be started a couple local mail servers for input and 
 output mails. This servers is pretty small and acts as
-intermediate scripts between the user's email client and program BitPie.NET.</p>
+intermediate scripts between the user's email client and program BitDust.</p>
 
-<p>After switching on that functionality in the BitPie.NET software, 
+<p>After switching on that functionality in the BitDust software, 
 the user will only needs to configure a mail client that is most convenient for him.</p>
 
 <p>At the moment there is not a final decision on the format of e-mailboxes
-within the network BitPie.NET. Probably they will be formed based on user's IDURL, for example example
+within the network BitDust. Probably they will be formed based on user's IDURL, for example example
 http://p2p-id.ru/veselin.xml will be translated to veselin@p2p-id.ru.</p>
 
 <h2 id="monetization-through-cryptocurrency">Monetization through cryptocurrency</h2>
@@ -208,31 +209,31 @@ http://p2p-id.ru/veselin.xml will be translated to veselin@p2p-id.ru.</p>
 <p>To create the most equitable relations between users, we plan to introduce
 methods to encourage each other.
 Each user should have the ability to make profit
-from donating resources of its PC into the BitPie.NET network .</p>
+from donating resources of its PC into the BitDust network .</p>
 
 <p>We plan to use well-known "Cryptocurrency" to create an electronic "coins".
 Such coins can be used to conduct transactions between users and "pay" for services 
 of suppliers and scrubbers.
-Like the well-known BitCoin, it will be possible to create a free conversion of BitPie.NET 
+Like the well-known BitCoin, it will be possible to create a free conversion of BitDust 
 coins into any material assets, including real money.</p>
 
-<p>The next step could release of our own electronic "shares" of the BitPie.NET company, 
+<p>The next step could release of our own electronic "shares" of the BitDust company, 
 which will be fully protected by the same way.
-Anyone will be able to instantly invest in BitPie.NET company from home and gain profits
+Anyone will be able to instantly invest in BitDust company from home and gain profits
 from the growth of capitalization of the entire project.</p>
 
-<p>This will attract almost unlimited funding with a corresponding increase in the BitPie.NET network itself.</p>
+<p>This will attract almost unlimited funding with a corresponding increase in the BitDust network itself.</p>
 
 <h2 id="anonymous-logon">Anonymous logon</h2>
 
-<p>At the moment, user identification  in the BitPie.NET system let you hide your personal data 
+<p>At the moment, user identification  in the BitDust system let you hide your personal data 
 and uses only short text identifiers.
 Not required any authorization, provide your email or phone number.
-BitPie.NET company do not know any info about the users and do not care about that.</p>
+BitDust company do not know any info about the users and do not care about that.</p>
 
 <p>However, the user's IP address at this stage of the project development can not be hidden - it 
 is published in his identiy file in open or semi-open form.
-We can talk about pseudo-anonymity in the BitPie.NET network.</p>
+We can talk about pseudo-anonymity in the BitDust network.</p>
 
 <p>The implementation of the algorithm of hiding the real IP address of the user will provide:</p>
 
@@ -244,7 +245,7 @@ We can talk about pseudo-anonymity in the BitPie.NET network.</p>
 
 <h2 id="decentralized-social-network">Decentralized social network</h2>
 
-<p>Autonomy of each node in the network BitPie.NET allows you to create a fully distributed
+<p>Autonomy of each node in the network BitDust allows you to create a fully distributed
 and free user community.
 The absence of authorization and central nodes will remove strict censorship and "spying" of users.</p>
 
@@ -257,7 +258,7 @@ on the basis of already existing popular social networks.</p>
 
 <p>In our long term plans is to create an environment for the development of fully-protected sites. 
 Any such site will have no single entry point and placed on many nodes 
-in the BitPie.NET network - they can not be closed by any authority.</p>
+in the BitDust network - they can not be closed by any authority.</p>
 
 <p>User's suppliers can be used to maintain a distributed database for his WEB site. 
 All HTTP requests from visitors will fall on a random machine in the set of suppliers.
@@ -274,7 +275,7 @@ when adding new locations, quests, etc.</p>
 <p>However, there are software packages for generating pseudo-random landscapes
 according to set parameters. Can be automatically created and other terrestrial objects.</p>
 
-<p>On the basis of a fully distributed storage BitPie.NET possible to implement such storage of 
+<p>On the basis of a fully distributed storage BitDust possible to implement such storage of 
 pseudo-random locations or entire 3D worlds, so that each location will be absolutely unique.</p>
 
 <p>Moving from one location to another can be done completely transparent to the player and will allow 
@@ -332,8 +333,12 @@ All rights reserved.
                 <span class="icon-bar"></span>
                 </button>
                 <div id="top_search_panel">
-                    <input type="text" id="top_search_input" placeholder="have a question?">
-                    <button type="button" id="top_search_button">ask</button>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" id="top_search_input" class="form-control" placeholder="  have a question?">
+                            <button type="button" class="btn btn-default" id="top_search_button">Ask</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             
@@ -341,29 +346,29 @@ All rights reserved.
                 
                 <ul class="nav navbar-nav navbar-right">
                 
-                    <li>
+                    <!-- <li>
                         <a href="" id="main_download" class="btn btn-primary btn-lg top_menu_button" >DOWNLOAD</a>
-                    </li>
+                    </li> -->
                 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                            Why Bitdust?
+                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
+                            Why BitDust?
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="">NO PASSWORDS!</a></li>
-                            <li><a href="security.html">100% Security</a></li>
-                            <li><a href="">P2P Anonymous</a></li>
-                            <li><a href="">Open Source</a></li>
-                            <li><a href="">Good Team</a></li>
-                            <li><a href="roadmap.html">Road Map</a></li>
+                            <li><a href="security.html">Security</a></li>
+                            <li><a href="identities.html">Independence</a></li>
+                            <li><a href="storage.html">Fairness</a></li>
+                            <li><a href="http://gitlab.bitdust.io/groups/devel">Open Source</a></li>
+                            <li><a href="https://www.facebook.com/bitdust">Good Team</a></li>
+                            <li><a href="roadmap.html">Big Plans!</a></li>
                         </ul>
                     </li>
                     
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
                             Docs
                             <span class="caret"></span>
                         </a>
@@ -373,20 +378,21 @@ All rights reserved.
                             <li><a href="concept.html">Concept</a></li>
                             <li><a href="principle.html">Principle</a></li>
                             <li><a href="glossary.html">Glossary</a></li>
+                            <li><a href="automats.html">Finite states-machines</a></li>
                         </ul>
                     </li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
                             Team
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="develop.html">Get a Task!</a></li>
+                            <!-- <li><a href="">Get a Task!</a></li> -->
                             <li><a href="donate.html">Donate $</a></li>
                             <li><a href="givejob.html">Hire developer</a></li>
-                            <li><a href="">Project Founders</a></li>
+                            <!-- <li><a href="">Project Founders</a></li> -->
                         </ul>
                     </li>
                     

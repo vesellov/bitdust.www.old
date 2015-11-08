@@ -36,6 +36,7 @@
     
     <link href="css/bitdust.css" rel="stylesheet" type="text/css">
     <link href="css/topmenu.css" rel="stylesheet" type="text/css">
+    <link href="css/navbar.css"  rel="stylesheet" type="text/css">
     <link href="css/overlay.css" rel="stylesheet" type="text/css">
     <link href="css/automat.css" rel="stylesheet" type="text/css">
     <link href="css/table.css"   rel="stylesheet" type="text/css">
@@ -147,8 +148,12 @@ All rights reserved.
                 <span class="icon-bar"></span>
                 </button>
                 <div id="top_search_panel">
-                    <input type="text" id="top_search_input" placeholder="have a question?">
-                    <button type="button" id="top_search_button">ask</button>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" id="top_search_input" class="form-control" placeholder="  have a question?">
+                            <button type="button" class="btn btn-default" id="top_search_button">Ask</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             
@@ -156,29 +161,29 @@ All rights reserved.
                 
                 <ul class="nav navbar-nav navbar-right">
                 
-                    <li>
+                    <!-- <li>
                         <a href="" id="main_download" class="btn btn-primary btn-lg top_menu_button" >DOWNLOAD</a>
-                    </li>
+                    </li> -->
                 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                            Why Bitdust?
+                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
+                            Why BitDust?
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="">NO PASSWORDS!</a></li>
-                            <li><a href="security.html">100% Security</a></li>
-                            <li><a href="">P2P Anonymous</a></li>
-                            <li><a href="">Open Source</a></li>
-                            <li><a href="">Good Team</a></li>
-                            <li><a href="roadmap.html">Road Map</a></li>
+                            <li><a href="security.html">Security</a></li>
+                            <li><a href="identities.html">Independence</a></li>
+                            <li><a href="storage.html">Fairness</a></li>
+                            <li><a href="http://gitlab.bitdust.io/groups/devel">Open Source</a></li>
+                            <li><a href="https://www.facebook.com/bitdust">Good Team</a></li>
+                            <li><a href="roadmap.html">Big Plans!</a></li>
                         </ul>
                     </li>
                     
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
                             Docs
                             <span class="caret"></span>
                         </a>
@@ -188,20 +193,21 @@ All rights reserved.
                             <li><a href="concept.html">Concept</a></li>
                             <li><a href="principle.html">Principle</a></li>
                             <li><a href="glossary.html">Glossary</a></li>
+                            <li><a href="automats.html">Finite states-machines</a></li>
                         </ul>
                     </li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
                             Team
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="develop.html">Get a Task!</a></li>
+                            <!-- <li><a href="">Get a Task!</a></li> -->
                             <li><a href="donate.html">Donate $</a></li>
                             <li><a href="givejob.html">Hire developer</a></li>
-                            <li><a href="">Project Founders</a></li>
+                            <!-- <li><a href="">Project Founders</a></li> -->
                         </ul>
                     </li>
                     
