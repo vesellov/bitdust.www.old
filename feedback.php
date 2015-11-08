@@ -14,7 +14,7 @@ else {
 			$txtname = trim($_POST['txtname']);
 
 			//$txtphone = trim($_POST['txtphone']);
-            $themsLat = 'message received from [bitdust.io]'
+            $themsLat = 'message received from [bitdust.io]';
 
 			$txtemail = trim($_POST['txtemail']);
 
