@@ -37,9 +37,9 @@
     <link href="css/bitdust.css" rel="stylesheet" type="text/css">
     <link href="css/topmenu.css" rel="stylesheet" type="text/css">
     <link href="css/navbar.css"  rel="stylesheet" type="text/css">
-    <link href="css/overlay.css" rel="stylesheet" type="text/css">
     <link href="css/automat.css" rel="stylesheet" type="text/css">
     <link href="css/table.css"   rel="stylesheet" type="text/css">
+    <link href="css/feedback.css" rel="stylesheet" type="text/css">
 
     <script src="js/feedback.js"></script> 
 
@@ -396,6 +396,7 @@ All rights reserved.
 </script>
 
 
+<!--
 <div class="popup_overlay" id="message_overlay">
     <div class="popup"> 
         <button type="button" class="close" aria-label="Close">
@@ -420,7 +421,29 @@ All rights reserved.
         </div>
     </div>
 </div>
+-->
 
+
+<div class="overlay" title="окно">
+</div>
+
+<div class="popup">
+    <div class="close_order">x</div>
+	<form method="post" action="feedback.php" id="contactform">
+		<!-- <h6>Contact BitDust Team</h6> -->
+		<input type="text" required="" placeholder="name" name="txtname">	
+		<!-- <input type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" required="" placeholder="phone*" name="txtphone"> -->
+		<!-- <p class="phoneFormat">формат +7 XXX XXX XX XX</p> -->
+		<input type="email" required="" placeholder="email" name="txtemail">
+		<textarea name="message" required="" placeholder="message" rows="10" value=""></textarea>
+		<input type="hidden" name="valTrFal" class="valTrFal" value="valTrFal_disabled">
+		<div id="confirm">
+            <input type="checkbox" id="checkBoxId">
+            <label id="checkBoxLabel" for="checkBoxId">&nbsp;Confirmed!</label>
+        </div>
+		<input type="submit" class="button" value="&nbsp;&nbsp;Submit&nbsp;&nbsp;" disabled="disabled" name="btnsend">
+	</form>
+</div>
 
 
 </body>
