@@ -1,4 +1,67 @@
+$(document).ready(function(){
+    
+    $('.popup .close_order, .overlay').click(function (){
+        $('.popup, .overlay').css({'opacity':'0','visibility':'hidden'});
+        $('#contactform input:checkbox').removeAttr("checked");
+        $("#contactform input[type=submit]").attr('disabled','disabled');
+        $('#contactform input[type=hidden].valTrFal').val('valTrFal_disabled');
+    });
+    
+    $(function () {
+        $('#contactform input:checkbox').change(function() {
+            if($(this).is(':checked')){
+                $("#contactform input[type=submit]").removeAttr('disabled');
+                $('#contactform input[type=hidden].valTrFal').val('valTrFal_true');
+            }
+            else {
+                $("#contactform input[type=submit]").attr('disabled','disabled');
+                $('#contactform input[type=hidden].valTrFal').val('valTrFal_disabled');
+            }
+        });
+    });
+    
+    $('#top_search_button').click(function(e) {
+        $('.popup, .overlay').css('opacity','1');
+        $('.popup, .overlay').css('visibility','visible');
+        e.preventDefault();
+    /*
+        $('#feedback_panel').show();
+        $('.feedback_alert').html('');
+        $('.feedback_alert').hide();
+        if ($('#top_search_input').val()) {
+            $('#feedback_message').val($('#top_search_input').val());
+        }
+        $('#message_overlay').css('display', 'block');
+        $("#bg").hide();
+    */
+    });
 
+    $('#top_search_input').bind("enterKey", function(e) {
+        $('.popup, .overlay').css('opacity','1');
+        $('.popup, .overlay').css('visibility','visible');
+        e.preventDefault();    
+/*    
+        $('#feedback_panel').show();
+        $('#feedback_head').show();
+        $('.feedback_alert').html('');
+        $('.feedback_alert').hide();
+        if ($('#top_search_input').val()) {
+            $('#feedback_message').val($('#top_search_input').val());
+        }
+        $('#message_overlay').css('display', 'block');
+        $("#bg").hide();
+*/
+    });
+
+    $('#top_search_input').keyup(function(e){
+        if(e.keyCode == 13) {
+            $(this).trigger("enterKey");
+        }
+    });  
+    
+});
+	
+/*
 $(document).ready(function() {
 
     $("#message_overlay button.close").click(function(){
@@ -82,3 +145,4 @@ $(document).ready(function() {
         });
     });
 });
+*/
