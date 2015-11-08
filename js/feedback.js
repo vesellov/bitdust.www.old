@@ -48,6 +48,7 @@ $(document).ready(function(){
     $('#top_search_input').keyup(function(e){
         if(e.keyCode == 13) {
             $(this).trigger("enterKey");
+            e.preventDefault();
         }
     });  
     
