@@ -58,7 +58,7 @@ $(document).ready(function(){
     var alert = $('.feedback_alert'); // alert div for show alert message
 
     // form submit event
-    form.on('submit1', function(e) {
+    form.on('submit', function(e) {
         e.preventDefault(); // prevent default form submit
 
         $.ajax({
