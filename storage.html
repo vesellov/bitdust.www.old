@@ -48,6 +48,8 @@
 
 <body>
     
+<div class="wallpaper"></div>
+    
 <div id=page_container class="Center-Container is-Inline">
 <div class="Center-Block">
 <div id=page_content>
@@ -56,7 +58,7 @@
 
 <ul>
 <li><a href="storage.html#intro">Introduction</a></li>
-<li><a href="storage.html#suppliers-and-clients">Suppliers / Clients</a></li>
+<li><a href="storage.html#suppliers-and-customers">Suppliers / Customers</a></li>
 <li><a href="storage.html#upload-in-the-network">Upload in the Network</a></li>
 <li><a href="storage.html#data-redundancy">Data Redundancy</a></li>
 <li><a href="storage.html#download-from-the-network">Download from the Network</a></li>
@@ -65,11 +67,11 @@
 
 <h2 id="intro">Intro</h2>
 
-<p>BitDust network consists of multiple equal node, whose owners voluntarily give a part of hardware resources of their personal computers to each other. By sharing the resources the network users get more reliable, secured and fully independent storage for their own data.</p>
+<p>BitDust network consists of multiple equal nodes, whose owners voluntarily give a part of hardware resources of their personal computers to each other. By sharing own resources to the BitDust network, all users get access to more private, secure and fully independent storage to protect own data.</p>
 
-<h2 id="suppliers-and-clients">Suppliers and Clients</h2>
+<h2 id="suppliers-and-customers">Suppliers and Customers</h2>
 
-<p>User data allocation takes place on a fixed combination of nodes chosen beforehand, these nodes are called "suppliers". The user at the same time becomes a "client" for all these nodes – figuratively speaking he "rents" a portion of hard disk drive from each of his suppliers.</p>
+<p>User data allocation takes place on a fixed combination of nodes chosen beforehand, these nodes are called "suppliers". The user at the same time becomes a "customer" for all these nodes – figuratively speaking he "rents" a portion of hard disk drive from each of his suppliers.</p>
 
 <p>Before the user can start the first data upload the BitDust program should run a search and connection to his suppliers and provide available space for his data. By the first run and then in the program settings the user sets the two key parameters, which define the key parameters of the distributed storage:</p>
 
@@ -83,7 +85,7 @@
 <p>The number of suppliers can become one of these values:
 <code>2</code>, <code>4</code>, <code>7</code>, <code>13</code>, <code>18</code>, <code>26</code>, <code>64</code>. Further you will find a detailed description how the data allocation is done and how the combinations of suppliers are formed.</p>
 
-<p>The number of clients whom each user can support theoretically is not limited. However by having too many of them the possible sessions number can be exceeded – this parameter depends on operation system, which runs the given BitDust node. Apart from this by simultaneous upload/download from user machine the network channel which each client receives will be severely restricted – only nodes with very wide data through-put will be able to support a great number of clients.</p>
+<p>The number of customers whom each user can support theoretically is not limited. However by supporting too many nodes the possible sessions number can be exceeded – this parameter depends on operation system, which runs the given BitDust node.  Apart from this by simultaneous upload/download from user machine the network channel which each customer receives will be severely restricted – only nodes with very high bandwidth will be able to support a great number of nodes.</p>
 
 <h2 id="upload-in-the-network">Upload in the Network</h2>
 
@@ -172,14 +174,8 @@ RAID array is organized in a way that each Parity fragment allows restoring corr
 
 
 <div id="bottom_area">
-<div id=copyright>
-© Copyright 2015 BitDust LLC. 
-<!--
-Using web site, software and other products
-branded  <b>BitDust</b> means agree with the
-<a href="http://bitdust.io/license.html"> license agreement </a>.
--->
-All rights reserved.
+<div id=copyright class="pull-right">
+© BitDust, 2015&nbsp;&nbsp;&nbsp;
 </div>
 </div>
 
