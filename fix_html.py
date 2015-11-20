@@ -40,7 +40,9 @@ sbody = sbody.replace(
 try:
     title = re.search('<h1.*?>(.+?)</h1>', sbody).group(1)
 except:
-    title = src.replace('.html', '')
+    title = src.replace('.html', '').capitalize()
+if not title.startswith('BiDust'):
+    title = 'BitDust + ' + title
 newbody = template % {
     'title': title,
     'body': sbody, 
