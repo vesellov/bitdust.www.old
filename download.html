@@ -9,7 +9,7 @@
 
     <link rel="canonical" href="http://bitdust.io">
     
-    <title>BitDust + Downloads</title>
+    <title>BitDust + BitDust Demo</title>
 
     <meta property="fb:admins" content="1097958228"/>
     <meta property="fb:app_id" content="543329652498581"/>
@@ -54,16 +54,67 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="downloads">Downloads</h1>
+<h1 id="bitdust-demo">BitDust Demo</h1>
+
+<h2 id="windows-installer">Windows Installer</h2>
+
+<p><a href="http://bitdust.io/download/bitdust-setup.exe">bitdust-setup.exe</a></p>
+
+<h2 id="ubuntu-/-debian-package">Ubuntu / Debian package</h2>
+
+<p><a href="http://bitdust.io/download/bitdust-ubuntu-devel.deb">bitdust-ubuntu-devel.deb</a></p>
+
+<h2 id="explanation">Explanation</h2>
+
+<p>Now ready very limited demo version of BitDust software.
+We publish this earlier works to verify and test our ideas of the full distribution of information flows in the network.</p>
+
+<p>Available only the most basic functions:</p>
 
 <ul>
-<li><p>Archive with source codes: 
-<a href="http://bitdust.io/download/bitdust.zip">bitdust.tar.gz</a></p></li>
-<li><p>Windows installer: 
-<a href="http://bitdust.io/download/bitdust-setup.exe">bitdust-setup.exe</a></p></li>
-<li><p>Public Git Repository: 
-<a href="http://gitlab.bitdust.io/devel/bitdust.git">http://gitlab.bitdust.io/devel/bitdust.git</a></p></li>
+<li>enter the network</li>
+<li>upload files and folders</li>
+<li>download backed up data back to your local machine</li>
+<li>remove uploaded data from the network</li>
 </ul>
+
+<p>Many other functions have been implemented earlier, but still do not have a graphical interface.
+Those functions that will be available in the future, are displayed but not available. 
+Product development continues.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>Windows users can use the following links to install necessary packages themselves:</p>
+
+<ul>
+<li><a href="http://python.org/download/releases">python 2.7</a> </li>
+<li><a href="http://twistedmatrix.com">twisted 15.0</a> </li>
+<li><a href="http://pyasn1.sourceforge.net">pyasn1</a></li>
+<li><a href="https://launchpad.net/pyopenssl">pyOpenSSL</a></li>
+<li><a href="https://www.dlitz.net/software/pycrypto/">pycrypto</a></li>
+<li><a href="http://wxpython.org/">wxPython3</a></li>
+</ul>
+
+<p>In Ubuntu you can quickly get all dependencies in this way:</p>
+
+<pre><code>sudo apt-get update
+sudo apt-get install git python python-twisted python-pyasn1 python-openssl python-crypto python-wxgtk3
+</code></pre>
+
+<h2 id="git-repositories:">Git Repositories:</h2>
+
+<ul>
+<li>Development : <a href="http://gitlab.bitdust.io/devel/bitdust.devel.git">http://gitlab.bitdust.io/devel/bitdust.devel.git</a></li>
+<li>Public : <a href="http://gitlab.bitdust.io/devel/bitdust.git">http://gitlab.bitdust.io/devel/bitdust.git</a></li>
+<li>Most stable up-to-date : <a href="http://gitlab.bitdust.io/stable/bitdust.latest.git">http://gitlab.bitdust.io/stable/bitdust.latest.git</a></li>
+</ul>
+
+<h2 id="run-from-sources">Run from Sources</h2>
+
+<pre><code>git clone http://gitlab.bitdust.io/stable/bitdust.latest.git bitdust
+cd bitdust
+python bitdust.py
+</code></pre>
 
 <div class="fb-comments" data-href="http://bitdust.io/download.html" data-numposts="5" data-width="100%" data-colorscheme="light">
 
@@ -98,8 +149,7 @@
             
             <div id="navbar" class="navbar-collapse collapse">
 
-
-                <ul class="nav navbar-nav navbar-left">
+                <ul class="nav navbar-nav navbar-left text-right">
                     <li>
                         <div id="top_search_panel">
                             <form class="navbar-form navbar-left" role="search">
@@ -112,11 +162,15 @@
                     </li>
                 </ul>
             
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right text-right">
                 
-                    <!-- <li>
-                        <a href="" id="main_download" class="btn btn-primary btn-lg top_menu_button" >DOWNLOAD</a>
-                    </li> -->
+                    <li id="main_download">
+                        <p class="navbar-btn">
+                            <a href="/download.html" class="btn btn-success" role="button"  title="Try Demo">
+                                Try Demo
+                            </a>
+                        </p>
+                    </li>
                 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
