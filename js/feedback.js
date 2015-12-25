@@ -22,7 +22,7 @@ $(document).ready(function(){
         });
     });
     
-    $('#top_search_button').click(function(e) {
+    $('#top_search_button, #top_search_button_short').click(function(e) {
         $('.popup, .overlay').css('opacity','1');
         $('.popup, .overlay').css('visibility','visible');
         $('#feedback_panel').show();
