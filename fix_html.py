@@ -41,8 +41,8 @@ try:
     title = re.search('<h1.*?>(.+?)</h1>', sbody).group(1)
 except:
     title = src.replace('.html', '').capitalize()
-if not title.startswith('BiDust'):
-    title = 'BitDust + ' + title
+if not title.count('BitDust'):
+    title = 'BitDust : ' + title
 newbody = template % {
     'title': title,
     'body': sbody, 
