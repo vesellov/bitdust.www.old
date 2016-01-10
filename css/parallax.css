@@ -1,5 +1,5 @@
 #parallax-image-bg-1 {
-    background: #fff url('../images/bg1.jpg') top left;
+    background: #fff url('../images/bg2.jpg') top left;
     background-attachment: scroll;
     background-position: center center;
     background-repeat: none;
@@ -16,7 +16,7 @@
     }
 
 #parallax-image-bg-2 {
-    background: #fff url('../images/bg2.png') top left;
+    background: #fff url('../images/bg3.png') top left;
     background-color: transparent;
     background-attachment: scroll;
     background-position: center center;
