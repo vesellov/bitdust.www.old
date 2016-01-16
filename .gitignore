@@ -1,3 +1,4 @@
+.dist
 .backup
 @build/
 index_.html

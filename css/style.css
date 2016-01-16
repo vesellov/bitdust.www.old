@@ -833,3 +833,18 @@ body {
     text-align: left;
 }
 
+.payment-block {
+    width: 100%;
+    max-width: 145px;
+    display: inline-block;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.payment-double-block {
+    width: 100%;
+    max-width: 290px;
+    display: inline-block;
+    text-align: center;
+    padding-bottom: 5px;
+}
