@@ -11,8 +11,8 @@
     
     <title>BitDust : User Indentification</title>
 
-    <meta property="fb:admins" content="1097958228"/>
-    <meta property="fb:app_id" content="543329652498581"/>
+    <!-- <meta property="fb:admins" content="1097958228"/> -->
+    <!-- <meta property="fb:app_id" content="543329652498581"/> -->
     
     <meta name="author" content="Veselin Penev">
     <meta name="description" content="BitDust is a distributed on-line storage, in which only data owner has an access to his data.">    
@@ -176,7 +176,22 @@ compact media just after the program set up and hide them in secure places.
 
 <p>We recommend using modern anti-virus software, extra defence from network attacks and other methods of increasing security level of your personal computer. In addition to this, we advise you to look through useful information resources on this topic in order to raise your awareness. </p>
 
-<div class="fb-comments" data-href="http://bitdust.io/identities.html" data-numposts="5" data-width="100%" data-colorscheme="light">
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = "http://bitdust.io/identities.html";   
+        this.page.identifier = "identities"
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//bitdust.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
 
 </div>
 
@@ -249,7 +264,7 @@ compact media just after the program set up and hide them in secure places.
                             <li><a href="install.html">Installation</a></li>
                             <li><a href="commands.html">Commands</a></li>
                             <li><a href="settings.html">Settings</a></li>
-                            <li><a href="glossary.html">Settings</a></li>
+                            <li><a href="glossary.html">Glossary</a></li>
                         </ul>
                     </li>
                     
@@ -281,8 +296,8 @@ compact media just after the program set up and hide them in secure places.
                             <li><a href="automats.html">Finite State Machines</a></li>
                             <li><a href="technologies.html">Technologies</a></li>
                             <li><a href="api.html">API Interface</a></li>
-                            <li><a href="bugs.html">Known Bugs</a></li>
-                            <li><a href="changelog.html">Change Log</a></li>
+                            <li><a href="bugs.html">Known bugs</a></li>
+                            <li><a href="changelog.html">Change log</a></li>
                         </ul>
                     </li>
                     
@@ -328,9 +343,8 @@ compact media just after the program set up and hide them in secure places.
     </div>
 </div>
 
-<!-- Facebook Init -->
+<!-- Facebook Init 
 <div id="fb-root"></div>
-
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -338,7 +352,7 @@ compact media just after the program set up and hide them in secure places.
   js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=543329652498581";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>    
-
+-->
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">

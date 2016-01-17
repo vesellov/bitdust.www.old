@@ -33,10 +33,29 @@ sbody = re.sub('\<h(\d)\>(.+?)\<\/h(\d)\>',
     # '<div class=fbcomments markdown="1">', 
     # '<div class="fb-comments" data-href="%s/%s" data-width="500" data-numposts="5">' % (
         # site_url, os.path.basename(dest)))
+        
+disqus = """
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = "%s";   
+        this.page.identifier = "%s"
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//bitdust.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+""" % ((site_url+'/'+os.path.basename(dest)), src.replace('.html', '').replace('@build\\', ''))
+        
 sbody = sbody.replace(
-    '<div class=fbcomments>', 
-    '<div class="fb-comments" data-href="%s/%s" data-numposts="5" data-width="100%%" data-colorscheme="light">' % (
-        site_url, os.path.basename(dest)))        
+    '<div class=fbcomments>', disqus)
+    # '<div class="fb-comments" data-href="%s/%s" data-numposts="5" data-width="100%%" data-colorscheme="light">' % (
+    #     site_url, os.path.basename(dest))) 
+    
 try:
     title = re.search('<h1.*?>(.+?)</h1>', sbody).group(1)
 except:
