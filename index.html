@@ -1,215 +1,816 @@
-<!DOCTYPE html>
-<html lang='en'>
-    <head>
-
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <link rel="canonical" href="http://bitdust.io">
-    
-    <title>BitDust</title>
 
-    <!-- <meta property="fb:admins" content="1097958228"/> -->
-    <!-- <meta property="fb:app_id" content="543329652498581"/> -->
-    
+    <title>BitDust - decentralized on-line storage network</title> 
+
+    <meta property="og:title" content="BitDust - decentralized on-line storage network" />
+    <meta property="og:description" content="BitDust is distributed secure anonymous on-line storage, 
+        where only the owner has access and absolute control over its data." />
+    <meta property="og:url" content="http://bitdust.io" />
+    <meta property="og:image" content="http://bitdust.io/images/bitdust128.png" />
+    <meta name="title" content="BitDust - decentralized on-line storage network" />
+    <link rel="image_src" href="http://bitdust.io/images/bitdust128.png" />    
     <meta name="author" content="Veselin Penev">
-    <meta name="description" content="BitDust is a distributed on-line storage, in which only data owner has an access to his data.">    
-    <meta name="keywords" content="BitDust, BitDust.IO, python, data storage, data storage, online data storage, distributed data storage, file storage,
-        storage of files, save files, secure data storage, secure data storage, safely store the data, encrypted data storage,
-        encrypted file storage, secure storage of files, save files, save folders safely save, store information,
-        securely store information encrypted distributed data storage, cloud storage, backup, storage, backup data storage,
-        data backup, anonymous messages decentralized online data storage, encrypt a message, encrypted messages, secure communication,
-        communicate safely stored safely, securely store data, information storage, safe storage of information, communication,
+    <meta name="description" content="BitDust is distributed secure anonymous 
+        on-line storage, where only the owner has access and absolute control over its data.">    
+    <meta name="keywords" content="BitDust, BitDust.IO, python, data storage, 
+        data storage, online data storage, distributed data storage, file storage,
+        storage of files, save files, secure data storage,  
+        safely store the data, encrypted data storage,
+        encrypted file storage, secure storage of files, save files, save folders,
+        safely save, store information, securely store information,
+        encrypted distributed data storage, cloud storage, backup, storage, 
+        backup data storage, data backup, anonymous messages, decentralized online data storage, 
+        encrypt a message, encrypted messages, secure communication,
+        communicate safely stored safely, securely store data, information storage, 
+        safe storage of information, communication,
         safely transmit information securely store information">
 
     <link rel="icon" href="favicon.ico"> 
 
-    <script src="js/ba-debug.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="fancybox/jquery.fancybox-v=2.1.5.css" type="text/css" media="screen">
+	
+	<link rel="stylesheet" type="text/css" href="css/fonts.css">	
+    <link rel="stylesheet" type="text/css" href="css/feedback.css">
+    <link rel="stylesheet" type="text/css" href="css/parallax.css">    
+	<link rel="stylesheet" type="text/css" href="css/style.css">	
+    <link rel="stylesheet" type="text/css" href="css/main-navbar.css">    
+	
+	<script type="text/javascript" src="js/html5shiv.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="fancybox/jquery.fancybox.pack-v=2.1.5.js"></script>
+	<script type="text/javascript" src="js/parallax.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/feedback.js"></script>     
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/ie10-viewport-bug-workaround.js"></script> 
+    <meta property="fb:admins" content="1097958228"/>
+    <meta property="fb:app_id" content="543329652498581"/>
     
-    <link href="css/bootstrap.css" rel="stylesheet">
-    
-    <link href="css/fonts.css"   rel="stylesheet" type="text/css">
-    <link href="css/bitdust.css" rel="stylesheet" type="text/css">
-    <link href="css/topmenu.css" rel="stylesheet" type="text/css">
-    <link href="css/navbar.css"  rel="stylesheet" type="text/css">
-    <link href="css/automat.css" rel="stylesheet" type="text/css">
-    <link href="css/table.css"   rel="stylesheet" type="text/css">
-    <link href="css/feedback.css" rel="stylesheet" type="text/css">
-
-    <script src="js/feedback.js"></script> 
-
 </head>
 
 <body>
-    
-<div class="wallpaper"></div>
-    
-<div id=page_container class="Center-Container is-Inline">
-<div class="Center-Block">
-<div id=page_content>
-
-<h1 id="bitdust">BitDust</h1>
-
-<h3 id="distributed-on-line-storage-network">distributed on-line storage network</h3>
-
-<p>BitDust - is decentralized, secure and anonymous on-line storage, where only the owner has access and absolute control over its data.</p>
-
-<p>Imagine a situation when two friends and you agree to help each other to store the data. On your computer you store the data that both of your friends uploaded to you via Internet, and you in turn can use the free space on their machines to save your files. This creates <a href="storage.html">redundancy</a>, but allows storing important data in a safer way. It is also a fair deal, because all three are interested in the maximum safety and availability of stored information.</p>
-
-<p>BitDust network is a voluntary association of people sharing resources of their personal computers. Their machines run the same copies of BitDust program, which enables device communication via Internet when data are transmitted directly from one user to another and stored on user hard disk drives. </p>
-
-<p>Uploaded input data is divided into blocks and fragments, <a href="security.html">encrypted</a> and uploaded on other users computers. The system is designed to perform continuous monitoring of each node, which stores your data.</p>
-
-<p>The BitDust program constantly keeps a state, which enables you to download your data back to your machine at any moment. The mechanism of <a href="rebuilding.html">automatic data restoring</a> allows dynamic reassembling of the data fragments uploaded into the network on the new nodes without any action from the user. </p>
-
-<p>BitDust program is written in <a href="http://python.org">Python</a> using <a href="http://twistedmatrix.com/">Twisted</a> Framework and is distributed in open source code - we are still deciding about the license type. </p>
-
-<p>The project is in the stage of deep development, but the <a href="screenshots.html">demo version</a> will be available in the near future. </p>
-
-<p>We invite all who are interested in this direction - primarily developers and enthusiasts. Join our team, or just <a href="donate.html">support us</a>. Together we will better realize our plans and create a fairer alternative to the existing global networks.</p>
-
-
-</div>
-</div>
-</div>
-
-
-<div id="bottom_area">
-<div id=copyright class="pull-right">
-© BitDust, 2016&nbsp;&nbsp;&nbsp;
-</div>
-</div>
-
-
-
-<div id="top_area">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container-fluid">
-        
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img src="bitdust128.png" height="48" style="margin-top: -15px; margin-left: -5px;">
-                </a>
+    <div id="parallax-image-bg-1"></div>
+    <div id="parallax-image-bg-2"></div>
+	<nav id="navmain" class="navbar navbar-default inv navbar-fixed-top" data-activeslide="1">
+        <div id="main-logo-icon" class="navigation-slide" data-slide="1">
+            <img src="images/bitdust128.png" height=48>
+        </div>
+		<div class="container">
+            <div class="navbar-header">        
+    			<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+    			<button style="z-index:101;" type="button" class="navbar-toggle" 
+                        data-toggle="collapse" data-target=".navbar-responsive-collapse">
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    			</button>
             </div>
-            
-            <div id="navbar" class="navbar-collapse collapse">
+			<div style="z-index:100;" id="navbar" class="text-center nav-collapse navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+					<li data-slide="1" class="w100 top-menu-item">
+                        <a id="menu-link-1" href="#slide-1" title="home"
+                            data-toggle="collapse" data-target=".nav-collapse.in">
+                            <span class="icon fa fa-home"></span>
+                            <span class="text">home</span>
+                        </a>
+                    </li>
+					<li data-slide="2" class="w100 top-menu-item">
+                        <a id="menu-link-2" href="#slide-2" title="intro"
+                            data-toggle="collapse" data-target=".nav-collapse.in">
+                            <span class="icon fa fa-info-circle"></span>
+                            <span class="text">intro</span>
+                        </a>
+                    </li>
+					<li data-slide="3" class="w100 top-menu-item">
+                        <a id="menu-link-3" href="#slide-3" title="demo"
+                            data-toggle="collapse" data-target=".nav-collapse.in">
+                            <span class="icon fa fa-video-camera"></span>
+                            <span class="text">demo</span>
+                        </a>
+                    </li>
+					<li data-slide="4" class="w100 top-menu-item">
+                        <a id="menu-link-4" href="#slide-4" title="details"
+                            data-toggle="collapse" data-target=".nav-collapse.in">
+                            <span class="icon fa fa-gears"></span>
+                            <span class="text">details</span>
+                        </a>
+                    </li>
+                    <li data-slide="5" class="w100 top-menu-item">
+                        <a id="menu-link-5" href="#slide-5" title="join"
+                            data-toggle="collapse" data-target=".nav-collapse.in">
+                            <span class="icon fa fa-user-plus"></span>
+                            <span class="text">join</span>
+                        </a>
+                    </li>                    
+					<li data-slide="6" class="w100 top-menu-item">
+                        <a id="menu-link-6" href="#slide-6" title="wiki"
+                            data-toggle="collapse" data-target=".nav-collapse.in">
+                            <span class="icon fa fa-book"></span>
+                            <span class="text">wiki</span>
+                        </a>
+                    </li>
+					<li data-slide="7" class="w100 top-menu-item">
+                        <a id="menu-link-7" href="#slide-7" title="author"
+                            data-toggle="collapse" data-target=".nav-collapse.in">
+                            <span class="icon fa fa-envelope"></span>
+                            <span class="text">author</span>
+                        </a>
+                    </li>
+                    <div class="active-menu"></div>
+				</ul>
 
-                <ul class="nav navbar-nav navbar-left text-right">
-                    <li style="padding-right: 20px;">
-                        <div id="top_search_panel">
-                            <form class="navbar-form navbar-left" role="search">
-                                <div class="form-group">
-                                    <input type="text" id="top_search_input" class="form-control" placeholder="  have a question?">
-                                    <button type="button" class="btn btn-info" id="top_search_button">Ask</button>
-                                    <button type="button" class="btn btn-info" id="top_search_button_short">Have a question?</button>
-                                </div>
+			</div><!-- /.nav-collapse -->
+		</div><!-- /.container -->
+	</nav><!-- /.navbar -->
+    
+    <!-- === Arrows === -->
+    <div id="arrows">
+        <div id="arrow-up" class="disabled"></div>
+        <div id="arrow-down"></div>
+        <!-- <div id="arrow-left" class="disabled visible-lg"></div> -->
+        <!-- <div id="arrow-right" class="disabled visible-lg"></div> -->
+    </div><!-- /.arrows -->
+    	
+	<!-- === MAIN SLIDE === -->
+	<div class="slide story" id="slide-1" data-slide="1">
+		<div class="container">
+			<div id="home-row-1" class="row clearfix">
+				<div class="w100">
+                    <h1 class="font-semibold">
+                        <img id="main-logo" src="images/bitdust128.png">
+                        BitDust
+                    </h1>
+					<h4 class="font-thin">
+                        decentralized on-line storage network
+                    </h4>
+				</div><!-- /w100 -->
+			</div><!-- /row -->
+			<div id="home-row-2" class="row clearfix">
+				<div class="col-sm-4 col-xs-4">
+                    <div class="home-hover navigation-slide" data-slide="2">
+                        <img src="images/home-icon-1.png">
+                        <br><span>DONATE<br>HDD SPACE</span>
+                    </div>
+                </div>
+				<div class="col-sm-4 col-xs-4">
+                    <div class="home-hover navigation-slide" data-slide="3">
+                        <img src="images/home-icon-2.png">
+                        <br><span>GET ON-LINE<br>STORAGE</span>
+                    </div>
+                </div>
+				<div class="col-sm-4 col-xs-4">
+                    <div class="home-hover navigation-slide" data-slide="4">
+                        <img src="images/home-icon-3.png">
+                        <br><span>FULL CONTROL<br>100% PRIVACY</span>
+                    </div>
+                </div>
+			</div><!-- /row -->
+		</div><!-- /container -->
+	</div><!-- /slide1 -->
+	
+	<!-- === Slide 2 : ABOUT === -->
+	<div class="slide story" id="slide-2" data-slide="2">
+		<div class="container">
+			<div class="row title-row">
+				<div class="w100 font-thin">
+                    exchange PC resources with other users
+                </div>
+			</div> <!-- /row -->
+            <div class="row line-row">
+				<div class="hr">&nbsp;</div>
+			</div><!-- /row -->
+            <div class="row subtitle-row">
+				<div class="w100 font-thin">
+                    BitDust network is a voluntary association of 
+                    people sharing resources of their personal computers
+                </div>
+			</div><!-- /row -->
+			<div class="row content-row">
+				<div class="col-sm-3">
+					<p><i class="fa fa-thumbs-up"></i></p>
+					<h2 class="font-thin">trust & cooperate</h2>
+					<h4 class="font-thin">
+                        Imagine a situation when two friends 
+                        and you agree to help each other to store 
+                        some important files
+                    </h4>
+				</div><!-- /col -->
+				<div class="col-sm-3">
+					<p><i class="fa fa-share-alt"></i></p>
+					<h2 class="font-thin">peer-to-peer transfers</h2>
+					<h4 class="font-thin">
+                        Both of your friends upload 
+                        data on your computer, and you in turn can use 
+                        their free space to save your files
+                    </h4>
+				</div><!-- /col -->
+				<div class="col-sm-3">
+					<p><i class="fa fa-cubes"></i></p>
+					<h2 class="font-thin">data redundancy</h2>
+					<h4 class="font-thin">
+                        This creates redundancy, 
+                        but allows you and your friends storing important 
+                        data in a safer way
+                    </h4>
+				</div><!-- /col -->
+				<div class="col-sm-3">
+					<p><i class="fa fa-balance-scale"></i></p>
+					<h2 class="font-thin">fair resource allocation</h2>
+					<h4 class="font-thin">
+                        This is a fair deal, 
+                        because all three are interested in safety, 
+                        reliability and privacy of stored information
+                    </h4>
+				</div><!-- /col -->
+			</div><!-- /row -->
+		</div><!-- /container -->
+	</div><!-- /slide2 -->
+	
+	<!-- === SLide 3 : DEMO -->
+	<div class="slide story" id="slide-3" data-slide="3">
+        <div class="container">
+            <div class="row title-row">
+                <div class="w100 font-thin">
+                    try out latest development release
+                </div>
+            </div><!-- /row -->
+            <div class="row line-row">
+                <div class="hr">&nbsp;</div>
+            </div><!-- /row -->
+            <div class="row subtitle-row">
+                <div class="w100 col-sm-12 font-light">
+                    we are still at the beginning, but decided to 
+                    publish our current results to get your feedback
+                </div>
+            </div><!-- /row -->
+            <div class="row content-row">
+                <div class="col-sm-4">
+                    <!-- <p><i class="fa fa-bolt"></i></p> -->
+                    <h2 class="font-thin">Microsoft Windows</h2>
+                    <a role="button" id="demo-button-windows" class="btn btn-lg btn-success" 
+                        href="http://bitdust.io/download/bitdust-setup.exe">
+                        <img height=24 src="images/windows.png">bitdust-setup.exe</a>
+                    <p>
+                        this Windows Installer includes <b>Python</b> and <b>Git</b>, 
+                        during installation BitDust sources will 
+                        be cloned to your local machine
+                    </p> 
+                </div><!-- /col -->
+                <div class="col-sm-4">
+                    <!-- <p><i class="fa fa-cog"></i></p> -->
+                    <h2 class="font-thin">Ubuntu / Debian</h2>
+                    <a role="button" id="demo-button-linux" class="btn btn-lg btn-success" 
+                        href="http://bitdust.io/download/bitdust-dev.deb">
+                        <img height=24 src="images/linux.png">bitdust-dev.deb</a>
+                    <p>
+                        package <b>bitdust-dev</b> and all dependencies will be 
+                        installed automatically, BitDust sources will be 
+                        cloned to your local machine
+                    </p> 
+                </div><!-- /col -->
+                <div class="col-sm-4">
+                    <h2 class="font-thin">&nbsp;Python Sources&nbsp;</h2>
+                    <a role="button" id="demo-button-sources" class="btn btn-lg btn-success" 
+                        href="http://gitlab.bitdust.io/devel/bitdust.devel.git">
+                        <img height=24 src="images/python.png">main Git repository</a>
+                    <p>
+                        read <a href="http://bitdust.io/install.html">installation tips</a> 
+                        in the docs to learn how to install needed dependencies 
+                        and run BitDust from Python sources
+                    </p>
+                </div><!-- /col -->
+            </div><!-- /row -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="font-thin">development screenshots</h2>
+                </div>
+            </div><!-- /row -->
+            <div class="row line-row">
+                <div class="hr">&nbsp;</div>
+            </div><!-- /row -->
+            <div class="row screenshots">
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/filemanager10-list-view.png">
+                    <img class="thumb" alt=""
+                    src="images/screenshots/thumb/filemanager10-list-view.png">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/console_output.png">
+                    <img class="thumb" alt=""
+                    src="images/screenshots/thumb/console_output.png">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/stun_client.png">
+                    <img class="thumb" alt=""
+                    src="images/screenshots/thumb/stun_client.png">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/diagram.png">
+                    <img class="thumb" alt=""
+                    src="images/screenshots/thumb/diagram.png">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/udp_stream.png">
+                    <img class="thumb" alt=""
+                    src="images/screenshots/thumb/udp_stream.png">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/commandline0.png">
+                    <img class="thumb" alt=""
+                    src="images/screenshots/thumb/commandline0.png">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/storage.png">
+                    <img class="thumb" alt=""
+                    src="images/screenshots/thumb/storage.png">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/index2.png">
+                    <img class="thumb" alt=""
+                    src="images/screenshots/thumb/index2.png">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/traffic.png">
+                    <img class="thumb" alt=""
+                    src="images/screenshots/thumb/traffic.png">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/BitDust.png">
+                    <img class="thumb" 
+                    src="images/screenshots/thumb/BitDust.png" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/filemanager7-select-to-upload.png">
+                    <img class="thumb" alt=""
+                    src="images/screenshots/thumb/filemanager7-select-to-upload.png">
+                    </a>
+                </div>
+                <div class="col-lg-2 col-sm-4 col-xs-12">
+                    <a data-fancybox-group="portfolio" class="fancybox" 
+                    href="images/screenshots/filemanager11-dropdown-menu.png">
+                    <img class="thumb" alt=""
+                    src="images/screenshots/thumb/filemanager11-dropdown-menu.png">
+                    </a>
+                </div>
+            </div><!-- /row -->          
+        </div><!-- /container -->                 
+	</div><!-- /slide3 -->
+	
+	<!-- === Slide 4 : DETAILS === -->
+	<div class="slide story" id="slide-4" data-slide="4"
+        data-type="background_" data-speed="2" data-start="400">
+		<div class="container-fluid">
+			<div class="row title-row">
+				<div class="w100 font-thin">distributed data storage</div>
+			</div><!-- /row -->
+			<div class="row line-row">
+				<div class="hr">&nbsp;</div>
+			</div><!-- /row -->
+			<div class="row subtitle-row">
+				<div class="w100 col-sm-12 font-light">
+                    input data is divided into blocks and fragments, 
+                    encrypted and uploaded on other users computers
+                </div>
+			</div><!-- /row -->
+			<div class="row content-row">
+				<div class="col-sm-6">
+					<p><i class="fa fa-venus-mars"></i></p>
+					<h2 class="font-thin">suppliers & customers</h2>
+                    <div class="details-block"><ul>
+                        <li>all data is stored on users machines</li>
+                        <li>suppliers provides storage space</li>
+                        <li>customers rent space on supplies's machines</li>
+                        <li>you can donate and consume at same time</li>
+                        <li>every supplier keeps a piece of source data</li>
+                    </ul></div>                    
+				</div><!-- /col -->
+				<div class="col-sm-6">
+					<p><i class="glyphicon glyphicon-hdd"></i></p>
+					<h2 class="font-thin">reliable storage</span></h2>
+					<div class="details-block"><ul>
+                        <li>redundancy factor is 1:2 </li>
+                        <li>data arranged in a RAID array</li>
+                        <li>ECC method determines the target node</li>
+                        <li>two parallel layers: Data and Parity</li>
+                        <li>up to 64 suppliers keeps your data</li>
+                    </ul></div>
+				</div><!-- /col -->
+            </div>
+            <div class="row content-row">            
+				<div class="col-sm-6">
+					<p><i class="fa fa-key"></i></p>
+					<h2 class="font-thin">high security</h2>
+					<div class="details-block"><ul>
+                        <li>every user posses his own Private Key</li>
+                        <li>all data is encrypted before leave your machine</li>
+                        <li>your suppliers have no access to your data</li>
+                        <li>no way to recover your files if you lost the Key</li>
+                        <li>protect your secret Key as good as possible !</li>
+                    </ul></div>
+				</div><!-- /col -->
+                <div class="col-sm-6">
+                    <p><i class="fa fa-user-secret"></i></p>
+                    <h2 class="font-thin">maximum privacy</h2>
+                    <div class="details-block"><ul>
+                        <li>we do not use any passwords!</li>
+                        <li>everything is peer-to-peer, no authority servers</li>
+                        <li>digital signature protects your identification</li>
+                        <li>incognito mode "masks" your real IP address</li>
+                        <li>data disintegration hides your files completely</li>
+                    </ul></div>
+                </div><!-- /col -->
+			</div><!-- /row -->
+            <div class="row content-row">
+                <div class="col-sm-6">
+                    <p><i class="fa fa-recycle"></i></p>
+                    <h2 class="font-thin">automatic rebuilding</h2>
+                    <div class="details-block"><ul>
+                        <li>software monitors every piece of uploaded data</li>
+                        <li>fresh node replaces unreliable supplier</li>
+                        <li>ECC method allows to rebuild the lost fragments</li>
+                        <li>reconstructed fragments transferred to new supplier</li>
+                        <li>let program working 100% time to keep data reliable</li>
+                    </ul></div>
+                </div><!-- /col -->
+                <div class="col-sm-6">
+                    <p><i class="fa fa-heartbeat"></i></p>
+                    <h2 class="font-thin">support other users</h2>
+                    <div class="details-block"><ul>
+                        <li>basic values are: requested and donated Megabytes</li>
+                        <li>give to others twice more of your own consumption</li>
+                        <li>wait until other people fill your HDD with their files</li>
+                        <li>keep your machine working and support other users</li>
+                        <li>no monetization yet - development continues</li>
+                    </ul></div>
+                </div><!-- /col -->
+            </div><!-- /row -->
+		</div><!-- /container -->
+	</div><!-- /slide4 -->
+
+    <!-- === Slide 5 / Support === -->
+    <div class="slide story" id="slide-5" data-slide="5">
+        <div class="container-fluid">
+            <div class="row title-row">
+                <div class="w100 font-thin">BitDust is another way for collective security</div>
+            </div><!-- /row -->
+            <div class="row line-row">
+                <div class="hr">&nbsp;</div>
+            </div><!-- /row -->
+            <div class="row subtitle-row">
+                <div class="w100 col-sm-12 font-light">
+                    only together we will create this new reality 
+                </div>
+            </div><!-- /row -->  
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <p><img src="images/python.png"></p>
+                    <h3 class="font-thin">join development</h3>
+                    <div class="details-block"><ul>
+                        <li>clone source code from 
+                            <a target="_blank" href="https://github.com/vesellov/bitdust.devel">GitHub</a> or 
+                            <a target="_blank" href="http://gitlab.bitdust.io/devel/bitdust.devel">gitlab.bitdust.io</a></li>
+                        <li>run from Python sources, test on your local machine</li>
+                        <li>learn how all things going to work from the 
+                            <a class="regular-link navigation-slide" 
+                            data-slide="6" href="#">Wiki</a></li>
+                        <li><a class="regular-link navigation-slide" 
+                            data-slide="8" href="#">contact</a> developers to get answers and be in touch</li>
+                        <li>select a task for your current level</li>
+                        <li>open an issue, report a bug</li>
+                    </ul></div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <p><img src="images/social_media_icon.png"></p>
+                    <h3 class="font-thin">media support</h3>
+                    <div class="details-block"><ul>
+                        <li>study <a class="regular-link navigation-slide" 
+                            data-slide="6" href="#">Wiki</a> pages, 
+                            <a class="regular-link navigation-slide" 
+                            data-slide="10" href="#">ask questions</a></li>
+                        <li>help to translate and spellcheck the docs</li>
+                        <li>write articles and tutorials, create videos</li>
+                        <li><a class="regular-link navigation-slide" 
+                            data-slide="9" href="#">tell your friends</a> about BitDust</li>
+                        <li>promote BitDust to participate in IT-conference</li>
+                    </ul></div>
+                </div>
+            </div><!-- /row -->  
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <p><img src="images/agreement.png"></p>
+                    <h3 class="font-thin">financial cooperation</h3>
+                    <div class="details-block"><ul>
+                        <li>everything costs money, why not <b>sell the free space on your PC?</b></li>
+                        <li>suppliers can earn $ if donate a lot and stay reliable</li>
+                        <li>those, who not agree to donate HDD space will have to pay in $</li>
+                        <li>BitDust company will take a <b>small tax</b>, and <b>make huge profits</b></li>
+                        <li>we developed a detailed work plan and ready to
+                            <a class="regular-link navigation-slide" 
+                                data-slide="8" href="#">start cooperation</a></li>
+                    </ul></div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <p><img src="images/donate.png"></p>
+                    <h3 class="font-thin">sponsorship & donations</h3>
+                    <div class="details-block" style="max-width: 300px;">
+                        <div class="payment-block">
+                            PayPal
+                            <br>
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+                            <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_SM.gif" 
+                                border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/ru_RU/i/scr/pixel.gif" 
+                                width="1" height="1">
                             </form>
                         </div>
-                    </li>
-                    
-                    <li id="main_download" style="padding-left: 30px; padding-right: 15px;">
-                        <p class="navbar-btn">
-                            <a href="/download.html" class="btn btn-success" role="button"  title="Try Demo">
-                                Try Demo
-                            </a>
-                        </p>
-                    </li>
-                </ul>
-            
-                <ul class="nav navbar-nav navbar-right text-right">
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
-                            Beginning
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="intro.html">Introduction</a></li>
-                            <li><a href="concept.html">Concept</a></li>
-                            <li><a href="principle.html">How Does It Work?</a></li>
-                            <li><a href="install.html">Installation</a></li>
-                            <li><a href="commands.html">Commands</a></li>
-                            <li><a href="settings.html">Settings</a></li>
-                            <li><a href="glossary.html">Glossary</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
-                            Principles
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="identities.html">User Identification</a></li>
-                            <li><a href="storage.html">Distributed Storage</a></li>
-                            <li><a href="security.html">Data Security</a></li>
-                            <li><a href="rebuilding.html">Automatic Rebuilding</a></li>
-                            <li><a href="dht.html">Distributed Hash-Table</a></li>
-                            <li><a href="services.html">Network services</a></li>
-                            <li><a href="transports.html">Transport protocols</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <!-- <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> -->
-                            Development
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="roadmap.html">Roadmap</a></li>
-                            <li><a href="automats.html">Finite State Machines</a></li>
-                            <li><a href="technologies.html">Technologies</a></li>
-                            <li><a href="api.html">API Interface</a></li>
-                            <li><a href="bugs.html">Known bugs</a></li>
-                            <li><a href="changelog.html">Change log</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Repositories
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="https://github.com/vesellov" 
-                                    target="blank">GitHub/vesellov</a>
-                            </li>
-                            <li>
-                                <a href="http://gitlab.bitdust.io/explore/projects" 
-                                    target="blank">gitlab.bitdust.io</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                
+                        <div class="payment-block">
+                            gofundme.com
+                            <br>
+                            <a target="_blank" style="border:none;" 
+                            href="http://www.gofundme.com/bitdust?utm_medium=wdgt" 
+                            title="Donate on gofundme.com"><img height=32 src="images/gofundme.png"></a>
+                        </div>
+                        <div class="payment-block">
+                            Yandex.Money<br>
+                            <iframe frameborder="0" allowtransparency="true" scrolling="no" 
+                                src="https://money.yandex.ru/embed/small.xml?account=410012863839096&quickpay=small&yamoney-payment-type=on&button-text=06&button-size=s&button-color=orange&targets=Donate+to+BitDust&default-sum=5000&successURL=http%3A%2F%2Fbitdust.io"
+                                width="156" height="31">
+                            </iframe>                            
+                        </div>
+                        <div class="payment-block">
+                            Visa or MasterCard<br> 
+                            <iframe frameborder="0" allowtransparency="true" scrolling="no" 
+                                src="https://money.yandex.ru/embed/small.xml?account=410012863839096&quickpay=small&any-card-payment-type=on&button-text=06&button-size=s&button-color=orange&targets=Donate+to+BitDust&default-sum=5000&successURL=http%3A%2F%2Fbitdust.io" 
+                                width="156" height="31">
+                            </iframe>
+                        </div>
+                        <div class="payment-double-block">
+                            <i style="font-size: 18px;" class="fa fa-btc"></i> (BitCoin) wallet
+                            <br>
+                            <b>1N78KKjKbAT8MEYVKAh6vEHBH7rjzGGZtq</b>
+                        </div>
+                        <div  class="payment-double-block">
+                            <a class="regular-link navigation-slide" 
+                            data-slide="8" href="#">
+                            <i class="fa fa-envelope"></i>
+                            contact</a> us for agreeing <br>
+                             on any other transfer methods
+                            
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /row -->           
+        </div><!-- /container -->
+    </div><!-- /Slide 5 -->    
+        
+	<!-- === Slide 6 : WIKI === -->
+	<div class="slide story" id="slide-6" data-slide="6">
+		<div class="container">
+            <div class="row title-row">
+                <div class="w100 font-thin">
+                    BitDust Wiki                        
+                </div>
+            </div><!-- /row -->
+            <div class="row line-row">
+                <div class="hr">&nbsp;</div>
+            </div><!-- /row -->
+            <div class="row subtitle-row">
+                <div class="w100 col-sm-12 font-light">
+                    table of contents 
+                </div>
+            </div><!-- /row -->        
+			<div class="row content-row">
+				<div class="col-sm-4">
+                    <div class="wiki-column-wrap">
+                    <div class="wiki-column">
+                        <h2>Beginning</h2>
+                        <h4><a href="intro.html">Introduction</a></h4>
+                        <h4><a href="concept.html">Concept</a></h4>
+                        <h4><a href="principle.html">How Does It Work?</a></h4>
+                        <h4><a href="install.html">Installation</a></h4>
+                        <h4><a href="commands.html">Commands</a></h4>
+                        <h4><a href="settings.html">Settings</a></h4>
+                        <h4><a href="glossary.html">Glossary</a></h4>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="wiki-column-wrap">
+                    <div class="wiki-column">
+                        <h2>Principles</h2>
+                        <h4><a href="identities.html">User Identification</a></h4>
+                        <h4><a href="storage.html">Distributed Storage</a></h4>
+                        <h4><a href="security.html">Data Security</a></h4>
+                        <h4><a href="rebuilding.html">Automatic Rebuilding</a></h4>
+                        <h4><a href="dht.html">Distributed Hash-Table</a></h4>
+                        <h4><a href="services.html">Network services</a></h4>
+                        <h4><a href="transports.html">Transport protocols</a></h4>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="wiki-column-wrap">
+                    <div class="wiki-column">
+                        <h2>Development</h2>
+                        <h4><a href="roadmap.html">Roadmap</a></h4>
+                        <h4><a href="automats.html">Finite State Machines</a></h4>
+                        <h4><a href="technologies.html">Technologies</a></h4>
+                        <h4><a href="api.html">API Interface</a></h4>
+                        <h4><a href="bugs.html">Known Bugs</a></h4>
+                        <h4><a href="changelog.html">Change Log</a></h4>
+                    </div>
+                    </div>
+                </div>
+			</div><!-- /row -->
+            <div class="row line-row">
+                <div class="hr">&nbsp;</div>
+            </div><!-- /row -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="top_search_panel" class="slide" data-slide="10">
+                        <form role="search">
+                            <div class="form-group">
+                                <input style="display: inline-block; width: auto;" 
+                                    type="text" id="top_search_input" 
+                                    class="form-control" placeholder="have a question?">
+                                <button style="margin-top: -3px;"
+                                    type="button" class="btn btn-info" 
+                                    id="top_search_button">Ask</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
-</div>
+		</div><!-- /container -->
+	</div><!-- /slide6 -->
 
+    
+
+    <!-- === Slide 7 : AUTHOR === -->
+    <div class="slide story" id="slide-7" data-slide="7">
+        <div class="container">
+            <div class="row title-row">
+                <div class="w100 font-thin">here is my story</div>
+            </div><!-- /row -->
+            <div class="row line-row">
+                <div class="hr">&nbsp;</div>
+            </div><!-- /row -->
+            <div class="row">
+                <div id="veselin-story" class="col-sm-12">
+                    <img id="veselin-picture" src="images/veselin_400x600.jpg">
+                    <p>
+                        Hi! My name is <b>Veselin</b>. 
+                        I started developing a distributed computer network in 2008.  
+                    </p>
+                    <p>
+                        I'm not exactly sure, but it seems that alien intelligence 
+                        has taken root in my mind a few years ago. At some point 
+                        I realized that I was obsessed with the idea of full decentralization 
+                        of the Internet.  
+                    </p>
+                    <p>
+                        Later I saw that not only my mind was "decentralized" - a 
+                        number of p2p projects aimed at distribution 
+                        of information flows is in development or are already widely used: 
+                        BitCoins, Torrents, SopCast, Tor and many others.
+                    </p>
+                    <p>
+                        Long time ago, when I was in school, I began to learn 
+                        programming, because it is very fond of playing 
+                        computer games and wanted to learn how to create 
+                        them yourself.
+                    </p>
+                    <p>
+                        But intergalactic consciousness was spreading 
+                        more and more in my head and gave me the strength 
+                        and the ability to go to the target. I continued 
+                        to learning more and more different technologies 
+                        and now possess experience in many modern IT areas. 
+                        It seems that I am able to perform almost any 
+                        task related to programming.
+                    </p>
+                    <p>
+                        This project is my life's work but very clearly 
+                        understand that I do not accomplish this 
+                        task alone and invite everyone to cooperate. 
+                        Together we create a network of new generation 
+                        and make the World a better place.
+                    </p>
+                </div>
+            </div><!-- /row -->
+            <div id="contacts-row" class="row slide" data-slide="8">
+                <div class="col-sm-4 with-hover-text">
+                    <p><i class="fa fa-phone"></i></p>
+                    <span class="hover-text font-light ">+7 918 219-42-88</span>
+                </div><!-- /col -->
+                <div class="col-sm-4 with-hover-text">
+                    <a href="mailto:bitdust.io@gmail.com">
+                    <p><i class="fa fa-envelope"></i></p>
+                    <span class="hover-text font-light">bitdust.io@gmail.com</span>
+                    </a>
+                </div><!-- /col -->
+                <div class="col-sm-4 with-hover-text">
+                    <a href="skype:vesellov">
+                    <p><i class="fa fa-skype"></i></p>
+                    <span class="hover-text font-light ">vesellov</span>
+                    </a>
+                </div><!-- /col -->                
+                <div class="col-sm-4 with-hover-text">
+                    <p><i class="fa fa-home"></i></p>
+                    <span class="hover-text font-light ">Saint-Petersburg, Russia, 199155</span>
+                </div><!-- /col -->
+                <div class="col-sm-4 with-hover-text">
+                    <a target="_blank" href="http://facebook.com/veselin.penev">
+                    <p><i class="fa fa-facebook"></i></p>                    
+                    <span class="hover-text font-light ">facebook/veselin.penev</span>
+                    </a>
+                </div><!-- /col -->
+                <div class="col-sm-4 with-hover-text">
+                    <a target="_blank" href="http://vk.com/veselin.penev">
+                    <p><i class="fa fa-vk"></i></p>
+                    <span class="hover-text font-light ">vk/veselin.penev</span>
+                    </a>
+                </div><!-- /col -->
+            </div><!-- /row -->
+            <div class="row slide" data-slide="9">
+                <div class="col-sm-12">
+                    <script type="text/javascript">(function() {
+                      if (window.pluso)if (typeof window.pluso.start == "function") return;
+                      if (window.ifpluso==undefined) { window.ifpluso = 1;
+                        var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+                        s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+                        s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+                        var h=d[g]('body')[0];
+                        h.appendChild(s);
+                      }})();</script>
+                    <div style="padding-top: 30px;" class="pluso" 
+                        data-background="none;"
+                        data-title="BitDust - decentralized on-line storage network"
+                        data-description="BitDust is distributed secure anonymous 
+                            on-line storage, where only the owner has access and absolute control over its data."
+                        data-keywords="BitDust, BitDust.IO, python, data storage, 
+                            data storage, online data storage, distributed data storage, file storage,
+                            storage of files, save files, secure data storage,  
+                            safely store the data, encrypted data storage,
+                            encrypted file storage, secure storage of files, save files, save folders,
+                            safely save, store information, securely store information,
+                            encrypted distributed data storage, cloud storage, backup, storage, 
+                            backup data storage, data backup, anonymous messages, decentralized online data storage, 
+                            encrypt a message, encrypted messages, secure communication,
+                            communicate safely stored safely, securely store data, information storage, 
+                            safe storage of information, communication,
+                            safely transmit information securely store information"
+                        data-url="http://bitdust.io/"
+                        data-image="http://bitdust.io/images/bitdust128.png"
+                        data-options="big,square,line,horizontal,nocounter,sepcounter=1,theme=14" 
+                        data-services="vkontakte,facebook,blogger,twitter,google,digg,linkedin,delicious,pinterest,
+                            surfingbird,readability,tumblr,email,print"></div>
+                </div><!-- /col -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+    </div><!-- /slide7 -->
+    
 <div class="overlay" title="Feedback"></div>
 <div class="popup">
     <div class="close_order">x</div>
     <div class="feedback_alert text-left"></div>
     <div id="feedback_panel">
         <form method="post" id="contactform">
-            <input type="text" placeholder="your name" name="txtname">	
+            <input type="text" placeholder="your name" name="txtname">  
             <input type="email" placeholder="email, skype, etc." name="txtemail">
             <textarea id="feedback_message" name="message" required="" placeholder="your message" rows="10" value=""></textarea>
             <input type="hidden" name="valTrFal" class="valTrFal" value="valTrFal_disabled">
@@ -221,23 +822,27 @@
         </form>
     </div>
 </div>
-
-<!-- Facebook Init 
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=543329652498581";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>    
--->
-
+   
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-59191888-1', 'auto');
+  ga('send', 'pageview');
+</script>   
+   
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
-(function (d, w, c) {    (w[c] = w[c] || []).push(function() {
-        try {            w.yaCounter28171152 = new Ya.Metrika({id:28171152,
-        webvisor:true,                    clickmap:true,                    trackLinks:true,                    accurateTrackBounce:true});
+(function (d, w, c) {    
+    (w[c] = w[c] || []).push(function() {
+        try {            
+        w.yaCounter28171152 = new Ya.Metrika({id:28171152,
+        webvisor:true,                    
+        clickmap:true,                    
+        trackLinks:true,                    
+        accurateTrackBounce:true});
         } catch(e) { }    });
     var n = d.getElementsByTagName("script")[0],
         s = d.createElement("script"),
@@ -250,16 +855,35 @@
 </script>
 <noscript><div><img src="//mc.yandex.ru/watch/28171152" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
-<!-- Google Analytics -->
+</body>
+
+<!-- fancybox init -->
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59191888-1', 'auto');
-  ga('send', 'pageview');
+	$(document).ready(function(e) {
+		var lis = $('.nav > li');
+		menu_focus( lis[0], 1 );
+        var opened = false;
+		$(".fancybox").fancybox({
+            afterShow: function() {
+                opened = true;
+            },  
+            afterClose: function() {
+                opened = false;
+            },      
+			padding: 0,
+			helpers: {
+				overlay: {
+					locked: false
+				},
+			}
+		});
+        $(window).scroll(function() {
+            if (opened) {
+                opened = false;
+                $.fancybox.close(true);
+            };
+        });
+	});
 </script>
 
-
-</body>
 </html>
