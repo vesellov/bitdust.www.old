@@ -9,7 +9,7 @@
 
     <link rel="canonical" href="http://bitdust.io">
     
-    <title>BitDust : Installation Tips</title>
+    <title>BitDust : Install the software</title>
 
     <!-- <meta property="fb:admins" content="1097958228"/> -->
     <!-- <meta property="fb:app_id" content="543329652498581"/> -->
@@ -54,9 +54,34 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="installation-tips">Installation Tips</h1>
+<h1 id="install-the-software">Install the software</h1>
 
-<p>...</p>
+<h2 id="from-command-line">From command line</h2>
+
+<ol>
+<li><p>Dependencies</p>
+
+<pre><code>sudo apt-get install python-twisted python-setuptools        
+sudo easy_install Django==1.7, pycrypto, psutil
+</code></pre></li>
+<li><p>Get Sources</p>
+
+<pre><code>git clone http://gitlab.bitdust.io/devel/bitdust.git
+</code></pre></li>
+<li><p>Create an alias in OS</p>
+
+<pre><code>cd bitdust
+sudo python bitdust.py integrate
+python bitdust.py integrate
+</code></pre></li>
+<li><p>Create an identity for you</p>
+
+<pre><code>bitdust id create alice
+</code></pre></li>
+<li><p>Get started</p>
+
+<p>Read more about <a href="commands.html">BitDust Commands</a> to start with the software.</p></li>
+</ol>
 
 
 </div>

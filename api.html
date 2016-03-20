@@ -9,7 +9,7 @@
 
     <link rel="canonical" href="http://bitdust.io">
     
-    <title>BitDust : API methods</title>
+    <title>BitDust API</title>
 
     <!-- <meta property="fb:admins" content="1097958228"/> -->
     <!-- <meta property="fb:app_id" content="543329652498581"/> -->
@@ -54,9 +54,81 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="api-methods">API methods</h1>
+<h1 id="bitdust-api">BitDust API</h1>
 
-<p>...</p>
+<h3 id="stop()">stop()</h3>
+
+<pre><code>Stop the main process immediately.
+Return:
+    { "result": "stopped" }
+</code></pre>
+
+<h3 id="restart(show=false)">restart(show=False)</h3>
+
+<pre><code>Restart the main process, if flag show=True the GUI will be opened after restart.
+Return:
+    { "result": "restarted" }
+</code></pre>
+
+<h3 id="show()">show()</h3>
+
+<pre><code>Opens a default web browser to show the BitDust GUI.
+Return:
+    { "result": '"show" event sent to the main process' }
+</code></pre>
+
+<h3 id="config_get(key,-default=none)">config_get(key, default=None)</h3>
+
+<pre><code>Return current value for specific option.
+Return: 
+    {'key': 'logs/debug-level', 
+     'type': 'positive integer', 
+     'value': '8'}
+</code></pre>
+
+<h3 id="config_set(key,-value,-typ=none)">config_set(key, value, typ=None)</h3>
+
+<h3 id="config_list(sort=false)">config_list(sort=False)</h3>
+
+<h3 id="filemanager(json_request)">filemanager(json_request)</h3>
+
+<h3 id="backups_update()">backups_update()</h3>
+
+<h3 id="backups_list()">backups_list()</h3>
+
+<h3 id="backups_id_list()">backups_id_list()</h3>
+
+<h3 id="backup_start_id(pathid)">backup_start_id(pathID)</h3>
+
+<h3 id="backup_start_path(path)">backup_start_path(path)</h3>
+
+<h3 id="backup_dir_add(dirpath)">backup_dir_add(dirpath)</h3>
+
+<h3 id="backup_file_add(filepath)">backup_file_add(filepath)</h3>
+
+<h3 id="backup_tree_add(dirpath)">backup_tree_add(dirpath)</h3>
+
+<h3 id="backup_delete_local(backupid)">backup_delete_local(backupID)</h3>
+
+<h3 id="backup_delete_id(pathid_or_backupid)">backup_delete_id(pathID_or_backupID)</h3>
+
+<h3 id="backup_delete_path(localpath)">backup_delete_path(localPath)</h3>
+
+<h3 id="restore_single(pathid_or_backupid_or_localpath,-destinationpath=none)">restore_single(pathID_or_backupID_or_localPath, destinationPath=None)</h3>
+
+<h3 id="list_messages()">list_messages()</h3>
+
+<h3 id="send_message(recipient,-message_body)">send_message(recipient, message_body)</h3>
+
+<h3 id="list_correspondents()">list_correspondents()</h3>
+
+<h3 id="add_correspondent(idurl,-nickname='')">add_correspondent(idurl, nickname='')</h3>
+
+<h3 id="remove_correspondent(idurl)">remove_correspondent(idurl)</h3>
+
+<h3 id="find_peer_by_nickname(nickname)">find_peer_by_nickname(nickname)</h3>
+
+<h3 id="ping(idurl)">ping(idurl)</h3>
 
 
 </div>

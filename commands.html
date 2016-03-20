@@ -9,7 +9,7 @@
 
     <link rel="canonical" href="http://bitdust.io">
     
-    <title>BitDust : Command Line</title>
+    <title>BitDust command line</title>
 
     <!-- <meta property="fb:admins" content="1097958228"/> -->
     <!-- <meta property="fb:app_id" content="543329652498581"/> -->
@@ -54,9 +54,64 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="command-line">Command Line</h1>
+<h1 id="bitdust-command-line">BitDust command line</h1>
 
-<p>...</p>
+<h3 id="create-an-identity">Create an identity</h3>
+
+<pre><code>bitdust id create alice
+</code></pre>
+
+<h3 id="some-basic-configuration">Some basic configuration</h3>
+
+<pre><code>bitdust set needed 100Mb
+bitdust set donated 250Mb
+bitdust set suppliers 7
+</code></pre>
+
+<h3 id="start/stop-software">Start/Stop software</h3>
+
+<pre><code>bitdust
+bitdust detach
+bitdust stop
+bitdust restart
+</code></pre>
+
+<h3 id="upload-files/folders">Upload files/folders</h3>
+
+<pre><code>bitdust backup start ~/examples.desktop
+</code></pre>
+
+<h3 id="list-of-uploaded-items">List of uploaded items</h3>
+
+<pre><code>bitdust backups
+bitdust backup list
+bitdust backup idlist
+</code></pre>
+
+<h3 id="download-from-remote-peers">Download from remote peers</h3>
+
+<pre><code>rm ~/examples.desktop
+bitdust restore 0/0/0
+ls ~/examples.desktop
+
+bitdust restore /home/veselin/examples.desktop /tmp
+ls /tmp/examples.desktop
+</code></pre>
+
+<h3 id="remove-remote-data">Remove remote data</h3>
+
+<pre><code>bitdust backup delete /home/veselin/examples.desktop
+</code></pre>
+
+<h3 id="request-the-actual-info-from-remote-nodes">Request the actual info from remote nodes</h3>
+
+<pre><code>bitdust backups updated
+</code></pre>
+
+<h3 id="open-the-gui-(development-in-progress,-almost-nothing-is-working)">Open the GUI (development in progress, almost nothing is working)</h3>
+
+<pre><code>bitdust show
+</code></pre>
 
 
 </div>
