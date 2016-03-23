@@ -4,6 +4,7 @@ SOURCE_DIR=../bitdust.docs.english
 
 for mdfilepath in $SOURCE_DIR/*.md
 do
+
     mdfile=$(basename "$mdfilepath")
     htmlfile="${mdfile/.md/.html}"
     python md2html.py "$SOURCE_DIR/$mdfile" > "./$htmlfile"

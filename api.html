@@ -67,7 +67,7 @@ Return:
 
 <pre><code>Restart the main process, if flag show=True the GUI will be opened after restart.
 Return:
-    { "result": "restarted" }
+    [&lt;twisted.python.failure.Failure twisted.internet.error.ConnectionDone: Connection was closed cleanly.&gt;]
 </code></pre>
 
 <h3 id="show()">show()</h3>
@@ -88,23 +88,109 @@ Return:
 
 <h3 id="config_set(key,-value,-typ=none)">config_set(key, value, typ=None)</h3>
 
+<pre><code>Set a value for given option.
+Return:
+    {'key': 'logs/debug-level',
+     'old_value': '8',
+     'type': 'positive integer',
+     'value': '10'}
+</code></pre>
+
 <h3 id="config_list(sort=false)">config_list(sort=False)</h3>
+
+<pre><code>Return a list of all options and its values.
+    [ {'key': 'services/backups/enabled', 'type': 'boolean', 'value': 'true'},
+      {'key': 'services/backups/keep-local-copies-enabled', 'type': 'boolean', 'value': 'false'},
+      {'key': 'services/backups/max-block-size', 'type': 'disk space', 'value': '128 MB'},
+      ...
+</code></pre>
 
 <h3 id="filemanager(json_request)">filemanager(json_request)</h3>
 
+<pre><code>A method to execute calls from GUI front-end and interact with web browser.
+This is a specific "gate" created for Ajax calls only.
+Example:
+    request:
+        {"params":{"mode":"stats"}}
+    response:
+        {'bytes_donated': 8589934592,
+         'bytes_indexed': 43349475,
+         'bytes_needed': 104857600,
+         'bytes_used_supplier': 21738768,
+         'bytes_used_total': 86955072,
+         'customers': 0,
+         'files_count': 5,
+         'folders_count': 0,
+         'items_count': 15,
+         'max_suppliers': 4,
+         'online_suppliers': 0,
+         'suppliers': 4,
+         'timestamp': 1458669668.288339,
+         'value_donated': '8 GB',
+         'value_needed': '100 MB',
+         'value_used_total': '82.93 MB'}
+</code></pre>
+
 <h3 id="backups_update()">backups_update()</h3>
+
+<pre><code>A method to restart backup_monitor() Automat and fire "synchronize" process with remote nodes.
+Result:
+    { 'result': 'the main loop has been restarted', }
+</code></pre>
 
 <h3 id="backups_list()">backups_list()</h3>
 
+<pre><code>Return a whole tree of files and folders in the catalog.
+Result:
+    [{'id': '0', 'path': '/Users', 'size': 43349475,'type': 'parent', 'versions': []},
+     {'id': '0/0', 'path': '/Users/veselin', 'size': 43349475, 'type': 'parent', 'versions': []},
+     {'id': '0/0/1', 'path': '/Users/veselin/Documents', 'size': 38992196, 'type': 'parent', 'versions': []},
+     {'id': '0/0/1/0', 'path': '/Users/veselin/Documents/python', 'size': 5754439, 'type': 'parent', 'versions': []},        
+     {'id': '0/0/1/0/0', 'path': '/Users/veselin/Documents/python/python27.chm', 'size': 5754439, 'type': 'file',
+          'versions': [{'blocks': 1, 'size': '11 MB', 'version': 'F20160313043757PM'}]},
+     ...
+</code></pre>
+
 <h3 id="backups_id_list()">backups_id_list()</h3>
+
+<pre><code>Return only list of items uploaded on remote machines.
+Result:
+    [{'backupid': '0/0/1/0/0/F20160313043757PM',
+      'path': '/Users/veselin/Documents/python/python27.chm',
+      'size': '11 MB'},
+     {'backupid': '0/0/0/0/0/0/F20160315052257PM',
+      'path': '/Users/veselin/Music/Bob Marley/01-Soul Rebels (1970)/01-Put It On.mp3',
+      'size': '8.27 MB'}
+     ...
+</code></pre>
 
 <h3 id="backup_start_id(pathid)">backup_start_id(pathID)</h3>
 
+<pre><code>Start uploading a given item already existed in the catalog by its path ID.
+Result:
+    {'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm' }
+</code></pre>
+
 <h3 id="backup_start_path(path)">backup_start_path(path)</h3>
+
+<pre><code>Start uploading file or folder to remote nodes, assign a new path ID and add it to the catalog.
+Result:
+    {'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm' }
+</code></pre>
 
 <h3 id="backup_dir_add(dirpath)">backup_dir_add(dirpath)</h3>
 
+<pre><code>Add given folder to the catalog but do not start uploading process.
+Result:
+    {'result': 'new folder was added: 0/0/2, local path is /Users/veselin/Movies/'}
+</code></pre>
+
 <h3 id="backup_file_add(filepath)">backup_file_add(filepath)</h3>
+
+<pre><code>Add a single file to the catalog, skip uploading.
+Result:
+    {'result': 'new file was added: 0/0/3/0, local path is /Users/veselin/Downloads/pytest-2.9.0.tar.gz'}
+</code></pre>
 
 <h3 id="backup_tree_add(dirpath)">backup_tree_add(dirpath)</h3>
 
