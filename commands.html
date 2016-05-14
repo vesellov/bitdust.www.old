@@ -58,127 +58,221 @@
 
 <h2 id="commands">Commands</h2>
 
-<pre><code>[start]
-                    start main BitDust process
+<h3 id="start">start</h3>
 
-detach
-                    start BitDust in as a daemon process
+<p>start main BitDust process</p>
 
-restart
-                    restart BitDust 
+<h3 id="detach">detach</h3>
 
-stop                
-                    stop BitDust
+<p>start BitDust in as a daemon process</p>
 
-show                
-                    start BitDust and show the main window
+<h3 id="restart">restart</h3>
 
-integrate           
-                    creates a `bitdust` alias in OS
-                    in that location:
-                    /usr/local/bin/bitdust
-                    ~/bin/bitdust (if no access to /usr/local/) 
+<p>restart BitDust </p>
 
-identity create &lt;nickname&gt; [private key size]
-                    generate a new private key and 
-                    new identity file for you
-                    key size can be 1024, 2048 or 4096
+<h3 id="stop">stop</h3>
 
-identity restore &lt;private key source file&gt; [IDURL]
-                    recover existing identity file
-                    with your private key file
+<p>stop BitDust</p>
 
-identity erase      
-                    delete local identity from this machine 
+<h3 id="show">show</h3>
 
-key copy            
-                    copy private key to clipboard,
-                    use Ctrl+V to paste it
+<p>start BitDust and show the main window</p>
 
-key backup &lt;a filename for copy of private key&gt;
-                    copy private key into file
+<h3 id="integrate">integrate</h3>
 
-key print           
-                    print private key to console
-                    WARNING!!! do not publish your key  
+<p>creates a <code>bitdust</code> alias in OS
+in /usr/local/bin/bitdust or in
+~/bin/bitdust if no access to /usr/local/ </p>
 
-backup list         
-                    show a full catalog of registered
-                    files and folders
+<h3 id="identity-create-nickname-private-key-size">identity create &lt;nickname&gt; [private key size]</h3>
 
-backup idlist        
-                    show a list of items already uploaded
-                    on remote peers 
+<p>generate a new private key and 
+new identity file for you
+key size can be 1024, 2048 or 4096</p>
 
-backup start &lt;local path or ID&gt;
-                    start a new backup of the local file or folder 
-                    or existing ID from catalog
+<h3 id="identity-restore-private-key-source-file-idurl">identity restore &lt;private key source file&gt; [IDURL]</h3>
 
-backup delete &lt;local path, ID or full backup ID&gt;
-                    remove a file or folder (with all sub folders)
-                    from catalog or just delete a given backup
+<p>recover existing identity file
+with your private key file</p>
 
-backup delete local &lt;full backup ID&gt;
-                    remove only local copy of given backup,
-                    keep remote copy on suppliers HDD
+<h3 id="identity-erase">identity erase</h3>
 
-backup update       
-                    send requests to all suppliers
-                    to refresh info for entire catalog 
+<p>delete local identity from this machine </p>
 
-restore &lt;local path or ID&gt; [destination path]
-                    download personal data back to local machine
-                    from remote peers, you can specify 
-                    the destination path on your local drive,
-                    WARNING! source path is default location,
-                    so it will overwrite existing files by default
+<h3 id="key-copy">key copy</h3>
 
-set &lt;option&gt; [value]
-                    use this command to get/set program setting
+<p>copy private key to clipboard,
+use Ctrl+V to paste it</p>
 
-set list            
-                    print all available settings and its values
+<h3 id="key-backup-a-filename-for-copy-of-private-key">key backup &lt;a filename for copy of private key&gt;</h3>
 
-api &lt;method&gt; [params]
-                    execute API method and return JSON response
+<p>copy private key into file</p>
 
-version             
-                    display current software version
+<h3 id="key-print">key print</h3>
 
-help                
-                    print a detailed info for command line usage
+<p>print private key to console
+WARNING!!! do not publish your key  </p>
 
-usage               
-                    print a brief list of available commands
+<h3 id="backup-list">backup list</h3>
 
-Options:
-  -h, --help        
-                    show this help message and exit
+<p>show a full catalog of registered
+files and folders</p>
 
-  Logs:
-    -d DEBUG, --debug=DEBUG
-                    set debug level
+<h3 id="backup-idlist">backup idlist</h3>
 
-    -q, --quite     
-                    quite mode, do not print any messages to stdout
+<p>show a list of items already uploaded
+on remote peers </p>
 
-    -v, --verbose   
-                    verbose mode, print more messages
+<h3 id="backup-add-local-path">backup add &lt;local path&gt;</h3>
 
-    -n, --no-logs   
-                    do not use logs
+<p>add given path to the catalog</p>
 
-    -o OUTPUT, --output=OUTPUT
-                    print log messages to the file
+<h3 id="backup-addtree-local-folder-path">backup addtree &lt;local folder path&gt;</h3>
 
-    -a APPDIR, --appdir=APPDIR
-                    set alternative location 
-                    for application data files,
-                    default is ~/.bitdust/
+<p>add given folder (with all sub folders) to the catalog</p>
 
-    --twisted       
-                    show twisted log messages too
-</code></pre>
+<h3 id="backup-start-local-path-or-id">backup start &lt;local path or ID&gt;</h3>
+
+<p>start a new backup of the local file or folder 
+or existing ID from catalog</p>
+
+<h3 id="backup-delete-local-path,-id-or-full-backup-id">backup delete &lt;local path, ID or full backup ID&gt;</h3>
+
+<p>remove a file or folder (with all sub folders)
+from catalog or just delete a given backup</p>
+
+<h3 id="backup-delete-local-full-backup-id">backup delete local &lt;full backup ID&gt;</h3>
+
+<p>remove only local copy of given backup,
+keep remote copy on suppliers HDD</p>
+
+<h3 id="backup-update">backup update</h3>
+
+<p>send requests to all suppliers
+to refresh info for entire catalog </p>
+
+<h3 id="backup-queue">backup queue</h3>
+
+<p>show a list of paths to be uploaded</p>
+
+<h3 id="backup-progress">backup progress</h3>
+
+<p>show a list of currently running uploads</p>
+
+<h3 id="restore-list">restore list</h3>
+
+<p>show a list of items already uploaded on remote peers</p>
+
+<h3 id="restore-start-local-path-or-id-destination-path">restore start &lt;local path or ID&gt; [destination path]</h3>
+
+<p>download personal data back to local machine
+from remote peers, you can specify 
+the destination path on your local drive,
+WARNING! source path is default location,
+so it will overwrite existing files by default</p>
+
+<h3 id="restore-abort-backup-id">restore abort &lt;backup ID&gt;</h3>
+
+<p>abort currently running restore process of given item</p>
+
+<h3 id="restore-progress">restore progress</h3>
+
+<p>show currently running downloads </p>
+
+<h3 id="supplier-list">supplier list</h3>
+
+<p>show list of your suppliers
+nodes who stores your data on own machines</p>
+
+<h3 id="supplier-replace-idurl-or-position">supplier replace &lt;IDURL or position&gt;</h3>
+
+<p>execute a fire/hire process for given supplier,
+another random node will replace him</p>
+
+<h3 id="supplier-change-idurl-or-position-new-idurl">supplier change &lt;IDURL or position&gt; &lt;new IDURL&gt;</h3>
+
+<p>replace a supplier by given node</p>
+
+<h3 id="supplier-ping">supplier ping</h3>
+
+<p>send Identity packet to all suppliers
+and wait Ack packets to check their statuses</p>
+
+<h3 id="customer-list">customer list</h3>
+
+<p>show list of your customers
+nodes who stores own data on your machine</p>
+
+<h3 id="customer-remove-idurl">customer remove &lt;IDURL&gt;</h3>
+
+<p>reject supporting given customer and
+remove all local files stored for him</p>
+
+<h3 id="customer-ping">customer ping</h3>
+
+<p>send Identity packet to all customers
+and wait Ack packets to check their statuses</p>
+
+<h3 id="storage">storage</h3>
+
+<p>show donated/needed storage statistic </p>
+
+<h3 id="ping-idurl">ping &lt;IDURL&gt;</h3>
+
+<p>send Identity packet to this node
+and wait Ack packet to check his status</p>
+
+<h3 id="set-option-value">set &lt;option&gt; [value]</h3>
+
+<p>use this command to get/set program setting</p>
+
+<h3 id="set-list">set list</h3>
+
+<p>print all available settings and its values</p>
+
+<h3 id="api-method-params">api &lt;method&gt; [params]</h3>
+
+<p>execute API method and return JSON response</p>
+
+<h3 id="version">version</h3>
+
+<p>display current software version</p>
+
+<h3 id="help">help</h3>
+
+<p>print a detailed info for command line usage</p>
+
+<h3 id="usage">usage</h3>
+
+<p>print a brief list of available commands</p>
+
+<h2 id="options:">Options:</h2>
+
+<p>-h, --help <br />
+                show this help message and exit</p>
+
+<p>-d DEBUG, --debug=DEBUG
+                set debug level</p>
+
+<p>-q, --quite <br />
+                quite mode, do not print any messages to stdout</p>
+
+<p>-v, --verbose <br />
+                verbose mode, print more messages</p>
+
+<p>-n, --no-logs <br />
+                do not use logs</p>
+
+<p>-o OUTPUT, --output=OUTPUT
+                print log messages to the file</p>
+
+<p>-a APPDIR, --appdir=APPDIR
+                set alternative location 
+                for application data files,
+                default is ~/.bitdust/</p>
+
+<p>--twisted <br />
+                show twisted log messages too</p>
 
 <h2 id="examples">Examples</h2>
 
@@ -239,9 +333,29 @@ ls /tmp/examples.desktop
 <pre><code>bitdust backups updated
 </code></pre>
 
-<h4 id="open-the-gui-(development-in-progress,-almost-nothing-is-working)">Open the GUI (development in progress, almost nothing is working)</h4>
+<h4 id="ping-all-suppliers-to-check-their-current-status">Ping all suppliers to check their current status</h4>
 
-<pre><code>bitdust show
+<pre><code>bitdust suppliers ping
+</code></pre>
+
+<h4 id="ping-a-given-node-by-idurl">Ping a given node by IDURL</h4>
+
+<pre><code>bitdust ping http://p2p-id.ru/veselin.xml
+</code></pre>
+
+<h4 id="get-some-info-about-donated-and-consumed-space-usage">Get some info about donated and consumed space usage</h4>
+
+<pre><code>bitdust storage
+</code></pre>
+
+<h4 id="print-a-list-of-program-settings">Print a list of program settings</h4>
+
+<pre><code>bitdust set list
+</code></pre>
+
+<h4 id="modify-a-single-setting">Modify a single setting</h4>
+
+<pre><code>bitdust set logs/debug-level 8
 </code></pre>
 
 

@@ -23,10 +23,10 @@ sbody = re.sub('a href="(\w+?)"', 'a href="\g<1>.html"', sbody)
 sbody = re.sub('a href="#(.+?)"', 'a href="%s#\g<1>"' % os.path.basename(src), sbody)
 sbody = re.sub('\<p\>\<style', '<style', sbody)
 sbody = re.sub('\</style\>\</p\>', '</style>', sbody)
-sbody = re.sub('\<h(\d)\>(.+?)\<\/h(\d)\>', 
+sbody = re.sub('\<h(\d)\>(.+?)\<\/h(\d)\>',
                lambda m: '<h%s id="%s">%s</h%s>' % (m.group(1),
-                                                    m.group(2).replace(' ','-').lower(),
-                                                    m.group(2),
+                                                    m.group(2).replace('<','').replace('>','').replace('[','').replace(']','').replace(' ','-').lower(),
+                                                    m.group(2).replace('<','&lt;').replace('>','&gt;'),
                                                     m.group(3)), 
                sbody)
 # sbody = sbody.replace(
