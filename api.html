@@ -60,29 +60,29 @@
 
 <p>Stop the main process immediately.</p>
 
-<pre><code>"{'status': 'OK', 'result': 'stopped'}"
+<pre><code>{'status': 'OK', 'result': 'stopped'}
 </code></pre>
 
 <h3 id="restart(showgui=false)">restart(showgui=False)</h3>
 
 <p>Restart the main process, if flag show=True the GUI will be opened after restart.</p>
 
-<pre><code>"{'status': 'OK', 'result': 'restarted'}"
+<pre><code>{'status': 'OK', 'result': 'restarted'}
 </code></pre>
 
 <h3 id="show()">show()</h3>
 
 <p>Opens a default web browser to show the BitDust GUI.</p>
 
-<pre><code>"{'status': 'OK', 
-  'result': '`show` event has been sent to the main process'}"
+<pre><code>{'status': 'OK', 
+  'result': '`show` event has been sent to the main process'}
 </code></pre>
 
 <h3 id="config_get(key,-default=none)">config_get(key, default=None)</h3>
 
 <p>Return current value for specific option.</p>
 
-<pre><code>"{'status': 'OK',
+<pre><code>{'status': 'OK',
   'result': [
      {'type': 'positive integer',
       'value': '8', 
@@ -93,7 +93,7 @@
 
 <p>Set a value for given option.</p>
 
-<pre><code>"{'status': 'OK',
+<pre><code>{'status': 'OK',
   'result': [
      {'type': 'positive integer',
       'old_value': '8',
@@ -105,7 +105,7 @@
 
 <p>Monitor all options and values.</p>
 
-<pre><code>"{'status': 'OK',
+<pre><code>{'status': 'OK',
   'result': [
      {'type': 'boolean',
       'value': 'true',
@@ -154,14 +154,14 @@ More info will be added soon.</p>
 <p>A method to restart backup_monitor() Automat and 
 fire "synchronize" process with remote nodes.</p>
 
-<pre><code>"{'status': 'OK', 'result': 'the main loop has been restarted'}"
+<pre><code>{'status': 'OK', 'result': 'the main loop has been restarted'}
 </code></pre>
 
 <h3 id="backups_list()">backups_list()</h3>
 
 <p>Return a whole tree of files and folders in the catalog.</p>
 
-<pre><code>"{'status': 'OK', 
+<pre><code>{'status': 'OK', 
   'result': [
      {'path': '/Users/veselin/Documents', 
       'versions': [], 
@@ -187,44 +187,44 @@ fire "synchronize" process with remote nodes.</p>
 
 <p>Return only list of items uploaded on remote machines.</p>
 
-<pre><code>"{'status': 'OK', 
+<pre><code>{'status': 'OK', 
   'result': [{'backupid': '0/0/1/0/0/F20160313043757PM', 
               'path': '/Users/veselin/Documents/python/python27.chm', 
               'size': '11 MB'}, 
              {'backupid': '0/0/0/0/0/0/F20160315052257PM', 
               'path': '/Users/veselin/Music/Bob Marley/01-Soul Rebels (1970)/01-Put It On.mp3', 
-              'size': '8.27 MB'}]}"
+              'size': '8.27 MB'}]}
 </code></pre>
 
 <h3 id="backup_start_id(pathid)">backup_start_id(pathID)</h3>
 
 <p>Start uploading a given item already existed in the catalog by its path ID.</p>
 
-<pre><code>"{'status': 'OK', 
-  'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}"
+<pre><code>{'status': 'OK', 
+  'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}
 </code></pre>
 
 <h3 id="backup_start_path(path)">backup_start_path(path)</h3>
 
 <p>Start uploading file or folder to remote nodes, assign a new path ID and add it to the catalog.</p>
 
-<pre><code>"{'status': 'OK',
-  'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}"
+<pre><code>{'status': 'OK',
+  'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}
 </code></pre>
 
 <h3 id="backup_dir_add(dirpath)">backup_dir_add(dirpath)</h3>
 
 <p>Add given folder to the catalog but do not start uploading process.</p>
 
-<pre><code>"{'status': 'OK',
-  'result': 'new folder was added: 0/0/2, local path is /Users/veselin/Movies/'}"
+<pre><code>{'status': 'OK',
+  'result': 'new folder was added: 0/0/2, local path is /Users/veselin/Movies/'}
 </code></pre>
 
 <h3 id="backup_file_add(filepath)">backup_file_add(filepath)</h3>
 
 <p>Add a single file to the catalog, skip uploading.</p>
 
-<pre><code>"{'status': 'OK', 'result': 'new file was added: 0/0/3/0, local path is /Users/veselin/Downloads/pytest-2.9.0.tar.gz'}"
+<pre><code>{'status': 'OK', 'result': 'new file was added: 0/0/3/0, local path is /Users/veselin/Downloads/pytest-2.9.0.tar.gz'}
 </code></pre>
 
 <h3 id="backup_tree_add(dirpath)">backup_tree_add(dirpath)</h3>
@@ -232,16 +232,16 @@ fire "synchronize" process with remote nodes.</p>
 <p>Recursively reads the entire folder and put files and folders items into the catalog,
 but did not start any uploads.
 Results:
-    "{'status': 'OK',
-      'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports'}"</p>
+    {'status': 'OK',
+      'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports'}</p>
 
 <h3 id="backup_delete_local(backupid)">backup_delete_local(backupID)</h3>
 
 <p>Remove only local files belongs to this particular backup.
 All remote data stored on suppliers machines remains unchanged.</p>
 
-<pre><code>"{'status': 'OK',
-  'result': '8 files were removed with total size of 16 Mb'}"
+<pre><code>{'status': 'OK',
+  'result': '8 files were removed with total size of 16 Mb'}
 </code></pre>
 
 <h3 id="backup_delete_id(pathid_or_backupid)">backup_delete_id(pathID_or_backupID)</h3>
@@ -250,8 +250,8 @@ All remote data stored on suppliers machines remains unchanged.</p>
 This will completely remove your data from BitDust network.
 You can specify either path ID of that location or specific version.</p>
 
-<pre><code>"{'status': 'OK',
-  'result': 'version 0/0/1/1/0/F20160313043419PM was deleted from remote peers'}"
+<pre><code>{'status': 'OK',
+  'result': 'version 0/0/1/1/0/F20160313043419PM was deleted from remote peers'}
 </code></pre>
 
 <h3 id="backup_delete_path(localpath)">backup_delete_path(localPath)</h3>
@@ -260,9 +260,54 @@ You can specify either path ID of that location or specific version.</p>
 All data for given item will be removed from remote peers.
 Any local files related to this path will be removed as well.</p>
 
-<pre><code>"{'status': 'OK',
-  'result': 'item 0/1/2 was deleted from remote peers'}"
+<pre><code>{'status': 'OK',
+  'result': 'item 0/1/2 was deleted from remote peers'}
 </code></pre>
+
+<h3 id="backups_queue()">backups_queue()</h3>
+
+<p>Return a list of paths to be backed up as soon as
+currently running backups will be finished.</p>
+
+<pre><code>{'status': 'OK',
+  'result': [    
+    {'created': 'Wed Apr 27 15:11:13 2016',
+     'id': 3,
+     'local_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
+     'path_id': '0/0/3/1'}]}
+</code></pre>
+
+<h3 id="backups_running()">backups_running()</h3>
+
+<p>Return a list of currently running uploads.</p>
+
+<pre><code>{'status': 'OK',
+  'result': [    
+    {'aborting': False,
+     'backup_id': '0/0/3/1/F20160424013912PM',
+     'block_number': 4,
+     'block_size': 16777216,
+     'bytes_processed': 67108864,
+     'closed': False,
+     'eccmap': 'ecc/4x4',
+     'eof_state': False,
+     'pipe': 0,
+     'progress': 75.0142815704418,
+     'reading': False,
+     'source_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
+     'terminating': False,
+     'total_size': 89461450,
+     'work_blocks': 4}
+]}
+</code></pre>
+
+<h3 id="backup_cancel_pending(path_id)">backup_cancel_pending(path_id)</h3>
+
+<p>Cancel pending task to backup given item from catalog. </p>
+
+<h3 id="backup_abort_running(backup_id)">backup_abort_running(backup_id)</h3>
+
+<p>Abort currently running backup.</p>
 
 <h3 id="restore_single(pathid_or_backupid_or_localpath,-destinationpath=none)">restore_single(pathID_or_backupID_or_localPath, destinationPath=None)</h3>
 
@@ -275,8 +320,83 @@ It is possible to select the destination folder to extract requested files to.
 By default this method uses known location from catalog for given item.
 WARNING: Your existing local data will be overwritten.</p>
 
-<pre><code>"{'status': 'OK',
-  'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/Downloads/restore/'}"
+<pre><code>{'status': 'OK',
+  'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/Downloads/restore/'}
+</code></pre>
+
+<h3 id="restores_running()">restores_running()</h3>
+
+<p>Return a list of currently running downloads:</p>
+
+<pre><code>{ u'result': [ { 'aborted': False,
+                 'backup_id': '0/0/3/1/F20160427011209PM',
+                 'block_number': 0,
+                 'bytes_processed': 0,
+                 'creator_id': 'http://veselin-p2p.ru/veselin.xml',
+                 'done': False,
+                 'created': 'Wed Apr 27 15:11:13 2016',
+                 'eccmap': 'ecc/4x4',
+                 'path_id': '0/0/3/1',
+                 'version': 'F20160427011209PM'}],
+  u'status': u'OK'}
+</code></pre>
+
+<h3 id="restore_abort(backup_id)">restore_abort(backup_id)</h3>
+
+<p>Abort currently running restore process.</p>
+
+<h3 id="suppliers_list()">suppliers_list()</h3>
+
+<p>List of suppliers - nodes who stores my data on own machines.</p>
+
+<h3 id="supplier_replace(index_or_idurl)">supplier_replace(index_or_idurl)</h3>
+
+<p>Execute a fire/hire process of one supplier,
+another random node will replace this supplier.
+As soon as new supplier will be found and connected,
+rebuilding of all uploaded data will be started and
+the new node will start getting a reconstructed fragments.</p>
+
+<h3 id="supplier_change(index_or_idurl,-new_idurl)">supplier_change(index_or_idurl, new_idurl)</h3>
+
+<p>Doing same as supplier_replace() but new node is provided directly.</p>
+
+<h3 id="suppliers_ping()">suppliers_ping()</h3>
+
+<p>Send short requests to all suppliers to get their current statuses.</p>
+
+<h3 id="customers_list()">customers_list()</h3>
+
+<p>List of customers - nodes who stores own data on your machine.</p>
+
+<h3 id="customer_reject(idurl)">customer_reject(idurl)</h3>
+
+<p>Stop supporting given customer, remove all his files from local disc,
+close connections with that node.</p>
+
+<h3 id="customers_ping()">customers_ping()</h3>
+
+<p>Send Identity packet to all customers to check their current statuses.
+Every node will reply with Ack packet on any valid incoming Identiy packet.  </p>
+
+<h3 id="space_donated()">space_donated()</h3>
+
+<p>Return detailed statistics about your donated space usage.</p>
+
+<h3 id="space_consumed()">space_consumed()</h3>
+
+<p>Return some info about your current usage of BitDust resources.</p>
+
+<h3 id="ping(idurl,-timeout=10)">ping(idurl, timeout=10)</h3>
+
+<p>The "ping" command performs following actions:
+1. Request remote identity source by idurl,
+2. Send my Identity to remote contact addresses, taken from identity,
+3. Wait first Ack packet from remote peer,
+4. Failed by timeout or identity fetching error.</p>
+
+<pre><code>{'status': 'OK', 
+  'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
 </code></pre>
 
 <h3 id="list_messages()">list_messages()</h3>
@@ -307,18 +427,6 @@ WARNING: Your existing local data will be overwritten.</p>
 <h3 id="remove_correspondent(idurl)">remove_correspondent(idurl)</h3>
 
 <h3 id="find_peer_by_nickname(nickname)">find_peer_by_nickname(nickname)</h3>
-
-<h3 id="ping(idurl,-timeout=10)">ping(idurl, timeout=10)</h3>
-
-<p>The "ping" command performs following actions:
-1. Request remote identity source by idurl,
-2. Send my Identity to remote contact addresses, taken from identity,
-3. Wait first Ack packet from remote peer,
-4. Failed by timeout or identity fetching error.</p>
-
-<pre><code>"{'status': 'OK', 
-  'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}"
-</code></pre>
 
 
 </div>
