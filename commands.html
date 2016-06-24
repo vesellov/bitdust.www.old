@@ -113,51 +113,71 @@ use Ctrl+V to paste it</p>
 <p>print private key to console
 WARNING!!! do not publish your key  </p>
 
-<h3 id="backup-list">backup list</h3>
+<h3 id="get-option">get [option]</h3>
+
+<p>print current value for given program setting</p>
+
+<h3 id="set-option-value">set [option] [value]</h3>
+
+<p>use this command to set program setting</p>
+
+<h3 id="set-list">set list</h3>
+
+<p>print all available settings and its values</p>
+
+<h3 id="file-list">file list</h3>
 
 <p>show a full catalog of registered
 files and folders</p>
 
-<h3 id="backup-idlist">backup idlist</h3>
+<h3 id="file-idlist">file idlist</h3>
 
 <p>show a list of items already uploaded
 on remote peers </p>
 
-<h3 id="backup-add-local-path">backup add [local path]</h3>
+<h3 id="file-bind-local-path">file bind [local path]</h3>
 
-<p>add given path to the catalog</p>
+<p>add given path as a top level item in the catalog</p>
 
-<h3 id="backup-addtree-local-folder-path">backup addtree [local folder path]</h3>
+<h3 id="file-add-local-path">file add [local path]</h3>
 
-<p>add given folder (with all sub folders) to the catalog</p>
+<p>replicate given path into the catalog,
+this will add to catalog all parent folders too</p>
 
-<h3 id="backup-start-local-path-or-id">backup start [local path or ID]</h3>
+<h3 id="file-addtree-local-folder-path">file addtree [local folder path]</h3>
 
-<p>start a new backup of the local file or folder 
-or existing ID from catalog</p>
+<p>replicate given folder with
+all sub folders to the catalog,
+be aware if you add too much items to catalog
+the software may operate inefficient    </p>
 
-<h3 id="backup-delete-local-path,-id-or-full-backup-id">backup delete [local path, ID or full backup ID]</h3>
+<h3 id="file-start-local-path-or-id">file start [local path or ID]</h3>
+
+<p>start uploading a catalog item on to remote peers,
+bind a new local file/folder if path is not yet
+existing in the catalog </p>
+
+<h3 id="file-delete-local-path,-id-or-full-backup-id">file delete [local path, ID or full backup ID]</h3>
 
 <p>remove a file or folder (with all sub folders)
-from catalog or just delete a given backup</p>
+from catalog or only erase a given remote copy</p>
 
-<h3 id="backup-delete-local-full-backup-id">backup delete local [full backup ID]</h3>
+<h3 id="file-delete-local-full-backup-id">file delete local [full backup ID]</h3>
 
 <p>remove only local copy of given backup,
 keep remote copy on suppliers HDD</p>
 
-<h3 id="backup-update">backup update</h3>
-
-<p>send requests to all suppliers
-to refresh info for entire catalog </p>
-
-<h3 id="backup-queue">backup queue</h3>
+<h3 id="file-queue">file queue</h3>
 
 <p>show a list of paths to be uploaded</p>
 
-<h3 id="backup-progress">backup progress</h3>
+<h3 id="file-progress">file progress</h3>
 
 <p>show a list of currently running uploads</p>
+
+<h3 id="file-sync">file sync</h3>
+
+<p>request all suppliers to check/restart uploads</p>
 
 <h3 id="restore-list">restore list</h3>
 
@@ -217,18 +237,31 @@ and wait Ack packets to check their statuses</p>
 
 <p>show donated/needed storage statistic </p>
 
+<h3 id="automat-list">automat list</h3>
+
+<p>list all running state machines and current states</p>
+
+<h3 id="service-list">service list</h3>
+
+<p>list all registered services</p>
+
+<h3 id="service-service-name">service [service name]</h3>
+
+<p>print detailed info for given service</p>
+
 <h3 id="ping-idurl">ping [IDURL]</h3>
 
 <p>send Identity packet to this node
 and wait Ack packet to check his status</p>
 
-<h3 id="set-option-value">set [option] [value]</h3>
+<h3 id="chat">chat</h3>
 
-<p>use this command to get/set program setting</p>
+<p>start a chat session, send/listen text
+messages from other users</p>
 
-<h3 id="set-list">set list</h3>
+<h3 id="chat-send-idurl-"text-message"">chat send [IDURL] ["text message"]</h3>
 
-<p>print all available settings and its values</p>
+<p>send a single text message to remote user</p>
 
 <h3 id="api-method-params">api [method] [params]</h3>
 

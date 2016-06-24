@@ -108,7 +108,7 @@
 <p>Monitor all options and values.</p>
 
 <pre><code>{'status': 'OK',
-  'result': [
+ 'result': [
      {'type': 'boolean',
       'value': 'true',
       'key': 'services/backups/enabled'}, 
@@ -206,17 +206,49 @@ fire "synchronize" process with remote nodes.</p>
   'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}
 </code></pre>
 
-<h3 id="backup_start_path(path)">backup_start_path(path)</h3>
+<h3 id="backup_start_path(path,-bind_local_path=true)">backup_start_path(path, bind_local_path=True)</h3>
 
-<p>Start uploading file or folder to remote nodes, assign a new path ID and add it to the catalog.</p>
+<p>Start uploading file or folder to remote nodes,
+assign a new path ID and add it to the catalog.
+If bind<em>local</em>path is False all parent sub folders:</p>
+
+<pre><code>["Users", "veselin", "Documents", "python",]
+</code></pre>
+
+<p>will be also added to catalog
+and so final ID will be combination of several IDs:</p>
+
+<pre><code>0/0/1/0/0
+</code></pre>
+
+<p>Otherwise item will be created in the top level of the catalog
+and final ID will be just a single unique number.
+So if bind<em>local</em>path is True it will act like backup<em>map</em>path()
+and start the backup process after that.</p>
 
 <pre><code>{'status': 'OK',
-  'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}
+ 'result': 'uploading of item 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm',
+ 'id': '0/0/1/0/0',
+ 'type': 'file', }
+</code></pre>
+
+<h3 id="backup_map_path(path)">backup_map_path(path)</h3>
+
+<p>Create a new top level item in the catalog and point it to given local path.
+This is the simplest way to upload a file and get an ID for that remote copy.</p>
+
+<pre><code>{'status': 'OK',
+ 'result': [ 'new file was added: 1, local path is /Users/veselin/Pictures/bitdust.png'],
+ 'id': '1',
+ 'type': 'file'}
 </code></pre>
 
 <h3 id="backup_dir_add(dirpath)">backup_dir_add(dirpath)</h3>
 
-<p>Add given folder to the catalog but do not start uploading process.</p>
+<p>Add given folder to the catalog but do not start uploading process.
+This method will create all sub folders in the catalog
+and keeps the same structure as your local folders structure.
+So the final ID will be combination of all parent IDs, separated with "/".</p>
 
 <pre><code>{'status': 'OK',
   'result': 'new folder was added: 0/0/2, local path is /Users/veselin/Movies/'}
@@ -224,19 +256,23 @@ fire "synchronize" process with remote nodes.</p>
 
 <h3 id="backup_file_add(filepath)">backup_file_add(filepath)</h3>
 
-<p>Add a single file to the catalog, skip uploading.</p>
+<p>Add a single file to the catalog, skip uploading.
+This method will create all sub folders in the catalog
+and keeps the same structure as your local file path structure.
+So the final ID of that file in the catalog will be combination
+of all parent IDs, separated with "/".</p>
 
 <pre><code>{'status': 'OK', 'result': 'new file was added: 0/0/3/0, local path is /Users/veselin/Downloads/pytest-2.9.0.tar.gz'}
 </code></pre>
 
 <h3 id="backup_tree_add(dirpath)">backup_tree_add(dirpath)</h3>
 
-<p>Recursively reads the entire folder and put files and folders items into the catalog,
-but did not start any uploads.</p>
+<p>Recursively reads the entire folder and create items for all files and folders
+keeping the same structure. Do not start any uploads.</p>
 
-<p>Results:
-    {'status': 'OK',
-      'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports'}</p>
+<pre><code>{'status': 'OK',
+  'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports'}
+</code></pre>
 
 <h3 id="backup_delete_local(backupid)">backup_delete_local(backupID)</h3>
 
@@ -306,22 +342,33 @@ currently running backups finish.</p>
 
 <h3 id="backup_cancel_pending(path_id)">backup_cancel_pending(path_id)</h3>
 
-<p>Cancel pending task to backup given item from catalog. </p>
+<p>Cancel pending task to run backup of given item. </p>
+
+<pre><code>{'status': 'OK', 'result': 'item 123 cancelled', }
+</code></pre>
 
 <h3 id="backup_abort_running(backup_id)">backup_abort_running(backup_id)</h3>
 
 <p>Abort currently running backup.</p>
 
+<pre><code>{'status': 'OK', 'result': 'backup 0/0/3/1/F20160424013912PM aborted', }
+</code></pre>
+
 <h3 id="restore_single(pathid_or_backupid_or_localpath,-destinationpath=none)">restore_single(pathID_or_backupID_or_localPath, destinationPath=None)</h3>
 
 <p>Download data from remote peers to your local machine.
-You can use different methods to select the target data:
-    + item ID in the catalog
-    + full version identifier
-    + local path
-It is possible to select the destination folder to extract requested files to.
-By default this method uses known location from catalog for given item.
-WARNING: Your existing local data will be overwritten.</p>
+You can use different methods to select the target data:</p>
+
+<ul>
+<li>item ID in the catalog</li>
+<li>full version identifier</li>
+<li>local path</li>
+</ul>
+
+<p>It is possible to select the destination folder to extract requested files to.
+By default this method uses known location from catalog for given item.</p>
+
+<p>WARNING: Your existing local data will be overwritten.</p>
 
 <pre><code>{'status': 'OK',
   'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/Downloads/restore/'}
@@ -331,7 +378,8 @@ WARNING: Your existing local data will be overwritten.</p>
 
 <p>Return a list of currently running downloads:</p>
 
-<pre><code>{ 'result': [ { 'aborted': False,
+<pre><code>{'status': 'OK',
+ 'result':   [ { 'aborted': False,
                  'backup_id': '0/0/3/1/F20160427011209PM',
                  'block_number': 0,
                  'bytes_processed': 0,
@@ -340,71 +388,254 @@ WARNING: Your existing local data will be overwritten.</p>
                  'created': 'Wed Apr 27 15:11:13 2016',
                  'eccmap': 'ecc/4x4',
                  'path_id': '0/0/3/1',
-                 'version': 'F20160427011209PM'}],
-  'status': 'OK'}
+                 'version': 'F20160427011209PM'}],}
 </code></pre>
 
 <h3 id="restore_abort(backup_id)">restore_abort(backup_id)</h3>
 
 <p>Abort currently running restore process.</p>
 
+<pre><code>{'status': 'OK',
+ 'result': 'restoring of item 123 aborted', }
+</code></pre>
+
 <h3 id="suppliers_list()">suppliers_list()</h3>
 
-<p>List of suppliers - nodes who stores my data on own machines.</p>
+<p>This method returns a list of suppliers, 
+those nodes stores my data on own machines.</p>
+
+<pre><code>{'status': 'OK',
+ 'result':  [ {  'connected': '05-06-2016 13:06:05',
+                 'idurl': 'http://p2p-id.ru/bitdust_j_vps1014.xml',
+                 'numfiles': 14,
+                 'position': 0,
+                 'status': 'offline'},
+               { 'connected': '05-06-2016 13:04:57',
+                 'idurl': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
+                 'numfiles': 14,
+                 'position': 1,
+                 'status': 'offline'}], }
+</code></pre>
 
 <h3 id="supplier_replace(index_or_idurl)">supplier_replace(index_or_idurl)</h3>
 
-<p>Execute a fire/hire process of one supplier,
-another random node will replace this supplier.
+<p>Execute a fire/hire process for given supplier,
+another random node will replace this node.
 As soon as new supplier is found and connected,
 rebuilding of all uploaded data will be started and
 the new node will start getting a reconstructed fragments.</p>
 
+<pre><code>{'status': 'OK',
+ 'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by new peer', }
+</code></pre>
+
 <h3 id="supplier_change(index_or_idurl,-new_idurl)">supplier_change(index_or_idurl, new_idurl)</h3>
 
-<p>Doing same as supplier_replace() but new node is provided directly.</p>
+<p>Doing same as supplier_replace() but new node must be provided by you.</p>
+
+<pre><code>{'status': 'OK',
+ 'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by http://p2p-id.ru/bob.xml',}
+</code></pre>
 
 <h3 id="suppliers_ping()">suppliers_ping()</h3>
 
 <p>Send short requests to all suppliers to get their current statuses.</p>
 
+<pre><code>{'status': 'OK', 
+ 'result': 'requests to all suppliers was sent',}
+</code></pre>
+
 <h3 id="customers_list()">customers_list()</h3>
 
 <p>List of customers - nodes who stores own data on your machine.</p>
+
+<pre><code>{'status': 'OK', 
+ 'result': [ {  'idurl': 'http://p2p-id.ru/bob.xml',
+                'position': 0,
+                'status': 'offline', }],
+</code></pre>
 
 <h3 id="customer_reject(idurl)">customer_reject(idurl)</h3>
 
 <p>Stop supporting given customer, remove all his files from local disc,
 close connections with that node.</p>
 
+<pre><code>{'status': 'OK', 
+ 'result': ['customer http://p2p-id.ru/bob.xml rejected, 536870912 bytes were freed'],}
+</code></pre>
+
 <h3 id="customers_ping()">customers_ping()</h3>
 
 <p>Send Identity packet to all customers to check their current statuses.
 Every node will reply with Ack packet on any valid incoming Identiy packet.  </p>
 
+<pre><code>{'status': 'OK', 
+ 'result': 'requests to all customers was sent',}
+</code></pre>
+
 <h3 id="space_donated()">space_donated()</h3>
 
 <p>Return detailed statistics about your donated space usage.</p>
+
+<pre><code>{'status': 'OK', 
+ 'result':  [  { 'consumed': 0,
+                 'consumed_percent': '0%',
+                 'consumed_str': '0 bytes',
+                 'customers': [],
+                 'customers_num': 0,
+                 'donated': 1073741824,
+                 'donated_str': '1024 MB',
+                 'free': 1073741824,
+                 'old_customers': [],
+                 'real': 0,
+                 'used': 0,
+                 'used_percent': '0%',
+                 'used_str': '0 bytes'}],}
+</code></pre>
 
 <h3 id="space_consumed()">space_consumed()</h3>
 
 <p>Return some info about your current usage of BitDust resources.</p>
 
+<pre><code>{'status': 'OK', 
+ 'result':  [  { 'available': 907163720,
+                 'available_per_supplier': 907163720,
+                 'available_per_supplier_str': '865.14 MB',
+                 'available_str': '865.14 MB',
+                 'needed': 1073741824,
+                 'needed_per_supplier': 1073741824,
+                 'needed_per_supplier_str': '1024 MB',
+                 'needed_str': '1024 MB',
+                 'suppliers_num': 2,
+                 'used': 166578104,
+                 'used_per_supplier': 166578104,
+                 'used_per_supplier_str': '158.86 MB',
+                 'used_percent': '0.155%',
+                 'used_str': '158.86 MB'}],}
+</code></pre>
+
 <h3 id="space_local()">space_local()</h3>
 
 <p>Return detailed statistics about current usage of your local disk.</p>
+
+<pre><code>{'status': 'OK', 
+ 'result':  [  { 'backups': 0,
+                 'backups_str': '0 bytes',
+                 'customers': 0,
+                 'customers_str': '0 bytes',
+                 'diskfree': 103865696256,
+                 'diskfree_percent': '0.00162%',
+                 'diskfree_str': '96.73 GB',
+                 'disktotal': 63943473102848,
+                 'disktotal_str': '59552 GB',
+                 'temp': 48981,
+                 'temp_str': '47.83 KB',
+                 'total': 45238743,
+                 'total_percent': '0%',
+                 'total_str': '43.14 MB'}],}
+</code></pre>
 
 <h3 id="automats_list()">automats_list()</h3>
 
 <p>Return a list of all currently running state machines.</p>
 
+<pre><code>{'status': 'OK', 
+ 'result':  [  { 'index': 1,
+                 'name': 'initializer',
+                 'state': 'READY',
+                 'timers': ''},
+               { 'index': 2,
+                 'name': 'shutdowner',
+                 'state': 'READY',
+                 'timers': ''},
+            ...
+            ],}
+</code></pre>
+
 <h3 id="services_list()">services_list()</h3>
 
-<p>Return a list of all services.</p>
+<p>Return detailed info about all currently running network services.</p>
+
+<pre><code>{'status': 'OK', 
+ 'result':  [  { 'config_path': 'services/backup-db/enabled',
+                 'depends': ['service_list_files', 'service_data_motion'],
+                 'enabled': True,
+                 'index': 3,
+                 'installed': True,
+                 'name': 'service_backup_db',
+                 'state': 'ON'},
+               { 'config_path': 'services/backups/enabled',
+                 'depends': [  'service_list_files',
+                               'service_employer',
+                               'service_rebuilding'],
+                 'enabled': True,
+                 'index': 4,
+                 'installed': True,
+                 'name': 'service_backups',
+                 'state': 'ON'},
+            ...
+            ],}
+</code></pre>
 
 <h3 id="service_info(service_name)">service_info(service_name)</h3>
 
-<p>Return detailed info for a single service.</p>
+<p>Return detailed info for single service.</p>
+
+<pre><code>{'status': 'OK', 
+ 'result':  [  { 'config_path': 'services/tcp-connections/enabled',
+                 'depends': ['service_network'],
+                 'enabled': True,
+                 'index': 24,
+                 'installed': True,
+                 'name': 'service_tcp_connections',
+                 'state': 'ON'}],}
+</code></pre>
+
+<h3 id="service_start(service_name)">service_start(service_name)</h3>
+
+<p>Start given service immediately.
+If some other services depend on that service were already enabled,
+they will be started as well.
+This method also set <code>True</code> for correspondent option in the program settings:</p>
+
+<pre><code>.bitdust/config/services/[service name]/enabled
+
+
+{'status': 'OK', 'result': 'service_tcp_connections was switched on',}
+</code></pre>
+
+<h3 id="service_stop(service_name)">service_stop(service_name)</h3>
+
+<p>Stop given service and set <code>False</code> for
+correspondent option in the settings:</p>
+
+<pre><code>.bitdust/config/services/&lt;service&gt;/enabled
+</code></pre>
+
+<p>Dependent services will be stopped as well.</p>
+
+<pre><code>{'status': 'OK', 'result': 'service_tcp_connections was switched off',}
+</code></pre>
+
+<h3 id="packets_stats()">packets_stats()</h3>
+
+<p>Return detailed info about</p>
+
+<pre><code>{'status': 'OK',
+</code></pre>
+
+<p>u'result': [ { u'in': { u'failed<em>packets': 0,
+                      u'total</em>bytes': 0,
+                      u'total<em>packets': 0,
+                      u'unknown</em>bytes': 0,
+                      u'unknown<em>packets': 0},
+             u'out': { u'failed</em>packets': 8,
+                       u'http://p2p-id.ru/bitdust<em>j</em>vps1014.xml': 0,
+                       u'http://veselin-p2p.ru/bitdust<em>j</em>vps1001.xml': 0,
+                       u'total<em>bytes': 0,
+                       u'total</em>packets': 0,
+                       u'unknown<em>bytes': 0,
+                       u'unknown</em>packets': 0}}],</p>
 
 <h3 id="ping(idurl,-timeout=10)">ping(idurl, timeout=10)</h3>
 
@@ -418,34 +649,20 @@ Every node will reply with Ack packet on any valid incoming Identiy packet.  </p
  'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
 </code></pre>
 
-<h3 id="list_messages()">list_messages()</h3>
+<h3 id="set_my_nickname(nickname)">set_my_nickname(nickname)</h3>
+
+<h3 id="find_peer_by_nickname(nickname)">find_peer_by_nickname(nickname)</h3>
 
 <h3 id="send_message(recipient,-message_body)">send_message(recipient, message_body)</h3>
 
-<p>Send a message to remote peer.</p>
+<p>Send a text message to remote peer.</p>
 
-<pre><code>{'result': 'message to http://p2p-id.ru/alice.xml was sent', 
- 'packet': ... , 
- 'recipient': http://p2p-id.ru/alice.xml,
- 'message': 'Hi Alice!!!',
- 'error': '',}
-</code></pre>
+<h3 id="receive_one_message()">receive_one_message()</h3>
 
-<h3 id="list_correspondents()">list_correspondents()</h3>
-
-<p>Return a list of your friends.</p>
-
-<pre><code>[ {'idurl': 'http://p2p-id.ru/alice.xml', 
-   'nickname': 'alice'}, 
-  {'idurl': 'http://p2p-id.ru/bob.xml', 
-   'nickname': 'bob'},]
-</code></pre>
-
-<h3 id="add_correspondent(idurl,-nickname='')">add_correspondent(idurl, nickname='')</h3>
-
-<h3 id="remove_correspondent(idurl)">remove_correspondent(idurl)</h3>
-
-<h3 id="find_peer_by_nickname(nickname)">find_peer_by_nickname(nickname)</h3>
+<p>This method can be used to listen and process of incoming chat messages:
+    + creates a callback to receive all incoming messages,
+    + wait until one incoming message get received,
+    + remove the callback after receiving the message.</p>
 
 
 </div>
