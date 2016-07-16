@@ -594,14 +594,15 @@ Every node will reply with Ack packet on any valid incoming Identiy packet.  </p
 <h3 id="service_start(service_name)">service_start(service_name)</h3>
 
 <p>Start given service immediately.
-If some other services depend on that service were already enabled,
-they will be started as well.
 This method also set <code>True</code> for correspondent option in the program settings:</p>
 
 <pre><code>.bitdust/config/services/[service name]/enabled
+</code></pre>
 
+<p>If some other services, which is dependent on that service,
+were already enabled, they will be started also.</p>
 
-{'status': 'OK', 'result': 'service_tcp_connections was switched on',}
+<pre><code>{'status': 'OK', 'result': 'service_tcp_connections was switched on',}
 </code></pre>
 
 <h3 id="service_stop(service_name)">service_stop(service_name)</h3>
@@ -609,7 +610,7 @@ This method also set <code>True</code> for correspondent option in the program s
 <p>Stop given service and set <code>False</code> for
 correspondent option in the settings:</p>
 
-<pre><code>.bitdust/config/services/&lt;service&gt;/enabled
+<pre><code>.bitdust/config/services/[service name]/enabled
 </code></pre>
 
 <p>Dependent services will be stopped as well.</p>
@@ -622,32 +623,33 @@ correspondent option in the settings:</p>
 <p>Return detailed info about</p>
 
 <pre><code>{'status': 'OK',
+ 'result': [ {'in': { 'failed_packets': 0,
+                      'total_bytes': 0,
+                      'total_packets': 0,
+                      'unknown_bytes': 0,
+                      'unknown_packets': 0},
+             'out': { 'failed_packets': 8,
+                      'http://p2p-id.ru/bitdust_j_vps1014.xml': 0,
+                      'http://veselin-p2p.ru/bitdust_j_vps1001.xml': 0,
+                      'total_bytes': 0,
+                      'total_packets': 0,
+                      'unknown_bytes': 0,
+                      'unknown_packets': 0}}], }
 </code></pre>
-
-<p>u'result': [ { u'in': { u'failed<em>packets': 0,
-                      u'total</em>bytes': 0,
-                      u'total<em>packets': 0,
-                      u'unknown</em>bytes': 0,
-                      u'unknown<em>packets': 0},
-             u'out': { u'failed</em>packets': 8,
-                       u'http://p2p-id.ru/bitdust<em>j</em>vps1014.xml': 0,
-                       u'http://veselin-p2p.ru/bitdust<em>j</em>vps1001.xml': 0,
-                       u'total<em>bytes': 0,
-                       u'total</em>packets': 0,
-                       u'unknown<em>bytes': 0,
-                       u'unknown</em>packets': 0}}],</p>
 
 <h3 id="ping(idurl,-timeout=10)">ping(idurl, timeout=10)</h3>
 
-<p>The "ping" command performs following actions:
-    1. Request remote identity source by idurl,
-    2. Send my Identity to remote contact addresses, taken from identity,
-    3. Wait first Ack packet from remote peer,
-    4. Failed by timeout or identity fetching error.</p>
+<p>The "ping" command performs following actions:</p>
 
-<pre><code>{'status': 'OK', 
- 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
-</code></pre>
+<ol>
+<li>Request remote identity source by idurl,</li>
+<li>Send my Identity to remote contact addresses, taken from identity,</li>
+<li>Wait first Ack packet from remote peer,</li>
+<li><p>Failed by timeout or identity fetching error.</p>
+
+<p>{'status': 'OK', 
+ 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in<em>70</em>19828906(DONE))'}</p></li>
+</ol>
 
 <h3 id="set_my_nickname(nickname)">set_my_nickname(nickname)</h3>
 
@@ -657,12 +659,23 @@ correspondent option in the settings:</p>
 
 <p>Send a text message to remote peer.</p>
 
+<pre><code>{'status': 'OK', 
+ 'result': ['signed.Packet[Message(146681300413)]'],}
+</code></pre>
+
 <h3 id="receive_one_message()">receive_one_message()</h3>
 
-<p>This method can be used to listen and process of incoming chat messages:
-    + creates a callback to receive all incoming messages,
-    + wait until one incoming message get received,
-    + remove the callback after receiving the message.</p>
+<p>This method can be used to listen and process incoming chat messages:</p>
+
+<ul>
+<li>creates a callback to receive all incoming messages,</li>
+<li>wait until one incoming message get received,</li>
+<li><p>remove the callback after receiving the message.</p>
+
+<p>{'status': 'OK', 
+ 'result': [ { 'from': 'http://veselin-p2p.ru/bitdust<em>j</em>vps1001.xml',
+               'message': 'Hello my dear Friend!'}],}</p></li>
+</ul>
 
 
 </div>
