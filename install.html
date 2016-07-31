@@ -61,8 +61,8 @@
 <ol>
 <li><p>Dependencies</p>
 
-<pre><code>sudo apt-get install python-twisted python-setuptools        
-sudo easy_install Django==1.7, pycrypto, psutil
+<pre><code>sudo apt-get install python-twisted python-setuptools python-pip git miniupnpc       
+pip install Django==1.7 pycrypto psutil
 </code></pre></li>
 <li><p>Get Sources</p>
 
@@ -71,8 +71,8 @@ sudo easy_install Django==1.7, pycrypto, psutil
 <li><p>Create an alias in OS</p>
 
 <pre><code>cd bitdust
-sudo python bitdust.py integrate
-python bitdust.py integrate
+python bitdust.py integrate &gt; /usr/local/bin/bitdust
+chmod +x /usr/local/bin/bitdust
 </code></pre></li>
 <li><p>Create an identity for you</p>
 
