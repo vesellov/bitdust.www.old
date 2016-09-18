@@ -72,6 +72,8 @@
 
 <h3 id="reconnect()">reconnect()</h3>
 
+<p>Sends "reconnect" event to network_connector() Automat in order to refresh network connection.</p>
+
 <h3 id="show()">show()</h3>
 
 <p>Opens a default web browser to show the BitDust GUI.</p>
@@ -82,7 +84,7 @@
 
 <h3 id="config_get(key,-default=none)">config_get(key, default=None)</h3>
 
-<p>Return current value for specific option.</p>
+<p>Returns current value for specific option from program settings.</p>
 
 <pre><code>{'status': 'OK',
   'result': [
@@ -105,7 +107,7 @@
 
 <h3 id="config_list(sort=false)">config_list(sort=False)</h3>
 
-<p>Monitor all options and values.</p>
+<p>Provide detailed info about all options and values from settings.</p>
 
 <pre><code>{'status': 'OK',
  'result': [
@@ -122,9 +124,9 @@
 
 <h3 id="filemanager(json_request)">filemanager(json_request)</h3>
 
-<p>A method to execute calls from GUI front-end and interact with web browser.
-This is a special "gates" created only for Ajax calls from GUI - for 
-for specific file system io operations.</p>
+<p>A service method to execute calls from GUI front-end and interact with web browser.
+This is a special "gates" created only for Ajax calls from GUI. 
+It provides same methods as other functions here, but just in a different way.  </p>
 
 <pre><code>request:
     {"params":{"mode":"stats"}}
@@ -148,20 +150,18 @@ response:
 </code></pre>
 
 <p>You can also access those methods with API alias:
-    filemanager_{method name}()
-More info will be added soon.</p>
+    filemanager_{mode}()</p>
 
 <h3 id="backups_update()">backups_update()</h3>
 
-<p>A method to restart backup_monitor() Automat and 
-fire "synchronize" process with remote nodes.</p>
+<p>Sends "restart" event to backup_monitor() Automat, this should start "data synchronization" process with remote nodes.</p>
 
 <pre><code>{'status': 'OK', 'result': 'the main loop has been restarted'}
 </code></pre>
 
 <h3 id="backups_list()">backups_list()</h3>
 
-<p>Return a whole tree of files and folders in the catalog.</p>
+<p>Returns a whole tree of files and folders in the catalog.</p>
 
 <pre><code>{'status': 'OK', 
   'result': [
@@ -187,7 +187,7 @@ fire "synchronize" process with remote nodes.</p>
 
 <h3 id="backups_id_list()">backups_id_list()</h3>
 
-<p>Return only list of items uploaded on remote machines.</p>
+<p>Returns only list of items uploaded on remote machines.</p>
 
 <pre><code>{'status': 'OK', 
   'result': [{'backupid': '0/0/1/0/0/F20160313043757PM', 
@@ -208,8 +208,8 @@ fire "synchronize" process with remote nodes.</p>
 
 <h3 id="backup_start_path(path,-bind_local_path=true)">backup_start_path(path, bind_local_path=True)</h3>
 
-<p>Start uploading file or folder to remote nodes,
-assign a new path ID and add it to the catalog.
+<p>Start uploading file or folder to remote nodes.
+It will assign a new path ID to that path and add it to the catalog.
 If bind<em>local</em>path is False all parent sub folders:</p>
 
 <pre><code>["Users", "veselin", "Documents", "python",]
@@ -267,8 +267,9 @@ of all parent IDs, separated with "/".</p>
 
 <h3 id="backup_tree_add(dirpath)">backup_tree_add(dirpath)</h3>
 
-<p>Recursively reads the entire folder and create items for all files and folders
-keeping the same structure. Do not start any uploads.</p>
+<p>Recursively reads the entire folder and create items in the catalog.
+For all files and folders it will keeping the same files/folders structure.
+This method will not start any uploads, just append items to the catalog.</p>
 
 <pre><code>{'status': 'OK',
   'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports'}
@@ -305,8 +306,7 @@ Any local files related to this path will be removed as well.</p>
 
 <h3 id="backups_queue()">backups_queue()</h3>
 
-<p>Return a list of paths to be backed up as soon as
-currently running backups finish.</p>
+<p>Returns a list of paths to be backed up as soon as currently running backups finish.</p>
 
 <pre><code>{'status': 'OK',
   'result': [    
@@ -318,7 +318,7 @@ currently running backups finish.</p>
 
 <h3 id="backups_running()">backups_running()</h3>
 
-<p>Return a list of currently running uploads.</p>
+<p>Returns a list of currently running uploads.</p>
 
 <pre><code>{'status': 'OK',
   'result': [    
@@ -376,7 +376,7 @@ By default this method uses known location from catalog for given item.</p>
 
 <h3 id="restores_running()">restores_running()</h3>
 
-<p>Return a list of currently running downloads:</p>
+<p>Returns a list of currently running downloads.</p>
 
 <pre><code>{'status': 'OK',
  'result':   [ { 'aborted': False,
@@ -401,8 +401,7 @@ By default this method uses known location from catalog for given item.</p>
 
 <h3 id="suppliers_list()">suppliers_list()</h3>
 
-<p>This method returns a list of suppliers, 
-those nodes stores my data on own machines.</p>
+<p>This method returns a list of suppliers - nodes which stores your encrypted data on own machines.</p>
 
 <pre><code>{'status': 'OK',
  'result':  [ {  'connected': '05-06-2016 13:06:05',
@@ -419,8 +418,7 @@ those nodes stores my data on own machines.</p>
 
 <h3 id="supplier_replace(index_or_idurl)">supplier_replace(index_or_idurl)</h3>
 
-<p>Execute a fire/hire process for given supplier,
-another random node will replace this node.
+<p>Execute a fire/hire process for given supplier, another random node will replace this supplier.
 As soon as new supplier is found and connected,
 rebuilding of all uploaded data will be started and
 the new node will start getting a reconstructed fragments.</p>
@@ -431,7 +429,7 @@ the new node will start getting a reconstructed fragments.</p>
 
 <h3 id="supplier_change(index_or_idurl,-new_idurl)">supplier_change(index_or_idurl, new_idurl)</h3>
 
-<p>Doing same as supplier_replace() but new node must be provided by you.</p>
+<p>Doing same as supplier_replace() but new node must be provided by you - you can manually assign a supplier.</p>
 
 <pre><code>{'status': 'OK',
  'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by http://p2p-id.ru/bob.xml',}
@@ -439,7 +437,7 @@ the new node will start getting a reconstructed fragments.</p>
 
 <h3 id="suppliers_ping()">suppliers_ping()</h3>
 
-<p>Send short requests to all suppliers to get their current statuses.</p>
+<p>Sends short requests to all suppliers to get their current statuses.</p>
 
 <pre><code>{'status': 'OK', 
  'result': 'requests to all suppliers was sent',}
@@ -457,8 +455,7 @@ the new node will start getting a reconstructed fragments.</p>
 
 <h3 id="customer_reject(idurl)">customer_reject(idurl)</h3>
 
-<p>Stop supporting given customer, remove all his files from local disc,
-close connections with that node.</p>
+<p>Stop supporting given customer, remove all his files from local disc, close connections with that node.</p>
 
 <pre><code>{'status': 'OK', 
  'result': ['customer http://p2p-id.ru/bob.xml rejected, 536870912 bytes were freed'],}
@@ -466,7 +463,7 @@ close connections with that node.</p>
 
 <h3 id="customers_ping()">customers_ping()</h3>
 
-<p>Send Identity packet to all customers to check their current statuses.
+<p>Sends Identity packet to all customers to check their current statuses.
 Every node will reply with Ack packet on any valid incoming Identiy packet.  </p>
 
 <pre><code>{'status': 'OK', 
@@ -475,7 +472,7 @@ Every node will reply with Ack packet on any valid incoming Identiy packet.  </p
 
 <h3 id="space_donated()">space_donated()</h3>
 
-<p>Return detailed statistics about your donated space usage.</p>
+<p>Returns detailed statistics about your donated space usage.</p>
 
 <pre><code>{'status': 'OK', 
  'result':  [  { 'consumed': 0,
@@ -495,7 +492,7 @@ Every node will reply with Ack packet on any valid incoming Identiy packet.  </p
 
 <h3 id="space_consumed()">space_consumed()</h3>
 
-<p>Return some info about your current usage of BitDust resources.</p>
+<p>Returns some info about your current usage of BitDust resources.</p>
 
 <pre><code>{'status': 'OK', 
  'result':  [  { 'available': 907163720,
@@ -516,7 +513,7 @@ Every node will reply with Ack packet on any valid incoming Identiy packet.  </p
 
 <h3 id="space_local()">space_local()</h3>
 
-<p>Return detailed statistics about current usage of your local disk.</p>
+<p>Returns detailed statistics about current usage of your local disk.</p>
 
 <pre><code>{'status': 'OK', 
  'result':  [  { 'backups': 0,
@@ -537,7 +534,7 @@ Every node will reply with Ack packet on any valid incoming Identiy packet.  </p
 
 <h3 id="automats_list()">automats_list()</h3>
 
-<p>Return a list of all currently running state machines.</p>
+<p>Returns a list of all currently running state machines.</p>
 
 <pre><code>{'status': 'OK', 
  'result':  [  { 'index': 1,
@@ -554,7 +551,7 @@ Every node will reply with Ack packet on any valid incoming Identiy packet.  </p
 
 <h3 id="services_list()">services_list()</h3>
 
-<p>Return detailed info about all currently running network services.</p>
+<p>Returns detailed info about all currently running network services.</p>
 
 <pre><code>{'status': 'OK', 
  'result':  [  { 'config_path': 'services/backup-db/enabled',
@@ -579,7 +576,7 @@ Every node will reply with Ack packet on any valid incoming Identiy packet.  </p
 
 <h3 id="service_info(service_name)">service_info(service_name)</h3>
 
-<p>Return detailed info for single service.</p>
+<p>Returns detailed info for single service.</p>
 
 <pre><code>{'status': 'OK', 
  'result':  [  { 'config_path': 'services/tcp-connections/enabled',
@@ -607,8 +604,8 @@ were already enabled, they will be started also.</p>
 
 <h3 id="service_stop(service_name)">service_stop(service_name)</h3>
 
-<p>Stop given service and set <code>False</code> for
-correspondent option in the settings:</p>
+<p>Stop given service immediately.
+It will also set <code>False</code> for correspondent option in the settings.</p>
 
 <pre><code>.bitdust/config/services/[service name]/enabled
 </code></pre>
@@ -620,7 +617,7 @@ correspondent option in the settings:</p>
 
 <h3 id="packets_stats()">packets_stats()</h3>
 
-<p>Return detailed info about</p>
+<p>Returns detailed info about current network usage.</p>
 
 <pre><code>{'status': 'OK',
  'result': [ {'in': { 'failed_packets': 0,
@@ -639,25 +636,28 @@ correspondent option in the settings:</p>
 
 <h3 id="ping(idurl,-timeout=10)">ping(idurl, timeout=10)</h3>
 
-<p>The "ping" command performs following actions:</p>
+<p>Sends Identity packet to remote peer and wait for Ack packet to check connection status.
+The "ping" command performs following actions:
+  1. Request remote identity source by idurl,
+  2. Sends my Identity to remote contact addresses, taken from identity,
+  3. Wait first Ack packet from remote peer,
+  4. Failed by timeout or identity fetching error.</p>
 
-<ol>
-<li>Request remote identity source by idurl,</li>
-<li>Send my Identity to remote contact addresses, taken from identity,</li>
-<li>Wait first Ack packet from remote peer,</li>
-<li><p>Failed by timeout or identity fetching error.</p>
-
-<p>{'status': 'OK', 
- 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in<em>70</em>19828906(DONE))'}</p></li>
-</ol>
+<pre><code>{'status': 'OK', 
+ 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
+</code></pre>
 
 <h3 id="set_my_nickname(nickname)">set_my_nickname(nickname)</h3>
 
+<p>Starts nickname_holder() machine to register and keep your nickname in DHT network.</p>
+
 <h3 id="find_peer_by_nickname(nickname)">find_peer_by_nickname(nickname)</h3>
+
+<p>Starts nickname_observer() Automat to lookup existing nickname registered in DHT network.</p>
 
 <h3 id="send_message(recipient,-message_body)">send_message(recipient, message_body)</h3>
 
-<p>Send a text message to remote peer.</p>
+<p>Sends a text message to remote peer.</p>
 
 <pre><code>{'status': 'OK', 
  'result': ['signed.Packet[Message(146681300413)]'],}
@@ -665,17 +665,21 @@ correspondent option in the settings:</p>
 
 <h3 id="receive_one_message()">receive_one_message()</h3>
 
-<p>This method can be used to listen and process incoming chat messages:</p>
+<p>This method can be used to listen and process incoming chat messages.
+  + creates a callback to receive all incoming messages,
+  + wait until one incoming message get received,
+  + remove the callback after receiving the message.</p>
 
-<ul>
-<li>creates a callback to receive all incoming messages,</li>
-<li>wait until one incoming message get received,</li>
-<li><p>remove the callback after receiving the message.</p>
+<pre><code>{'status': 'OK', 
+ 'result': [ { 'from': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
+               'message': 'Hello my dear Friend!'}],}
+</code></pre>
 
-<p>{'status': 'OK', 
- 'result': [ { 'from': 'http://veselin-p2p.ru/bitdust<em>j</em>vps1001.xml',
-               'message': 'Hello my dear Friend!'}],}</p></li>
-</ul>
+<h3 id="broadcast_send_message(payload)">broadcast_send_message(payload)</h3>
+
+<p>Sends broadcast message to all peers in the network.
+Message must be provided in <code>payload</code> argument is a Json object.
+WARNING! Please, do not send too often and do not send more then several kilobytes per message.  </p>
 
 
 </div>

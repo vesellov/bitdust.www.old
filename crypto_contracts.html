@@ -9,7 +9,7 @@
 
     <link rel="canonical" href="http://bitdust.io">
     
-    <title>BitDust : ./definitions</title>
+    <title>BitDust Crypto Contracts</title>
 
     <!-- <meta property="fb:admins" content="1097958228"/> -->
     <!-- <meta property="fb:app_id" content="543329652498581"/> -->
@@ -54,19 +54,40 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h2 id="what-bitdust-is?">What BitDust is?</h2>
+<h1 id="bitdust-crypto-contracts">BitDust Crypto Contracts</h1>
 
-<p>BitDust a worldwide distributed computer network for secure storage and transfer of information and operates over existing Internet connections.</p>
+<h2 id="introduction">Introduction</h2>
 
-<p>BitDust a holistic ecosystem, the basic idea of ​​which is to complete decentralization of all information flows and data storage.</p>
+<p>In order to buy/sell hardware resources, nodes in BitDust network must sign some kind of "contract" between each other. </p>
 
-<p>BitDust a set of software that implements over the Internet, the global higher level of communications infrastructure.</p>
+<p>This contract will regulate how much resources was allocated, identity of consumer and provider, when it was started and basic price for that contract.</p>
 
-<p>BitDust this engine to create a distributed and secure p2p applications.</p>
+<p>All contracts will be stored in global distributed storage network - pretty close to well-known blockchain technology, this storage will be called "contracts-chain".</p>
 
-<p>BitDust an attempt to rectify the current situation in the world - this is what was supposed to be the internet.</p>
+<p>Here I want to give you some more information about that idea and explain how this is going to be built. </p>
 
-<p>BitDust this is just another revolution.</p>
+<h2 id="supplier-customer-contracts">Supplier-Customer contracts</h2>
+
+<p>When some customer get connected to one of suppliers in the network - both must agree on that relations. In other words they will sign a contranct and this contract declares several important points:</p>
+
+<pre><code>+ who provide the storage (ID of supplier),
++ who consume the storage (ID of customer),
++ when this deal was started,
++ how much space was allocated from supplier to customer
++ a basic price for one megabyte for that contract
+</code></pre>
+
+<p>At first customer requests from supplier some amount of storage and we assume that supplier accepts this request and able to provide that amount of storage. Imediately after that contract means to be signed and customer able to start using this space for own data.</p>
+
+<p>Whithin one hour supplier must declare that deal and so he will mine a crypto-coin and attach own info to that coin.</p>
+
+<p>he need to send this info to one of “miners”, “miner” will spent some CPU to  “mine” the coin for supplier and then broadcast this coin to all “accountants”. “accountants” nodes will store all existing coins in the network - this is sort of blockchain, but I call that “contracts chain"</p>
+
+<p>so all accountants will receive this coin via broadcasting service - it should be routed thru other nodes.</p>
+
+<p>then customer will also receive this coin from one of broadcasters and so recognize that supplier already published his part of contract for past hour. now customer must do the same but from own side - he will mine a coin and attach own info to that coin - it should match with previous coin mined by supplier. so supplier declares that he did some work for that customer, and customer declares that he agreed on that and agree to pay. so finally for this hour we will have two crypto coins from both supplier and customer. then supplier also get notified about second coin created by customer via broadcasting and recognize that he was paid for past hour. now both sides: supplier and customer should be satisfied and they can continue with current contract. but second period will be two hours - we do not want too much coins in the network - to not create too much records in global “contracts chain”. so every time we will double the period - 1hour , 2 hours, 4 hours, and so. at some point one of them (supplier or customer ) will decide to stop this and  so this contract will be finished.</p>
+
+<p>later customer will have to pay to one of “accountants” according to amount of mined coins belongs to him (for all his suppliers). from other side, supplier can go to one of accountants and request for refund - accountant will check how much crypto coins belongs to this supplier and calculate total amount in US $, euro, rubles, etc…</p>
 
 
 </div>
