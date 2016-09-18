@@ -618,7 +618,7 @@ body {
 
 @media (min-width: 1200px) {
     #slide-7 #veselin-picture {
-        margin-bottom: 60px;
+        /* margin-bottom: 60px; */
     }
 }
 
