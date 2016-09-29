@@ -9,7 +9,7 @@
 
     <link rel="canonical" href="http://bitdust.io">
     
-    <title>BitDust : Install the software</title>
+    <title>BitDust : Automat tcp_connection()</title>
 
     <!-- <meta property="fb:admins" content="1097958228"/> -->
     <!-- <meta property="fb:app_id" content="543329652498581"/> -->
@@ -54,72 +54,15 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="install-the-software">Install the software</h1>
+<h1 id="automat-tcp_connection()">Automat tcp_connection()</h1>
 
-<p>Seems like in Ubuntu (probably most other distros) you just need to install all dependencies at first step:</p>
+<div class=automatpng>
 
-<pre><code>    sudo apt-get install git python-dev python-twisted python-setuptools python-pip
-    pip install Django==1.7 pycrypto psutil
-</code></pre>
+<p><a href="transport/tcp_connection.pdf"><img src="transport/tcp_connection.png" alt="tcp_connection()" /></a></p>
 
-<p>Optionally, you can also install <a href="http://miniupnp.tuxfamily.org/">miniupnpc</a> tool if you want BitDust automatically deal with UPnPc configuration of your network router so it can also accept incomming connections from other nodes.:</p>
+</div>
 
-<pre><code>    sudo apt-get install miniupnpc
-</code></pre>
-
-<p>Get Sources:</p>
-
-<pre><code>    git clone http://gitlab.bitdust.io/devel/bitdust.git
-</code></pre>
-
-<p>Create an alias in OS so you can easily run the program from any location:</p>
-
-<pre><code>    cd bitdust
-    python bitdust.py alias | sudo tee /usr/local/bin/bitdust
-    sudo chmod +x /usr/local/bin/bitdust
-</code></pre>
-
-<p>Create an identity for you in the BitDust network:</p>
-
-<pre><code>    bitdust id create &lt;some nick name&gt;
-</code></pre>
-
-<p>I recommend you to create another copy of your Private Key in a safe place to be able to recover your data in the future. You can do it with such command:</p>
-
-<pre><code>    bitdust key copy &lt;filename&gt;
-</code></pre>
-
-<p>Your settings and local files are located in that folder: ~/.bitdust.</p>
-
-<p>Type this command to read more info about BitDust commands:</p>
-
-<pre><code>    bitdust help
-</code></pre>
-
-<p>Please read more about BitDust Commands at http://bitdust.io/commands.html to start playing with software.</p>
-
-<h2 id="dependencies">Dependencies</h2>
-
-<p>python 2.6 or 2.7, python3 is not supported
-    http://python.org/download/releases</p>
-
-<p>twisted 11.0 or higher: 
-    http://twistedmatrix.com</p>
-
-<p>pyasn1: 
-    http://pyasn1.sourceforge.net</p>
-
-<p>pyOpenSSL: 
-    https://launchpad.net/pyopenssl</p>
-
-<p>pycrypto: 
-    https://www.dlitz.net/software/pycrypto/</p>
-
-<p>wxgtk2.8: 
-    http://wiki.wxpython.org/InstallingOnUbuntuOrDebian</p>
-
-<p>miniupnpc:
-    http://miniupnp.tuxfamily.org/</p>
+<p><a href="transport/tcp_connection.vsd">tcp_connection.vsd</a></p>
 
 
 </div>
