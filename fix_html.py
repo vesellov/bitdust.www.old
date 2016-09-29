@@ -29,7 +29,7 @@ def _clear_title(inp):
     return inp.replace('<em>','_').replace('</em>','_').replace('<','&lt;').replace('>','&gt;')
 sbody = re.sub('\<h(\d)\>(.+?)\<\/h(\d)\>',
                lambda m: '<h%s id="%s">%s</h%s>' % (m.group(1), _clear_id(m.group(2)), _clear_title(m.group(2)), m.group(3)), sbody)
-
+sbody = re.sub('\<li\>\<a href="(.+?)"\>(.+?)\</a\>\</li\>', lambda m: '<li><a href="%s">%s</a></li>' % (m.group(1), _clear_title(m.group(2))), sbody)
 # sbody = sbody.replace(
     # '<div class=fbcomments markdown="1">', 
     # '<div class="fb-comments" data-href="%s/%s" data-width="500" data-numposts="5">' % (
