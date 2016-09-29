@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SOURCE_DIR=../bitdust.docs
+mdfilepath=$SOURCE_DIR/$1
+mdfile=$(basename "$mdfilepath")
+htmlfile="${mdfile/.md/.html}"
+python md2html.py "$SOURCE_DIR/$mdfile" > "./$htmlfile"
+python fix_html.py "./$htmlfile" "./$htmlfile"
+echo "$SOURCE_DIR/$mdfile -> ./$htmlfile"
+
+

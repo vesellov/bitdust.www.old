@@ -23,12 +23,13 @@ sbody = re.sub('a href="(\w+?)"', 'a href="\g<1>.html"', sbody)
 sbody = re.sub('a href="#(.+?)"', 'a href="%s#\g<1>"' % os.path.basename(src), sbody)
 sbody = re.sub('\<p\>\<style', '<style', sbody)
 sbody = re.sub('\</style\>\</p\>', '</style>', sbody)
+def _clear_id(inp):
+    return inp.replace('<em>','_').replace('</em>','_').replace('<','').replace('>','').replace('[','').replace(']','').replace(' ','-').lower()
+def _clear_title(inp):
+    return inp.replace('<em>','_').replace('</em>','_').replace('<','&lt;').replace('>','&gt;')
 sbody = re.sub('\<h(\d)\>(.+?)\<\/h(\d)\>',
-               lambda m: '<h%s id="%s">%s</h%s>' % (m.group(1),
-                                                    m.group(2).replace('<','').replace('>','').replace('[','').replace(']','').replace(' ','-').lower(),
-                                                    m.group(2).replace('<','&lt;').replace('>','&gt;'),
-                                                    m.group(3)), 
-               sbody)
+               lambda m: '<h%s id="%s">%s</h%s>' % (m.group(1), _clear_id(m.group(2)), _clear_title(m.group(2)), m.group(3)), sbody)
+
 # sbody = sbody.replace(
     # '<div class=fbcomments markdown="1">', 
     # '<div class="fb-comments" data-href="%s/%s" data-width="500" data-numposts="5">' % (
