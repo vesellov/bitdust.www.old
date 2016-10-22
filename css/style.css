@@ -107,7 +107,7 @@ body {
 }
 #home-row-2 {
 	padding-top: 25px;
-	padding-bottom: 80px;
+	padding-bottom: 0px;
 }
 
 #home-row-1 h1 {
@@ -865,6 +865,8 @@ body {
     width: 100%    !important;
     height: auto   !important;
     max-width: 1050px !important;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 @media only screen and (max-width: 800px) {
