@@ -860,3 +860,33 @@ body {
     max-width: 300px; 
     margin: 0 auto;
 }
+
+#promo-video {
+    width: 100%    !important;
+    height: auto   !important;
+    max-width: 1050px !important;
+}
+
+@media only screen and (max-width: 800px) {
+    #promo-video {
+        width: 100%    !important;
+        height: auto   !important;
+        max-width: 760px !important;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    #promo-video {
+        width: 100%    !important;
+        height: auto   !important;
+        max-width: 500px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    #promo-video {
+        width: 100%    !important;
+        height: auto   !important;
+        max-width: 320px !important;
+    }
+}
