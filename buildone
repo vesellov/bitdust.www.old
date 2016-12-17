@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ./buildone settings.md
+
 SOURCE_DIR=../bitdust.docs
 mdfilepath=$SOURCE_DIR/$1
 mdfile=$(basename "$mdfilepath")

@@ -9,7 +9,7 @@
 
     <link rel="canonical" href="http://bitdust.io">
     
-    <title>BitDust : Settings &amp; Configurations</title>
+    <title>BitDust : Settings</title>
 
     <!-- <meta property="fb:admins" content="1097958228"/> -->
     <!-- <meta property="fb:app_id" content="543329652498581"/> -->
@@ -54,9 +54,474 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="settings-&amp;-configurations">Settings &amp; Configurations</h1>
+<h1 id="settings">Settings</h1>
 
-<p>...</p>
+<h2 id="command-line-syntax">Command line syntax</h2>
+
+<p>Read single setting value:</p>
+
+<pre><code>bitdust set &lt;option name&gt;
+</code></pre>
+
+<p>Write single setting value:</p>
+
+<pre><code>bitdust set &lt;option name&gt; &lt;new value&gt;
+</code></pre>
+
+<p>List all available settings and its current values:</p>
+
+<pre><code>bitdust set list
+</code></pre>
+
+<h2 id="list-of-options">List of options</h2>
+
+<h3 id="debug-level-(positive-integer)">debug level (positive integer)</h3>
+
+<p>logs/debug-level, default value: 0</p>
+
+<p>Higher values will produce more log messages.</p>
+
+<h3 id="enable-memory-debugger-(boolean)">enable memory debugger (boolean)</h3>
+
+<p>logs/memdebug-enabled, default value: false</p>
+
+<p>Enabled this and go to http://127.0.0.1:[memdebug port number] to watch memory usage.
+This feature is disabled at the moment.</p>
+
+<h3 id="logs/memdebug-port-(positive-integer)">logs/memdebug-port (positive integer)</h3>
+
+<p>logs/memdebug-port, default value: 9996</p>
+
+<h3 id="enable-memory-profiler-(boolean)">enable memory profiler (boolean)</h3>
+
+<p>logs/memprofile-enabled, default value: false</p>
+
+<p>Use "guppy" package to profile memory usage.
+This feature is disabled at the moment.</p>
+
+<h3 id="enable-web-logs-(boolean)">enable web logs (boolean)</h3>
+
+<p>logs/stream-enabled, default value: false</p>
+
+<p>Enabled this and go to http://127.0.0.1:[logs port number] to browse the program log.
+Need to restart the program.</p>
+
+<h3 id="logs/stream-port-(positive-integer)">logs/stream-port (positive integer)</h3>
+
+<p>logs/stream-port, default value: 9999</p>
+
+<h3 id="logs/traffic-enabled-(boolean)">logs/traffic-enabled (boolean)</h3>
+
+<p>logs/traffic-enabled, default value: false</p>
+
+<h3 id="logs/traffic-port-(positive-integer)">logs/traffic-port (positive integer)</h3>
+
+<p>logs/traffic-port, default value: 9997</p>
+
+<h3 id="local-backups-location-(folder-path)">local backups location (folder path)</h3>
+
+<p>paths/backups, default value: </p>
+
+<p>Place for your local backups files.</p>
+
+<h3 id="donated-space-location-(folder-path)">donated space location (folder path)</h3>
+
+<p>paths/customers, default value: </p>
+
+<p>Place for your donated space.
+All encrypted files, uploaded by other users, will kept here.</p>
+
+<h3 id="messages-location-(folder-path)">messages location (folder path)</h3>
+
+<p>paths/messages, default value: </p>
+
+<p>Folder to store your private messages.</p>
+
+<h3 id="receipts-location-(folder-path)">receipts location (folder path)</h3>
+
+<p>paths/receipts, default value: </p>
+
+<p>Folder to store financial receipts.</p>
+
+<h3 id="restored-files-location-(folder-path)">restored files location (folder path)</h3>
+
+<p>paths/restore, default value: </p>
+
+<p>Location where your restored files should be placed by default.</p>
+
+<h3 id="betatester-(boolean)">betatester (boolean)</h3>
+
+<p>personal/betatester, default value: false</p>
+
+<p>Are you agree to participate in the BitDust project testing?
+We are going to provide some bonuses to people who help us at this stage.</p>
+
+<h3 id="personal/email-(string)">personal/email (string)</h3>
+
+<p>personal/email, default value: </p>
+
+<h3 id="name-(string)">name (string)</h3>
+
+<p>personal/name, default value: </p>
+
+<p>Set your name if you wish.</p>
+
+<h3 id="nickname-(string)">nickname (string)</h3>
+
+<p>personal/nickname, default value: </p>
+
+<p>Set your nickname to private messaging.
+If you leave this blank your identity address will be used to form a nickname.</p>
+
+<h3 id="personal/private-key-size-(string)">personal/private-key-size (string)</h3>
+
+<p>personal/private-key-size, default value: 2048</p>
+
+<h3 id="surname-(string)">surname (string)</h3>
+
+<p>personal/surname, default value: </p>
+
+<p>Set your surname if you wish.</p>
+
+<h3 id="services/accountant/enabled-(boolean)">services/accountant/enabled (boolean)</h3>
+
+<p>services/accountant/enabled, default value: false</p>
+
+<h3 id="enable-backups-(boolean)">enable backups (boolean)</h3>
+
+<p>services/backup-db/enabled, default value: true</p>
+
+<p>Enable service "backup-db".</p>
+
+<h3 id="preferred-block-size-(disk-space)">preferred block size (disk space)</h3>
+
+<p>services/backups/block-size, default value: 16 MB</p>
+
+<p>Preferred block size in bytes which used to split the raw data during backup.</p>
+
+<h3 id="enable-backups-(boolean)">enable backups (boolean)</h3>
+
+<p>services/backups/enabled, default value: true</p>
+
+<p>Enable service "Backups".</p>
+
+<h3 id="keep-local-copies-(boolean)">keep local copies (boolean)</h3>
+
+<p>services/backups/keep-local-copies-enabled, default value: false</p>
+
+<p>Enable this to keep a copy of every new backup on your local HDD as well as on remote machines of your suppliers.
+This increases data reliablity, rebuilding performance and decrease network load,
+but consumes space on your HDD.
+Every one Mb of source data uploaded will consume two Mb on your local HDD.</p>
+
+<h3 id="maximum-block-size-(disk-space)">maximum block size (disk space)</h3>
+
+<p>services/backups/max-block-size, default value: 128 MB</p>
+
+<p>Maximum block size in bytes which used to split the raw data during backup.
+The actual block size is calculated depending on size of the particular backup to optimize performance and data storage.
+If you plan to do a huge backups - set higher values to increase the speed.</p>
+
+<h3 id="number-of-copies-(positive-integer)">number of copies (positive integer)</h3>
+
+<p>services/backups/max-copies, default value: 2</p>
+
+<p>This value indicates how many copies of each file or directory need to keep on remote machines.
+Once a fresh backup of given file or directory were finished - the oldest copy will be removed automatically.
+A "0" value means unlimited number of copies, be sure you have enough amount of donated space on remote machines.</p>
+
+<h3 id="wait-suppliers-24-hours-(boolean)">wait suppliers 24 hours (boolean)</h3>
+
+<p>services/backups/wait-suppliers-enabled, default value: true</p>
+
+<p>If you disabled storing of local data of your backups but one day a critical amount of your suppliers become unreliable - your data may be lost completely.
+Enable this option to wait for 24 hours after finishing any backup and perform a check all of your suppliers before removing the locally backed up data for this copy.</p>
+
+<h3 id="services/broadcasting/enabled-(boolean)">services/broadcasting/enabled (boolean)</h3>
+
+<p>services/broadcasting/enabled, default value: true</p>
+
+<h3 id="services/broadcasting/max-broadcast-connections-(non-zero-positive-integer)">services/broadcasting/max-broadcast-connections (non zero positive integer)</h3>
+
+<p>services/broadcasting/max-broadcast-connections, default value: 10</p>
+
+<h3 id="services/broadcasting/routing-enabled-(boolean)">services/broadcasting/routing-enabled (boolean)</h3>
+
+<p>services/broadcasting/routing-enabled, default value: false</p>
+
+<h3 id="services/customer-patrol/enabled-(boolean)">services/customer-patrol/enabled (boolean)</h3>
+
+<p>services/customer-patrol/enabled, default value: true</p>
+
+<h3 id="services/customer-support/enabled-(boolean)">services/customer-support/enabled (boolean)</h3>
+
+<p>services/customer-support/enabled, default value: true</p>
+
+<h3 id="services/customer/enabled-(boolean)">services/customer/enabled (boolean)</h3>
+
+<p>services/customer/enabled, default value: true</p>
+
+<h3 id="needed-space-(disk-space)">needed space (disk space)</h3>
+
+<p>services/customer/needed-space, default value: 1024 MB</p>
+
+<p>How many megabytes you need to store your files?</p>
+
+<h3 id="number-of-suppliers-(combo-box)">number of suppliers (combo box)</h3>
+
+<p>services/customer/suppliers-number, default value: 4</p>
+
+<p>Number of remote suppliers which keeps your backups.
+You can ser one of the following values: 2, 4, 7, 13, 18, 26, 64.
+Right now we have only 16 testing machines in the network, so last three values is not usefull yet.
+<font color=red>WARNING!</font> You will lost all your existing backups after changing suppliers number.</p>
+
+<h3 id="services/data-motion/enabled-(boolean)">services/data-motion/enabled (boolean)</h3>
+
+<p>services/data-motion/enabled, default value: true</p>
+
+<h3 id="services/employer/enabled-(boolean)">services/employer/enabled (boolean)</h3>
+
+<p>services/employer/enabled, default value: true</p>
+
+<h3 id="services/entangled-dht/enabled-(boolean)">services/entangled-dht/enabled (boolean)</h3>
+
+<p>services/entangled-dht/enabled, default value: true</p>
+
+<h3 id="services/gateway/enabled-(boolean)">services/gateway/enabled (boolean)</h3>
+
+<p>services/gateway/enabled, default value: true</p>
+
+<h3 id="ebable-identity-server-(boolean)">ebable identity server (boolean)</h3>
+
+<p>services/id-server/enabled, default value: false</p>
+
+<p>Enable this to start "id-server" service.</p>
+
+<h3 id="identity-server-hostname-(string)">identity server hostname (string)</h3>
+
+<p>services/id-server/host, default value: </p>
+
+<p>Set a domain name of your machine if you have it.
+Otherwise your external IP will be used as a host name.
+The host name is used to form a unique IDURL of any hosted identity.
+User ID looking more pretty and safe without IP address.</p>
+
+<h3 id="tcp-port-number-(positive-integer)">TCP port number (positive integer)</h3>
+
+<p>services/id-server/tcp-port, default value: 6661</p>
+
+<p>A TCP port number to receive user's identity files.</p>
+
+<h3 id="web-port-number-(positive-integer)">WEB port number (positive integer)</h3>
+
+<p>services/id-server/web-port, default value: 8084</p>
+
+<p>If port 80 is already taken you can start identity server on a different port.</p>
+
+<h3 id="services/identity-propagate/enabled-(boolean)">services/identity-propagate/enabled (boolean)</h3>
+
+<p>services/identity-propagate/enabled, default value: true</p>
+
+<h3 id="services/ip-port-responder/enabled-(boolean)">services/ip-port-responder/enabled (boolean)</h3>
+
+<p>services/ip-port-responder/enabled, default value: true</p>
+
+<h3 id="services/list-files/enabled-(boolean)">services/list-files/enabled (boolean)</h3>
+
+<p>services/list-files/enabled, default value: true</p>
+
+<h3 id="services/miner/enabled-(boolean)">services/miner/enabled (boolean)</h3>
+
+<p>services/miner/enabled, default value: false</p>
+
+<h3 id="services/my-ip-port/enabled-(boolean)">services/my-ip-port/enabled (boolean)</h3>
+
+<p>services/my-ip-port/enabled, default value: true</p>
+
+<h3 id="services/network/enabled-(boolean)">services/network/enabled (boolean)</h3>
+
+<p>services/network/enabled, default value: true</p>
+
+<h3 id="services/network/proxy/enabled-(boolean)">services/network/proxy/enabled (boolean)</h3>
+
+<p>services/network/proxy/enabled, default value: false</p>
+
+<h3 id="services/network/proxy/host-(string)">services/network/proxy/host (string)</h3>
+
+<p>services/network/proxy/host, default value: </p>
+
+<h3 id="services/network/proxy/password-(password)">services/network/proxy/password (password)</h3>
+
+<p>services/network/proxy/password, default value: </p>
+
+<h3 id="services/network/proxy/port-(positive-integer)">services/network/proxy/port (positive integer)</h3>
+
+<p>services/network/proxy/port, default value: </p>
+
+<h3 id="services/network/proxy/ssl-(boolean)">services/network/proxy/ssl (boolean)</h3>
+
+<p>services/network/proxy/ssl, default value: false</p>
+
+<h3 id="services/network/proxy/username-(string)">services/network/proxy/username (string)</h3>
+
+<p>services/network/proxy/username, default value: </p>
+
+<h3 id="incoming-bandwidth-limit-(positive-integer)">incoming bandwidth limit (positive integer)</h3>
+
+<p>services/network/receive-limit, default value: 125000000</p>
+
+<p>Limit incoming traffic with a value in bytes per second.
+A value of "0" means no incoming limit.</p>
+
+<h3 id="outgoing-bandwidth-limit-(positive-integer)">outgoing bandwidth limit (positive integer)</h3>
+
+<p>services/network/send-limit, default value: 12500000</p>
+
+<p>The value in bytes per second to decrease network load.
+A value of "0" means no outgoing limit.</p>
+
+<h3 id="services/nodes-lookup/enabled-(boolean)">services/nodes-lookup/enabled (boolean)</h3>
+
+<p>services/nodes-lookup/enabled, default value: true</p>
+
+<h3 id="services/p2p-hookups/enabled-(boolean)">services/p2p-hookups/enabled (boolean)</h3>
+
+<p>services/p2p-hookups/enabled, default value: true</p>
+
+<h3 id="services/private-messages/enabled-(boolean)">services/private-messages/enabled (boolean)</h3>
+
+<p>services/private-messages/enabled, default value: false</p>
+
+<h3 id="services/proxy-server/current-routes-(text)">services/proxy-server/current-routes (text)</h3>
+
+<p>services/proxy-server/current-routes, default value: {}</p>
+
+<h3 id="services/proxy-server/enabled-(boolean)">services/proxy-server/enabled (boolean)</h3>
+
+<p>services/proxy-server/enabled, default value: false</p>
+
+<h3 id="services/proxy-server/routes-limit-(positive-integer)">services/proxy-server/routes-limit (positive integer)</h3>
+
+<p>services/proxy-server/routes-limit, default value: 10</p>
+
+<h3 id="services/proxy-transport/current-router-(string)">services/proxy-transport/current-router (string)</h3>
+
+<p>services/proxy-transport/current-router, default value: </p>
+
+<h3 id="services/proxy-transport/enabled-(boolean)">services/proxy-transport/enabled (boolean)</h3>
+
+<p>services/proxy-transport/enabled, default value: false</p>
+
+<h3 id="services/proxy-transport/my-original-identity-(text)">services/proxy-transport/my-original-identity (text)</h3>
+
+<p>services/proxy-transport/my-original-identity, default value: </p>
+
+<h3 id="services/proxy-transport/preferred-routers-(text)">services/proxy-transport/preferred-routers (text)</h3>
+
+<p>services/proxy-transport/preferred-routers, default value: </p>
+
+<h3 id="services/proxy-transport/priority-(positive-integer)">services/proxy-transport/priority (positive integer)</h3>
+
+<p>services/proxy-transport/priority, default value: 30</p>
+
+<h3 id="services/proxy-transport/receiving-enabled-(boolean)">services/proxy-transport/receiving-enabled (boolean)</h3>
+
+<p>services/proxy-transport/receiving-enabled, default value: false</p>
+
+<h3 id="services/proxy-transport/router-lifetime-seconds-(positive-integer)">services/proxy-transport/router-lifetime-seconds (positive integer)</h3>
+
+<p>services/proxy-transport/router-lifetime-seconds, default value: 600</p>
+
+<h3 id="services/proxy-transport/sending-enabled-(boolean)">services/proxy-transport/sending-enabled (boolean)</h3>
+
+<p>services/proxy-transport/sending-enabled, default value: true</p>
+
+<h3 id="services/rebuilding/enabled-(boolean)">services/rebuilding/enabled (boolean)</h3>
+
+<p>services/rebuilding/enabled, default value: true</p>
+
+<h3 id="services/restores/enabled-(boolean)">services/restores/enabled (boolean)</h3>
+
+<p>services/restores/enabled, default value: true</p>
+
+<h3 id="services/supplier/donated-space-(disk-space)">services/supplier/donated-space (disk space)</h3>
+
+<p>services/supplier/donated-space, default value: 8 GB</p>
+
+<h3 id="services/supplier/enabled-(boolean)">services/supplier/enabled (boolean)</h3>
+
+<p>services/supplier/enabled, default value: true</p>
+
+<h3 id="services/tcp-connections/enabled-(boolean)">services/tcp-connections/enabled (boolean)</h3>
+
+<p>services/tcp-connections/enabled, default value: true</p>
+
+<h3 id="tcp-port-number-(positive-integer)">tcp port number (positive integer)</h3>
+
+<p>services/tcp-connections/tcp-port, default value: 7771</p>
+
+<p>Enter the TCP port number, it will be used to connect with your machine by other users.</p>
+
+<h3 id="upnp-enable-(boolean)">UPnP enable (boolean)</h3>
+
+<p>services/tcp-connections/upnp-enabled, default value: true</p>
+
+<p>Enable this if you want to perform checking of UPnP devices to configure port forwarding automatically.</p>
+
+<h3 id="enable-tcp-transport-service-(boolean)">enable tcp-transport service (boolean)</h3>
+
+<p>services/tcp-transport/enabled, default value: true</p>
+
+<p>Enable "TCP-transport" service.</p>
+
+<h3 id="services/tcp-transport/priority-(positive-integer)">services/tcp-transport/priority (positive integer)</h3>
+
+<p>services/tcp-transport/priority, default value: 10</p>
+
+<h3 id="enable-tcp-receiving-(boolean)">enable tcp receiving (boolean)</h3>
+
+<p>services/tcp-transport/receiving-enabled, default value: true</p>
+
+<p>Disable this if you do not want to use TCP-transport for receiving packets from other users.</p>
+
+<h3 id="enable-tcp-sending-(boolean)">enable tcp sending (boolean)</h3>
+
+<p>services/tcp-transport/sending-enabled, default value: true</p>
+
+<p>Disable this if you do not want to use TCP-transport for sending packets to other users.</p>
+
+<h3 id="services/udp-datagrams/enabled-(boolean)">services/udp-datagrams/enabled (boolean)</h3>
+
+<p>services/udp-datagrams/enabled, default value: true</p>
+
+<h3 id="udp-port-number-(positive-integer)">udp port number (positive integer)</h3>
+
+<p>services/udp-datagrams/udp-port, default value: 8882</p>
+
+<p>Set a UDP port for sending and receiving UDP datagrams.</p>
+
+<h3 id="enable-udp-transport-service-(boolean)">enable udp-transport service (boolean)</h3>
+
+<p>services/udp-transport/enabled, default value: true</p>
+
+<p>Enable "UDP-transport" service.</p>
+
+<h3 id="services/udp-transport/priority-(positive-integer)">services/udp-transport/priority (positive integer)</h3>
+
+<p>services/udp-transport/priority, default value: 20</p>
+
+<h3 id="enable-udp-receiving-(boolean)">enable udp receiving (boolean)</h3>
+
+<p>services/udp-transport/receiving-enabled, default value: true</p>
+
+<p>Disable this if you do not want to use UDP-transport for receiving packets from other users.</p>
+
+<h3 id="enable-udp-sending-(boolean)">enable udp sending (boolean)</h3>
+
+<p>services/udp-transport/sending-enabled, default value: true</p>
+
+<p>Disable this if you do not want to use UDP-transport for sending packets to other users.</p>
 
 
 </div>
