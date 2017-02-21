@@ -58,8 +58,8 @@
 
 <p>Seems like in Ubuntu (probably most other distros) you just need to install all dependencies at first step:</p>
 
-<pre><code>    sudo apt-get install git python-dev python-twisted python-setuptools python-pip
-    pip install Django==1.7 pycrypto psutil
+<pre><code>    sudo apt-get install git python-dev python-twisted python-setuptools python-pip python-django
+    pip instycrypto psutil
 </code></pre>
 
 <p>Optionally, you can also install <a href="http://miniupnp.tuxfamily.org/">miniupnpc</a> tool if you want BitDust automatically deal with UPnPc configuration of your network router so it can also accept incomming connections from other nodes.:</p>
@@ -75,8 +75,8 @@
 <p>Create an alias in OS so you can easily run the program from any location:</p>
 
 <pre><code>    cd bitdust
-    python bitdust.py alias | sudo tee /usr/local/bin/bitdust
-    sudo chmod +x /usr/local/bin/bitdust
+    python bitdust.py alias &gt; sudo tee /usr/bin/bitdust
+    sudo chmod +x /usr/bin/bitdust
 </code></pre>
 
 <p>Create an identity for you in the BitDust network:</p>
@@ -86,10 +86,10 @@
 
 <p>I recommend you to create another copy of your Private Key in a safe place to be able to recover your data in the future. You can do it with such command:</p>
 
-<pre><code>    bitdust key copy &lt;filename&gt;
+<pre><code>    bitdust key copy &lt;nickname&gt;.bitdust.key
 </code></pre>
 
-<p>Your settings and local files are located in that folder: ~/.bitdust.</p>
+<p>Your settings and local files are located in that folder: ~/.bitdust</p>
 
 <p>Type this command to read more info about BitDust commands:</p>
 
@@ -102,11 +102,6 @@
 </code></pre>
 
 <p>Start as background process:</p>
-
-<pre><code>    nohup bitdust &amp;
-</code></pre>
-
-<p>or, simply:</p>
 
 <pre><code>    bitdust detach
 </code></pre>

@@ -9,7 +9,7 @@
 
     <link rel="canonical" href="http://bitdust.io">
     
-    <title>BitDust : ./definitions</title>
+    <title>Start a new Identity Server in BitDust network</title>
 
     <!-- <meta property="fb:admins" content="1097958228"/> -->
     <!-- <meta property="fb:app_id" content="543329652498581"/> -->
@@ -54,23 +54,78 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h2 id="what-bitdust-is?">What BitDust is?</h2>
+<h1 id="start-a-new-identity-server-in-bitdust-network">Start a new Identity Server in BitDust network</h1>
 
-<p>BitDust a worldwide distributed computer network for secure storage and transfer of information and operates over existing Internet connections.</p>
+<h2 id="install-and-configure-apache2">Install and configure apache2</h2>
 
-<p>BitDust a holistic ecosystem, the basic idea of ​​which is to complete decentralization of all information flows and data storage.</p>
+<p>First install Apache server if you do not have it yet on your machine:</p>
 
-<p>BitDust a set of software that implements over the Internet, the global higher level of communications infrastructure.</p>
+<pre><code>sudo apt-get install apache2
+</code></pre>
 
-<p>BitDust this engine to create a distributed and secure p2p applications.</p>
+<p>Edit file:</p>
 
-<p>BitDust an attempt to rectify the current situation in the world - this is what was supposed to be the internet.</p>
+<pre><code>/etc/apache2/apache2.conf
+</code></pre>
 
-<p>BitDust this is just another revolution.</p>
+<p>you need to add a line to set your domain name:</p>
 
-<p>BitDust network is a voluntary association of people sharing resources of their personal computers - it aims to protect the privacy of users and provides an alternative way of working and communicating in the network.</p>
+<pre><code>ServerName my-own-identity-server.com
+</code></pre>
 
-<p>BitDust is another way for collective security</p>
+<p>Create a new .conf file in /etc/apache2/conf-available/ :</p>
+
+<pre><code>&lt;VirtualHost *:80&gt;
+  ServerName my-own-identity-server.com
+  ServerAlias www.my-own-identity-server.com
+  ProxyPreserveHost on
+  ProxyRequests Off
+  RewriteEngine on
+  ProxyPass / http://localhost:8084/
+  ProxyPassReverse / http://localhost:8084/
+  Redirect / http://localhost:8084/
+  RewriteRule ^/(.*) http://localhost:8084/$1 [P,L]
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<p>Enable this configuration in apache2, run command:</p>
+
+<pre><code>sudo a2enconf id_server_apache2
+</code></pre>
+
+<p>Configure proxy_http and rewrite modes in apache2, run commands:</p>
+
+<pre><code>sudo a2enmod proxy_http 
+sudo a2enmod rewrite
+</code></pre>
+
+<p>Restart apache2 server:</p>
+
+<pre><code>sudo service apache2 restart
+</code></pre>
+
+<h2 id="configure-bitdust-software">Configure BitDust software</h2>
+
+<p>Now configure BitDust on your node to set domain name for your identity server, run commands:</p>
+
+<pre><code>bitdust set services/id-server/host my-own-identity-server.com
+bitdust set services/id-server/enabled true
+</code></pre>
+
+<p>Restart BitDust software:</p>
+
+<pre><code>bitdust restart
+</code></pre>
+
+<p>Be sure ID server is up and running:</p>
+
+<pre><code>bitdust states | grep id_server
+36: id_server(LISTEN)
+</code></pre>
+
+<p>Open your browser and go to my-own-identity-server.com to check it end-to-end.</p>
+
+<p>Contact with BitDust team to notify about this new ID server was started and we will add your domain name in the list of "known id servers" at: http://gitlab.bitdust.io/stable/bitdust.latest/blob/master/userid/known_servers.py</p>
 
 
 </div>
