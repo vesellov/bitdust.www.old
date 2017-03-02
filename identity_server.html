@@ -73,7 +73,7 @@
 <pre><code>ServerName my-own-identity-server.com
 </code></pre>
 
-<p>Create a new .conf file in /etc/apache2/conf-available/ :</p>
+<p>Create a new my-own-identity-server_com.conf file in /etc/apache2/conf-available/ :</p>
 
 <pre><code>&lt;VirtualHost *:80&gt;
   ServerName my-own-identity-server.com
@@ -90,7 +90,7 @@
 
 <p>Enable this configuration in apache2, run command:</p>
 
-<pre><code>sudo a2enconf id_server_apache2
+<pre><code>sudo a2enconf my-own-identity-server_com
 </code></pre>
 
 <p>Configure proxy_http and rewrite modes in apache2, run commands:</p>
@@ -99,14 +99,21 @@
 sudo a2enmod rewrite
 </code></pre>
 
-<p>Restart apache2 server:</p>
+<p>Also you need to setup hostname on your machine if you did not do it before:</p>
+
+<pre><code>sudo hostname -b my-own-identity-server.com
+</code></pre>
+
+<p>Now restart apache2 server:</p>
 
 <pre><code>sudo service apache2 restart
 </code></pre>
 
 <h2 id="configure-bitdust-software">Configure BitDust software</h2>
 
-<p>Now configure BitDust on your node to set domain name for your identity server, run commands:</p>
+<p>First you need to install <a href="https://bitdust.io/install.html">BitDust software</a> on your machine. </p>
+
+<p>Now configure BitDust on your node to set domain name for this new identity server, run commands:</p>
 
 <pre><code>bitdust set services/id-server/host my-own-identity-server.com
 bitdust set services/id-server/enabled true
