@@ -58,7 +58,9 @@
 
 <p>Seems like in Ubuntu (probably most other distros) you just need to install all dependencies at first step:</p>
 
-<pre><code>    sudo apt-get install git python-dev python-twisted python-setuptools python-pip python-django python-crypto python-psutil
+<pre><code>    sudo apt-get install git python-dev python-setuptools python-pip
+
+    sudo apt-get install python-twisted python-django python-crypto python-pyasn1 python-psutil
 </code></pre>
 
 <p>Optionally, you can also install <a href="http://miniupnp.tuxfamily.org/">miniupnpc</a> tool if you want BitDust automatically deal with UPnPc configuration of your network router so it can also accept incomming connections from other nodes.:</p>
@@ -68,7 +70,7 @@
 
 <p>Get BitDust sources:</p>
 
-<pre><code>    git clone gitlab.bitdust.io/stable/bitdust.latest.git bitdust
+<pre><code>    git clone http://gitlab.bitdust.io/stable/bitdust.latest.git bitdust
 </code></pre>
 
 <p>Create an alias in OS so you can easily run the program from any location:</p>
@@ -108,28 +110,47 @@
 <p>To get some more insights or just to know how to start playing with software
 you can visit <a href="https://bitdust.io/commands.html">BitDust Commands</a> page. </p>
 
-<h2 id="known-dependencies">Known dependencies</h2>
+<h2 id="windows-binaries">Windows binaries</h2>
 
-<p>python 2.6 or 2.7, python3 is not supported
-    http://python.org/download/releases</p>
+<p>If you are installing BitDust on Windows platforms, you may require some binary packages already compiled and packaged for Microsoft Windows platforms, you can check following locations and download needed binaries and libraries:</p>
 
-<p>twisted 11.0 or higher: 
-    http://twistedmatrix.com</p>
+<pre><code>+ cygwin: [cygwin.com](https://cygwin.com/install.html)
 
-<p>pyasn1: 
-    http://pyasn1.sourceforge.net</p>
++ git: [git-scm.com](https://git-scm.com/download/win)
 
-<p>pyOpenSSL: 
-    https://launchpad.net/pyopenssl</p>
++ python 2.7 (python3 is not supported yet): [python.org](http://python.org/download/releases)
 
-<p>pycrypto: 
-    https://www.dlitz.net/software/pycrypto/</p>
++ twisted 11.0 or higher: [twistedmatrix.com](http://twistedmatrix.com)
 
-<p>wxgtk2.8: 
-    http://wiki.wxpython.org/InstallingOnUbuntuOrDebian</p>
++ pyasn1: [pyasn1.sourceforge.net](http://pyasn1.sourceforge.net)
 
-<p>miniupnpc:
-    http://miniupnp.tuxfamily.org/</p>
++ pyOpenSSL: [launchpad.net/pyopenssl](https://launchpad.net/pyopenssl)
+
++ pycrypto: [dlitz.net/software/pycrypto](https://www.dlitz.net/software/pycrypto/)
+
++ wxgtk2.8: [wxpython.org](http://wiki.wxpython.org/InstallingOnUbuntuOrDebian)
+
++ miniupnpc: [miniupnp.tuxfamily.org](http://miniupnp.tuxfamily.org/)
+</code></pre>
+
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = "http://bitdust.io/install.html";   
+        this.page.identifier = "./install"
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//bitdust.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+</div>
 
 
 </div>

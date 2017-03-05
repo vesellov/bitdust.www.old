@@ -58,7 +58,12 @@
 
 <h2 id="install-and-configure-apache2">Install and configure apache2</h2>
 
-<p>First install Apache server if you do not have it yet on your machine:</p>
+<p>Lets setup a hostname on your machine if you did not do it before:</p>
+
+<pre><code>sudo hostname -b my-own-identity-server.com
+</code></pre>
+
+<p>And you will need to install Apache server if you do not have it yet on your machine:</p>
 
 <pre><code>sudo apt-get install apache2
 </code></pre>
@@ -99,11 +104,6 @@
 sudo a2enmod rewrite
 </code></pre>
 
-<p>Also you need to setup hostname on your machine if you did not do it before:</p>
-
-<pre><code>sudo hostname -b my-own-identity-server.com
-</code></pre>
-
 <p>Now restart apache2 server:</p>
 
 <pre><code>sudo service apache2 restart
@@ -119,6 +119,11 @@ sudo a2enmod rewrite
 bitdust set services/id-server/enabled true
 </code></pre>
 
+<p>You can manually set a port number for incoming connections using such command:</p>
+
+<pre><code>bitdust set services/id-server/web-port 8084
+</code></pre>
+
 <p>Restart BitDust software:</p>
 
 <pre><code>bitdust restart
@@ -130,9 +135,30 @@ bitdust set services/id-server/enabled true
 36: id_server(LISTEN)
 </code></pre>
 
-<p>Open your browser and go to my-own-identity-server.com to check it end-to-end.</p>
+<p>Open your browser and go to http://my-own-identity-server.com or (http://localhost:8084) to check it end-to-end.</p>
 
-<p>Contact with BitDust team to notify about this new ID server was started and we will add your domain name in the list of "known id servers" at: http://gitlab.bitdust.io/stable/bitdust.latest/blob/master/userid/known_servers.py</p>
+<h2 id="support-bitdust-network">Support BitDust network</h2>
+
+<p>Contact with BitDust team to notify about this new ID server was started by you and we will add your domain name in the list of <a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/http://gitlab.bitdust.io/stable/bitdust.latest/blob/master/userid/known_servers.py">known_servers.py</a>.</p>
+
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = "http://bitdust.io/identity_server.html";   
+        this.page.identifier = "./identity_server"
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//bitdust.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+</div>
 
 
 </div>
