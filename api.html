@@ -56,66 +56,86 @@
 
 <h1 id="bitdust-api">BitDust API</h1>
 
-<h3 id="stop()">stop()</h3>
+<h2 id="stop()">stop()</h2>
 
-<p>Stop the main process immediately. </p>
+<p>Stop the main process immediately.</p>
 
-<p>{'status': 'OK', 'result': 'stopped'}</p>
+<pre><code>{'status': 'OK', 'result': 'stopped'}
+</code></pre>
 
-<h3 id="restart(showgui=false)">restart(showgui=False)</h3>
+<h2 id="restart(showgui=false)">restart(showgui=False)</h2>
 
 <p>Restart the main process, if flag show=True the GUI will be opened after
-restart. </p>
+restart.</p>
 
-<p>{'status': 'OK', 'result': 'restarted'}</p>
+<pre><code>{'status': 'OK', 'result': 'restarted'}
+</code></pre>
 
-<h3 id="reconnect()">reconnect()</h3>
+<h2 id="reconnect()">reconnect()</h2>
 
 <p>Sends "reconnect" event to network_connector() Automat in order to refresh
 network connection.</p>
 
-<h3 id="show()">show()</h3>
+<pre><code>{'status': 'OK', 'result': 'reconnected'}
+</code></pre>
 
-<p>Opens a default web browser to show the BitDust GUI. </p>
+<h2 id="show()">show()</h2>
 
-<p>{'status': 'OK',   'result': '<code>show</code> event has been sent to the main
-process'}</p>
+<p>Opens a default web browser to show the BitDust GUI.</p>
 
-<h3 id="config_get(key,-default=none)">config_get(key, default=None)</h3>
+<pre><code>{'status': 'OK',   'result': '"show" event has been sent to the main process'}
+</code></pre>
 
-<p>Returns current value for specific option from program settings. </p>
+<h2 id="config_get(key,-default=none)">config_get(key, default=None)</h2>
 
-<p>{'status': 'OK',   'result': [      {'type': 'positive integer',
-'value': '8',       'key': 'logs/debug-level'}]}"</p>
+<p>Returns current value for specific option from program settings.</p>
 
-<h3 id="config_set(key,-value)">config_set(key, value)</h3>
+<pre><code>{'status': 'OK',   'result': [{'type': 'positive integer', 'value': '8', 'key': 'logs/debug-level'}]}
+</code></pre>
 
-<p>Set a value for given option. </p>
+<h2 id="config_set(key,-value)">config_set(key, value)</h2>
 
-<p>{'status': 'OK',   'result': [      {'type': 'positive integer',
-'old_value': '8',       'value': '10',       'key': 'logs/debug-
-level'}]}"</p>
+<p>Set a value for given option.</p>
 
-<h3 id="config_list(sort=false)">config_list(sort=False)</h3>
+<pre><code>{'status': 'OK', 'result': [{'type': 'positive integer', 'old_value': '8', 'value': '10', 'key': 'logs/debug-level'}]}
+</code></pre>
 
-<p>Provide detailed info about all options and values from settings. </p>
+<h2 id="config_list(sort=false)">config_list(sort=False)</h2>
 
-<p>{'status': 'OK',  'result': [      {'type': 'boolean',
-'value': 'true',       'key': 'services/backups/enabled'},
-{'type': 'boolean',       'value': 'false',       'key':
-'services/backups/keep-local-copies-enabled'},      {'type': 'disk
-space',       'value': '128 MB',       'key': 'services/backups/max-
-block-size'}]}"</p>
+<p>Provide detailed info about all options and values from settings.</p>
 
-<h3 id="filemanager(json_request)">filemanager(json_request)</h3>
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'type': 'boolean',
+    'value': 'true',
+    'key': 'services/backups/enabled'
+ }, {
+    'type': 'boolean',
+    'value': 'false',
+    'key': 'services/backups/keep-local-copies-enabled'
+ }, {
+    'type': 'diskspace',
+    'value': '128 MB',
+    'key': 'services/backups/max-block-size'
+}]}"
+</code></pre>
+
+<h2 id="keys_list(sort=false)">keys_list(sort=False)</h2>
+
+<p>List details for known private keys.</p>
+
+<h2 id="key_create(key_id)">key_create(key_id)</h2>
+
+<h2 id="filemanager(json_request)">filemanager(json_request)</h2>
 
 <p>A service method to execute calls from GUI front-end and interact with web
 browser. This is a special "gates" created only for Ajax calls from GUI. It
 provides same methods as other functions here, but just in a different way.</p>
 
-<pre><code>request:
+<pre><code>Request:
     {"params":{"mode":"stats"}}
-response:
+
+Response:
     {'bytes_donated': 8589934592,
      'bytes_indexed': 43349475,
      'bytes_needed': 104857600,
@@ -134,176 +154,225 @@ response:
      'value_used_total': '82.93 MB'}
 </code></pre>
 
-<p>You can also access those methods with API alias:
-    filemanager_{mode}()</p>
+<p>You can also access those methods with another API "alias": <code>filemanager_{ mode }({ extra params })</code></p>
 
-<h3 id="backups_update()">backups_update()</h3>
+<h2 id="backups_update()">backups_update()</h2>
 
 <p>Sends "restart" event to backup_monitor() Automat, this should start "data
-synchronization" process with remote nodes. </p>
+synchronization" process with remote nodes.</p>
 
-<p>{'status': 'OK', 'result': 'the main loop has been restarted'}</p>
+<pre><code>{'status': 'OK', 'result': 'the main loop has been restarted'}
+</code></pre>
 
-<h3 id="backups_list()">backups_list()</h3>
+<h2 id="backups_list()">backups_list()</h2>
 
-<p>Returns a whole tree of files and folders in the catalog. </p>
+<p>Returns a whole tree of files and folders in the catalog.</p>
 
-<p>{'status': 'OK',   'result': [      {'path':
-'/Users/veselin/Documents',       'versions': [],       'type':
-'parent',       'id': '0/0/1',       'size': 38992196},
-{'path': '/Users/veselin/Documents/python',       'versions': [],
-'type': 'parent',       'id': '0/0/1/0',       'size': 5754439},
-{'path': '/Users/veselin/Documents/python/python27.chm',
-'versions': [           {'version': 'F20160313043757PM',
-'blocks': 1,            'size': '11 MB'}],       'type': 'file',
-'id': '0/0/1/0/0',       'size': 5754439}]}"</p>
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'path': '/Users/veselin/Documents',
+    'versions': [],
+    'type': 'parent',
+    'id': '0/0/1',
+    'size': 38992196
+  }, {
+    'path': '/Users/veselin/Documents/python',
+    'versions': [],
+    'type': 'parent',
+    'id': '0/0/1/0',
+    'size': 5754439
+  }, {
+    'path': '/Users/veselin/Documents/python/python27.chm',
+    'versions': [{
+        'version': 'F20160313043757PM',
+        'blocks': 1,
+        'size': '11 MB'
+    }],
+    'type': 'file',
+    'id': '0/0/1/0/0',
+    'size': 5754439
+}]}"
+</code></pre>
 
-<h3 id="backups_id_list()">backups_id_list()</h3>
+<h2 id="backups_id_list()">backups_id_list()</h2>
 
-<p>Returns only list of items uploaded on remote machines. </p>
+<p>Returns only list of items uploaded on remote machines.</p>
 
-<p>{'status': 'OK',   'result': [{'backupid':
-'0/0/1/0/0/F20160313043757PM',               'path':
-'/Users/veselin/Documents/python/python27.chm',
-'size': '11 MB'},              {'backupid':
-'0/0/0/0/0/0/F20160315052257PM',               'path':
-'/Users/veselin/Music/Bob Marley/01-Soul Rebels (1970)/01-Put It
-On.mp3',               'size': '8.27 MB'}]}</p>
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'backupid': '0/0/1/0/0/F20160313043757PM',
+    'path': '/Users/veselin/Documents/python/python27.chm',
+    'size': '11 MB'
+ }, {
+    'backupid': '0/0/0/0/0/0/F20160315052257PM',
+    'path': '/Users/veselin/Music/Bob Marley/01-Soul Rebels (1970)/01-Put It On.mp3',
+    'size': '8.27 MB'
+}]}
+</code></pre>
 
-<h3 id="backup_start_id(pathid)">backup_start_id(pathID)</h3>
+<h2 id="backup_start_id(pathid)">backup_start_id(pathID)</h2>
 
 <p>Start uploading a given item already existed in the catalog by its path ID.</p>
 
-<p>{'status': 'OK',   'result': 'uploading 0/0/1/0/0 started, local
-path is: /Users/veselin/Documents/python/python27.chm'}</p>
-
-<h3 id="backup_start_path(path,-bind_local_path=true)">backup_start_path(path, bind_local_path=True)</h3>
-
-<p>Start uploading file or folder to remote nodes. It will assign a new path
-ID to that path and add it to the catalog. If bind<em>local</em>path is False all
-parent sub folders:</p>
-
-<pre><code>["Users", "veselin", "Documents", "python",]
+<pre><code>{'status': 'OK', 'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}
 </code></pre>
 
-<p>will be also added to catalog
-and so final ID will be combination of several IDs:</p>
+<h2 id="backup_start_path(path,-mount_path=none,-key_id=none)">backup_start_path(path, mount_path=None, key_id=None)</h2>
+
+<p>Start uploading file or folder to remote nodes. It will generate a new path
+ID for this file or folder and add it to the catalog.
+If <code>mount_path</code> is <code>None</code> method will create a new file (or folder) and
+all parent sub folders will be also added to the catalog:</p>
+
+<pre><code>["Users", "Users/veselin", "Users/veselin/Documents", "Users/veselin/Documents/python",]
+</code></pre>
+
+<p>Final ID of that item will be combined from parent IDs and target file or folder ID:</p>
 
 <pre><code>0/0/1/0/0
 </code></pre>
 
-<p>Otherwise item will be created in the top level of the catalog
-and final ID will be just a single unique number.
-So if bind<em>local</em>path is True it will act like backup<em>map</em>path()
-and start the backup process after that.</p>
+<p>In case <code>mount_path</code> is set it will act like backup<em>map</em>path()
+and start the backup process: item will be created in the <code>mount_path</code> location.</p>
 
 <pre><code>{'status': 'OK',
  'result': 'uploading of item 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm',
  'id': '0/0/1/0/0',
- 'type': 'file', }
+ 'type': 'file',
+ 'key_id': 'abc'}
 </code></pre>
 
-<h3 id="backup_map_path(path)">backup_map_path(path)</h3>
+<h2 id="backup_map_path(path,-mount_path,-key_id=none)">backup_map_path(path, mount_path, key_id=None)</h2>
 
 <p>Create a new top level item in the catalog and point it to given local
 path. This is the simplest way to upload a file and get an ID for that
-remote copy. </p>
+remote copy. Given local <code>path</code> will be mapped to virtual <code>mount_path</code>,
+which must not exist in the catalog yet.</p>
 
-<p>{'status': 'OK',  'result': [ 'new file was added: 1, local path is
-/Users/veselin/Pictures/bitdust.png'],  'id': '1',  'type': 'file'}</p>
+<pre><code>{'status': 'OK',
+ 'result': [ 'new file was added: 1, local path is /Users/veselin/Pictures/bitdust.png'],
+ 'id': '1',
+ 'type': 'file',
+ 'key_id': 'abc'}
+</code></pre>
 
-<h3 id="backup_dir_add(dirpath)">backup_dir_add(dirpath)</h3>
+<h2 id="backup_dir_make(dirpath,-key_id=none)">backup_dir_make(dirpath, key_id=None)</h2>
+
+<p>Creates empty folder in catalog.</p>
+
+<pre><code>{'status': 'OK', 'result': 'new folder was added: 0/0/8, local path is /Users/veselin/Desktop/', 'key_id': 'abc'}
+</code></pre>
+
+<h2 id="backup_dir_add(dirpath,-key_id=none)">backup_dir_add(dirpath, key_id=None)</h2>
 
 <p>Add given folder to the catalog but do not start uploading process. This
 method will create all sub folders in the catalog and keeps the same
 structure as your local folders structure. So the final ID will be
-combination of all parent IDs, separated with "/". </p>
+combination of all parent IDs, separated with "/".</p>
 
-<p>{'status': 'OK',   'result': 'new folder was added: 0/0/2, local
-path is /Users/veselin/Movies/'}</p>
+<pre><code>{'status': 'OK', 'result': 'new folder was added: 0/0/2, local path is /Users/veselin/Movies/', 'key_id': 'abc'}
+</code></pre>
 
-<h3 id="backup_file_add(filepath)">backup_file_add(filepath)</h3>
+<h2 id="backup_file_add(filepath,-key_id=none)">backup_file_add(filepath, key_id=None)</h2>
 
 <p>Add a single file to the catalog, skip uploading. This method will create
 all sub folders in the catalog and keeps the same structure as your local
 file path structure. So the final ID of that file in the catalog will be
-combination of all parent IDs, separated with "/". </p>
+combination of all parent IDs, separated with "/".</p>
 
-<p>{'status': 'OK', 'result': 'new file was added: 0/0/3/0, local path
-is /Users/veselin/Downloads/pytest-2.9.0.tar.gz'}</p>
+<pre><code>{'status': 'OK', 'result': 'new file was added: 0/0/3/0, local path is /Users/veselin/Downloads/pytest-2.9.0.tar.gz', 'key_id': 'abc'}
+</code></pre>
 
-<h3 id="backup_tree_add(dirpath)">backup_tree_add(dirpath)</h3>
+<h2 id="backup_tree_add(dirpath,-key_id=none)">backup_tree_add(dirpath, key_id=None)</h2>
 
 <p>Recursively reads the entire folder and create items in the catalog. For
 all files and folders it will keeping the same files/folders structure.
 This method will not start any uploads, just append items to the catalog.</p>
 
-<p>{'status': 'OK',   'result': '21 items were added to catalog, parent
-path ID is 0/0/1/2, root folder is
-/Users/veselin/Documents/reports'}</p>
+<pre><code>{'status': 'OK',
+ 'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports',
+ 'key_id': 'abc'}
+</code></pre>
 
-<h3 id="backup_delete_local(backupid)">backup_delete_local(backupID)</h3>
+<h2 id="backup_delete_local(backupid)">backup_delete_local(backupID)</h2>
 
 <p>Remove only local files belongs to this particular backup. All remote data
-stored on suppliers' machines remain unchanged. </p>
+stored on suppliers' machines remain unchanged.</p>
 
-<p>{'status': 'OK',   'result': '8 files were removed with total size
-of 16 Mb'}</p>
+<pre><code>{'status': 'OK',   'result': '8 files were removed with total size of 16 Mb'}
+</code></pre>
 
-<h3 id="backup_delete_id(pathid_or_backupid)">backup_delete_id(pathID_or_backupID)</h3>
+<h2 id="backup_delete_id(pathid_or_backupid)">backup_delete_id(pathID_or_backupID)</h2>
 
 <p>Delete local and remote copies of given item in catalog. This will
 completely remove your data from BitDust network. You can specify either
-path ID of that location or specific version. </p>
+path ID of that location or specific version.</p>
 
-<p>{'status': 'OK',   'result': 'version 0/0/1/1/0/F20160313043419PM
-was deleted from remote peers'}</p>
+<pre><code>{'status': 'OK',   'result': 'version 0/0/1/1/0/F20160313043419PM was deleted from remote peers'}
+</code></pre>
 
-<h3 id="backup_delete_path(localpath)">backup_delete_path(localPath)</h3>
+<h2 id="backup_delete_path(localpath)">backup_delete_path(localPath)</h2>
 
 <p>Completely remove any data stored on given location from BitDust network.
 All data for given item will be removed from remote peers. Any local files
-related to this path will be removed as well. </p>
+related to this path will be removed as well.</p>
 
-<p>{'status': 'OK',   'result': 'item 0/1/2 was deleted from remote
-peers'}</p>
+<pre><code>{'status': 'OK',   'result': 'item 0/1/2 was deleted from remote peers'}
+</code></pre>
 
-<h3 id="backups_queue()">backups_queue()</h3>
+<h2 id="backups_queue()">backups_queue()</h2>
 
 <p>Returns a list of paths to be backed up as soon as currently running
-backups finish. </p>
+backups finish.</p>
 
-<p>{'status': 'OK',   'result': [     {'created': 'Wed Apr 27 15:11:13
-2016',      'id': 3,      'local<em>path': '/Users/veselin/Downloads
-/some-ZIP-file.zip',      'path</em>id': '0/0/3/1'}]}</p>
+<pre><code>{'status': 'OK',
+ 'result': [{
+     'created': 'Wed Apr 27 15:11:13 2016',
+     'id': 3,
+     'local_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
+     'path_id': '0/0/3/1'
+}]}
+</code></pre>
 
-<h3 id="backups_running()">backups_running()</h3>
+<h2 id="backups_running()">backups_running()</h2>
 
-<p>Returns a list of currently running uploads. </p>
+<p>Returns a list of currently running uploads.</p>
 
-<p>{'status': 'OK',   'result': [     {'aborting': False,
-'backup<em>id': '0/0/3/1/F20160424013912PM',      'block</em>number': 4,
-'block<em>size': 16777216,      'bytes</em>processed': 67108864,
-'closed': False,      'eccmap': 'ecc/4x4',      'eof<em>state': False,
-'pipe': 0,      'progress': 75.0142815704418,      'reading': False,
-'source</em>path': '/Users/veselin/Downloads/some-ZIP-file.zip',
-'terminating': False,      'total<em>size': 89461450,
-'work</em>blocks': 4} ]}</p>
+<pre><code>{'status': 'OK',
+ 'result': [{
+     'aborting': False,
+     'backup_id': '0/0/3/1/F20160424013912PM',
+     'block_number': 4,
+     'block_size': 16777216,
+     'bytes_processed': 67108864,
+     'closed': False,
+     'eccmap': 'ecc/4x4',
+     'eof_state': False,
+     'pipe': 0,
+     'progress': 75.0142815704418,
+     'reading': False,
+     'source_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
+     'terminating': False,
+     'total_size': 89461450,
+     'work_blocks': 4
+}]}
+</code></pre>
 
-<h3 id="backup_cancel_pending(path_id)">backup_cancel_pending(path_id)</h3>
+<h2 id="backup_cancel_pending(path_id)">backup_cancel_pending(path_id)</h2>
 
-<p>Cancel pending task to run backup of given item. </p>
+<p>Cancel pending task to run backup of given item.</p>
 
-<p>{'status': 'OK', 'result': 'item 123 cancelled', }</p>
+<pre><code>{'status': 'OK', 'result': 'item 123 cancelled'}
+</code></pre>
 
-<h3 id="backup_abort_running(backup_id)">backup_abort_running(backup_id)</h3>
+<h2 id="backup_abort_running(backup_id)">backup_abort_running(backup_id)</h2>
 
-<p>Abort currently running backup. </p>
+<p>Abort currently running backup.</p>
 
-<p>{'status': 'OK', 'result': 'backup 0/0/3/1/F20160424013912PM
-aborted', }</p>
+<pre><code>{'status': 'OK', 'result': 'backup 0/0/3/1/F20160424013912PM aborted'}
+</code></pre>
 
-<h3 id="restore_single(pathid_or_backupid_or_localpath,-destinationpath=none)">restore_single(pathID_or_backupID_or_localPath, destinationPath=None)</h3>
+<h2 id="restore_single(pathid_or_backupid_or_localpath,-destinationpath=none)">restore_single(pathID_or_backupID_or_localPath, destinationPath=None)</h2>
 
 <p>Download data from remote peers to your local machine. You can use
 different methods to select the target data:</p>
@@ -317,179 +386,235 @@ different methods to select the target data:</p>
 <p>It is possible to select the destination folder to extract requested files to.
 By default this method uses known location from catalog for given item.</p>
 
-<p>WARNING: Your existing local data will be overwritten.</p>
+<p>WARNING: Your existing local data will be overwritten!</p>
 
-<pre><code>{'status': 'OK',
-  'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/Downloads/restore/'}
+<pre><code>{'status': 'OK', 'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/Downloads/restore/'}
 </code></pre>
 
-<h3 id="restores_running()">restores_running()</h3>
+<h2 id="restores_running()">restores_running()</h2>
 
-<p>Returns a list of currently running downloads. </p>
+<p>Returns a list of currently running downloads.</p>
 
-<p>{'status': 'OK',  'result':   [ { 'aborted': False,
-'backup<em>id': '0/0/3/1/F20160427011209PM',
-'block</em>number': 0,                  'bytes<em>processed': 0,
-'creator</em>id': 'http://veselin-p2p.ru/veselin.xml',
-'done': False,                  'created': 'Wed Apr 27 15:11:13
-2016',                  'eccmap': 'ecc/4x4',
-'path_id': '0/0/3/1',                  'version':
-'F20160427011209PM'}],}</p>
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'aborted': False,
+    'backup_id': '0/0/3/1/F20160427011209PM',
+    'block_number': 0,
+    'bytes_processed': 0,
+    'creator_id': 'http://veselin-p2p.ru/veselin.xml',
+    'done': False,
+    'created': 'Wed Apr 27 15:11:13 2016',
+    'eccmap': 'ecc/4x4',
+    'path_id': '0/0/3/1',
+    'version': 'F20160427011209PM'
+}]}
+</code></pre>
 
-<h3 id="restore_abort(backup_id)">restore_abort(backup_id)</h3>
+<h2 id="restore_abort(backup_id)">restore_abort(backup_id)</h2>
 
-<p>Abort currently running restore process. </p>
+<p>Abort currently running restore process.</p>
 
-<p>{'status': 'OK',  'result': 'restoring of item 123 aborted', }</p>
+<pre><code>{'status': 'OK',  'result': 'restoring of item 123 aborted'}
+</code></pre>
 
-<h3 id="suppliers_list()">suppliers_list()</h3>
+<h2 id="suppliers_list()">suppliers_list()</h2>
 
 <p>This method returns a list of suppliers - nodes which stores your encrypted data on own machines.</p>
 
 <pre><code>{'status': 'OK',
- 'result':  [ {  'connected': '05-06-2016 13:06:05',
-                 'idurl': 'http://p2p-id.ru/bitdust_j_vps1014.xml',
-                 'numfiles': 14,
-                 'position': 0,
-                 'status': 'offline'},
-               { 'connected': '05-06-2016 13:04:57',
-                 'idurl': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
-                 'numfiles': 14,
-                 'position': 1,
-                 'status': 'offline'}], }
+ 'result':[{
+    'connected': '05-06-2016 13:06:05',
+    'idurl': 'http://p2p-id.ru/bitdust_j_vps1014.xml',
+    'numfiles': 14,
+    'position': 0,
+    'status': 'offline'
+ }, {
+    'connected': '05-06-2016 13:04:57',
+    'idurl': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
+    'numfiles': 14,
+    'position': 1,
+    'status': 'offline'
+}]}
 </code></pre>
 
-<h3 id="supplier_replace(index_or_idurl)">supplier_replace(index_or_idurl)</h3>
+<h2 id="supplier_replace(index_or_idurl)">supplier_replace(index_or_idurl)</h2>
 
 <p>Execute a fire/hire process for given supplier, another random node will
 replace this supplier. As soon as new supplier is found and connected,
 rebuilding of all uploaded data will be started and the new node will start
-getting a reconstructed fragments. </p>
+getting a reconstructed fragments.</p>
 
-<p>{'status': 'OK',  'result': 'supplier http://p2p-id.ru/alice.xml
-will be replaced by new peer', }</p>
+<pre><code>{'status': 'OK', 'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by new peer'}
+</code></pre>
 
-<h3 id="supplier_change(index_or_idurl,-new_idurl)">supplier_change(index_or_idurl, new_idurl)</h3>
+<h2 id="supplier_change(index_or_idurl,-new_idurl)">supplier_change(index_or_idurl, new_idurl)</h2>
 
 <p>Doing same as supplier_replace() but new node must be provided by you - you can manually assign a supplier.</p>
 
-<pre><code>{'status': 'OK',
- 'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by http://p2p-id.ru/bob.xml',}
+<pre><code>{'status': 'OK', 'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by http://p2p-id.ru/bob.xml'}
 </code></pre>
 
-<h3 id="suppliers_ping()">suppliers_ping()</h3>
+<h2 id="suppliers_ping()">suppliers_ping()</h2>
 
 <p>Sends short requests to all suppliers to get their current statuses.</p>
 
-<p>{'status': 'OK',  'result': 'requests to all suppliers was sent',}</p>
+<pre><code>{'status': 'OK',  'result': 'requests to all suppliers was sent'}
+</code></pre>
 
-<h3 id="customers_list()">customers_list()</h3>
+<h2 id="customers_list()">customers_list()</h2>
 
 <p>List of customers - nodes who stores own data on your machine.</p>
 
 <pre><code>{'status': 'OK',
  'result': [ {  'idurl': 'http://p2p-id.ru/bob.xml',
                 'position': 0,
-                'status': 'offline', }],
+                'status': 'offline'
+}]}
 </code></pre>
 
-<h3 id="customer_reject(idurl)">customer_reject(idurl)</h3>
+<h2 id="customer_reject(idurl)">customer_reject(idurl)</h2>
 
 <p>Stop supporting given customer, remove all his files from local disc, close
-connections with that node. </p>
+connections with that node.</p>
 
-<p>{'status': 'OK',  'result': ['customer http://p2p-id.ru/bob.xml
-rejected, 536870912 bytes were freed'],}</p>
+<pre><code>{'status': 'OK', 'result': 'customer http://p2p-id.ru/bob.xml rejected, 536870912 bytes were freed'}
+</code></pre>
 
-<h3 id="customers_ping()">customers_ping()</h3>
+<h2 id="customers_ping()">customers_ping()</h2>
 
 <p>Sends Identity packet to all customers to check their current statuses.
 Every node will reply with Ack packet on any valid incoming Identiy packet.</p>
 
-<p>{'status': 'OK',  'result': 'requests to all customers was sent',}</p>
+<pre><code>{'status': 'OK',  'result': 'requests to all customers was sent'}
+</code></pre>
 
-<h3 id="space_donated()">space_donated()</h3>
+<h2 id="space_donated()">space_donated()</h2>
 
-<p>Returns detailed statistics about your donated space usage. </p>
+<p>Returns detailed statistics about your donated space usage.</p>
 
-<p>{'status': 'OK',  'result':  [  { 'consumed': 0,
-'consumed<em>percent': '0%',                  'consumed</em>str': '0
-bytes',                  'customers': [],
-'customers<em>num': 0,                  'donated': 1073741824,
-'donated</em>str': '1024 MB',                  'free': 1073741824,
-'old<em>customers': [],                  'real': 0,
-'used': 0,                  'used</em>percent': '0%',
-'used_str': '0 bytes'}],}</p>
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'consumed': 0,
+    'consumed_percent': '0%',
+    'consumed_str': '0 bytes',
+    'customers': [],
+    'customers_num': 0,
+    'donated': 1073741824,
+    'donated_str': '1024 MB',
+    'free': 1073741824,
+    'old_customers': [],
+    'real': 0,
+    'used': 0,
+    'used_percent': '0%',
+    'used_str': '0 bytes'
+}]}
+</code></pre>
 
-<h3 id="space_consumed()">space_consumed()</h3>
+<h2 id="space_consumed()">space_consumed()</h2>
 
-<p>Returns some info about your current usage of BitDust resources. </p>
+<p>Returns some info about your current usage of BitDust resources.</p>
 
-<p>{'status': 'OK',  'result':  [  { 'available': 907163720,
-'available<em>per</em>supplier': 907163720,
-'available<em>per</em>supplier<em>str': '865.14 MB',
-'available</em>str': '865.14 MB',                  'needed': 1073741824,
-'needed<em>per</em>supplier': 1073741824,
-'needed<em>per</em>supplier<em>str': '1024 MB',                  'needed</em>str':
-'1024 MB',                  'suppliers<em>num': 2,
-'used': 166578104,                  'used</em>per<em>supplier': 166578104,
-'used</em>per<em>supplier</em>str': '158.86 MB',
-'used<em>percent': '0.155%',                  'used</em>str': '158.86
-MB'}],}</p>
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'available': 907163720,
+    'available_per_supplier': 907163720,
+    'available_per_supplier_str': '865.14 MB',
+    'available_str': '865.14 MB',
+    'needed': 1073741824,
+    'needed_per_supplier': 1073741824,
+    'needed_per_supplier_str': '1024 MB',
+    'needed_str': '1024 MB',
+    'suppliers_num': 2,
+    'used': 166578104,
+    'used_per_supplier': 166578104,
+    'used_per_supplier_str': '158.86 MB',
+    'used_percent': '0.155%',
+    'used_str': '158.86 MB'
+}]}
+</code></pre>
 
-<h3 id="space_local()">space_local()</h3>
+<h2 id="space_local()">space_local()</h2>
 
-<p>Returns detailed statistics about current usage of your local disk. </p>
+<p>Returns detailed statistics about current usage of your local disk.</p>
 
-<p>{'status': 'OK',  'result':  [  { 'backups': 0,
-'backups<em>str': '0 bytes',                  'customers': 0,
-'customers</em>str': '0 bytes',                  'diskfree':
-103865696256,                  'diskfree<em>percent': '0.00162%',
-'diskfree</em>str': '96.73 GB',                  'disktotal':
-63943473102848,                  'disktotal<em>str': '59552 GB',
-'temp': 48981,                  'temp</em>str': '47.83 KB',
-'total': 45238743,                  'total<em>percent': '0%',
-'total</em>str': '43.14 MB'}],}</p>
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'backups': 0,
+    'backups_str': '0 bytes',
+    'customers': 0,
+    'customers_str': '0 bytes',
+    'diskfree': 103865696256,
+    'diskfree_percent': '0.00162%',
+    'diskfree_str': '96.73 GB',
+    'disktotal': 63943473102848,
+    'disktotal_str': '59552 GB',
+    'temp': 48981,
+    'temp_str': '47.83 KB',
+    'total': 45238743,
+    'total_percent': '0%',
+    'total_str': '43.14 MB'
+}]}
+</code></pre>
 
-<h3 id="automats_list()">automats_list()</h3>
+<h2 id="automats_list()">automats_list()</h2>
 
-<p>Returns a list of all currently running state machines. </p>
+<p>Returns a list of all currently running state machines.</p>
 
-<p>{'status': 'OK',  'result':  [  { 'index': 1,
-'name': 'initializer',                  'state': 'READY',
-'timers': ''},                { 'index': 2,                  'name':
-'shutdowner',                  'state': 'READY',
-'timers': ''},             ...             ],}</p>
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'index': 1,
+    'name': 'initializer',
+    'state': 'READY',
+    'timers': ''
+  }, {
+    'index': 2,
+    'name': 'shutdowner',
+    'state': 'READY',
+    'timers': ''
+}]}
+</code></pre>
 
-<h3 id="services_list()">services_list()</h3>
+<h2 id="services_list()">services_list()</h2>
 
-<p>Returns detailed info about all currently running network services. </p>
+<p>Returns detailed info about all currently running network services.</p>
 
-<p>{'status': 'OK',  'result':  [  { 'config<em>path': 'services/backup-
-db/enabled',                  'depends': ['service</em>list<em>files',
-'service</em>data<em>motion'],                  'enabled': True,
-'index': 3,                  'installed': True,
-'name': 'service</em>backup<em>db',                  'state': 'ON'},
-{ 'config</em>path': 'services/backups/enabled',
-'depends': [  'service<em>list</em>files',
-'service<em>employer',
-'service</em>rebuilding'],                  'enabled': True,
-'index': 4,                  'installed': True,
-'name': 'service_backups',                  'state': 'ON'},
-...             ],}</p>
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'config_path': 'services/backup-db/enabled',
+    'depends': ['service_list_files', 'service_data_motion'],
+    'enabled': True,
+    'index': 3,
+    'installed': True,
+    'name': 'service_backup_db',
+    'state': 'ON'
+  }, {
+    'config_path': 'services/backups/enabled',
+    'depends': ['service_list_files', 'service_employer', 'service_rebuilding'],
+    'enabled': True,
+    'index': 4,
+    'installed': True,
+    'name': 'service_backups',
+    'state': 'ON'
+}]}
+</code></pre>
 
-<h3 id="service_info(service_name)">service_info(service_name)</h3>
+<h2 id="service_info(service_name)">service_info(service_name)</h2>
 
-<p>Returns detailed info for single service. </p>
+<p>Returns detailed info for single service.</p>
 
-<p>{'status': 'OK',  'result':  [  { 'config<em>path': 'services/tcp-
-connections/enabled',                  'depends':
-['service</em>network'],                  'enabled': True,
-'index': 24,                  'installed': True,
-'name': 'service<em>tcp</em>connections',                  'state':
-'ON'}],}</p>
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'config_path': 'services/tcp-connections/enabled',
+    'depends': ['service_network'],
+    'enabled': True,
+    'index': 24,
+    'installed': True,
+    'name': 'service_tcp_connections',
+    'state': 'ON'
+}]}
+</code></pre>
 
-<h3 id="service_start(service_name)">service_start(service_name)</h3>
+<h2 id="service_start(service_name)">service_start(service_name)</h2>
 
 <p>Start given service immediately. This method also set <code>True</code> for
 correspondent option in the program settings:</p>
@@ -500,10 +625,10 @@ correspondent option in the program settings:</p>
 <p>If some other services, which is dependent on that service,
 were already enabled, they will be started also.</p>
 
-<pre><code>{'status': 'OK', 'result': 'service_tcp_connections was switched on',}
+<pre><code>{'status': 'OK', 'result': 'service_tcp_connections was switched on'}
 </code></pre>
 
-<h3 id="service_stop(service_name)">service_stop(service_name)</h3>
+<h2 id="service_stop(service_name)">service_stop(service_name)</h2>
 
 <p>Stop given service immediately. It will also set <code>False</code> for correspondent
 option in the settings.</p>
@@ -513,90 +638,110 @@ option in the settings.</p>
 
 <p>Dependent services will be stopped as well.</p>
 
-<pre><code>{'status': 'OK', 'result': 'service_tcp_connections was switched off',}
+<pre><code>{'status': 'OK', 'result': 'service_tcp_connections was switched off'}
 </code></pre>
 
-<h3 id="packets_stats()">packets_stats()</h3>
+<h2 id="packets_stats()">packets_stats()</h2>
 
-<p>Returns detailed info about current network usage. </p>
-
-<p>{'status': 'OK',  'result': [ {'in': { 'failed<em>packets': 0,
-'total</em>bytes': 0,                       'total<em>packets': 0,
-'unknown</em>bytes': 0,                       'unknown<em>packets': 0},
-'out': { 'failed</em>packets': 8,                       'http://p2p-
-id.ru/bitdust<em>j</em>vps1014.xml': 0,                       'http
-://veselin-p2p.ru/bitdust<em>j</em>vps1001.xml': 0,
-'total<em>bytes': 0,                       'total</em>packets': 0,
-'unknown<em>bytes': 0,                       'unknown</em>packets': 0}}], }</p>
-
-<h3 id="packets_list()">packets_list()</h3>
-
-<p>Return list of incoming and outgoing packets. </p>
-
-<p>{}</p>
-
-<h3 id="connections_list(wanted_protos=none)">connections_list(wanted_protos=None)</h3>
-
-<p>Returns list of opened/active network connections. Argument <code>wanted_protos</code>
-can be used to select which protocols to list:
-connections<em>list(wanted</em>protos=['tcp', 'udp',]) </p>
-
-<p>{}</p>
-
-<h3 id="streams_list(wanted_protos=none)">streams_list(wanted_protos=None)</h3>
-
-<p>Return list of active sending/receiveing files. </p>
-
-<p>{}</p>
-
-<h3 id="ping(idurl,-timeout=10)">ping(idurl, timeout=10)</h3>
-
-<p>Sends Identity packet to remote peer and wait for Ack packet to check connection status.
-The "ping" command performs following actions:
-  1. Request remote identity source by idurl,
-  2. Sends my Identity to remote contact addresses, taken from identity,
-  3. Wait first Ack packet from remote peer,
-  4. Failed by timeout or identity fetching error.</p>
+<p>Returns detailed info about current network usage.</p>
 
 <pre><code>{'status': 'OK',
- 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
+ 'result': [{
+    'in': {
+        'failed_packets': 0,
+        'total_bytes': 0,
+        'total_packets': 0,
+        'unknown_bytes': 0,
+        'unknown_packets': 0
+    },
+    'out': {
+        'http://p2p-id.ru/bitdust_j_vps1014.xml': 0,
+        'http://veselin-p2p.ru/bitdust_j_vps1001.xml': 0,
+        'failed_packets': 8,
+        'total_bytes': 0,
+        'total_packets': 0,
+        'unknown_bytes': 0,
+        'unknown_packets': 0
+}}]}
 </code></pre>
 
-<h3 id="set_my_nickname(nickname)">set_my_nickname(nickname)</h3>
+<h2 id="packets_list()">packets_list()</h2>
+
+<p>Return list of incoming and outgoing packets.</p>
+
+<h2 id="connections_list(wanted_protos=none)">connections_list(wanted_protos=None)</h2>
+
+<p>Returns list of opened/active network connections. Argument <code>wanted_protos</code>
+can be used to select which protocols to list:</p>
+
+<pre><code>connections_list(wanted_protos=['tcp', 'udp'])
+</code></pre>
+
+<h2 id="streams_list(wanted_protos=none)">streams_list(wanted_protos=None)</h2>
+
+<p>Return list of active sending/receiveing files.</p>
+
+<h2 id="ping(idurl,-timeout=10)">ping(idurl, timeout=10)</h2>
+
+<p>Sends Identity packet to remote peer and wait for Ack packet to check connection status.
+The "ping" command performs following actions:</p>
+
+<ol>
+<li>Request remote identity source by idurl,</li>
+<li>Sends my Identity to remote contact addresses, taken from identity,</li>
+<li>Wait first Ack packet from remote peer,</li>
+<li>Failed by timeout or identity fetching error.</li>
+</ol>
+
+<p>You can use this method to check and be sure that remote node is alive at the moment.</p>
+
+<pre><code>{'status': 'OK', 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
+</code></pre>
+
+<h2 id="set_my_nickname(nickname)">set_my_nickname(nickname)</h2>
 
 <p>Starts nickname_holder() machine to register and keep your nickname in DHT
 network.</p>
 
-<h3 id="find_peer_by_nickname(nickname)">find_peer_by_nickname(nickname)</h3>
+<h2 id="find_peer_by_nickname(nickname)">find_peer_by_nickname(nickname)</h2>
 
 <p>Starts nickname_observer() Automat to lookup existing nickname registered
 in DHT network.</p>
 
-<h3 id="send_message(recipient,-message_body)">send_message(recipient, message_body)</h3>
+<h2 id="send_message(recipient,-message_body)">send_message(recipient, message_body)</h2>
 
-<p>Sends a text message to remote peer. </p>
+<p>Sends a text message to remote peer.</p>
 
-<p>{'status': 'OK',  'result':
-['signed.Packet[Message(146681300413)]'],}</p>
+<pre><code>{'status': 'OK', 'result': ['signed.Packet[Message(146681300413)]']}
+</code></pre>
 
-<h3 id="receive_one_message()">receive_one_message()</h3>
+<h2 id="receive_one_message()">receive_one_message()</h2>
 
 <p>This method can be used to listen and process incoming chat messages.</p>
 
 <ul>
-<li>creates a callback to receive all incoming messages,   + wait
-until one incoming message get received,   + remove the callback
-after receiving the message.      {'status': 'OK',
-'result': [ { 'from': 'http://veselin-p2p.ru/bitdust<em>j</em>vps1001.xml',
-'message': 'Hello my dear Friend!'}],}</li>
+<li>creates a callback to receive all incoming messages,</li>
+<li>wait until one incoming message get received,</li>
+<li>remove the callback after receiving the message.</li>
 </ul>
 
-<h3 id="broadcast_send_message(payload)">broadcast_send_message(payload)</h3>
+<p>After you received the message you can call this method again,
+this is very simillar to message queue polling interface.</p>
+
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'from': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
+    'message': 'Hello my dear Friend!'
+}]}
+</code></pre>
+
+<h2 id="broadcast_send_message(payload)">broadcast_send_message(payload)</h2>
 
 <p>Sends broadcast message to all peers in the network.</p>
 
-<p>Message must be provided in <code>payload</code> argument is a Json object.
-WARNING! Please, do not send too often and do not send more then
+<p>Message must be provided in <code>payload</code> argument is a Json object.</p>
+
+<p>WARNING! Please, do not send too often and do not send more then
 several kilobytes per message.</p>
 
 
