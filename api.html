@@ -117,14 +117,16 @@ network connection.</p>
     'type': 'diskspace',
     'value': '128 MB',
     'key': 'services/backups/max-block-size'
-}]}"
+}]}
 </code></pre>
 
 <h2 id="keys_list(sort=false)">keys_list(sort=False)</h2>
 
 <p>List details for known private keys.</p>
 
-<h2 id="key_create(key_id)">key_create(key_id)</h2>
+<h2 id="key_create(key_id,-key_size=4096)">key_create(key_id, key_size=4096)</h2>
+
+<h2 id="key_erase(key_id)">key_erase(key_id)</h2>
 
 <h2 id="filemanager(json_request)">filemanager(json_request)</h2>
 
@@ -191,7 +193,7 @@ synchronization" process with remote nodes.</p>
     'type': 'file',
     'id': '0/0/1/0/0',
     'size': 5754439
-}]}"
+}]}
 </code></pre>
 
 <h2 id="backups_id_list()">backups_id_list()</h2>
