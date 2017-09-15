@@ -94,7 +94,7 @@ on Wikipedia.</p>
 </ul>
 
 <p>Each automat is a descendant of the
-<a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l202">&lt;code&gt;Automat&lt;/code&gt;</a> class,
+<a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l202">Automat</a> class,
 which establishes all key collaborations in the BitDust program:</p>
 
 <ul>
@@ -112,7 +112,7 @@ which establishes all key collaborations in the BitDust program:</p>
 <p>As an example, consider a simple finite state machine which is designed for tracking the current status of user’s  connection to the given node in the BitDust network.</p>
 
 <p>In this picture you can see an automat called
-<a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l244">&lt;code&gt;contact_status()&lt;/code&gt;</a>,
+<a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l244">contact_status()</a>,
 which has four states.</p>
 
 <div class=automatpng>
@@ -202,7 +202,7 @@ For instance <code>self.state == 'CONNECTED'</code> means that user is on-line a
 
 <h2 id="the-core">The Core</h2>
 
-<p>All this logic is concentrated in the kernel of the finite state machine in the method <a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l264">&lt;code&gt;A(event, arg)&lt;/code&gt;</a>
+<p>All this logic is concentrated in the kernel of the finite state machine in the method <a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l264">A(event, arg)</a>
 of <code>ContactStatus</code> class:</p>
 
 <pre><code>def A(self, event, arg):
@@ -270,7 +270,7 @@ The source files of the project can be automatically updated after any modificat
 <h2 id="relation-to-the-code">Relation to the Code</h2>
 
 <p>Let's see on example below, the given method
-<a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l321">&lt;code&gt;doRememberTime()&lt;/code&gt;</a>
+<a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l321">doRememberTime()</a>
 of <code>ContactStatus</code> class makes a record of the current time moment – this is exactly the part of the functional, which is managed by the finite automat:</p>
 
 <pre><code>def doRememberTime(self, arg):
@@ -280,10 +280,10 @@ of <code>ContactStatus</code> class makes a record of the current time moment �
 <p>This is very simple code, but it makes a useful action and calls an external code - actions and conditions become separated from the state machine and target logic.</p>
 
 <p>For every new network connection a new single instance of this automat will be created, method
-<a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l229">&lt;code&gt;A(idurl, event, arg)&lt;/code&gt;</a>
+<a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l229">A(idurl, event, arg)</a>
 creates new instances and refers to existing instances of the automat.</p>
 
-<p>External reference to the automat is carried out through <a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l348">&lt;code&gt;automat(event, args)&lt;/code&gt;</a> 
+<p>External reference to the automat is carried out through <a href="http://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l348">automat(event, args)</a> 
 method of <code>Automat</code> class, for example after receiving new incoming packet from the target node an event <code>inbox-packet</code> will be passed to the state machine:</p>
 
 <pre><code>def Inbox(newpacket, info, status, message):
@@ -368,7 +368,7 @@ method of <code>Automat</code> class, for example after receiving new incoming p
 
 <p>Microsoft Visio 2007 is used for creation of the vector schemes of transition graphs. Transition graphs of finite state machines, which control the behavior of BitDust client software, reside in *.vsd files.</p>
 
-<p>A small tool called <a href="http://gitlab.bitdust.io/devel/visio2python/tree/master">&lt;code&gt;visio2python&lt;/code&gt;</a> was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
+<p>A small tool called <a href="http://gitlab.bitdust.io/devel/visio2python/tree/master">visio2python</a> was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
 It can translate the transition graphs, created in Microsoft Visio into the code in Python or JavaScript languages.</p>
 
 <p><a href="http://gitlab.bitdust.io/devel/visio2python/tree/master">http://gitlab.bitdust.io/devel/visio2python</a></p>

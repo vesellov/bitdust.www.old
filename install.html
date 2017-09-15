@@ -56,11 +56,13 @@
 
 <h1 id="install-the-software">Install the software</h1>
 
-<p>Seems like in Ubuntu (probably most other distros) you just need to install all dependencies at first step:</p>
+<h2 id="get-the-software">Get the software</h2>
 
-<pre><code>    sudo apt-get install git python-dev python-setuptools python-pip
+<p>Seems like in Ubuntu (probably most other distros) you can install all dependencies in that way:</p>
 
-    sudo apt-get install python-twisted python-django python-crypto python-pyasn1 python-psutil
+<pre><code>    sudo apt-get install git python-dev python-setuptools python-pip python-virtualenv
+
+    sudo apt-get install python-twisted python-django python-crypto python-pyasn1 python-psutil libffi-dev
 </code></pre>
 
 <p>Optionally, you can also install <a href="http://miniupnp.tuxfamily.org/">miniupnpc</a> tool if you want BitDust automatically deal with UPnPc configuration of your network router so it can also accept incomming connections from other nodes.:</p>
@@ -68,19 +70,26 @@
 <pre><code>    sudo apt-get install miniupnpc
 </code></pre>
 
-<p>Get BitDust sources:</p>
+<p>Second step is to get the BitDust sources:</p>
 
 <pre><code>    git clone http://gitlab.bitdust.io/stable/bitdust.latest.git bitdust
 </code></pre>
 
-<p>Create an alias in OS so you can easily run the program from any location:</p>
+<p>Then you need to build virtual environment with all required Python dependencies, BitDust software will run fully isolated.
+Single command should make it for you, all required files will be generated in <code>~/.bitdust/venv/</code> sub-folder:</p>
 
 <pre><code>    cd bitdust
-    python bitdust.py alias | sudo tee /usr/bin/bitdust
-    sudo chmod +x /usr/bin/bitdust
+    python bitdust.py install
 </code></pre>
 
-<p>Create an identity for you in the BitDust network:</p>
+<p>Last step to make BitDist software ready is to make a short alias in your OS, then you can just type <code>bitdust</code> in command line to fast access the program:</p>
+
+<pre><code>    sudo ln -s /home/&lt;user&gt;/.bitdust/bitdust /usr/local/bin/bitdust
+</code></pre>
+
+<h2 id="run-bitdist">Run BitDist</h2>
+
+<p>Start using the software by creating an identity for your device in BitDust network:</p>
 
 <pre><code>    bitdust id create &lt;some nick name&gt;
 </code></pre>
