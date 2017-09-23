@@ -60,6 +60,8 @@
 <li><a href="identities.html#identity-files">Identity files</a></li>
 <li><a href="identities.html#id-servers">ID-servers</a></li>
 <li><a href="identities.html#idurl-address">IDURL address</a></li>
+<li><a href="identities.html#hosts-rotation">Hosts rotation</a></li>
+<li><a href="identities.html#global-unique-entity-id">Global unique entity ID</a></li>
 <li><a href="identities.html#digital-signature">Digital-signature</a></li>
 <li><a href="identities.html#private-key">Private key</a></li>
 </ul>
@@ -91,9 +93,9 @@
 
 <h2 id="idurl-address">IDURL address</h2>
 
-<p>Each BitDust user is identified by IDURL key – this is an address of his identity file in the global Internet network. One can draw an analogy: identity file is kind of a regular passport and IDURL is his last, first and middle names.</p>
+<p>Each BitDust user is identified by IDURL key – this is an address of his identity file in the global Internet network. This identifier is related to device running BitDust software, but not to person who managing this device. Only by using Private Key stored on that device you can change your identity in the network.</p>
 
-<p>IDURL looks like this:</p>
+<p>Example IDURL might look like this:</p>
 
 <pre><code>http://first-machine.com/alice.xml
 </code></pre>
@@ -191,7 +193,7 @@
 <p>In BitDust we support a global unique ID for any existing object (file, group, user, etc.).
 This is an example of full remote path to file "cat.png" in BitDust network:</p>
 
-<pre><code>alice@first-machine.com:group_abc:animals/cat.png#F20160313043757PM
+<pre><code>group_abc$alice@first-machine.com:animals/cat.png#F20160313043757PM
 </code></pre>
 
 <p>Full identifier here consists of several parts, here they are:</p>
