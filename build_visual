@@ -2,6 +2,10 @@
 
 VISUAL_DIR=../bitdust.visual
 
+cp -rf $VISUAL_DIR/bitdust_services_tree.png  ./services/
+cp -rf $VISUAL_DIR/bitdust_services_tree.pdf  ./services/
+cp -rf $VISUAL_DIR/bitdust_services_tree.vsd  ./services/
+
 cp -rf $VISUAL_DIR/chat/*.png  ./chat
 cp -rf $VISUAL_DIR/chat/*.pdf  ./chat
 cp -rf $VISUAL_DIR/chat/*.vsd  ./chat
