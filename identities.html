@@ -16,13 +16,7 @@
     
     <meta name="author" content="Veselin Penev">
     <meta name="description" content="BitDust is a distributed on-line storage, in which only data owner has an access to his data.">    
-    <meta name="keywords" content="BitDust, BitDust.IO, python, data storage, data storage, online data storage, distributed data storage, file storage,
-        storage of files, save files, secure data storage, secure data storage, safely store the data, encrypted data storage,
-        encrypted file storage, secure storage of files, save files, save folders safely save, store information,
-        securely store information encrypted distributed data storage, cloud storage, backup, storage, backup data storage,
-        data backup, anonymous messages decentralized online data storage, encrypt a message, encrypted messages, secure communication,
-        communicate safely stored safely, securely store data, information storage, safe storage of information, communication,
-        safely transmit information securely store information">
+    <meta name="keywords" content="BitDust, BitDust.IO, python, data storage, data storage system, online data storage, distributed data storage, file storage, storage of files, save files, secure data storage, secure data storage, safely store the data, encrypted data storage, encrypted file storage, secure storage of files, save files, save folders safely save, store information, securely store information encrypted distributed data storage, cloud storage, backup, storage, backup data storage, data backup, anonymous messages decentralized online data storage, encrypt a message, encrypted messages, secure communication, communicate safely stored safely, securely store data, information storage, safe storage of information, communication, safely transmit information securely store information">
 
     <link rel="icon" href="favicon.ico"> 
 
@@ -199,12 +193,17 @@ This is an example of full remote path to file "cat.png" in BitDust network:</p>
 <p>Full identifier here consists of several parts, here they are:</p>
 
 <ul>
-<li>identity server host (DNS name or IP address): first-machine.com</li>
+<li>identity server host (DNS name or IP:PORT address): first-machine.com</li>
 <li>user identity filename (without ".xml"): alice</li>
 <li>key ID: group_abc</li>
 <li>backup ID: animals/cat.png</li>
 <li>version name: F20160313043757PM</li>
 </ul>
+
+<p>If identity server was set using IP:PORT format the global ID might looks like this:</p>
+
+<pre><code>key_xyz$bob@123.45.67.89_8000:cars/citroen.png#F20160313052124PM
+</code></pre>
 
 <p>This approach have something similar with "remotes" and "branches" in Git. For example a full remote file path in Git can be like that:</p>
 
