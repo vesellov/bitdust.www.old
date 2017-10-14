@@ -1,9 +1,10 @@
 import os
 import sys
 import re
-md_base = '' # '../'
+md_base = ''
 gitlab_base = 'http://gitlab.bitdust.io/devel/bitdust/blob/master/'
 template = open('template.htm').read()
+keywords = open('keywords.txt').read().replace('\n', ', ')
 src = sys.argv[1]
 dest = sys.argv[2]
 basepath = ''
@@ -65,8 +66,11 @@ if not title.count('BitDust'):
     title = 'BitDust : ' + title
 newbody = template % {
     'title': title,
+    'keywords': keywords,
     'body': sbody, 
     'basepath': basepath,
     'site_url': site_url,
-    'filepath': os.path.basename(dest)}
+    'filepath': os.path.basename(dest),
+}
 open(dest, mode='w').write(newbody)
+
