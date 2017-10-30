@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd ~/bitdust.www/
+
+sudo cp -r -v * /var/www/
+
+sudo chown www-data:www-data -R /var/www/
+
+echo "DONE!"
+
