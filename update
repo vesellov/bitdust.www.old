@@ -1,2 +1,2 @@
 #!/bin/bash
-ssh bitdust "cd bitdust.www.english; git pull;"
+ssh bitdust "cd bitdust.www; ./pull;"
