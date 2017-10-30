@@ -70,7 +70,7 @@ $(document).ready(function(){
         e.preventDefault(); // prevent default form submit
 
         $.ajax({
-          url: 'http://bitdust.io/feedback1.php', // form action url
+          url: 'https://bitdust.io/feedback.php', // form action url
           type: 'POST', // form submit method get/post
           dataType: 'html', // request type html/json/xml
           data: form.serialize(), // serialize form data 

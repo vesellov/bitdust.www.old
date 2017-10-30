@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://bitdust.io/</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/intro.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/concept.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/definitions.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/philosophy.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/principle.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/install.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/commands.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/settings.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/glossary.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/identities.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/storage.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/security.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/rebuilding.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/dht.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/services.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/transports.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/crypto_contracts.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/roadmap.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automats.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/technologies.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/api.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/bugs.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/changelog.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/screenshots.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/donate.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/download.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/p2p/contact_status.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_backup.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_backup_db_keeper.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_backup_monitor.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_backup_rebuilder.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_contact_status.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_customers_rejector.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_data_sender.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_fire_hire.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_id_registrator.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_id_restorer.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_id_server.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_initializer.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_install_wizard.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_installer.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_list_files_orator.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_local_service.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_network_connector.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_network_transport.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_nickname_holder.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_nickname_observer.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_p2p_connector.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_packet_in.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_packet_out.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_raid_worker.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_restore.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_shutdowner.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_stun_client.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_stun_server.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_supplier_connector.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_supplier_finder.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_tcp_connection.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_udp_connector.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_udp_node.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_udp_session.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/automat_udp_stream.html</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/services/bitdust_services_tree.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/storage/backup.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/storage/backup_db_keeper.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/storage/backup_monitor.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/storage/backup_rebuilder.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/supplier/customers_rejector.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/customer/data_sender.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/customer/fire_hire.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/userid/id_registrator.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/userid/id_restorer.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/userid/id_server.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/main/initializer.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/main/install_wizard.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/main/installer.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/customer/list_files_orator.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/services/local_service.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/p2p/network_connector.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/transport/network_transport.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/chat/nickname_holder.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/chat/nickname_observer.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/p2p/p2p_connector.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/transport/packet_in.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/transport/packet_out.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/raid/raid_worker.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/storage/restore.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/main/shutdowner.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/stun/stun_client.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/stun/stun_server.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/customer/supplier_connector.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/customer/supplier_finder.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/transport/tcp_connection.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/transport/udp_connector.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/transport/udp_node.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/transport/udp_session.pdf</loc>
+</url>
+<url>
+  <loc>https://bitdust.io/transport/udp_stream.pdf</loc>
+</url>
+
+</urlset>
