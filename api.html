@@ -190,7 +190,7 @@ Use <code>include_private=True</code> to get Private Keys as openssh formated st
 }
 </code></pre>
 
-<h2 id="key_share(key_id,-idurl)">key_share(key_id, idurl)</h2>
+<h2 id="key_share(full_key_id,-idurl)">key_share(full_key_id, idurl)</h2>
 
 <p>Connect to remote node identified by <code>idurl</code> parameter and transfer private key <code>key_id</code> to that machine.
 This way remote user will be able to access those of your files which were encrypted with that private key.</p>
@@ -229,242 +229,62 @@ Response:
 
 <p>WARNING: Those methods here will be deprecated and removed, use regular API methods instead.</p>
 
-<h2 id="backups_update()">backups_update()</h2>
+<h2 id="files_sync()">files_sync()</h2>
 
 <p>Sends "restart" event to backup_monitor() Automat, this should start "data
-synchronization" process with remote nodes.</p>
+synchronization" process with remote nodes. Normally all situations
+should be handled automatically so you wont run this method manually,
+but just in case.</p>
 
-<pre><code>{'status': 'OK', 'result': 'the main loop has been restarted'}
+<pre><code>{'status': 'OK', 'result': 'the main files sync loop has been restarted'}
 </code></pre>
 
-<h2 id="backups_list()">backups_list()</h2>
+<h2 id="files_list(remote_path=none)">files_list(remote_path=None)</h2>
 
-<p>Returns a whole tree of files and folders in the catalog.</p>
+<h2 id="file_info(remote_path,-include_uploads=true,-include_downloads=true)">file_info(remote_path, include_uploads=True, include_downloads=True)</h2>
 
-<pre><code>{'status': 'OK',
- 'result': [{
-    'path': '/Users/veselin/Documents',
-    'versions': [],
-    'type': 'parent',
-    'id': '0/0/1',
-    'size': 38992196
-  }, {
-    'path': '/Users/veselin/Documents/python',
-    'versions': [],
-    'type': 'parent',
-    'id': '0/0/1/0',
-    'size': 5754439
-  }, {
-    'path': '/Users/veselin/Documents/python/python27.chm',
-    'versions': [{
-        'version': 'F20160313043757PM',
-        'blocks': 1,
-        'size': '11 MB'
+<h2 id="file_create(remote_path,-as_folder=false)">file_create(remote_path, as_folder=False)</h2>
+
+<h2 id="file_delete(remote_path)">file_delete(remote_path)</h2>
+
+<h2 id="files_uploads(include_running=true,-include_pending=true)">files_uploads(include_running=True, include_pending=True)</h2>
+
+<p>Returns a list of currently running uploads and
+list of pending items to be uploaded.</p>
+
+<pre><code>{ 'status': 'OK',
+  'result': {
+    'running': [{
+        'aborting': False,
+        'version': '0/0/3/1/F20160424013912PM',
+        'block_number': 4,
+        'block_size': 16777216,
+        'bytes_processed': 67108864,
+        'closed': False,
+        'eccmap': 'ecc/4x4',
+        'eof_state': False,
+        'pipe': 0,
+        'progress': 75.0142815704418,
+        'reading': False,
+        'source_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
+        'terminating': False,
+        'total_size': 89461450,
+        'work_blocks': 4
     }],
-    'type': 'file',
-    'id': '0/0/1/0/0',
-    'size': 5754439
-}]}
+    'pending': [{
+        'created': 'Wed Apr 27 15:11:13 2016',
+        'id': 3,
+        'source_path': '/Users/veselin/Downloads/another-ZIP-file.zip',
+        'path_id': '0/0/3/2'
+    }]
+}
 </code></pre>
 
-<h2 id="backups_id_list()">backups_id_list()</h2>
+<h2 id="file_upload_start(local_path,-remote_path,-wait_result=true)">file_upload_start(local_path, remote_path, wait_result=True)</h2>
 
-<p>Returns only list of items uploaded on remote machines.</p>
+<h2 id="file_upload_stop(remote_path)">file_upload_stop(remote_path)</h2>
 
-<pre><code>{'status': 'OK',
- 'result': [{
-    'backupid': '0/0/1/0/0/F20160313043757PM',
-    'path': '/Users/veselin/Documents/python/python27.chm',
-    'size': '11 MB'
- }, {
-    'backupid': '0/0/0/0/0/0/F20160315052257PM',
-    'path': '/Users/veselin/Music/Bob Marley/01-Soul Rebels (1970)/01-Put It On.mp3',
-    'size': '8.27 MB'
-}]}
-</code></pre>
-
-<h2 id="backup_start_id(pathid)">backup_start_id(pathID)</h2>
-
-<p>Start uploading a given item already existed in the catalog by its path ID.</p>
-
-<pre><code>{'status': 'OK', 'result': 'uploading 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm'}
-</code></pre>
-
-<h2 id="backup_start_path(path,-mount_path=none,-key_id=none)">backup_start_path(path, mount_path=None, key_id=None)</h2>
-
-<p>Start uploading file or folder to remote nodes. It will generate a new path
-ID for this file or folder and add it to the catalog.
-If <code>mount_path</code> is <code>None</code> method will create a new file (or folder) and
-all parent sub folders will be also added to the catalog:</p>
-
-<pre><code>["Users", "Users/veselin", "Users/veselin/Documents", "Users/veselin/Documents/python",]
-</code></pre>
-
-<p>Final ID of that item will be combined from parent IDs and target file or folder ID:</p>
-
-<pre><code>0/0/1/0/0
-</code></pre>
-
-<p>In case <code>mount_path</code> is set it will act like backup<em>map</em>path()
-and start the backup process: item will be created in the <code>mount_path</code> location.</p>
-
-<pre><code>{'status': 'OK',
- 'result': 'uploading of item 0/0/1/0/0 started, local path is: /Users/veselin/Documents/python/python27.chm',
- 'id': '0/0/1/0/0',
- 'type': 'file',
- 'key_id': 'abc'}
-</code></pre>
-
-<h2 id="backup_map_path(path,-mount_path,-key_id=none)">backup_map_path(path, mount_path, key_id=None)</h2>
-
-<p>Create a new top level item in the catalog and point it to given local
-path. This is the simplest way to upload a file and get an ID for that
-remote copy. Given local <code>path</code> will be mapped to virtual <code>mount_path</code>,
-which must not exist in the catalog yet.</p>
-
-<pre><code>{'status': 'OK',
- 'result': [ 'new file was added: 1, local path is /Users/veselin/Pictures/bitdust.png'],
- 'id': '1',
- 'type': 'file',
- 'key_id': 'abc'}
-</code></pre>
-
-<h2 id="backup_dir_make(dirpath,-key_id=none)">backup_dir_make(dirpath, key_id=None)</h2>
-
-<p>Creates empty folder in catalog.</p>
-
-<pre><code>{'status': 'OK', 'result': 'new folder was added: 0/0/8, local path is /Users/veselin/Desktop/', 'key_id': 'abc'}
-</code></pre>
-
-<h2 id="backup_dir_add(dirpath,-key_id=none)">backup_dir_add(dirpath, key_id=None)</h2>
-
-<p>Add given folder to the catalog but do not start uploading process. This
-method will create all sub folders in the catalog and keeps the same
-structure as your local folders structure. So the final ID will be
-combination of all parent IDs, separated with "/".</p>
-
-<pre><code>{'status': 'OK', 'result': 'new folder was added: 0/0/2, local path is /Users/veselin/Movies/', 'key_id': 'abc'}
-</code></pre>
-
-<h2 id="backup_file_add(filepath,-key_id=none)">backup_file_add(filepath, key_id=None)</h2>
-
-<p>Add a single file to the catalog, skip uploading. This method will create
-all sub folders in the catalog and keeps the same structure as your local
-file path structure. So the final ID of that file in the catalog will be
-combination of all parent IDs, separated with "/".</p>
-
-<pre><code>{'status': 'OK', 'result': 'new file was added: 0/0/3/0, local path is /Users/veselin/Downloads/pytest-2.9.0.tar.gz', 'key_id': 'abc'}
-</code></pre>
-
-<h2 id="backup_tree_add(dirpath,-key_id=none)">backup_tree_add(dirpath, key_id=None)</h2>
-
-<p>Recursively reads the entire folder and create items in the catalog. For
-all files and folders it will keeping the same files/folders structure.
-This method will not start any uploads, just append items to the catalog.</p>
-
-<pre><code>{'status': 'OK',
- 'result': '21 items were added to catalog, parent path ID is 0/0/1/2, root folder is /Users/veselin/Documents/reports',
- 'key_id': 'abc'}
-</code></pre>
-
-<h2 id="backup_delete_local(backupid)">backup_delete_local(backupID)</h2>
-
-<p>Remove only local files belongs to this particular backup. All remote data
-stored on suppliers' machines remain unchanged.</p>
-
-<pre><code>{'status': 'OK',   'result': '8 files were removed with total size of 16 Mb'}
-</code></pre>
-
-<h2 id="backup_delete_id(pathid_or_backupid)">backup_delete_id(pathID_or_backupID)</h2>
-
-<p>Delete local and remote copies of given item in catalog. This will
-completely remove your data from BitDust network. You can specify either
-path ID of that location or specific version.</p>
-
-<pre><code>{'status': 'OK',   'result': 'version 0/0/1/1/0/F20160313043419PM was deleted from remote peers'}
-</code></pre>
-
-<h2 id="backup_delete_path(localpath)">backup_delete_path(localPath)</h2>
-
-<p>Completely remove any data stored on given location from BitDust network.
-All data for given item will be removed from remote peers. Any local files
-related to this path will be removed as well.</p>
-
-<pre><code>{'status': 'OK',   'result': 'item 0/1/2 was deleted from remote peers'}
-</code></pre>
-
-<h2 id="backups_queue()">backups_queue()</h2>
-
-<p>Returns a list of paths to be backed up as soon as currently running
-backups finish.</p>
-
-<pre><code>{'status': 'OK',
- 'result': [{
-     'created': 'Wed Apr 27 15:11:13 2016',
-     'id': 3,
-     'local_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
-     'path_id': '0/0/3/1'
-}]}
-</code></pre>
-
-<h2 id="backups_running()">backups_running()</h2>
-
-<p>Returns a list of currently running uploads.</p>
-
-<pre><code>{'status': 'OK',
- 'result': [{
-     'aborting': False,
-     'backup_id': '0/0/3/1/F20160424013912PM',
-     'block_number': 4,
-     'block_size': 16777216,
-     'bytes_processed': 67108864,
-     'closed': False,
-     'eccmap': 'ecc/4x4',
-     'eof_state': False,
-     'pipe': 0,
-     'progress': 75.0142815704418,
-     'reading': False,
-     'source_path': '/Users/veselin/Downloads/some-ZIP-file.zip',
-     'terminating': False,
-     'total_size': 89461450,
-     'work_blocks': 4
-}]}
-</code></pre>
-
-<h2 id="backup_cancel_pending(path_id)">backup_cancel_pending(path_id)</h2>
-
-<p>Cancel pending task to run backup of given item.</p>
-
-<pre><code>{'status': 'OK', 'result': 'item 123 cancelled'}
-</code></pre>
-
-<h2 id="backup_abort_running(backup_id)">backup_abort_running(backup_id)</h2>
-
-<p>Abort currently running backup.</p>
-
-<pre><code>{'status': 'OK', 'result': 'backup 0/0/3/1/F20160424013912PM aborted'}
-</code></pre>
-
-<h2 id="restore_single(pathid_or_backupid_or_localpath,-destinationpath=none)">restore_single(pathID_or_backupID_or_localPath, destinationPath=None)</h2>
-
-<p>Download data from remote peers to your local machine. You can use
-different methods to select the target data:</p>
-
-<ul>
-<li>item ID in the catalog</li>
-<li>full version identifier</li>
-<li>local path</li>
-</ul>
-
-<p>It is possible to select the destination folder to extract requested files to.
-By default this method uses known location from catalog for given item.</p>
-
-<p>WARNING: Your existing local data will be overwritten!</p>
-
-<pre><code>{'status': 'OK', 'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/Downloads/restore/'}
-</code></pre>
-
-<h2 id="restores_running()">restores_running()</h2>
+<h2 id="files_downloads()">files_downloads()</h2>
 
 <p>Returns a list of currently running downloads.</p>
 
@@ -476,6 +296,7 @@ By default this method uses known location from catalog for given item.</p>
     'bytes_processed': 0,
     'creator_id': 'http://veselin-p2p.ru/veselin.xml',
     'done': False,
+    'key_id': 'abc',
     'created': 'Wed Apr 27 15:11:13 2016',
     'eccmap': 'ecc/4x4',
     'path_id': '0/0/3/1',
@@ -483,11 +304,30 @@ By default this method uses known location from catalog for given item.</p>
 }]}
 </code></pre>
 
-<h2 id="restore_abort(backup_id)">restore_abort(backup_id)</h2>
+<h2 id="file_download_start(remote_path,-destination_path=none,-wait_result=false)">file_download_start(remote_path, destination_path=None, wait_result=False)</h2>
+
+<p>Download data from remote peers to your local machine. You can use
+different methods to select the target data with <code>remote_path</code> input:</p>
+
+<ul>
+<li>"remote path" of the file</li>
+<li>item ID in the catalog</li>
+<li>full version identifier with item ID</li>
+</ul>
+
+<p>It is possible to select the destination folder to extract requested files to.
+By default this method uses specified value from local settings or user home folder</p>
+
+<p>WARNING: Your existing local data will be overwritten!</p>
+
+<pre><code>{'status': 'OK', 'result': 'downloading of version 0/0/1/1/0/F20160313043419PM has been started to /Users/veselin/'}
+</code></pre>
+
+<h2 id="file_download_stop(remote_path)">file_download_stop(remote_path)</h2>
 
 <p>Abort currently running restore process.</p>
 
-<pre><code>{'status': 'OK',  'result': 'restoring of item 123 aborted'}
+<pre><code>{'status': 'OK', 'result': 'restoring of "alice@p2p-host.com:0/1/2" aborted'}
 </code></pre>
 
 <h2 id="suppliers_list()">suppliers_list()</h2>
@@ -783,7 +623,7 @@ in DHT network.</p>
 
 <h2 id="send_message(recipient,-message_body)">send_message(recipient, message_body)</h2>
 
-<p>Sends a text message to remote peer.</p>
+<p>Sends a text message to remote peer, <code>recipient</code> is a string with nickname or global_id.</p>
 
 <pre><code>{'status': 'OK', 'result': ['signed.Packet[Message(146681300413)]']}
 </code></pre>
@@ -816,6 +656,8 @@ this is very simillar to message queue polling interface.</p>
 
 <p>WARNING! Please, do not send too often and do not send more then
 several kilobytes per message.</p>
+
+<h2 id="event_send(event_id,-json_data=none)">event_send(event_id, json_data=None)</h2>
 
 
 </div>
