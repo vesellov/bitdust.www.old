@@ -1,0 +1,226 @@
+
+#main-logo-icon {
+	position: absolute;
+	top: 0px;
+	left: 2px;
+}
+
+.top-menu-item {
+	float: left;
+}
+
+@media (min-width: 768px) {
+	.top-menu-item {
+	    width: initial;
+	    padding-left: 0px;
+	    padding-right: 0px;
+	}
+	.navbar .nav {
+	    display: inline-block;
+	}
+}
+
+#navmain {
+	/* background-color: #e4e6e5; */
+	/* background-color: rgba( 255, 255, 255, .5 ); */
+    border-bottom: 1px solid #000;
+	font-size: 12px;
+	transition: .25s all linear;
+	color: #fff;
+	height: 50px;
+}
+
+#navmain.inv {
+	background-color: rgba( 0, 0, 0, .8 );
+	border-bottom: 1px solid #000;
+}
+
+#navmain.navbar-default .navbar-nav > .active > a {
+	background-color: initial !important;
+}
+
+#navmain.navbar-default .navbar-nav > li > a {
+	color: #fff;
+	font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+	font-weight: 600;
+	transition: all .5 linear;
+	font-size: 22px;
+	line-height: 22px;
+	padding: 10px;
+}
+
+#navmain.navbar-default .navbar-nav > li > a:hover {
+    color: #55a5ff;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+}
+
+@media (min-width: 768px) and (max-width: 1250px) {
+	#navmain.navbar-default .navbar-nav > li > a {
+	   font-size: 20px;
+       padding: 10px 10px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #navmain.navbar-default .navbar-nav > li > a {
+       font-size: 18px;
+       padding: 10px 5px;
+    }
+}
+
+.navbar-responsive-collapse {
+	margin: 0 auto;
+	/* width: 95%; */
+}
+
+#navmain.navbar-default .navbar-nav > li {
+	text-align: center;
+	white-space: nowrap;
+}
+
+#navmain.navbar-default .navbar-nav > li > a:hover,
+#navmain.navbar-default .navbar-nav > li > a:focus {
+	background-color: inherit;
+	outline: none;
+}
+
+.navbar-brand {
+	padding: 8px;
+}
+
+#navmain.navbar-default .navbar-nav {
+	float: none;
+}
+
+.active-menu {
+	background-color: #4e4e4e;
+	content: '.';
+	display: block;
+	height: 5px;
+	left: 0;
+	position: absolute;
+	/* top: 0; */
+	transition: all .5 linear;
+	width: 1%;
+	z-index: 9;
+	bottom: -5px;
+	/* margin-bottom: -6px; */
+}
+
+.inv .active-menu {
+	background-color: #fff;
+}
+
+.special-active-menu {
+	z-index: 10;
+}
+
+#special-active-menu-1,
+#special-active-menu-6 {
+	background-color: #4e4e4e !important;
+}
+
+#special-active-menu-2 {
+	background-color: #1abc9c !important;
+}
+
+#special-active-menu-3 {
+	background-color: #e74c3c !important;
+}
+
+#special-active-menu-4 {
+	background-color: #34495e !important;
+}
+
+#special-active-menu-5 {
+	background-color: #e67e22 !important;
+}
+
+#navmain.navbar-default .navbar-toggle {
+    background-color: #0095FF;
+    color: #222;
+}
+
+#navmain.navbar-default .navbar-toggle:focus {
+	background-color: #0095FF;
+}
+
+#navmain.navbar-default .navbar-toggle:hover {
+    background-color: #30b5FF;
+}
+
+#navmain.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+@media (max-width: 767px) {
+	#navmain .nav li {
+		text-align: left;
+		white-space: nowrap;
+	}
+	#navmain .navbar-responsive-collapse  {
+		/* width: 100%; */
+	}
+	.active-menu {
+		display: none !important;
+	}
+	#navmain .navbar-toggle {
+		margin-right: 10px;
+	}
+	#navmain .navbar {
+		/* background-color: #fff !important; */
+		padding: 0;
+	}
+	#navmain .navbar .nav a {
+		color: #e4e6e5;
+		font-size: 16px;
+		padding-left: 0;
+	}
+	.icon {
+		margin-right: 12px;
+	}
+	/*		
+	.nav li[data-slide="1"],
+	.nav li[data-slide="6"] {
+		background-color: #2f2f2f;
+	}
+	
+	.nav li[data-slide="2"] {
+		background-color: #1abc9c;
+	}
+	
+	.nav li[data-slide="3"] {
+		background-color: #e74c3c;
+	}
+	
+	.nav li[data-slide="4"] {
+		background-color: #34495e;
+	}
+	
+	.nav li[data-slide="5"] {
+		background-color: #e67e22;
+	}
+	*/
+	
+	.navbar-brand {
+		margin: 0;
+		text-align: left;
+	}
+    #navmain.navbar-default .navbar-nav > li {
+        /* background-color: rgba( 0, 0, 0, .8 ); */
+        text-align: right;
+        padding-right: 5px;
+    }
+    #navmain .navbar-nav {
+        margin: 0px;
+        background-color: rgba( 0, 0, 0, .8 );
+    }
+    #navmain #navbar {
+        padding: 0px;
+        border: 0px;
+    }
+}
+

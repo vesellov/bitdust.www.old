@@ -1,0 +1,51 @@
+#!/bin/bash
+
+VISUAL_DIR=../bitdust.visual
+
+cp -rf $VISUAL_DIR/bitdust_services_tree.png  ./services/
+cp -rf $VISUAL_DIR/bitdust_services_tree.pdf  ./services/
+cp -rf $VISUAL_DIR/bitdust_services_tree.vsd  ./services/
+
+cp -rf $VISUAL_DIR/chat/*.png  ./chat
+cp -rf $VISUAL_DIR/chat/*.pdf  ./chat
+cp -rf $VISUAL_DIR/chat/*.vsd  ./chat
+
+cp -rf $VISUAL_DIR/customer/*.png  ./customer
+cp -rf $VISUAL_DIR/customer/*.pdf  ./customer
+cp -rf $VISUAL_DIR/customer/*.vsd  ./customer
+
+cp -rf $VISUAL_DIR/main/*.png  ./main
+cp -rf $VISUAL_DIR/main/*.pdf  ./main
+cp -rf $VISUAL_DIR/main/*.vsd  ./main
+
+cp -rf $VISUAL_DIR/p2p/*.png  ./p2p
+cp -rf $VISUAL_DIR/p2p/*.pdf  ./p2p
+cp -rf $VISUAL_DIR/p2p/*.vsd  ./p2p
+
+cp -rf $VISUAL_DIR/raid/*.png  ./raid
+cp -rf $VISUAL_DIR/raid/*.pdf  ./raid
+cp -rf $VISUAL_DIR/raid/*.vsd  ./raid
+
+cp -rf $VISUAL_DIR/services/*.png  ./services
+cp -rf $VISUAL_DIR/services/*.pdf  ./services
+cp -rf $VISUAL_DIR/services/*.vsd  ./services
+
+cp -rf $VISUAL_DIR/storage/*.png  ./storage
+cp -rf $VISUAL_DIR/storage/*.pdf  ./storage
+cp -rf $VISUAL_DIR/storage/*.vsd  ./storage
+
+cp -rf $VISUAL_DIR/stun/*.png  ./stun
+cp -rf $VISUAL_DIR/stun/*.pdf  ./stun
+cp -rf $VISUAL_DIR/stun/*.vsd  ./stun
+
+cp -rf $VISUAL_DIR/supplier/*.png  ./supplier
+cp -rf $VISUAL_DIR/supplier/*.pdf  ./supplier
+cp -rf $VISUAL_DIR/supplier/*.vsd  ./supplier
+
+cp -rf $VISUAL_DIR/transport/*.png  ./transport
+cp -rf $VISUAL_DIR/transport/*.pdf  ./transport
+cp -rf $VISUAL_DIR/transport/*.vsd  ./transport
+
+cp -rf $VISUAL_DIR/userid/*.png  ./userid
+cp -rf $VISUAL_DIR/userid/*.pdf  ./userid
+cp -rf $VISUAL_DIR/userid/*.vsd  ./userid

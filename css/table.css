@@ -1,0 +1,49 @@
+@media only screen and (max-width: 800px) {
+	
+	/* Force table to not be like tables anymore */
+	#page_content table, 
+	#page_content thead, 
+	#page_content tbody, 
+	#page_content th, 
+	#page_content td, 
+	#page_content tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#page_content thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#page_content tr { border: 1px solid #ccc; }
+ 
+	#page_content td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+		white-space: normal;
+		text-align:left;
+	}
+ 
+	#page_content td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+	}
+ 
+	/*
+	Label the data
+	*/
+	#page_content td:before { content: attr(data-title); }
+}

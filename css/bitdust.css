@@ -1,0 +1,77 @@
+#bottom_area {
+    text-align: center;
+    position: fixed;
+    display: block;
+    bottom: 0px;
+    height: 19px;
+    line-height: 19px;
+    width: 100%;
+    overflow: hidden;
+    vertical-align:bottom;
+    border-top: 1px solid #ddd;
+}
+
+
+#copyright a {
+    /* color: #abf; */
+    overflow: hidden;
+}
+
+#page_container {
+	/* display: none; */
+	position: fixed;
+    top: 52px;
+}
+
+#page_content {
+    max-width: 1125px;
+    /* min-width: 400px; */
+    margin-left: 10px;
+    margin-right: 10px;
+    /* color: #fff; */
+    text-align: justify;
+    line-height: 1.7;  
+    word-spacing: 0.2em;
+    letter-spacing: 0.04em;
+}
+
+.Center-Container.is-Inline { 
+    text-align: center;
+    overflow: auto;
+    position: fixed;
+    top: 0px; 
+    bottom:20px;
+    right:0px;
+    left:0px;
+}
+
+.Center-Container.is-Inline:after,
+.is-Inline .Center-Block {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.Center-Container.is-Inline:after {
+    content: '';
+    height: 100%;
+    margin-left: -0.25em; 
+}
+
+.is-Inline .Center-Block {
+    /* max-width: 99%;  */
+    /* max-width: calc(100% - 0.25em) */ 
+}
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+    min-width: 100% !important;
+    width: 100% !important;
+}
+
+.wallpaper {
+    position: fixed;
+    top: 0;
+    left: 0;    
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    /* background-image: url('b.png'); */
+}

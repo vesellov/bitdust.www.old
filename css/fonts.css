@@ -1,0 +1,76 @@
+
+@font-face { 
+    font-family: 'myfont Gothic Local'; 
+    src:  url('../fonts/century_gothic.eot'); 
+    src:  url('../fonts/century_gothic.eot?#iefix') format('embedded-opentype'), 
+          url('../fonts/century_gothic.svg#Century Gothic') format('svg'), 
+          url('../fonts/century_gothic.woff') format('woff'), 
+          url('../fonts/century_gothic.ttf') format('truetype'); 
+    font-weight: normal; 
+    font-style: normal;
+}
+
+.font-thin {
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+}
+
+.font-semibold {
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
+
+.font-light {
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+#maintitle h1 {
+    font-size: 70px;
+}
+
+#maintitle p {
+    font-size: 30px;
+}
+
+#top_menu {
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+}
+
+.top-menu-item {
+    font-size: 1.1em;
+}
+
+#top_area {
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+}
+
+#bottom_area {
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+    font-size: 8pt;
+}
+
+#page_content {
+    font-family: "Century Gothic", "myfont Gothic", Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+#page_content h4, h5, h6 {
+    font-size: 1.2em;
+}
+
+#contactform textarea {
+	font-family: 'Arial', sans-serif;
+	font-size: 15px;
+}
+
+#contactform h6 {
+	font-size: 16px;
+}
+
+h3#programmer-/-software-engineer-/-full-stack-developer {
+	font-size: 6px;
+}
+

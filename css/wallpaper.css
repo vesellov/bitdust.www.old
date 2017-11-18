@@ -1,0 +1,38 @@
+
+.bgwidth { 
+	width: 100%; 
+}
+
+.bgheight { 
+	height: 100%; 
+}
+
+.wallpaper {
+    position: fixed;
+    top: 0;
+    left: 0;    
+    z-index: 0;
+}
+
+.wallpaper_on_ie7 {
+    filter: none;
+}
+
+.wallpaper_transition {
+    -webkit-transition: opacity 3s ease-in-out;
+    -moz-transition: opacity 3s ease-in-out;
+    -o-transition: opacity 3s ease-in-out;
+    transition: opacity 3s ease-in-out;
+}
+
+.wallpaper_off {
+	opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+}
+
+.wallpaper_on {
+	opacity: 1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=1);
+}

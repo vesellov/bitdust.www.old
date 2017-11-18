@@ -1,0 +1,34 @@
+#parallax-image-bg-1 {
+    background: #fff url('../images/bg2.jpg') top left;
+    background-attachment: scroll;
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* height: 100%; */
+    /* height: 2500px; */
+    /* z-index: 1; */
+    }
+
+#parallax-image-bg-2 {
+    background: #fff url('../images/bg3.png') top left;
+    background-color: transparent;
+    background-attachment: scroll;
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* height: 100%; */
+    /* height: 2500px; */
+    /* z-index: 1; */
+}

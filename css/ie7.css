@@ -1,0 +1,37 @@
+.gainlayout { 
+    zoom: 1; 
+}
+
+html {
+    filter: none;
+}
+
+body:after {
+} 
+
+#main_page_content {
+	background-image: url('empty.gif');
+}
+
+.main_page_menu {
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#2FFFFFFF,endColorstr=#2FFFFFFF);
+}
+
+.main_page_sub_menu {
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#2FFFFFFF,endColorstr=#2FFFFFFF);
+}
+
+.main_page_box {
+    zoom: 1;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#2FFFFFFF,endColorstr=#2FFFFFFF);
+}
+
+pre {
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#2FFFFFFF,endColorstr=#2FFFFFFF);
+}
+
+.warning {
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#2FFF4040,endColorstr=#2FFF4040);
+}
