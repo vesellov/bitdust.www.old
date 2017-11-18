@@ -599,37 +599,39 @@ body {
     padding-bottom: 30px;
 }
 
-#slide-7 #veselin-story p {
+#slide-7 .team-member p {
     font-size: 20px;
     text-align: justify;
 }
 
-#slide-7 #veselin-picture {
-    max-width: 100%;
-    max-height: 600px;
-    width: auto;
-    float: left;
-    /* margin-left: -10px; */
-    margin-right: 10px;
-    margin-bottom: 5px;
-    border-radius: 10px;
-    border: 2px solid #08f;
+#slide-7 .team-member {
+    padding-bottom: 40px;
+}
+
+#slide-7 .team-member h2 {
+    margin-top: 5px;
+}
+
+#slide-7 .team-picture {
+    margin-right: 2px;
+    margin-bottom: 2px;
+    max-width: 280px;
 }
 
 @media (min-width: 1200px) {
-    #slide-7 #veselin-picture {
+    #slide-7 .team-picture {
         /* margin-bottom: 60px; */
     }
 }
 
 @media (max-width: 767px) {
-    #slide-7 #veselin-picture {
+    #slide-7 .team-picture {
         max-width: 50%;
     }
 }
 
 @media (max-width: 420px) {
-    #slide-7 #veselin-picture {
+    #slide-7 .team-picture {
         max-width: 100%;
     }
 }
