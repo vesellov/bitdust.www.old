@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="canonical" href="http://bitdust.io">
+    <link rel="canonical" href="https://bitdust.io">
     
     <title>BitDust API</title>
 
@@ -65,14 +65,6 @@ restart.</p>
 <pre><code>{'status': 'OK', 'result': 'restarted'}
 </code></pre>
 
-<h2 id="reconnect()">reconnect()</h2>
-
-<p>Sends "reconnect" event to network_connector() Automat in order to refresh
-network connection.</p>
-
-<pre><code>{'status': 'OK', 'result': 'reconnected'}
-</code></pre>
-
 <h2 id="show()">show()</h2>
 
 <p>Opens a default web browser to show the BitDust GUI.</p>
@@ -80,7 +72,7 @@ network connection.</p>
 <pre><code>{'status': 'OK',   'result': '"show" event has been sent to the main process'}
 </code></pre>
 
-<h2 id="config_get(key,-default=none)">config_get(key, default=None)</h2>
+<h2 id="config_get(key)">config_get(key)</h2>
 
 <p>Returns current value for specific option from program settings.</p>
 
@@ -123,7 +115,7 @@ Use <code>include_private=True</code> to get Private Key as openssh formated str
  'result': [{
     'alias': 'cool',
     'creator': 'http://p2p-id.ru/testveselin.xml',
-    'id': 'cool$testveselin@p2p-id.ru',
+    'key_id': 'cool$testveselin@p2p-id.ru',
     'fingerprint': '50:f9:f1:6d:e3:e4:25:61:0c:81:6f:79:24:4e:78:17',
     'size': '4096',
     'ssh_type': 'ssh-rsa',
@@ -190,7 +182,7 @@ Use <code>include_private=True</code> to get Private Keys as openssh formated st
 }
 </code></pre>
 
-<h2 id="key_share(full_key_id,-idurl)">key_share(full_key_id, idurl)</h2>
+<h2 id="key_share(key_id,-trusted_global_id_or_idurl,-timeout=10)">key_share(key_id, trusted_global_id_or_idurl, timeout=10)</h2>
 
 <p>Connect to remote node identified by <code>idurl</code> parameter and transfer private key <code>key_id</code> to that machine.
 This way remote user will be able to access those of your files which were encrypted with that private key.</p>
@@ -240,6 +232,41 @@ but just in case.</p>
 </code></pre>
 
 <h2 id="files_list(remote_path=none)">files_list(remote_path=None)</h2>
+
+<p>Returns list of known files registered in the catalog under given <code>remote_path</code> folder.
+By default returns items from root of the catalog.</p>
+
+<pre><code>{ u'execution': u'0.001040',
+  u'result': [
+               { u'childs': False,
+                 u'customer': u'veselin@veselin-p2p.ru',
+                 u'glob_id': u'master$veselin@veselin-p2p.ru:1',
+                 u'idurl': u'http://veselin-p2p.ru/veselin.xml',
+                 u'key_id': u'master$veselin@veselin-p2p.ru',
+                 u'latest': u'',
+                 u'local_size': -1,
+                 u'name': u'cats.png',
+                 u'path': u'cats.png',
+                 u'path_id': u'1',
+                 u'size': 0,
+                 u'type': u'file',
+                 u'versions': []},
+               { u'childs': False,
+                 u'customer': u'veselin@veselin-p2p.ru',
+                 u'glob_id': u'master$veselin@veselin-p2p.ru:2',
+                 u'idurl': u'http://veselin-p2p.ru/veselin.xml',
+                 u'key_id': u'master$veselin@veselin-p2p.ru',
+                 u'latest': u'',
+                 u'local_size': 345418,
+                 u'name': u'dogs.jpg',
+                 u'path': u'dogs.jpg',
+                 u'path_id': u'2',
+                 u'size': 0,
+                 u'type': u'file',
+                 u'versions': []},
+              ],
+  u'status': u'OK'}
+</code></pre>
 
 <h2 id="file_info(remote_path,-include_uploads=true,-include_downloads=true)">file_info(remote_path, include_uploads=True, include_downloads=True)</h2>
 
@@ -296,7 +323,7 @@ list of pending items to be uploaded.</p>
     'bytes_processed': 0,
     'creator_id': 'http://veselin-p2p.ru/veselin.xml',
     'done': False,
-    'key_id': 'abc',
+    'key_id': 'abc$veselin@veselin-p2p.ru',
     'created': 'Wed Apr 27 15:11:13 2016',
     'eccmap': 'ecc/4x4',
     'path_id': '0/0/3/1',
@@ -306,7 +333,7 @@ list of pending items to be uploaded.</p>
 
 <h2 id="file_download_start(remote_path,-destination_path=none,-wait_result=false)">file_download_start(remote_path, destination_path=None, wait_result=False)</h2>
 
-<p>Download data from remote peers to your local machine. You can use
+<p>Download data from remote suppliers to your local machine. You can use
 different methods to select the target data with <code>remote_path</code> input:</p>
 
 <ul>
@@ -611,6 +638,28 @@ The "ping" command performs following actions:</p>
 <pre><code>{'status': 'OK', 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
 </code></pre>
 
+<h2 id="user_ping(idurl,-timeout=10)">user_ping(idurl, timeout=10)</h2>
+
+<p>Sends Identity packet to remote peer and wait for Ack packet to check connection status.
+The "ping" command performs following actions:</p>
+
+<ol>
+<li>Request remote identity source by idurl,</li>
+<li>Sends my Identity to remote contact addresses, taken from identity,</li>
+<li>Wait first Ack packet from remote peer,</li>
+<li>Failed by timeout or identity fetching error.</li>
+</ol>
+
+<p>You can use this method to check and be sure that remote node is alive at the moment.</p>
+
+<pre><code>{'status': 'OK', 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
+</code></pre>
+
+<h2 id="user_search(nickname)">user_search(nickname)</h2>
+
+<p>Starts nickname_observer() Automat to lookup existing nickname registered
+in DHT network.</p>
+
 <h2 id="set_my_nickname(nickname)">set_my_nickname(nickname)</h2>
 
 <p>Starts nickname_holder() machine to register and keep your nickname in DHT
@@ -648,6 +697,35 @@ this is very simillar to message queue polling interface.</p>
 }]}
 </code></pre>
 
+<h2 id="message_send(recipient,-message_body)">message_send(recipient, message_body)</h2>
+
+<p>Sends a text message to remote peer, <code>recipient</code> is a string with nickname or global_id.</p>
+
+<pre><code>{'status': 'OK', 'result': ['signed.Packet[Message(146681300413)]']}
+</code></pre>
+
+<h2 id="message_receive(consumer_id)">message_receive(consumer_id)</h2>
+
+<p>This method can be used to listen and process incoming chat messages by specific consumer.
+If there are no messages received yet, this method will be waiting for any incomings.
+If some messages was already received, but not "consumed" yet method will return them imediately.
+After you got response and processed the messages you should call this method again to listen
+for more incomings again. This is simillar to message queue polling interface.
+If you do not "consume" messages, after 100 un-collected messages "consumer" will be dropped.
+Both, incoming and outgoing, messages will be populated here.</p>
+
+<pre><code>{'status': 'OK',
+ 'result': [{
+    'type': 'private_message',
+    'dir': 'incoming',
+    'id': '123456788',
+    'sender': 'abc$alice@first-host.com',
+    'recipient': 'abc$bob@second-host.net',
+    'message': 'Hello World!',
+    'time': 123456789
+}]}
+</code></pre>
+
 <h2 id="broadcast_send_message(payload)">broadcast_send_message(payload)</h2>
 
 <p>Sends broadcast message to all peers in the network.</p>
@@ -658,6 +736,16 @@ this is very simillar to message queue polling interface.</p>
 several kilobytes per message.</p>
 
 <h2 id="event_send(event_id,-json_data=none)">event_send(event_id, json_data=None)</h2>
+
+<h2 id="network_stun(udp_port=none,-dht_port=none)">network_stun(udp_port=None, dht_port=None)</h2>
+
+<h2 id="network_reconnect()">network_reconnect()</h2>
+
+<p>Sends "reconnect" event to network_connector() Automat in order to refresh
+network connection.</p>
+
+<pre><code>{'status': 'OK', 'result': 'reconnected'}
+</code></pre>
 
 
 </div>
@@ -779,7 +867,7 @@ several kilobytes per message.</p>
                                     target="blank">GitHub/vesellov</a>
                             </li>
                             <li>
-                                <a href="http://gitlab.bitdust.io/explore/projects" 
+                                <a href="https://gitlab.bitdust.io/explore/projects" 
                                     target="blank">gitlab.bitdust.io</a>
                             </li>
                         </ul>
@@ -832,7 +920,7 @@ several kilobytes per message.</p>
         f = function () { n.parentNode.insertBefore(s, n); };
     s.type = "text/javascript";
     s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    s.src = (d.location.protocol == "https:" ? "https:" : "https:") + "//mc.yandex.ru/metrika/watch.js";
     if (w.opera == "[object Opera]") {        d.addEventListener("DOMContentLoaded", f, false);    } else { f(); }
 })(document, window, "yandex_metrika_callbacks");
 </script>

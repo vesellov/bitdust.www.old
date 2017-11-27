@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="canonical" href="http://bitdust.io">
+    <link rel="canonical" href="https://bitdust.io">
     
     <title>BitDust : Finite State-Machines</title>
 
@@ -90,8 +90,7 @@ on Wikipedia.</p>
 </ul>
 
 <p>Each automat is a descendant of the
-<a href="https://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l202">Automat</a> class,
-which establishes all key collaborations in the BitDust program:</p>
+<a href="https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/automats/automat.py#L256">Automat</a> class, which establishes all key collaborations in the BitDust program:</p>
 
 <ul>
 <li>initializes a conceptual machine increment by its production</li>
@@ -108,7 +107,7 @@ which establishes all key collaborations in the BitDust program:</p>
 <p>As an example, consider a simple finite state machine which is designed for tracking the current status of user’s  connection to the given node in the BitDust network.</p>
 
 <p>In this picture you can see an automat called
-<a href="https://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l244">contact_status()</a>,
+<a href="https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/p2p/contact_status.py#L308">contact_status()</a>,
 which has four states.</p>
 
 <div class=automatpng>
@@ -198,57 +197,59 @@ For instance <code>self.state == 'CONNECTED'</code> means that user is on-line a
 
 <h2 id="the-core">The Core</h2>
 
-<p>All this logic is concentrated in the kernel of the finite state machine in the method <a href="https://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l264">A(event, arg)</a>
+<p>All this logic is concentrated in the kernel of the finite state machine in the method <a href="https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/p2p/contact_status.py#L330">A(event, arg)</a>
 of <code>ContactStatus</code> class:</p>
 
-<pre><code>def A(self, event, arg):
+<pre><code> def A(self, event, arg):
     #---CONNECTED---
     if self.state == 'CONNECTED':
-        if event == 'outbox-packet' and self.isPingPacket(arg) :
-            self.state = 'PING'
-            self.AckCounter=0
-            self.doRepaint(arg)
-        elif event == 'sent-failed' and self.isDataPacket(arg) :
+        if event == 'sent-failed' and self.Fails &gt;= 3 and self.isDataPacket(arg):
             self.state = 'OFFLINE'
             self.doRepaint(arg)
+        elif event == 'sent-failed' and self.isDataPacket(arg) and self.Fails &lt; 3:
+            self.Fails += 1
     #---OFFLINE---
     elif self.state == 'OFFLINE':
-        if event == 'outbox-packet' and self.isPingPacket(arg) :
+        if event == 'outbox-packet' and self.isPingPacket(arg):
             self.state = 'PING'
-            self.AckCounter=0
+            self.AckCounter = 0
             self.doRepaint(arg)
-        elif event == 'inbox-packet' :
+        elif event == 'inbox-packet':
             self.state = 'CONNECTED'
+            self.Fails = 0
             self.doRememberTime(arg)
             self.doRepaint(arg)
     #---PING---
     elif self.state == 'PING':
-        if event == 'sent-done' :
+        if event == 'sent-done':
             self.state = 'ACK?'
-            self.AckCounter=0
-        elif event == 'inbox-packet' :
+            self.AckCounter = 0
+        elif event == 'inbox-packet':
             self.state = 'CONNECTED'
+            self.Fails = 0
             self.doRememberTime(arg)
             self.doRepaint(arg)
-        elif event == 'file-sent' :
-            self.AckCounter+=1
-        elif event == 'sent-failed' and self.AckCounter&gt;1 :
-            self.AckCounter-=1
-        elif event == 'timer-20sec' or ( event == 'sent-failed' and self.AckCounter==1 ) :
+        elif event == 'file-sent':
+            self.AckCounter += 1
+        elif event == 'sent-failed' and self.AckCounter &gt; 1:
+            self.AckCounter -= 1
+        elif event == 'timer-20sec' or (event == 'sent-failed' and self.AckCounter == 1):
             self.state = 'OFFLINE'
             self.doRepaint(arg)
     #---ACK?---
     elif self.state == 'ACK?':
-        if event == 'inbox-packet' :
+        if event == 'inbox-packet':
             self.state = 'CONNECTED'
+            self.Fails = 0
             self.doRememberTime(arg)
             self.doRepaint(arg)
-        elif event == 'timer-20sec' :
+        elif event == 'timer-20sec':
             self.state = 'OFFLINE'
-        elif event == 'outbox-packet' and self.isPingPacket(arg) :
+        elif event == 'outbox-packet' and self.isPingPacket(arg):
             self.state = 'PING'
-            self.AckCounter=0
+            self.AckCounter = 0
             self.doRepaint(arg)
+    return None
 </code></pre>
 
 <p>This code is automatically generated from transition graph vector diagram of the finite state machine and you do not need to code all that lines and so have no chance to made the mistake.
@@ -266,7 +267,7 @@ The source files of the project can be automatically updated after any modificat
 <h2 id="relation-to-the-code">Relation to the Code</h2>
 
 <p>Let's see on example below, the given method
-<a href="https://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l321">doRememberTime()</a>
+<a href="https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/p2p/contact_status.py#L395">doRememberTime()</a>
 of <code>ContactStatus</code> class makes a record of the current time moment – this is exactly the part of the functional, which is managed by the finite automat:</p>
 
 <pre><code>def doRememberTime(self, arg):
@@ -276,10 +277,10 @@ of <code>ContactStatus</code> class makes a record of the current time moment �
 <p>This is very simple code, but it makes a useful action and calls an external code - actions and conditions become separated from the state machine and target logic.</p>
 
 <p>For every new network connection a new single instance of this automat will be created, method
-<a href="https://gitlab.bitdust.io/devel/bitdust/blob/master/p2p/contact_status.py#l229">A(idurl, event, arg)</a>
+<a href="https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/p2p/contact_status.py#L292">A(idurl, event, arg)</a>
 creates new instances and refers to existing instances of the automat.</p>
 
-<p>External reference to the automat is carried out through <a href="https://gitlab.bitdust.io/devel/bitdust/blob/master/automats/automat.py#l348">automat(event, args)</a> 
+<p>External reference to the automat is carried out through <a href="https://github.com/bitdust-io/public/blob/fd536b01983f419030fa070b95d18c11da502b46/automats/automat.py#L425">automat(event, args)</a> 
 method of <code>Automat</code> class, for example after receiving new incoming packet from the target node an event <code>inbox-packet</code> will be passed to the state machine:</p>
 
 <pre><code>def Inbox(newpacket, info, status, message):
@@ -364,10 +365,10 @@ method of <code>Automat</code> class, for example after receiving new incoming p
 
 <p>Microsoft Visio 2007 is used for creation of the vector schemes of transition graphs. Transition graphs of finite state machines, which control the behavior of BitDust client software, reside in *.vsd files.</p>
 
-<p>A small tool called <a href="https://gitlab.bitdust.io/devel/visio2python/tree/master">visio2python</a> was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
+<p>A small tool called <a href="https://github.com/vesellov/visio2python/blob/master/README.html">visio2python</a> was developed, it optimizes and facilitates the development of programs, which use the finite state machines. 
 It can translate the transition graphs, created in Microsoft Visio into the code in Python or JavaScript languages.</p>
 
-<p><a href="https://gitlab.bitdust.io/devel/visio2python/tree/master">https://gitlab.bitdust.io/devel/visio2python</a></p>
+<p><a href="https://github.com/vesellov/visio2python">https://github.com/vesellov/visio2python</a></p>
 
 <h2 id="bitdust-automatas-list">BitDust automatas list</h2>
 
@@ -565,7 +566,7 @@ You can click on every item in the list to look at transition graph of the state
                                     target="blank">GitHub/vesellov</a>
                             </li>
                             <li>
-                                <a href="http://gitlab.bitdust.io/explore/projects" 
+                                <a href="https://gitlab.bitdust.io/explore/projects" 
                                     target="blank">gitlab.bitdust.io</a>
                             </li>
                         </ul>
@@ -618,7 +619,7 @@ You can click on every item in the list to look at transition graph of the state
         f = function () { n.parentNode.insertBefore(s, n); };
     s.type = "text/javascript";
     s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    s.src = (d.location.protocol == "https:" ? "https:" : "https:") + "//mc.yandex.ru/metrika/watch.js";
     if (w.opera == "[object Opera]") {        d.addEventListener("DOMContentLoaded", f, false);    } else { f(); }
 })(document, window, "yandex_metrika_callbacks");
 </script>

@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="canonical" href="http://bitdust.io">
+    <link rel="canonical" href="https://bitdust.io">
     
-    <title>BitDust : Install the software</title>
+    <title>Install BitDust software</title>
 
     <!-- <meta property="fb:admins" content="1097958228"/> -->
     <!-- <meta property="fb:app_id" content="543329652498581"/> -->
@@ -48,7 +48,17 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="install-the-software">Install the software</h1>
+<h1 id="install-bitdust-software">Install BitDust software</h1>
+
+<h2 id="intro">Intro</h2>
+
+<p>Current project stage is about to only research opportunities of
+building a holistic eco-system that protects your privacy in the network
+by establishing p2p communications of users and maximize distribution of
+information flows in the network.</p>
+
+<p>At the moment exists a very limited alpha version of the BitDust software.
+We decided to publish those earlier works to verify/test/share our ideas and experiments with other people.</p>
 
 <h2 id="get-the-software">Get the software</h2>
 
@@ -66,7 +76,7 @@
 
 <p>Second step is to get the BitDust sources:</p>
 
-<pre><code>    git clone https://gitlab.bitdust.io/stable/bitdust.latest.git bitdust
+<pre><code>    git clone https://github.com/bitdust-io/public.git bitdust
 </code></pre>
 
 <p>Then you need to build virtual environment with all required Python dependencies, BitDust software will run fully isolated.
@@ -76,12 +86,12 @@ Single command should make it for you, all required files will be generated in <
     python bitdust.py install
 </code></pre>
 
-<p>Last step to make BitDist software ready is to make a short alias in your OS, then you can just type <code>bitdust</code> in command line to fast access the program:</p>
+<p>Last step to make BitDust software ready is to make a short alias in your OS, then you can just type <code>bitdust</code> in command line to fast access the program:</p>
 
 <pre><code>    sudo ln -s /home/&lt;user&gt;/.bitdust/bitdust /usr/local/bin/bitdust
 </code></pre>
 
-<h2 id="run-bitdist">Run BitDist</h2>
+<h2 id="run-bitdust">Run BitDust</h2>
 
 <p>Start using the software by creating an identity for your device in BitDust network:</p>
 
@@ -113,7 +123,7 @@ Single command should make it for you, all required files will be generated in <
 <p>To get some more insights or just to know how to start playing with software
 you can visit <a href="https://bitdust.io/commands.html">BitDust Commands</a> page. </p>
 
-<h2 id="dependencies">Dependencies</h2>
+<h2 id="binary-dependencies">Binary Dependencies</h2>
 
 <p>If you are installing BitDust on Windows platforms, you may require some binary packages already compiled and packaged for Microsoft Windows platforms, you can check following locations and download needed binaries and libraries:</p>
 
@@ -268,7 +278,7 @@ you can visit <a href="https://bitdust.io/commands.html">BitDust Commands</a> pa
                                     target="blank">GitHub/vesellov</a>
                             </li>
                             <li>
-                                <a href="http://gitlab.bitdust.io/explore/projects" 
+                                <a href="https://gitlab.bitdust.io/explore/projects" 
                                     target="blank">gitlab.bitdust.io</a>
                             </li>
                         </ul>
@@ -321,7 +331,7 @@ you can visit <a href="https://bitdust.io/commands.html">BitDust Commands</a> pa
         f = function () { n.parentNode.insertBefore(s, n); };
     s.type = "text/javascript";
     s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    s.src = (d.location.protocol == "https:" ? "https:" : "https:") + "//mc.yandex.ru/metrika/watch.js";
     if (w.opera == "[object Opera]") {        d.addEventListener("DOMContentLoaded", f, false);    } else { f(); }
 })(document, window, "yandex_metrika_callbacks");
 </script>
