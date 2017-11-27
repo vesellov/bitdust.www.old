@@ -4,3 +4,4 @@ git status
 read -p "OK?"
 git commit
 git push github
+git push fork
