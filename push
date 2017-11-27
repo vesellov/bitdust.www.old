@@ -3,5 +3,5 @@ git add -u :/
 git status
 read -p "OK?"
 git commit
-git push github
-git push fork
+git push github master
+git push fork master
