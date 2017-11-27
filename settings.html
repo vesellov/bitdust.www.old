@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="canonical" href="http://bitdust.io">
+    <link rel="canonical" href="https://bitdust.io">
     
     <title>BitDust : Settings</title>
 
@@ -69,18 +69,6 @@
 
 <h2 id="list-of-options">List of options</h2>
 
-<h3 id=".ds_store-(undefined)">.DS_Store (undefined)</h3>
-
-<p>.DS_Store, default value: None</p>
-
-<h3 id="api/json-rpc-server/enabled-(undefined)">api/json-rpc-server/enabled (undefined)</h3>
-
-<p>api/json-rpc-server/enabled, default value: None</p>
-
-<h3 id="api/json-rpc-server/port-(undefined)">api/json-rpc-server/port (undefined)</h3>
-
-<p>api/json-rpc-server/port, default value: None</p>
-
 <h3 id="interface/api/json-rpc-enabled-(boolean)">interface/api/json-rpc-enabled (boolean)</h3>
 
 <p>interface/api/json-rpc-enabled, default value: true</p>
@@ -88,6 +76,14 @@
 <h3 id="interface/api/json-rpc-port-(positive-integer)">interface/api/json-rpc-port (positive integer)</h3>
 
 <p>interface/api/json-rpc-port, default value: 8083</p>
+
+<h3 id="interface/api/rest-http-enabled-(boolean)">interface/api/rest-http-enabled (boolean)</h3>
+
+<p>interface/api/rest-http-enabled, default value: true</p>
+
+<h3 id="interface/api/rest-http-port-(positive-integer)">interface/api/rest-http-port (positive integer)</h3>
+
+<p>interface/api/rest-http-port, default value: 8180</p>
 
 <h3 id="interface/ftp/enabled-(boolean)">interface/ftp/enabled (boolean)</h3>
 
@@ -99,7 +95,7 @@
 
 <h3 id="debug-level-(positive-integer)">debug level (positive integer)</h3>
 
-<p>logs/debug-level, default value: 0</p>
+<p>logs/debug-level, default value: 10</p>
 
 <p>Higher values will produce more log messages.</p>
 
@@ -123,7 +119,7 @@ This feature is disabled at the moment.</p>
 
 <h3 id="enable-web-logs-(boolean)">enable web logs (boolean)</h3>
 
-<p>logs/stream-enabled, default value: false</p>
+<p>logs/stream-enabled, default value: true</p>
 
 <p>Enabled this and go to http://127.0.0.1:[logs port number] to browse the program log.
 Need to restart the program.</p>
@@ -134,7 +130,7 @@ Need to restart the program.</p>
 
 <h3 id="logs/traffic-enabled-(boolean)">logs/traffic-enabled (boolean)</h3>
 
-<p>logs/traffic-enabled, default value: false</p>
+<p>logs/traffic-enabled, default value: true</p>
 
 <h3 id="logs/traffic-port-(positive-integer)">logs/traffic-port (positive integer)</h3>
 
@@ -254,14 +250,14 @@ A "0" value means unlimited number of copies, be sure you have enough amount of 
 
 <h3 id="wait-suppliers-24-hours-(boolean)">wait suppliers 24 hours (boolean)</h3>
 
-<p>services/backups/wait-suppliers-enabled, default value: true</p>
+<p>services/backups/wait-suppliers-enabled, default value: false</p>
 
 <p>If you disabled storing of local data of your backups but one day a critical amount of your suppliers become unreliable - your data may be lost completely.
 Enable this option to wait for 24 hours after finishing any backup and perform a check all of your suppliers before removing the locally backed up data for this copy.</p>
 
 <h3 id="services/broadcasting/enabled-(boolean)">services/broadcasting/enabled (boolean)</h3>
 
-<p>services/broadcasting/enabled, default value: true</p>
+<p>services/broadcasting/enabled, default value: false</p>
 
 <h3 id="services/broadcasting/max-broadcast-connections-(non-zero-positive-integer)">services/broadcasting/max-broadcast-connections (non zero positive integer)</h3>
 
@@ -322,15 +318,35 @@ Right now we have only 16 testing machines in the network, so last three values 
 
 <p>services/gateway/enabled, default value: true</p>
 
+<h3 id="services/identity-propagate/enabled-(boolean)">services/identity-propagate/enabled (boolean)</h3>
+
+<p>services/identity-propagate/enabled, default value: true</p>
+
+<h3 id="services/identity-propagate/known-servers-(string)">services/identity-propagate/known-servers (string)</h3>
+
+<p>services/identity-propagate/known-servers, default value: </p>
+
+<h3 id="services/identity-propagate/max-servers-(non-zero-positive-integer)">services/identity-propagate/max-servers (non zero positive integer)</h3>
+
+<p>services/identity-propagate/max-servers, default value: 5</p>
+
+<h3 id="services/identity-propagate/min-servers-(non-zero-positive-integer)">services/identity-propagate/min-servers (non zero positive integer)</h3>
+
+<p>services/identity-propagate/min-servers, default value: 2</p>
+
+<h3 id="services/identity-propagate/preferred-servers-(string)">services/identity-propagate/preferred-servers (string)</h3>
+
+<p>services/identity-propagate/preferred-servers, default value: </p>
+
 <h3 id="ebable-identity-server-(boolean)">ebable identity server (boolean)</h3>
 
-<p>services/id-server/enabled, default value: false</p>
+<p>services/identity-server/enabled, default value: false</p>
 
-<p>Enable this to start "id-server" service.</p>
+<p>Enable this to start "identity-server" service.</p>
 
 <h3 id="identity-server-hostname-(string)">identity server hostname (string)</h3>
 
-<p>services/id-server/host, default value: </p>
+<p>services/identity-server/host, default value: </p>
 
 <p>Set a domain name of your machine if you have it.
 Otherwise your external IP will be used as a host name.
@@ -339,19 +355,15 @@ User ID looking more pretty and safe without IP address.</p>
 
 <h3 id="tcp-port-number-(positive-integer)">TCP port number (positive integer)</h3>
 
-<p>services/id-server/tcp-port, default value: 6661</p>
+<p>services/identity-server/tcp-port, default value: 6661</p>
 
 <p>A TCP port number to receive user's identity files.</p>
 
 <h3 id="web-port-number-(positive-integer)">WEB port number (positive integer)</h3>
 
-<p>services/id-server/web-port, default value: 8084</p>
+<p>services/identity-server/web-port, default value: 8084</p>
 
 <p>If port 80 is already taken you can start identity server on a different port.</p>
-
-<h3 id="services/identity-propagate/enabled-(boolean)">services/identity-propagate/enabled (boolean)</h3>
-
-<p>services/identity-propagate/enabled, default value: true</p>
 
 <h3 id="services/ip-port-responder/enabled-(boolean)">services/ip-port-responder/enabled (boolean)</h3>
 
@@ -425,7 +437,7 @@ A value of "0" means no outgoing limit.</p>
 
 <h3 id="services/private-messages/enabled-(boolean)">services/private-messages/enabled (boolean)</h3>
 
-<p>services/private-messages/enabled, default value: false</p>
+<p>services/private-messages/enabled, default value: true</p>
 
 <h3 id="services/proxy-server/current-routes-(text)">services/proxy-server/current-routes (text)</h3>
 
@@ -445,7 +457,7 @@ A value of "0" means no outgoing limit.</p>
 
 <h3 id="services/proxy-transport/enabled-(boolean)">services/proxy-transport/enabled (boolean)</h3>
 
-<p>services/proxy-transport/enabled, default value: false</p>
+<p>services/proxy-transport/enabled, default value: true</p>
 
 <h3 id="services/proxy-transport/my-original-identity-(text)">services/proxy-transport/my-original-identity (text)</h3>
 
@@ -461,7 +473,7 @@ A value of "0" means no outgoing limit.</p>
 
 <h3 id="services/proxy-transport/receiving-enabled-(boolean)">services/proxy-transport/receiving-enabled (boolean)</h3>
 
-<p>services/proxy-transport/receiving-enabled, default value: false</p>
+<p>services/proxy-transport/receiving-enabled, default value: true</p>
 
 <h3 id="services/proxy-transport/router-lifetime-seconds-(positive-integer)">services/proxy-transport/router-lifetime-seconds (positive integer)</h3>
 
@@ -482,6 +494,10 @@ A value of "0" means no outgoing limit.</p>
 <h3 id="services/supplier-contracts/enabled-(boolean)">services/supplier-contracts/enabled (boolean)</h3>
 
 <p>services/supplier-contracts/enabled, default value: false</p>
+
+<h3 id="services/supplier-relations/enabled-(boolean)">services/supplier-relations/enabled (boolean)</h3>
+
+<p>services/supplier-relations/enabled, default value: true</p>
 
 <h3 id="services/supplier/donated-space-(disk-space)">services/supplier/donated-space (disk space)</h3>
 
@@ -681,7 +697,7 @@ A value of "0" means no outgoing limit.</p>
                                     target="blank">GitHub/vesellov</a>
                             </li>
                             <li>
-                                <a href="http://gitlab.bitdust.io/explore/projects" 
+                                <a href="https://gitlab.bitdust.io/explore/projects" 
                                     target="blank">gitlab.bitdust.io</a>
                             </li>
                         </ul>
@@ -734,7 +750,7 @@ A value of "0" means no outgoing limit.</p>
         f = function () { n.parentNode.insertBefore(s, n); };
     s.type = "text/javascript";
     s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    s.src = (d.location.protocol == "https:" ? "https:" : "https:") + "//mc.yandex.ru/metrika/watch.js";
     if (w.opera == "[object Opera]") {        d.addEventListener("DOMContentLoaded", f, false);    } else { f(); }
 })(document, window, "yandex_metrika_callbacks");
 </script>

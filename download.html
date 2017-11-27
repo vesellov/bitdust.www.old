@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="canonical" href="http://bitdust.io">
+    <link rel="canonical" href="https://bitdust.io">
     
-    <title>BitDust Demo</title>
+    <title>Install BitDust software</title>
 
     <!-- <meta property="fb:admins" content="1097958228"/> -->
     <!-- <meta property="fb:app_id" content="543329652498581"/> -->
@@ -48,67 +48,115 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="bitdust-demo">BitDust Demo</h1>
+<h1 id="install-bitdust-software">Install BitDust software</h1>
 
-<h2 id="windows-installer">Windows Installer</h2>
+<h2 id="intro">Intro</h2>
 
-<p><a href="https://bitdust.io/download/bitdust-setup.exe">bitdust-setup.exe</a></p>
+<p>Current project stage is about to only research opportunities of
+building a holistic eco-system that protects your privacy in the network
+by establishing p2p communications of users and maximize distribution of
+information flows in the network.</p>
 
-<h2 id="ubuntu-/-debian-package">Ubuntu / Debian package</h2>
+<p>At the moment exists a very limited alpha version of the BitDust software.
+We decided to publish those earlier works to verify/test/share our ideas and experiments with other people.</p>
 
-<p><a href="https://bitdust.io/download/bitdust-ubuntu-devel.deb">bitdust-ubuntu-devel.deb</a></p>
+<h2 id="get-the-software">Get the software</h2>
 
-<h2 id="explanation">Explanation</h2>
+<p>Seems like in Ubuntu (probably most other distros) you can install all dependencies in that way:</p>
 
-<p>Now ready very limited demo version of BitDust software.
-We publish this earlier works to verify and test our ideas of the full distribution of information flows in the network.</p>
+<pre><code>    sudo apt-get install git python-dev python-setuptools python-pip python-virtualenv
 
-<p>Available only the most basic functions:</p>
-
-<ul>
-<li>enter the network</li>
-<li>upload files and folders</li>
-<li>download backed up data back to your local machine</li>
-<li>remove uploaded data from the network</li>
-</ul>
-
-<p>Many other functions have been implemented earlier, but still do not have a graphical interface.
-Those functions that will be opened in the future, are displayed but not available. 
-Product development continues.</p>
-
-<h2 id="dependencies">Dependencies</h2>
-
-<p>Windows users can use the following links to install necessary packages themselves:</p>
-
-<ul>
-<li><a href="http://python.org/download/releases">python 2.7</a> </li>
-<li><a href="http://twistedmatrix.com">twisted 15.0</a> </li>
-<li><a href="http://pyasn1.sourceforge.net">pyasn1</a></li>
-<li><a href="https://launchpad.net/pyopenssl">pyOpenSSL</a></li>
-<li><a href="https://www.dlitz.net/software/pycrypto/">pycrypto</a></li>
-<li><a href="http://wxpython.org/">wxPython3</a></li>
-</ul>
-
-<p>In Ubuntu you can quickly get all dependencies in this way:</p>
-
-<pre><code>sudo apt-get update
-sudo apt-get install git python python-twisted python-pyasn1 python-openssl python-crypto python-wxgtk3
+    sudo apt-get install python-twisted python-django python-crypto python-pyasn1 python-psutil libffi-dev
 </code></pre>
 
-<h2 id="git-repositories:">Git Repositories:</h2>
+<p>Optionally, you can also install <a href="http://miniupnp.tuxfamily.org/">miniupnpc</a> tool if you want BitDust automatically deal with UPnPc configuration of your network router so it can also accept incomming connections from other nodes.:</p>
+
+<pre><code>    sudo apt-get install miniupnpc
+</code></pre>
+
+<p>Second step is to get the BitDust sources:</p>
+
+<pre><code>    git clone https://github.com/bitdust-io/public.git bitdust
+</code></pre>
+
+<p>Then you need to build virtual environment with all required Python dependencies, BitDust software will run fully isolated.
+Single command should make it for you, all required files will be generated in <code>~/.bitdust/venv/</code> sub-folder:</p>
+
+<pre><code>    cd bitdust
+    python bitdust.py install
+</code></pre>
+
+<p>Last step to make BitDust software ready is to make a short alias in your OS, then you can just type <code>bitdust</code> in command line to fast access the program:</p>
+
+<pre><code>    sudo ln -s /home/&lt;user&gt;/.bitdust/bitdust /usr/local/bin/bitdust
+</code></pre>
+
+<h2 id="run-bitdust">Run BitDust</h2>
+
+<p>Start using the software by creating an identity for your device in BitDust network:</p>
+
+<pre><code>    bitdust id create &lt;some nick name&gt;
+</code></pre>
+
+<p>I recommend you to create another copy of your Private Key in a safe place to be able to recover your data in the future. You can do it with such command:</p>
+
+<pre><code>    bitdust key copy &lt;nickname&gt;.bitdust.key
+</code></pre>
+
+<p>Your settings and local files are located in that folder: ~/.bitdust</p>
+
+<p>Type this command to read more info about BitDust commands:</p>
+
+<pre><code>    bitdust help
+</code></pre>
+
+<p>To run the software type:</p>
+
+<pre><code>    bitdust
+</code></pre>
+
+<p>Start as background process:</p>
+
+<pre><code>    bitdust detach
+</code></pre>
+
+<p>To get some more insights or just to know how to start playing with software
+you can visit <a href="https://bitdust.io/commands.html">BitDust Commands</a> page. </p>
+
+<h2 id="binary-dependencies">Binary Dependencies</h2>
+
+<p>If you are installing BitDust on Windows platforms, you may require some binary packages already compiled and packaged for Microsoft Windows platforms, you can check following locations and download needed binaries and libraries:</p>
 
 <ul>
-<li>Development : <a href="https://gitlab.bitdust.io/devel/bitdust.devel.git">https://gitlab.bitdust.io/devel/bitdust.devel.git</a></li>
-<li>Public : <a href="https://gitlab.bitdust.io/devel/bitdust.git">https://gitlab.bitdust.io/devel/bitdust.git</a></li>
-<li>Most stable up-to-date : <a href="https://gitlab.bitdust.io/stable/bitdust.latest.git">https://gitlab.bitdust.io/stable/bitdust.latest.git</a></li>
+<li>cygwin: <a href="https://cygwin.com/install.html">cygwin.com</a></li>
+<li>git: <a href="https://git-scm.com/download/win">git-scm.com</a></li>
+<li>python 2.7 (python3 is not supported yet): <a href="http://python.org/download/releases">python.org</a></li>
+<li>twisted 11.0 or higher: <a href="http://twistedmatrix.com">twistedmatrix.com</a></li>
+<li>pyasn1: <a href="http://pyasn1.sourceforge.net">pyasn1.sourceforge.net</a></li>
+<li>pyOpenSSL: <a href="https://launchpad.net/pyopenssl">launchpad.net/pyopenssl</a></li>
+<li>pycrypto: <a href="https://www.dlitz.net/software/pycrypto/">dlitz.net/software/pycrypto</a></li>
+<li>wxgtk2.8: <a href="http://wiki.wxpython.org/InstallingOnUbuntuOrDebian">wxpython.org</a></li>
+<li>miniupnpc: <a href="http://miniupnp.tuxfamily.org/">miniupnp.tuxfamily.org</a></li>
 </ul>
 
-<h2 id="run-from-sources">Run from Sources</h2>
 
-<pre><code>git clone https://gitlab.bitdust.io/stable/bitdust.latest.git bitdust
-cd bitdust
-python bitdust.py
-</code></pre>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = "http://bitdust.io/download.html";   
+        this.page.identifier = "./download"
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');
+        s.src = '//bitdust.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+</div>
 
 
 <div id="disqus_thread"></div>
@@ -249,7 +297,7 @@ python bitdust.py
                                     target="blank">GitHub/vesellov</a>
                             </li>
                             <li>
-                                <a href="http://gitlab.bitdust.io/explore/projects" 
+                                <a href="https://gitlab.bitdust.io/explore/projects" 
                                     target="blank">gitlab.bitdust.io</a>
                             </li>
                         </ul>
@@ -302,7 +350,7 @@ python bitdust.py
         f = function () { n.parentNode.insertBefore(s, n); };
     s.type = "text/javascript";
     s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    s.src = (d.location.protocol == "https:" ? "https:" : "https:") + "//mc.yandex.ru/metrika/watch.js";
     if (w.opera == "[object Opera]") {        d.addEventListener("DOMContentLoaded", f, false);    } else { f(); }
 })(document, window, "yandex_metrika_callbacks");
 </script>
