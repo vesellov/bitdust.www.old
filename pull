@@ -1,4 +1,7 @@
 #!/bin/bash
-# git pull origin master
+
+git pull upstream master
 git pull github master
+git pull fork master
+
 git status
