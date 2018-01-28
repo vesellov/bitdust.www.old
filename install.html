@@ -50,6 +50,15 @@
 
 <h1 id="install-bitdust-software">Install BitDust software</h1>
 
+<ul>
+<li><a href="install.html#intro">Intro</a></li>
+<li><a href="install.html#install-software-dependencies">Install software dependencies</a></li>
+<li><a href="install.html#get-bitdust-to-your-local-machine">Get BitDust to your local machine</a></li>
+<li><a href="install.html#building-virtual-environment">Building virtual environment</a></li>
+<li><a href="install.html#run-bitdust">Run BitDust</a></li>
+<li><a href="install.html#binary-dependencies">Binary Dependencies</a></li>
+</ul>
+
 <h2 id="intro">Intro</h2>
 
 <p>Current project stage is about to only research opportunities of
@@ -84,13 +93,25 @@ We decided to publish those earlier works to verify/test/share our ideas and exp
     pip install virtualenv --user
 </code></pre>
 
-<p>Second step is to get the BitDust sources:</p>
+<h2 id="get-bitdust-to-your-local-machine">Get BitDust to your local machine</h2>
+
+<p>Second step is to get the BitDust sources. To have a full control over BitDust process running on your local machine you better make a fork of the Public BitDist repository on GitHub at https://github.com/bitdust-io/public and clone it on your local machine:</p>
+
+<pre><code>    git clone https://github.com/&lt;your GitHub username&gt;/&lt;name of BitDust fork&gt;.git bitdust
+</code></pre>
+
+<p>The software will periodically run <code>git fetch</code> and <code>git rebase</code> to check for recent commits in the repo. This way we make sure that everyone is running the latest version of the program. Once you made a fork, you will have to update your Fork manually and pull commits from Public BitDust repository if you trust them.</p>
+
+<p>However if you just trust BitDust contributors you can simply clone the Public repository directly and software will be up to date with the "official" public code base:</p>
 
 <pre><code>    git clone https://github.com/bitdust-io/public.git bitdust
 </code></pre>
 
-<p>Then you need to build virtual environment with all required Python dependencies, BitDust software will run fully isolated.
-Single command should make it for you, all required files will be generated in <code>~/.bitdust/venv/</code> sub-folder:</p>
+<h2 id="building-virtual-environment">Building virtual environment</h2>
+
+<p>Then you need to build virtual environment with all required Python dependencies, BitDust software will run fully isolated.</p>
+
+<p>Single command should make it for you, all required files will be generated in <code>~/.bitdust/venv/</code> sub-folder:</p>
 
 <pre><code>    cd bitdust
     python bitdust.py install
@@ -133,6 +154,8 @@ Single command should make it for you, all required files will be generated in <
 <p>To get some more insights or just to know how to start playing with software
 you can visit <a href="https://bitdust.io/commands.html">BitDust Commands</a> page. </p>
 
+<p>To get more info about API methods available go to <a href="https://bitdust.io/api.html">BitDust API</a> page.</p>
+
 <h2 id="binary-dependencies">Binary Dependencies</h2>
 
 <p>If you are installing BitDust on Windows platforms, you may require some binary packages already compiled and packaged for Microsoft Windows platforms, you can check following locations and download needed binaries and libraries:</p>
@@ -145,7 +168,6 @@ you can visit <a href="https://bitdust.io/commands.html">BitDust Commands</a> pa
 <li>pyasn1: <a href="http://pyasn1.sourceforge.net">pyasn1.sourceforge.net</a></li>
 <li>pyOpenSSL: <a href="https://launchpad.net/pyopenssl">launchpad.net/pyopenssl</a></li>
 <li>pycrypto: <a href="https://www.dlitz.net/software/pycrypto/">dlitz.net/software/pycrypto</a></li>
-<li>wxgtk2.8: <a href="http://wiki.wxpython.org/InstallingOnUbuntuOrDebian">wxpython.org</a></li>
 <li>miniupnpc: <a href="http://miniupnp.tuxfamily.org/">miniupnp.tuxfamily.org</a></li>
 </ul>
 
