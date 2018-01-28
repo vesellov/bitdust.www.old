@@ -16,6 +16,7 @@ if not os.path.isdir(os.path.dirname(dest)):
 site_url = "http://bitdust.io"
 sbody = open(src).read()
 sbody = re.sub('a href="(.+?)\.md"', 'a href="%s\g<1>.html"' % md_base, sbody)
+sbody = re.sub('a href="(.+?)\.md\#(.+?)"', 'a href="%s\g<1>.html#\g<2>"' % md_base, sbody)
 # sbody = re.sub('a href="(.+?)\.py"', 'a href="%s\g<1>.py"' % gitlab_base, sbody)
 sbody = re.sub('a href="../docs/(.+?)\.html"', 'a href="\g<1>.html"', sbody)
 sbody = re.sub('a href="docs/(.+?)\.html"', 'a href="\g<1>.html"', sbody)

@@ -2,6 +2,7 @@
 */.DS_Store
 .dist
 .backup
+.repos
 @build/
 index_.html
 intro_short.html
