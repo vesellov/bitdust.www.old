@@ -1,2 +1,2 @@
 #!/bin/bash
-ssh bitdust "cd bitdust.www; ./pull;"
+ssh bitdust "cd bitdust.www; git pull upstream master;"

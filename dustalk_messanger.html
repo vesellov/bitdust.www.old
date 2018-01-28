@@ -51,29 +51,25 @@
 <h1 id="dustalk---distributed-chat-/-messenger-av-/-conferencing">DusTalk - Distributed chat / messenger AV / conferencing</h1>
 
 <ul>
-<li>[Introduction] (# Introduction)</li>
-<li>[Features] (FEATURES)</li>
-<li>[Authentication and Authorization] (#-Identification and Authorization)</li>
-<li>[Data Transfer] (# Transfer data)</li>
-<li>[Network Resources] (# Resources Network)</li>
-<li>[On-line store] (# On-line-store)</li>
-<li>[Contact List] (# contacts list)</li>
-<li>[Access to personal data] (# access-to-personal-data)</li>
-<li>[Access Group] (# Access Group)</li>
-<li>[Availability] (# Availability)</li>
+<li><a href="dustalk_messanger.html#intro">Intro</a></li>
+<li><a href="dustalk_messanger.html#features">Features</a></li>
+<li><a href="dustalk_messanger.html#identification-and-authorization">Identification and Authorization</a></li>
+<li><a href="dustalk_messanger.html#data-transfer">Data Transfer</a></li>
+<li><a href="dustalk_messanger.html#network-resources">Network Resources</a></li>
+<li><a href="dustalk_messanger.html#on-line-store">On-line store</a></li>
+<li><a href="dustalk_messanger.html#contacts-list">Contact List</a></li>
+<li><a href="dustalk_messanger.html#access-to-personal-data">Access to personal data</a></li>
+<li><a href="dustalk_messanger.html#access-group">Access Group</a></li>
+<li><a href="dustalk_messanger.html#availability">Availability</a></li>
 </ul>
 
-<p><a class=hlnk id="introduction"> </a></p>
-
-<h2 id="introduction">Introduction</h2>
+<h2 id="intro">Intro</h2>
 
 <p>At the moment, there is a wide range of programs for instant messaging, live connection with streaming audio and video, as well as the entire organization of videoconferences, simultaneously for many participants. The vast majority of these solutions using classical methods of user authentication and dedicated servers for the organization of these services.</p>
 
-<p>Architecture [project BitDust] (toc.md) allows for a fundamentally different solution for the organization of communication between people via the Internet. Thanks to a fully distributed network structure BitDust may implement a more secure, private and anonymous communication.</p>
+<p>Architecture of <a href="toc.html">BitDust</a> allows for a fundamentally different solution for the organization of communication between people via the Internet. Thanks to a fully distributed network structure BitDust may implement a more secure, private and anonymous communication.</p>
 
 <p>Fully distributed on-line messenger DusTalk will have a number of benefits and features that can not be realized on the basis of a centralized or partially distributed architecture - they arise precisely because of the design and architecture of the entire network BitDust, on the basis of which the product will be realized.</p>
-
-<p><a class=hlnk id="Osobennosti"> </a></p>
 
 <h2 id="features">Features</h2>
 
@@ -95,13 +91,11 @@
 <li>Cross-platform software - run nearly any device</li>
 </ul>
 
-<p><a class=hlnk id="Identifikatsiya-i-avtorizatsiya"> </a></p>
-
 <h2 id="identification-and-authorization">Identification and Authorization</h2>
 
-<p>The project BitDust used the so-called [identity] (identities.md) files to identify users in the network and store key performance information. It's public files that are freely available over the Internet and can be placed in the clear on many sources.</p>
+<p>The project BitDust used the so-called <a href="identities.html">identity</a> files to identify users in the network and store key performance information. It's public files that are freely available over the Internet and can be placed in the clear on many sources.</p>
 
-<p>To create and change the identity file, the user must be in possession of [private key] (glossary.md # Private Key), which protects its identity on the network, and all the personal data. This key is generated when you first start the program BitDust on this unit and never leave.</p>
+<p>To create and change the identity file, the user must be in possession of <a href="glossary.html#private-key">private key</a>, which protects its identity on the network, and all the personal data. This key is generated when you first start the program BitDust on this unit and never leave.</p>
 
 <p>Other members of the network, with which contact was established, will always check user identity file during data transmission - it is protected by a digital signature, which eliminates the possibility of forgery or substitution of identity.</p>
 
@@ -111,19 +105,17 @@
 
 <p>The mechanism of self-signed identity file creates a more reliable and secure authorization and identification of users than the classic access to the personal account on a dedicated server through a secret password. Methods of protection of personal user data used in BitDust project provides complete independence from any companies, organizations or structures that usually take on this responsibility.</p>
 
-<p><a class=hlnk id="Peredacha-dannyh"> </a></p>
-
 <h2 id="data-transfer">Data transfer</h2>
 
 <p>Quite often, in the process of live communication over the Internet, it becomes necessary to quickly send a file or folder to your interlocutor. This feature can be easily added to DusTalk, because BitDust kernel already has all the necessary functions for streaming via secure channels.</p>
 
 <p>Can be simply drag the file to the interlocutor of the system conductor avatar and then begin transmitting data. The caller will be able to save the file on your local disk and open it from the data transfer is complete.</p>
 
-<p>BitDust network consists of a plurality of peer nodes that communicate directly with each other on the [encrypted and protected] (security.md) channels. Before the transfer of useful data, both nodes produce digital signature verification and exchange keys for encryption channel. Thereafter, data is transmitted via [network transports] (transports.md), which use standard TCP / IP protocol means: TCP connections and UDP packets.</p>
+<p>BitDust network consists of a plurality of peer nodes that communicate directly with each other on the <a href="security.html">encrypted and protected</a> channels. Before the transfer of useful data, both nodes produce digital signature verification and exchange keys for encryption channel. Thereafter, data is transmitted via <a href="transports.html">network transports</a>, which use standard TCP / IP protocol means: TCP connections and UDP packets.</p>
 
 <p>In some cases, the data can not do without the use of intermediate nodes - where users' computers are behind symmetric NAT with a complex scheme of allocation of port numbers. With this data transmission mode, the intermediate nodes that "retransmit" traffic still does not have any access to the data channel, since it is encrypted. Such intermediate nodes are called "bystanders" and matched statistically randomly and constantly, with random time intervals, made them change - this allows you to negate the probability of "wiretapping" channel.</p>
 
-<p>Advanced software module for hiding the real IP address of the node in the network can be switched on. This will be done similar to "bulbous" encryption in the network [Tor] (https://www.torproject.org/), which uses random intermediate nodes to mask the true address. In fact, the user can be identified only by impersonal "nickname" and calculate its real location will be extremely time-consuming task.</p>
+<p>Advanced software module for hiding the real IP address of the node in the network can be switched on. This will be done similar to "bulbous" encryption in the network <a href="https://www.torproject.org/">Tor</a>, which uses random intermediate nodes to mask the true address. In fact, the user can be identified only by impersonal "nickname" and calculate its real location will be extremely time-consuming task.</p>
 
 <p>To protect against external "wiretapping" when intermediate nodes are analyzed and statistics collection encrypted traffic can be enabled "obfuscation" of outgoing traffic. In this state, the payload will be "mixed" with a random binary stream and will be visible from a continuous stream of encrypted data, without any possibility of analyzing and evaluating its content.</p>
 
@@ -132,8 +124,6 @@
 <p>Each of "passers" will receive only a single part of the encrypted data stream, and even being "infected" node will not be able to benefit from it or what critical information: to collect statistics or analyze the flow itself.</p>
 
 <p>Due to the security of all communication channels, which are transmitted in the useful data BitDust network, each transfer will be completely safe. In the settings you additional services for traffic obfuscation and anonymization of all the connections within the network BitDust can be included, so that you and your partner get the most secure and private channel for communication.</p>
-
-<p><a class=hlnk id="Resursy-seti"> </a></p>
 
 <h2 id="network-resources">Network Resources</h2>
 
@@ -156,8 +146,8 @@
 
 <ul>
 <li>Consumers</li>
-<li>[Keepers] (storage.md),</li>
-<li>[Cleaners] (rebuilding.md),</li>
+<li><a href="storage.html">Keepers</a>,</li>
+<li><a href="rebuilding.html">Cleaners</a>,</li>
 <li>Passers-by.</li>
 </ul>
 
@@ -170,8 +160,6 @@
 <li>Helps recover lost blocks,</li>
 <li>Relays encrypted traffic to other nodes.</li>
 </ul>
-
-<p><a class=hlnk id="On-line-hranilische"> </a></p>
 
 <h2 id="on-line-store">On-line store</h2>
 
@@ -187,25 +175,23 @@
 <li>And other information.</li>
 </ul>
 
-<p>Units that hold other people's files called [the guardians] (glossary.md # Guardian). At their hard drives keepers allocate a fixed quota that can be used by other members of the network BitDust. This quota is called [given away space] (glossary.md # Suggested as space-keeper) - it specifies the maximum total size of all files that can be uploaded to the computer of the other nodes in the network, and is installed in BitDust program settings.</p>
+<p>Units that hold other people's files called <a href="glossary.html#supplier">suppliers</a>. At their hard drives suppliers allocate a fixed quota that can be used by other members of the network BitDust. This quota is called <a href="glossary.html#shared-supplier-space">given space</a> - it specifies the maximum total size of all files that can be uploaded to the computer of the other nodes in the network, and is installed in BitDust program settings.</p>
 
-<p>Those users who use the services of custodians, called [clients] (glossary.md # client) or consumers. the client node determines in advance the amount of space that he wanted to stay at your personal data and makes the selection of guardians, using this value. BitDust allows you to dynamically change the size of the [space needed] (glossary.md # requested space-client) and produces a reconnection with the new custodians.</p>
+<p>Those users who use the services of custodians, called <a href="glossary.html#customer">customers</a> or consumers. the client node determines in advance the amount of space that he wanted to stay at your personal data and makes the selection of guardians, using this value. BitDust allows you to dynamically change the size of the <a href="glossary.html#requested-client-space">space needed</a> and produces a reconnection with the new custodians.</p>
 
-<p>During the initial setup of the list [keepers] (storage.md), created and maintained by open networked data links with each of these nodes. It allows you to instantly begin receiving / transmitting information and significantly speeds up the overall process of interaction between nodes in the network BitDust.</p>
+<p>During the initial setup of the list <a href="storage.html">keepers</a>, created and maintained by open networked data links with each of these nodes. It allows you to instantly begin receiving / transmitting information and significantly speeds up the overall process of interaction between nodes in the network BitDust.</p>
 
-<p>All customer keepers are organized in a special way - they are organized in a structure like [the RAID array] (rebuilding.md # RAID-conversion) and use the [self-correcting code] (rebuilding.md # ECC-code) with [double redundancy] (storage.md # The redundancy of data). Those keepers, with whom, for whatever reasons, a permanent connection is lost, replaced by fresh, and started the process [Automatic Data Recovery] (rebuilding.md). Fragments of encrypted data blocks available allow keepers to restore the lost fragments and recreate them on the new guardian - all BitDust program executes automatically and protects the data downloaded to a distributed repository.</p>
+<p>All customer keepers are organized in a special way - they are organized in a structure like <a href="rebuilding.html#raid-transformation">the RAID array</a> and use the <a href="rebuilding.html#ecc-codes">self-correcting code</a> with <a href="storage.html#data-redundancy">double redundancy</a>. Those keepers, with whom, for whatever reasons, a permanent connection is lost, replaced by fresh, and started the process <a href="rebuilding.html">Automatic Data Recovery</a>. Fragments of encrypted data blocks available allow keepers to restore the lost fragments and recreate them on the new guardian - all BitDust program executes automatically and protects the data downloaded to a distributed repository.</p>
 
 <p>Each keeper holds only a fraction of the total volume of data uploaded and hosts the files that were previously encrypted on the client machine - it does not have access to them. All nodes are constantly checking the digital signature in communication. Keeper "give" the stored files only to the owner or user of the data, which has access to the group.</p>
 
 <p>In fact, in BitDust downloaded data network, completely lose their integrity, we call this process of "disintegration" of the data, and can restore them only by the user using his private key - there is no other way to read or modify the data.</p>
 
-<p><a class=hlnk id="Spisok-kontaktov"> </a></p>
-
 <h2 id="contact-list">Contact list</h2>
 
-<p>The project uses BitDust [distributed hash table] (dht.md) for data storage, which should be accessible to all network members. Each device that is running BitDust program may be a node in a DHT network and service store data about other users in the form of pairs (key, value). Due to such characteristics as the distribution of DHT, scalability and fault tolerance access to the hash table is quick enough and weakly depends on the size of the entire network.</p>
+<p>The project uses BitDust <a href="dht.html">distributed hash table</a> for data storage, which should be accessible to all network members. Each device that is running BitDust program may be a node in a DHT network and service store data about other users in the form of pairs (key, value). Due to such characteristics as the distribution of DHT, scalability and fault tolerance access to the hash table is quick enough and weakly depends on the size of the entire network.</p>
 
-<p>There are already working the search engines that use DHT network to store global search index and provide convenient service to search for information, for example [YaCy] (http://yacy.net/) and [FAROO] (http: //www.faroo. com /). Currently this technology already has a variety of uses and there are many implementations of the most DHT network. BitDust core includes a software module that implements the DHT network library resources [Entangled] (http://entangled.sourceforge.net/) - the source code is incorporated into the source code BitDust and distributed together.</p>
+<p>There are already working the search engines that use DHT network to store global search index and provide convenient service to search for information, for example <a href="http://yacy.net/">YaCy</a> and <a href="http://www.faroo.com/">FAROO</a>. Currently this technology already has a variety of uses and there are many implementations of the most DHT network. BitDust core includes a software module that implements the DHT network library resources <a href="http://entangled.sourceforge.net/">Entangled</a> - the source code is incorporated into the source code BitDust and distributed together.</p>
 
 <p>At the moment, through the distributed hash table, BitDust program enables simple search users across the network, which indicated his nickname (pseudonym) in the application settings on your device. The whole process is almost identical to the search for contacts in any other messenger - you just need to drive into the search bar nickname of another user and click on the search button. A DHT network will request to the global index, and will obtain a unique device identifier of the desired user, which indicates its identity file.</p>
 
@@ -213,19 +199,19 @@
 
 <p>User Keepers are used for secure storage and access to the contact list, chat history, avatars, personal settings, loaded into a distributed storage files and other private information. Due to the architecture BitDust network, the data is fully protected and accessible only to the user. Once downloaded on the device keepers, they lose their integrity and do not exist physically - only the owner, with a valid private key in hand, can download all of the pieces and restore them to their original form.</p>
 
-<p><a class=hlnk id="Dostup-k-lichnym-dannym"> </a></p>
-
 <h2 id="access-to-personal-data">Access to personal data</h2>
 
 <p>Quite often it is convenient to have access to personal data stored in on-line services from different devices. For example, uploading to the network of the working documents from the office computer, you want to make some changes already out of the house, with your personal computer.</p>
 
-<p>In BitDust network each device has its own [unique ID] (identities.md # IDURL-address) and is protected by a secret key that was generated and made available only on that device. Only the secret key to protect access to personal user data loaded into the device with BitDust network - it must be protected as much as possible and should not leave this unit under any circumstances.</p>
+<p>In BitDust network each device has its own <a href="identities.html#idurl-address">unique ID</a> and is protected by a secret key that was generated and made available only on that device. Only the secret key to protect access to personal user data loaded into the device with BitDust network - it must be protected as much as possible and should not leave this unit under any circumstances.</p>
 
 <p>However, the owner of the device can make a backup copy of your private key and store it in a safe place. In this case, it will be able to regain access to your personal data in case of damage or loss of the device.</p>
 
 <p>A self-signed identity files in a project can be implemented BitDust access their personal data from various devices - with each of them will be protected by its own private key and will enter with its own unique identifier of the network. The so-called "keychain", will bring together in a single group of several devices. All other members of the network are properly authorize any of them, and provide access to the data, even though they will be identified separately.</p>
 
 <p>For example, consider the case where you need to combine access to personal data from your home PC and the tablet:</p>
+
+<p>To be continue...</p>
 
 
 </div>
