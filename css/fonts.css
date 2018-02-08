@@ -3,9 +3,7 @@
     font-family: 'myfont Gothic Local'; 
     src:  url('../fonts/century_gothic.eot'); 
     src:  url('../fonts/century_gothic.eot?#iefix') format('embedded-opentype'), 
-          url('../fonts/century_gothic.svg#Century Gothic') format('svg'), 
-          url('../fonts/century_gothic.woff') format('woff'), 
-          url('../fonts/century_gothic.ttf') format('truetype'); 
+          url('../fonts/century_gothic.woff') format('woff');
     font-weight: normal; 
     font-style: normal;
 }
