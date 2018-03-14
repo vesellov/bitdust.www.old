@@ -188,10 +188,21 @@ Use <code>include_private=True</code> to get Private Keys as openssh formated st
 }
 </code></pre>
 
-<h2 id="key_share(key_id,-trusted_global_id_or_idurl,-timeout=10)">key_share(key_id, trusted_global_id_or_idurl, timeout=10)</h2>
+<h2 id="key_share(key_id,-trusted_global_id_or_idurl,-include_private=false,-timeout=10)">key_share(key_id, trusted_global_id_or_idurl, include_private=False, timeout=10)</h2>
 
-<p>Connect to remote node identified by <code>idurl</code> parameter and transfer private key <code>key_id</code> to that machine.
-This way remote user will be able to access those of your files which were encrypted with that private key.</p>
+<p>Connects to remote node and transfer private key to that machine.
+This way remote user will be able to access those of your files which were encrypted with that private key.
+You can also share a public key, this way your supplier will know which data packets can be accessed by
+another customer.</p>
+
+<p>Returns:</p>
+
+<h2 id="key_audit(key_id,-untrusted_global_id_or_idurl,-is_private=false,-timeout=10)">key_audit(key_id, untrusted_global_id_or_idurl, is_private=False, timeout=10)</h2>
+
+<p>Connects to remote node identified by <code>idurl</code> parameter and request audit
+of a public or private key <code>key_id</code> on that machine.
+Returns True in the callback if audit process succeed - that means remote user
+posses that public or private key.</p>
 
 <p>Returns:</p>
 
@@ -237,15 +248,17 @@ but just in case.</p>
 <pre><code>{'status': 'OK', 'result': 'the main files sync loop has been restarted'}
 </code></pre>
 
-<h2 id="files_list(remote_path=none)">files_list(remote_path=None)</h2>
+<h2 id="files_list(remote_path=none,-key_id=none,-recursive=true)">files_list(remote_path=None, key_id=None, recursive=True)</h2>
 
 <p>Returns list of known files registered in the catalog under given <code>remote_path</code> folder.
-By default returns items from root of the catalog.</p>
+By default returns items from root of the catalog.
+If <code>key_id</code> is passed will only return items encrypted using that key.</p>
 
 <pre><code>{ u'execution': u'0.001040',
   u'result': [
                { u'childs': False,
                  u'customer': u'veselin@veselin-p2p.ru',
+                 u'remote_path': u'master$veselin@veselin-p2p.ru:cats.png',
                  u'glob_id': u'master$veselin@veselin-p2p.ru:1',
                  u'idurl': u'http://veselin-p2p.ru/veselin.xml',
                  u'key_id': u'master$veselin@veselin-p2p.ru',
@@ -259,6 +272,7 @@ By default returns items from root of the catalog.</p>
                  u'versions': []},
                { u'childs': False,
                  u'customer': u'veselin@veselin-p2p.ru',
+                 u'remote_path': u'master$veselin@veselin-p2p.ru:dogs.jpg',
                  u'glob_id': u'master$veselin@veselin-p2p.ru:2',
                  u'idurl': u'http://veselin-p2p.ru/veselin.xml',
                  u'key_id': u'master$veselin@veselin-p2p.ru',
@@ -363,7 +377,9 @@ By default this method uses specified value from local settings or user home fol
 <pre><code>{'status': 'OK', 'result': 'restoring of "alice@p2p-host.com:0/1/2" aborted'}
 </code></pre>
 
-<h2 id="suppliers_list()">suppliers_list()</h2>
+<h2 id="file_explore(local_path)">file_explore(local_path)</h2>
+
+<h2 id="suppliers_list(customer_idurl=none)">suppliers_list(customer_idurl=None)</h2>
 
 <p>This method returns a list of suppliers - nodes which stores your encrypted data on own machines.</p>
 
@@ -371,15 +387,15 @@ By default this method uses specified value from local settings or user home fol
  'result':[{
     'connected': '05-06-2016 13:06:05',
     'idurl': 'http://p2p-id.ru/bitdust_j_vps1014.xml',
-    'numfiles': 14,
+    'files_count': 14,
     'position': 0,
-    'status': 'offline'
+    'contact_status': 'offline'
  }, {
     'connected': '05-06-2016 13:04:57',
     'idurl': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
-    'numfiles': 14,
+    'files_count': 14,
     'position': 1,
-    'status': 'offline'
+    'contact_status': 'offline'
 }]}
 </code></pre>
 
@@ -393,7 +409,7 @@ getting a reconstructed fragments.</p>
 <pre><code>{'status': 'OK', 'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by new peer'}
 </code></pre>
 
-<h2 id="supplier_change(index_or_idurl,-new_idurl)">supplier_change(index_or_idurl, new_idurl)</h2>
+<h2 id="supplier_change(index_or_idurl,-new_supplier_idurl)">supplier_change(index_or_idurl, new_supplier_idurl)</h2>
 
 <p>Doing same as supplier_replace() but new node must be provided by you - you can manually assign a supplier.</p>
 
@@ -502,6 +518,16 @@ Every node will reply with Ack packet on any valid incoming Identiy packet.</p>
 }]}
 </code></pre>
 
+<h2 id="share_create(key_alias,-folder_name=none)">share_create(key_alias, folder_name=None)</h2>
+
+<h2 id="share_grant(remote_user,-key_id)">share_grant(remote_user, key_id)</h2>
+
+<h2 id="share_open(key_id)">share_open(key_id)</h2>
+
+<h2 id="share_close(key_id)">share_close(key_id)</h2>
+
+<h2 id="share_history()">share_history()</h2>
+
 <h2 id="automats_list()">automats_list()</h2>
 
 <p>Returns a list of all currently running state machines.</p>
@@ -587,7 +613,7 @@ option in the settings.</p>
 <pre><code>{'status': 'OK', 'result': 'service_tcp_connections was switched off'}
 </code></pre>
 
-<h2 id="service_restart(service_name)">service_restart(service_name)</h2>
+<h2 id="service_restart(service_name,-wait_timeout=10)">service_restart(service_name, wait_timeout=10)</h2>
 
 <p>Stop given service and start it again, but only if it is already enabled.
 Do not change corresponding <code>.bitdust/config/services/[service name]/enabled</code> option.
@@ -624,6 +650,8 @@ Dependent services will be "restarted" as well.</p>
 
 <p>Return list of incoming and outgoing packets.</p>
 
+<h2 id="transfers_list()">transfers_list()</h2>
+
 <h2 id="connections_list(wanted_protos=none)">connections_list(wanted_protos=None)</h2>
 
 <p>Returns list of opened/active network connections. Argument <code>wanted_protos</code>
@@ -635,6 +663,8 @@ can be used to select which protocols to list:</p>
 <h2 id="streams_list(wanted_protos=none)">streams_list(wanted_protos=None)</h2>
 
 <p>Return list of active sending/receiveing files.</p>
+
+<h2 id="queue_list()">queue_list()</h2>
 
 <h2 id="ping(idurl,-timeout=10)">ping(idurl, timeout=10)</h2>
 
@@ -763,6 +793,14 @@ network connection.</p>
 
 <pre><code>{'status': 'OK', 'result': 'reconnected'}
 </code></pre>
+
+<h2 id="network_connected(wait_timeout=5)">network_connected(wait_timeout=5)</h2>
+
+<p>Be sure BitDust software is connected to other nodes in the network.
+If all is good this method will block for <code>wait_timeout</code> seconds.
+In case of some network issues method will return result asap.</p>
+
+<h2 id="network_status()">network_status()</h2>
 
 
 </div>
