@@ -64,16 +64,67 @@ On the live machine serving https://bitdust.io resource "www" repository is clon
 
 ## Contributing
 
-This repository contains .html files generated from [BitDust documentation](https://github.com/bitdust-io/docs) sources built in Markdown format. You can re-generate all of the BitDust Wiki pages this way:
+This repository contains .html files generated from [BitDust documentation](https://github.com/bitdust-io/docs) sources built in Markdown format. If you want to modify any page on the web site, create a fork of both repositories on GitHub and clone it locally:
 
-    git clone https://github.com/bitdust-io/docs.git bitdust.docs
-    git clone https://github.com/bitdust-io/www.git bitdust.www
+    git clone git@github.com:<your github username>/docs.git bitdust.docs
+    cd bitdust.docs
+    git remote add upstream https://github.com/bitdust-io/docs.git
+
+
+You also need to have [bitdust.devel](https://github.com/bitdust-io/devel) repository cloned in the parent folder, because some of Markdown pages are generated from BitDust Python sources. So Makefile expects `../bitdust.devel` folder to be already existed:
+
+    cd ..
+    git clone https://github.com/bitdust-io/devel.git bitdust.devel
+
+
+Next make a fork and clone BitDust web site repository:
+
+    git clone git@github.com:<your github username>/www.git bitdust.www
     cd bitdust.www
-    ./build
+    git remote add upstream https://github.com/bitdust-io/www.git
 
-If you want to modify any page on the web site, create a fork of both repositories on GitHub and start making changes in corresponding .md file of "docs" repo. Then save the file and run "./build" in "www" repo - a new .html file will be generated with fresh changes you did in the .md file.
 
-Commit and push your changes to your fork repository and start a "Pull Request", BitDust team is doing public code reviews and we will be in touch with you to go further.
+Also please be sure you have markdown2 package installed globally:
+
+    sudo apt-get install python-pip
+    pip install markdown2
+
+
+Now you can start making changes in .md files of your local "bitdust.docs" repo. Save modified .md file and run `make html` in "bitdust.www" repo - a new .html file will be generated with fresh changes you just did in the corresponding .md file.
+
+Then you can re-generate the whole BitDust web site locally that way:
+
+    cd ../bitdust.docs
+    make build
+    cd ../bitdust.www
+    make html
+
+
+To put your changes in live you need to make two Pull Requests: first to bitdust.docs repo and second to bitdust.www repo. Commit and push your git changes to your bitdust.docs fork repository and start a [Pull Request](https://github.com/bitdust-io/docs/pulls):
+
+    cd ../bitdust.docs
+    make build
+    git add -u -v
+    git commit -m "some comment to describe what you did"
+    git push origin master
+
+
+Do the same for bitdust.www repository and start a second [Pull Request](https://github.com/bitdust-io/www/pulls):
+
+    cd ../bitdust.www
+    make html
+    git add -u -v
+    git commit -m "some comment to describe what you did"
+    git push origin master
+
+
+After your changes got merged you need to pull latest changes from upstream and push to your fork:
+
+    git pull upstream master
+    git push orgigin master
+
+
+BitDust team is doing public code reviews and we will be in touch with you to go further. If you like the project, join [BitDust contributors](https://github.com/bitdust-io) on GitHub.
 
 
 [bitdust.io](https://bitdust.io)

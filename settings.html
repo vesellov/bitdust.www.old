@@ -213,7 +213,7 @@ If you leave this blank your identity address will be used to form a nickname.</
 
 <h3 id="preferred-block-size-(disk-space)">preferred block size (disk space)</h3>
 
-<p>services/backups/block-size, default value: 16 MB</p>
+<p>services/backups/block-size, default value: 2 MB</p>
 
 <p>Preferred block size in bytes which used to split the raw data during backup.</p>
 
@@ -234,7 +234,7 @@ Every one Mb of source data uploaded will consume two Mb on your local HDD.</p>
 
 <h3 id="maximum-block-size-(disk-space)">maximum block size (disk space)</h3>
 
-<p>services/backups/max-block-size, default value: 128 MB</p>
+<p>services/backups/max-block-size, default value: 4 MB</p>
 
 <p>Maximum block size in bytes which used to split the raw data during backup.
 The actual block size is calculated depending on size of the particular backup to optimize performance and data storage.
@@ -254,6 +254,42 @@ A "0" value means unlimited number of copies, be sure you have enough amount of 
 
 <p>If you disabled storing of local data of your backups but one day a critical amount of your suppliers become unreliable - your data may be lost completely.
 Enable this option to wait for 24 hours after finishing any backup and perform a check all of your suppliers before removing the locally backed up data for this copy.</p>
+
+<h3 id="services/blockchain/enabled-(boolean)">services/blockchain/enabled (boolean)</h3>
+
+<p>services/blockchain/enabled, default value: false</p>
+
+<h3 id="services/blockchain/explorer/enabled-(boolean)">services/blockchain/explorer/enabled (boolean)</h3>
+
+<p>services/blockchain/explorer/enabled, default value: true</p>
+
+<h3 id="services/blockchain/explorer/port-(non-zero-positive-integer)">services/blockchain/explorer/port (non zero positive integer)</h3>
+
+<p>services/blockchain/explorer/port, default value: 9180</p>
+
+<h3 id="services/blockchain/host-(string)">services/blockchain/host (string)</h3>
+
+<p>services/blockchain/host, default value: 127.0.0.1</p>
+
+<h3 id="services/blockchain/miner/enabled-(boolean)">services/blockchain/miner/enabled (boolean)</h3>
+
+<p>services/blockchain/miner/enabled, default value: false</p>
+
+<h3 id="services/blockchain/port-(non-zero-positive-integer)">services/blockchain/port (non zero positive integer)</h3>
+
+<p>services/blockchain/port, default value: 9100</p>
+
+<h3 id="services/blockchain/seeds-(undefined)">services/blockchain/seeds (undefined)</h3>
+
+<p>services/blockchain/seeds, default value: </p>
+
+<h3 id="services/blockchain/wallet/enabled-(boolean)">services/blockchain/wallet/enabled (boolean)</h3>
+
+<p>services/blockchain/wallet/enabled, default value: true</p>
+
+<h3 id="services/blockchain/wallet/port-(non-zero-positive-integer)">services/blockchain/wallet/port (non zero positive integer)</h3>
+
+<p>services/blockchain/wallet/port, default value: 9280</p>
 
 <h3 id="services/broadcasting/enabled-(boolean)">services/broadcasting/enabled (boolean)</h3>
 
@@ -314,9 +350,44 @@ Right now we have only 16 testing machines in the network, so last three values 
 
 <p>services/entangled-dht/enabled, default value: true</p>
 
+<h3 id="services/entangled-dht/known-nodes-(string)">services/entangled-dht/known-nodes (string)</h3>
+
+<p>services/entangled-dht/known-nodes, default value: </p>
+
+<h3 id="udp-port-number-for-distributed-hash-table-(positive-integer)">udp port number for distributed hash table (positive integer)</h3>
+
+<p>services/entangled-dht/udp-port, default value: 14441</p>
+
+<p>This is a UDP port number for Distributed Hash Table communications.
+BitDust uses <a href="http://entangled.sourceforge.net/">Entangled Project</a> to implement DHT functionality.</p>
+
 <h3 id="services/gateway/enabled-(boolean)">services/gateway/enabled (boolean)</h3>
 
 <p>services/gateway/enabled, default value: true</p>
+
+<h3 id="services/http-connections/enabled-(boolean)">services/http-connections/enabled (boolean)</h3>
+
+<p>services/http-connections/enabled, default value: false</p>
+
+<h3 id="services/http-connections/http-port-(positive-integer)">services/http-connections/http-port (positive integer)</h3>
+
+<p>services/http-connections/http-port, default value: 9993</p>
+
+<h3 id="services/http-transport/enabled-(boolean)">services/http-transport/enabled (boolean)</h3>
+
+<p>services/http-transport/enabled, default value: false</p>
+
+<h3 id="services/http-transport/priority-(positive-integer)">services/http-transport/priority (positive integer)</h3>
+
+<p>services/http-transport/priority, default value: 50</p>
+
+<h3 id="services/http-transport/receiving-enabled-(boolean)">services/http-transport/receiving-enabled (boolean)</h3>
+
+<p>services/http-transport/receiving-enabled, default value: true</p>
+
+<h3 id="services/http-transport/sending-enabled-(boolean)">services/http-transport/sending-enabled (boolean)</h3>
+
+<p>services/http-transport/sending-enabled, default value: true</p>
 
 <h3 id="services/identity-propagate/enabled-(boolean)">services/identity-propagate/enabled (boolean)</h3>
 
@@ -435,6 +506,10 @@ A value of "0" means no outgoing limit.</p>
 
 <p>services/p2p-hookups/enabled, default value: true</p>
 
+<h3 id="services/p2p-notifications/enabled-(boolean)">services/p2p-notifications/enabled (boolean)</h3>
+
+<p>services/p2p-notifications/enabled, default value: true</p>
+
 <h3 id="services/private-messages/enabled-(boolean)">services/private-messages/enabled (boolean)</h3>
 
 <p>services/private-messages/enabled, default value: true</p>
@@ -469,7 +544,7 @@ A value of "0" means no outgoing limit.</p>
 
 <h3 id="services/proxy-transport/priority-(positive-integer)">services/proxy-transport/priority (positive integer)</h3>
 
-<p>services/proxy-transport/priority, default value: 30</p>
+<p>services/proxy-transport/priority, default value: 100</p>
 
 <h3 id="services/proxy-transport/receiving-enabled-(boolean)">services/proxy-transport/receiving-enabled (boolean)</h3>
 
@@ -490,6 +565,10 @@ A value of "0" means no outgoing limit.</p>
 <h3 id="services/restores/enabled-(boolean)">services/restores/enabled (boolean)</h3>
 
 <p>services/restores/enabled, default value: true</p>
+
+<h3 id="services/shared-data/enabled-(boolean)">services/shared-data/enabled (boolean)</h3>
+
+<p>services/shared-data/enabled, default value: true</p>
 
 <h3 id="services/supplier-contracts/enabled-(boolean)">services/supplier-contracts/enabled (boolean)</h3>
 
