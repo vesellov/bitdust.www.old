@@ -139,7 +139,7 @@ Use <code>include_private=True</code> to get Private Keys as openssh formated st
 <pre><code>{'status': 'OK',
  'result': [{
      'alias': 'master',
-     'id': 'master$veselin@p2p-id.ru',
+     'key_id': 'master$veselin@p2p-id.ru',
      'creator': 'http://p2p-id.ru/veselin.xml',
      'fingerprint': '60:ce:ea:98:bf:3d:aa:ba:29:1e:b9:0c:3e:5c:3e:32',
      'size': '2048',
@@ -149,7 +149,7 @@ Use <code>include_private=True</code> to get Private Keys as openssh formated st
      'private': '-----BEGIN RSA PRIVATE KEY-----\nMIIJKAIBAAKCAgEAj8uw...'
  }, {
      'alias': 'another_key01',
-     'id': 'another_key01$veselin@p2p-id.ru',
+     'key_id': 'another_key01$veselin@p2p-id.ru',
      'creator': 'http://p2p-id.ru/veselin.xml',
      'fingerprint': '43:c8:3b:b6:da:3e:8a:3c:48:6f:92:bb:74:b4:05:6b',
      'size': '4096',
@@ -259,7 +259,7 @@ If <code>key_id</code> is passed will only return items encrypted using that key
                { u'childs': False,
                  u'customer': u'veselin@veselin-p2p.ru',
                  u'remote_path': u'master$veselin@veselin-p2p.ru:cats.png',
-                 u'glob_id': u'master$veselin@veselin-p2p.ru:1',
+                 u'global_id': u'master$veselin@veselin-p2p.ru:1',
                  u'idurl': u'http://veselin-p2p.ru/veselin.xml',
                  u'key_id': u'master$veselin@veselin-p2p.ru',
                  u'latest': u'',
@@ -273,7 +273,7 @@ If <code>key_id</code> is passed will only return items encrypted using that key
                { u'childs': False,
                  u'customer': u'veselin@veselin-p2p.ru',
                  u'remote_path': u'master$veselin@veselin-p2p.ru:dogs.jpg',
-                 u'glob_id': u'master$veselin@veselin-p2p.ru:2',
+                 u'global_id': u'master$veselin@veselin-p2p.ru:2',
                  u'idurl': u'http://veselin-p2p.ru/veselin.xml',
                  u'key_id': u'master$veselin@veselin-p2p.ru',
                  u'latest': u'',
@@ -379,7 +379,33 @@ By default this method uses specified value from local settings or user home fol
 
 <h2 id="file_explore(local_path)">file_explore(local_path)</h2>
 
-<h2 id="suppliers_list(customer_idurl=none)">suppliers_list(customer_idurl=None)</h2>
+<h2 id="share_create(key_alias,-remote_path=none)">share_create(key_alias, remote_path=None)</h2>
+
+<h2 id="share_grant(trusted_remote_user,-key_id)">share_grant(trusted_remote_user, key_id)</h2>
+
+<h2 id="share_open(key_id)">share_open(key_id)</h2>
+
+<h2 id="share_close(key_id)">share_close(key_id)</h2>
+
+<h2 id="share_refresh(key_id)">share_refresh(key_id)</h2>
+
+<h2 id="share_list()">share_list()</h2>
+
+<h2 id="share_history()">share_history()</h2>
+
+<h2 id="friend_list()">friend_list()</h2>
+
+<p>Returns list of correspondents ids</p>
+
+<h2 id="friend_add(idurl_or_global_id,-alias='')">friend_add(idurl_or_global_id, alias='')</h2>
+
+<p>Add user to the list of friends</p>
+
+<h2 id="friend_remove(idurl_or_global_id)">friend_remove(idurl_or_global_id)</h2>
+
+<p>Remove user from the list of friends</p>
+
+<h2 id="suppliers_list(customer_idurl_or_global_id=none,-verbose=false)">suppliers_list(customer_idurl_or_global_id=None, verbose=False)</h2>
 
 <p>This method returns a list of suppliers - nodes which stores your encrypted data on own machines.</p>
 
@@ -399,7 +425,7 @@ By default this method uses specified value from local settings or user home fol
 }]}
 </code></pre>
 
-<h2 id="supplier_replace(index_or_idurl)">supplier_replace(index_or_idurl)</h2>
+<h2 id="supplier_replace(index_or_idurl_or_global_id)">supplier_replace(index_or_idurl_or_global_id)</h2>
 
 <p>Execute a fire/hire process for given supplier, another random node will
 replace this supplier. As soon as new supplier is found and connected,
@@ -409,7 +435,7 @@ getting a reconstructed fragments.</p>
 <pre><code>{'status': 'OK', 'result': 'supplier http://p2p-id.ru/alice.xml will be replaced by new peer'}
 </code></pre>
 
-<h2 id="supplier_change(index_or_idurl,-new_supplier_idurl)">supplier_change(index_or_idurl, new_supplier_idurl)</h2>
+<h2 id="supplier_change(index_or_idurl_or_global_id,-new_supplier_idurl_or_global_id)">supplier_change(index_or_idurl_or_global_id, new_supplier_idurl_or_global_id)</h2>
 
 <p>Doing same as supplier_replace() but new node must be provided by you - you can manually assign a supplier.</p>
 
@@ -423,7 +449,12 @@ getting a reconstructed fragments.</p>
 <pre><code>{'status': 'OK',  'result': 'requests to all suppliers was sent'}
 </code></pre>
 
-<h2 id="customers_list()">customers_list()</h2>
+<h2 id="suppliers_dht_lookup(customer_idurl_or_global_id)">suppliers_dht_lookup(customer_idurl_or_global_id)</h2>
+
+<p>Scans DHT network for key-value pairs related to given customer and
+returns a list of his "possible" suppliers.</p>
+
+<h2 id="customers_list(verbose=false)">customers_list(verbose=False)</h2>
 
 <p>List of customers - nodes who stores own data on your machine.</p>
 
@@ -434,7 +465,7 @@ getting a reconstructed fragments.</p>
 }]}
 </code></pre>
 
-<h2 id="customer_reject(idurl)">customer_reject(idurl)</h2>
+<h2 id="customer_reject(idurl_or_global_id)">customer_reject(idurl_or_global_id)</h2>
 
 <p>Stop supporting given customer, remove all his files from local disc, close
 connections with that node.</p>
@@ -517,16 +548,6 @@ Every node will reply with Ack packet on any valid incoming Identiy packet.</p>
     'total_str': '43.14 MB'
 }]}
 </code></pre>
-
-<h2 id="share_create(key_alias,-folder_name=none)">share_create(key_alias, folder_name=None)</h2>
-
-<h2 id="share_grant(remote_user,-key_id)">share_grant(remote_user, key_id)</h2>
-
-<h2 id="share_open(key_id)">share_open(key_id)</h2>
-
-<h2 id="share_close(key_id)">share_close(key_id)</h2>
-
-<h2 id="share_history()">share_history()</h2>
 
 <h2 id="automats_list()">automats_list()</h2>
 
@@ -666,7 +687,7 @@ can be used to select which protocols to list:</p>
 
 <h2 id="queue_list()">queue_list()</h2>
 
-<h2 id="ping(idurl,-timeout=10)">ping(idurl, timeout=10)</h2>
+<h2 id="user_ping(idurl_or_global_id,-timeout=10)">user_ping(idurl_or_global_id, timeout=10)</h2>
 
 <p>Sends Identity packet to remote peer and wait for Ack packet to check connection status.
 The "ping" command performs following actions:</p>
@@ -683,66 +704,26 @@ The "ping" command performs following actions:</p>
 <pre><code>{'status': 'OK', 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
 </code></pre>
 
-<h2 id="user_ping(idurl,-timeout=10)">user_ping(idurl, timeout=10)</h2>
+<h2 id="user_status(idurl_or_global_id)">user_status(idurl_or_global_id)</h2>
 
-<p>Sends Identity packet to remote peer and wait for Ack packet to check connection status.
-The "ping" command performs following actions:</p>
-
-<ol>
-<li>Request remote identity source by idurl,</li>
-<li>Sends my Identity to remote contact addresses, taken from identity,</li>
-<li>Wait first Ack packet from remote peer,</li>
-<li>Failed by timeout or identity fetching error.</li>
-</ol>
-
-<p>You can use this method to check and be sure that remote node is alive at the moment.</p>
-
-<pre><code>{'status': 'OK', 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
-</code></pre>
-
-<h2 id="user_search(nickname)">user_search(nickname)</h2>
+<h2 id="user_search(nickname,-attempts=1)">user_search(nickname, attempts=1)</h2>
 
 <p>Starts nickname_observer() Automat to lookup existing nickname registered
 in DHT network.</p>
 
-<h2 id="set_my_nickname(nickname)">set_my_nickname(nickname)</h2>
+<h2 id="user_observe(nickname,-attempts=3)">user_observe(nickname, attempts=3)</h2>
+
+<p>Starts nickname_observer() Automat to lookup existing nickname registered
+in DHT network.</p>
+
+<h2 id="nickname_get()">nickname_get()</h2>
+
+<h2 id="nickname_set(nickname)">nickname_set(nickname)</h2>
 
 <p>Starts nickname_holder() machine to register and keep your nickname in DHT
 network.</p>
 
-<h2 id="find_peer_by_nickname(nickname)">find_peer_by_nickname(nickname)</h2>
-
-<p>Starts nickname_observer() Automat to lookup existing nickname registered
-in DHT network.</p>
-
-<h2 id="send_message(recipient,-message_body)">send_message(recipient, message_body)</h2>
-
-<p>Sends a text message to remote peer, <code>recipient</code> is a string with nickname or global_id.</p>
-
-<pre><code>{'status': 'OK', 'result': ['signed.Packet[Message(146681300413)]']}
-</code></pre>
-
-<h2 id="receive_one_message()">receive_one_message()</h2>
-
-<p>This method can be used to listen and process incoming chat messages.</p>
-
-<ul>
-<li>creates a callback to receive all incoming messages,</li>
-<li>wait until one incoming message get received,</li>
-<li>remove the callback after receiving the message.</li>
-</ul>
-
-<p>After you received the message you can call this method again,
-this is very simillar to message queue polling interface.</p>
-
-<pre><code>{'status': 'OK',
- 'result': [{
-    'from': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
-    'message': 'Hello my dear Friend!'
-}]}
-</code></pre>
-
-<h2 id="message_send(recipient,-message_body)">message_send(recipient, message_body)</h2>
+<h2 id="message_send(recipient,-json_data,-timeout=5)">message_send(recipient, json_data, timeout=5)</h2>
 
 <p>Sends a text message to remote peer, <code>recipient</code> is a string with nickname or global_id.</p>
 
@@ -770,6 +751,8 @@ Both, incoming and outgoing, messages will be populated here.</p>
     'time': 123456789
 }]}
 </code></pre>
+
+<h2 id="messages_get_all(index_name,-limit,-offset,-with_doc,-with_storage)">messages_get_all(index_name, limit, offset, with_doc, with_storage)</h2>
 
 <h2 id="broadcast_send_message(payload)">broadcast_send_message(payload)</h2>
 
@@ -799,8 +782,6 @@ network connection.</p>
 <p>Be sure BitDust software is connected to other nodes in the network.
 If all is good this method will block for <code>wait_timeout</code> seconds.
 In case of some network issues method will return result asap.</p>
-
-<h2 id="network_status()">network_status()</h2>
 
 
 </div>
