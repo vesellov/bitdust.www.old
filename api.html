@@ -112,6 +112,8 @@ restart.</p>
 
 <h2 id="identity_recover(private_key_source,-known_idurl=none)">identity_recover(private_key_source, known_idurl=None)</h2>
 
+<h2 id="identity_list()">identity_list()</h2>
+
 <h2 id="key_get(key_id,-include_private=false)">key_get(key_id, include_private=False)</h2>
 
 <p>Returns details of known private key.
@@ -160,7 +162,7 @@ Use <code>include_private=True</code> to get Private Keys as openssh formated st
 }]}
 </code></pre>
 
-<h2 id="key_create(key_alias,-key_size=4096,-include_private=false)">key_create(key_alias, key_size=4096, include_private=False)</h2>
+<h2 id="key_create(key_alias,-key_size=2048,-include_private=false)">key_create(key_alias, key_size=2048, include_private=False)</h2>
 
 <p>Generate new Private Key and add it to the list of known keys with given <code>key_id</code>.</p>
 
@@ -327,7 +329,7 @@ list of pending items to be uploaded.</p>
 }
 </code></pre>
 
-<h2 id="file_upload_start(local_path,-remote_path,-wait_result=true)">file_upload_start(local_path, remote_path, wait_result=True)</h2>
+<h2 id="file_upload_start(local_path,-remote_path,-wait_result=false,-open_share=true)">file_upload_start(local_path, remote_path, wait_result=False, open_share=True)</h2>
 
 <h2 id="file_upload_stop(remote_path)">file_upload_stop(remote_path)</h2>
 
@@ -351,7 +353,7 @@ list of pending items to be uploaded.</p>
 }]}
 </code></pre>
 
-<h2 id="file_download_start(remote_path,-destination_path=none,-wait_result=false)">file_download_start(remote_path, destination_path=None, wait_result=False)</h2>
+<h2 id="file_download_start(remote_path,-destination_path=none,-wait_result=false,-open_share=true)">file_download_start(remote_path, destination_path=None, wait_result=False, open_share=True)</h2>
 
 <p>Download data from remote suppliers to your local machine. You can use
 different methods to select the target data with <code>remote_path</code> input:</p>
@@ -379,17 +381,15 @@ By default this method uses specified value from local settings or user home fol
 
 <h2 id="file_explore(local_path)">file_explore(local_path)</h2>
 
-<h2 id="share_create(key_alias,-remote_path=none)">share_create(key_alias, remote_path=None)</h2>
+<h2 id="share_list(only_active=false,-include_mine=true,-include_granted=true)">share_list(only_active=False, include_mine=True, include_granted=True)</h2>
+
+<h2 id="share_create(owner_id=none,-key_size=2048)">share_create(owner_id=None, key_size=2048)</h2>
 
 <h2 id="share_grant(trusted_remote_user,-key_id)">share_grant(trusted_remote_user, key_id)</h2>
 
 <h2 id="share_open(key_id)">share_open(key_id)</h2>
 
 <h2 id="share_close(key_id)">share_close(key_id)</h2>
-
-<h2 id="share_refresh(key_id)">share_refresh(key_id)</h2>
-
-<h2 id="share_list()">share_list()</h2>
 
 <h2 id="share_history()">share_history()</h2>
 
@@ -415,13 +415,15 @@ By default this method uses specified value from local settings or user home fol
     'idurl': 'http://p2p-id.ru/bitdust_j_vps1014.xml',
     'files_count': 14,
     'position': 0,
-    'contact_status': 'offline'
+    'contact_status': 'offline',
+    'contact_state': 'OFFLINE'
  }, {
     'connected': '05-06-2016 13:04:57',
     'idurl': 'http://veselin-p2p.ru/bitdust_j_vps1001.xml',
     'files_count': 14,
     'position': 1,
-    'contact_status': 'offline'
+    'contact_status': 'online'
+    'contact_state': 'CONNECTED'
 }]}
 </code></pre>
 
@@ -690,21 +692,19 @@ can be used to select which protocols to list:</p>
 <h2 id="user_ping(idurl_or_global_id,-timeout=10)">user_ping(idurl_or_global_id, timeout=10)</h2>
 
 <p>Sends Identity packet to remote peer and wait for Ack packet to check connection status.
-The "ping" command performs following actions:</p>
-
-<ol>
-<li>Request remote identity source by idurl,</li>
-<li>Sends my Identity to remote contact addresses, taken from identity,</li>
-<li>Wait first Ack packet from remote peer,</li>
-<li>Failed by timeout or identity fetching error.</li>
-</ol>
-
-<p>You can use this method to check and be sure that remote node is alive at the moment.</p>
+The "ping" command performs following actions:
+  1. Request remote identity source by idurl,
+  2. Sends my Identity to remote contact addresses, taken from identity,
+  3. Wait first Ack packet from remote peer,
+  4. Failed by timeout or identity fetching error.
+You can use this method to check and be sure that remote node is alive at the moment.</p>
 
 <pre><code>{'status': 'OK', 'result': '(signed.Packet[Ack(Identity) bob|bob for alice], in_70_19828906(DONE))'}
 </code></pre>
 
 <h2 id="user_status(idurl_or_global_id)">user_status(idurl_or_global_id)</h2>
+
+<h2 id="user_status_check(idurl_or_global_id,-timeout=5)">user_status_check(idurl_or_global_id, timeout=5)</h2>
 
 <h2 id="user_search(nickname,-attempts=1)">user_search(nickname, attempts=1)</h2>
 

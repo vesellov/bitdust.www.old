@@ -54,53 +54,53 @@
 
 <p>Lets setup a hostname on your machine if you did not do it before:</p>
 
-<pre><code>sudo hostname -b my-own-identity-server.com
+<pre><code>    sudo hostname -b my-own-identity-server.com
 </code></pre>
 
 <p>And you will need to install Apache server if you do not have it yet on your machine:</p>
 
-<pre><code>sudo apt-get install apache2
+<pre><code>    sudo apt-get install apache2
 </code></pre>
 
-<p>Edit file:</p>
+<p>Edit Apache2 main config file:</p>
 
-<pre><code>/etc/apache2/apache2.conf
+<pre><code>    sudo nano /etc/apache2/apache2.conf
 </code></pre>
 
-<p>you need to add a line to set your domain name:</p>
+<p>You need to add a line to set your domain name:</p>
 
-<pre><code>ServerName my-own-identity-server.com
+<pre><code>    ServerName my-own-identity-server.com
 </code></pre>
 
 <p>Create a new my-own-identity-server_com.conf file in /etc/apache2/conf-available/ :</p>
 
-<pre><code>&lt;VirtualHost *:80&gt;
-  ServerName my-own-identity-server.com
-  ServerAlias www.my-own-identity-server.com
-  ProxyPreserveHost on
-  ProxyRequests Off
-  RewriteEngine on
-  ProxyPass / http://localhost:8084/
-  ProxyPassReverse / http://localhost:8084/
-  Redirect / http://localhost:8084/
-  RewriteRule ^/(.*) http://localhost:8084/$1 [P,L]
-&lt;/VirtualHost&gt;
+<pre><code>    &lt;VirtualHost *:80&gt;
+      ServerName my-own-identity-server.com
+      ServerAlias www.my-own-identity-server.com
+      ProxyPreserveHost on
+      ProxyRequests Off
+      RewriteEngine on
+      ProxyPass / http://localhost:8084/
+      ProxyPassReverse / http://localhost:8084/
+      Redirect / http://localhost:8084/
+      RewriteRule ^/(.*) http://localhost:8084/$1 [P,L]
+    &lt;/VirtualHost&gt;
 </code></pre>
 
 <p>Enable this configuration in apache2, run command:</p>
 
-<pre><code>sudo a2enconf my-own-identity-server_com
+<pre><code>    sudo a2enconf my-own-identity-server_com
 </code></pre>
 
 <p>Configure proxy_http and rewrite modes in apache2, run commands:</p>
 
-<pre><code>sudo a2enmod proxy_http 
-sudo a2enmod rewrite
+<pre><code>    sudo a2enmod proxy_http 
+    sudo a2enmod rewrite
 </code></pre>
 
 <p>Now restart apache2 server:</p>
 
-<pre><code>sudo service apache2 restart
+<pre><code>    sudo service apache2 restart
 </code></pre>
 
 <h2 id="configure-bitdust-software">Configure BitDust software</h2>
@@ -109,20 +109,20 @@ sudo a2enmod rewrite
 
 <p>Now configure BitDust on your node to set domain name for this new identity server, run commands:</p>
 
-<pre><code>bitdust set services/id-server/host my-own-identity-server.com
-bitdust set services/id-server/enabled true
+<pre><code>    bitdust set services/id-server/host my-own-identity-server.com
+    bitdust set services/id-server/enabled true
 </code></pre>
 
 <p>You can manually set a port number for incoming connections using such command:</p>
 
-<pre><code>bitdust set services/id-server/web-port 8084
+<pre><code>    bitdust set services/id-server/web-port 8084
 </code></pre>
 
 <h2 id="run-standalone-identity-server">Run standalone Identity Server</h2>
 
 <p>Run this command to start Identity server process in current terminal:</p>
 
-<pre><code>bitdust identity server start
+<pre><code>    bitdust identity server start
 </code></pre>
 
 <p>Now open your favority WEB browser and navigate to <a href="http://127.0.0.1:8084">http://127.0.0.1:8084</a> or <a href="my-own-identity-server.com">my-own-identity-server.com</a>. You should see an empty page with title "Identities on my-own-identity-server.com".</p>
@@ -133,13 +133,13 @@ bitdust set services/id-server/enabled true
 
 <p>Be sure network service identity_server is enabled in settings (check configuration above) and start BitDust software in "daemon" mode:</p>
 
-<pre><code>bitdust daemon
+<pre><code>    bitdust daemon
 </code></pre>
 
 <p>Be sure ID server is up and running:</p>
 
-<pre><code>bitdust states | grep id_server
-36: id_server(LISTEN)
+<pre><code>    bitdust states | grep id_server
+    36: id_server(LISTEN)
 </code></pre>
 
 <p>Open your browser and go to <a href="http://127.0.0.1:8084">http://127.0.0.1:8084</a> or <a href="my-own-identity-server.com">my-own-identity-server.com</a> to check server status.</p>

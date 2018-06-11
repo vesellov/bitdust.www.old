@@ -83,7 +83,7 @@
 
 <p>This kind of storage is done with the use of multiple machines also called ID-servers or Identity servers, where copies of all identity files are kept. These servers can be started on the machines belonging to BitDust LLC, as well as in those of the network users themselves or third parties of their own free will. </p>
 
-<p>ID-server functional is the part of BitDust program, but by default is turned off in the program settings. If required each user can turn on this option himself and start such a server on his computer – it will be automatically initiated by BitDust program start. Server launch will influence the computer resources consumption insignificantly, but will allow you to support other nodes and increase total fault-tolerance of whole BitDust network.</p>
+<p>ID-server is a part of BitDust program, but by default it is turned off in the program settings. If required each user can turn on this option himself and start such a server on his own computer – then ID-server will be automatically started during BitDust program start. ID-server consume almost no computer resources, but will allow you to support other nodes and increase total fault-tolerance of the whole BitDust network.</p>
 
 <p>If you feel enthusiastic now, read more about how to run your own identity server in BitDust network in 5 minutes on <a href="identity_server.html">Start new Identity Server</a> page.</p>
 
@@ -95,48 +95,48 @@
 
 <p>Example IDURL might look like this:</p>
 
-<pre><code>http://first-machine.com/alice.xml
+<pre><code>    http://first-machine.com/alice.xml
 </code></pre>
 
 <p>And the identity file itself has the following look:</p>
 
-<pre><code>&lt;identity&gt;
-&lt;contacts&gt;
-  &lt;contact&gt;tcp://123.45.67.89:7771&lt;/contact&gt;
-  &lt;contact&gt;udp://alice@first-machine.com&lt;/contact&gt;
-&lt;/contacts&gt;
-&lt;sources&gt;
-  &lt;source&gt;http://first-machine.com/alice.xml&lt;/source&gt;
-  &lt;source&gt;http://server-two.net/alice.xml&lt;/source&gt;
-&lt;/sources&gt;
-&lt;certificates/&gt;
-&lt;scrubbers/&gt;
-&lt;postage&gt;1&lt;/postage&gt;
-&lt;date&gt;Sat Dec 13 14:08:36 2014&lt;/date&gt;
-&lt;version&gt;
-  sources Linux-3.11.0-15-generic-i686-with-Ubuntu-12.04-precise
-&lt;/version&gt;
-&lt;publickey&gt;
-  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCgGcYwhNipj6yJyEaD77qLNrJ ...
-&lt;/publickey&gt;
-&lt;signature&gt;
-  1557824826897671730886854628410961132377100189021332866347553795 ...
-&lt;/signature&gt;
-&lt;/identity&gt;
+<pre><code>    &lt;identity&gt;
+    &lt;contacts&gt;
+      &lt;contact&gt;tcp://123.45.67.89:7771&lt;/contact&gt;
+      &lt;contact&gt;udp://alice@first-machine.com&lt;/contact&gt;
+    &lt;/contacts&gt;
+    &lt;sources&gt;
+      &lt;source&gt;http://first-machine.com/alice.xml&lt;/source&gt;
+      &lt;source&gt;http://server-two.net/alice.xml&lt;/source&gt;
+    &lt;/sources&gt;
+    &lt;certificates/&gt;
+    &lt;scrubbers/&gt;
+    &lt;postage&gt;1&lt;/postage&gt;
+    &lt;date&gt;Sat Dec 13 14:08:36 2014&lt;/date&gt;
+    &lt;version&gt;
+      sources Linux-3.11.0-15-generic-i686-with-Ubuntu-12.04-precise
+    &lt;/version&gt;
+    &lt;publickey&gt;
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCgGcYwhNipj6yJyEaD77qLNrJ ...
+    &lt;/publickey&gt;
+    &lt;signature&gt;
+      1557824826897671730886854628410961132377100189021332866347553795 ...
+    &lt;/signature&gt;
+    &lt;/identity&gt;
 </code></pre>
 
 <p>Each identity file can have several copies, stored on different servers – for ensuring fault-tolerance of users identification in the BitDust network. Thus each node can have several IDURL addresses, identifying it.</p>
 
 <p>User has a chance to create an authentic identifier in the BitDust network – for example, starting an ID-server at the hosting of his site and allocating there his personal identity file. For instance: </p>
 
-<pre><code>http://veselin-penev.com/id.xml
+<pre><code>    http://veselin-penev.com/id.xml
 </code></pre>
 
 <p>It is preferably that machines running ID-servers had correctly adjusted domain names. Then IDURL identifiers of the users, whose identity files are stored there, will look more attractive.</p>
 
 <p>But it is not mandatory to buy a domain name to run your own ID-server. In that case ID files on your host may look like that:</p>
 
-<pre><code>http://123.45.67.89/id.xml
+<pre><code>    http://123.45.67.89/id.xml
 </code></pre>
 
 <p>For some reasons this may be preferable - if you do not wish to depend on global DNS providers.</p>
@@ -147,35 +147,35 @@
 
 <p>Periodically software will trigger a methods to check and propagate your identity file to other nodes. Before it starts it can switch your current "primary" ID-server to another one - another ID server will be found and your identity file will be sent to that host. Your main global IDURL address will be changed because new server will be placed on first position under <code>&lt;sources&gt;</code> tag, for example:</p>
 
-<pre><code>&lt;identity&gt;
-&lt;contacts&gt;
-  &lt;contact&gt;tcp://123.45.67.89:7771&lt;/contact&gt;
-  &lt;contact&gt;udp://alice@host3.org&lt;/contact&gt;
-&lt;/contacts&gt;
-&lt;sources&gt;
-  &lt;source&gt;http://host3.org/alice.xml&lt;/source&gt;
-  &lt;source&gt;http://first-machine.com/alice.xml&lt;/source&gt;
-  &lt;source&gt;http://server-two.net/alice.xml&lt;/source&gt;
-&lt;/sources&gt;
-&lt;certificates/&gt;
-&lt;scrubbers/&gt;
-&lt;postage&gt;1&lt;/postage&gt;
-&lt;date&gt;Sat Dec 13 14:08:36 2014&lt;/date&gt;
-&lt;version&gt;
-  sources Linux-3.11.0-15-generic-i686-with-Ubuntu-12.04-precise
-&lt;/version&gt;
-&lt;publickey&gt;
-  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCgGcYwhNipj6yJyEaD77qLNrJ ...
-&lt;/publickey&gt;
-&lt;signature&gt;
-  1557824826897671730886854628410961132377100189021332866347553795 ...
-&lt;/signature&gt;
-&lt;/identity&gt;
+<pre><code>    &lt;identity&gt;
+    &lt;contacts&gt;
+      &lt;contact&gt;tcp://123.45.67.89:7771&lt;/contact&gt;
+      &lt;contact&gt;udp://alice@host3.org&lt;/contact&gt;
+    &lt;/contacts&gt;
+    &lt;sources&gt;
+      &lt;source&gt;http://host3.org/alice.xml&lt;/source&gt;
+      &lt;source&gt;http://first-machine.com/alice.xml&lt;/source&gt;
+      &lt;source&gt;http://server-two.net/alice.xml&lt;/source&gt;
+    &lt;/sources&gt;
+    &lt;certificates/&gt;
+    &lt;scrubbers/&gt;
+    &lt;postage&gt;1&lt;/postage&gt;
+    &lt;date&gt;Sat Dec 13 14:08:36 2014&lt;/date&gt;
+    &lt;version&gt;
+      sources Linux-3.11.0-15-generic-i686-with-Ubuntu-12.04-precise
+    &lt;/version&gt;
+    &lt;publickey&gt;
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCgGcYwhNipj6yJyEaD77qLNrJ ...
+    &lt;/publickey&gt;
+    &lt;signature&gt;
+      1557824826897671730886854628410961132377100189021332866347553795 ...
+    &lt;/signature&gt;
+    &lt;/identity&gt;
 </code></pre>
 
 <p>Final IDURL will be updated:</p>
 
-<pre><code>http://host3.org/alice.xml
+<pre><code>  http://host3.org/alice.xml
 </code></pre>
 
 <p>Both IDURLs are pointing to same device now, but we only switch the main location of your identiy file - to be used by all other nodes who is talking to you. To do that software will "propagate" your new identity file to all of your currently active contacts. Also it will update copies on ID-servers you are using already: "first-machine.com" and "server-two.net".</p>
@@ -191,7 +191,7 @@
 <p>In BitDust we support a global unique ID for any existing object (file, group, user, etc.).
 This is an example of full remote path to file "cat.png" in BitDust network:</p>
 
-<pre><code>group_abc$alice@first-machine.com:animals/cat.png#F20160313043757PM
+<pre><code>    group_abc$alice@first-machine.com:animals/cat.png#F20160313043757PM
 </code></pre>
 
 <p>Full identifier here consists of several parts, here they are:</p>
@@ -206,12 +206,12 @@ This is an example of full remote path to file "cat.png" in BitDust network:</p>
 
 <p>If identity server was set using IP:PORT format the global ID might looks like this:</p>
 
-<pre><code>key_xyz$bob@123.45.67.89_8000:cars/citroen.png#F20160313052124PM
+<pre><code>    key_xyz$bob@123.45.67.89_8000:cars/citroen.png#F20160313052124PM
 </code></pre>
 
 <p>This approach have something similar with "remotes" and "branches" in Git. For example a full remote file path in Git can be like that:</p>
 
-<pre><code>https://github.com/vesellov/bitdust.devel/blob/master/automats/automat.py
+<pre><code>    https://github.com/vesellov/bitdust.devel/blob/master/automats/automat.py
 </code></pre>
 
 <p>Looking more deeply we can split this URL by several parts:</p>

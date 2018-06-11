@@ -50,16 +50,18 @@
 
 <h1 id="distributed-hash-table">Distributed Hash-table</h1>
 
+<p>(in progress)</p>
+
 <h2 id="description">Description</h2>
 
 <p><a href="https://en.wikipedia.org/wiki/Distributed_hash_table">Distributed hash-table</a>,
 or <code>DHT</code>, provides an interface close to associative array or dictionary with key/value pair where storage of all pairs (key, value) is distributed into multiple nodes.</p>
 
-<p>Thanks to such DHT’s characteristics as decentralization, scalability and fault-tolerance it creates an integrated space for service information storage. This means switching to absolutely different approach to organization of network infrastructure rather than common centralized client-server solutions.</p>
+<p>Because of such useful DHT’s characteristics as decentralization, scalability and fault-tolerance it is possible to creates an integrated space for service information storage. This means switching to absolutely different approach to organization of network infrastructure rather than common centralized client-server solutions.</p>
 
-<p>Each computer running a BitDust program is a node in DHT network and stores key/value pairs created by other users.</p>
+<p>Each computer running a BitDust program can be a node in DHT network and stores key/value pairs created by other users.</p>
 
-<p>BitDust software includes functional realizing DHT network by means of <a href="http://entangled.sourceforge.net/">Entangled</a> library – its source code is wholly included in the source code of BitDust and is distributed jointly.</p>
+<p>BitDust software runs DHT network based on implementation from <a href="http://entangled.sourceforge.net/">Entangled</a> library – its source code is wholly included in the source code of BitDust and is distributed together.</p>
 
 <h2 id="data-types">Data types</h2>
 
@@ -69,11 +71,13 @@ or <code>DHT</code>, provides an interface close to associative array or diction
 
 <ul>
 <li><p><code>[IDURL]</code> 
-user identity file stuff</p></li>
+user identity file source</p></li>
 <li><p><code>[username]@[id-server]:address</code>
 external net address in [IP]:[PORT] format for receiving incoming connections</p></li>
 <li><p><code>[username]@[id-server]:incoming</code>
 list of nodes trying to connect to the user at the moment</p></li>
+<li><p><code>customer_supplier:[index]:[prefix]:[version]</code>
+list of relations for given customer with other suppliers </p></li>
 </ul>
 
 <h2 id="support-bitdust-network">Support BitDust network</h2>

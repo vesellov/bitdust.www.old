@@ -9,7 +9,7 @@
 
     <link rel="canonical" href="https://bitdust.io">
     
-    <title>BitDust : Automat network_connector()</title>
+    <title>BitDust : Shared data</title>
 
     <!-- <meta property="fb:admins" content="1097958228"/> -->
     <!-- <meta property="fb:app_id" content="543329652498581"/> -->
@@ -48,49 +48,115 @@
 <div class="Center-Block">
 <div id=page_content>
 
-<h1 id="automat-network_connector()">Automat network_connector()</h1>
+<p>﻿</p>
 
-<div class=automatpng>
-
-<p><a href="p2p/network_connector.pdf"><img src="p2p/network_connector.png" alt="network_connector()" /></a></p>
-
-</div>
-
-<p><a href="p2p/network_connector.vsd">network_connector.vsd</a></p>
-
-<h2 id="description">Description</h2>
-
-<p>Automat <code>network_connector()</code> is needed to monitor the status of the connection to the Internet and start the redirection procedures on the network in various parts of the software when the network connection is subsequently restored.</p>
-
-<p>In the <strong>CONNECTED</strong> state, it will periodically check for the next traffic and determine the current state of the connection.</p>
-
-<p>The two main methods control the switch-over:</p>
+<h1 id="shared-data">Shared data</h1>
 
 <ul>
-<li>doSetUp()</li>
-<li>doSetDown()</li>
+<li><a href="sharing.html#intro">Intro</a></li>
+<li><a href="sharing.html#master-key">Master Key</a></li>
+<li><a href="sharing.html#shared-keys">Shared keys</a></li>
+<li><a href="sharing.html#grant-access">Grant access</a></li>
+<li><a href="sharing.html#audit-access">Audit access</a></li>
+<li><a href="sharing.html#receiving-shared-keys">Receiving shared keys</a></li>
+<li><a href="sharing.html#reading-shared-data">Reading shared data</a></li>
 </ul>
 
-<p>If some network interfaces are active at the moment, but the software still can not connect to other nodes, <code>network_connector()</code> will try to ping few other nodes and decide whether there is any connection to the Internet or not.</p>
+<h2 id="intro">Intro</h2>
 
-<h2 id="events:">Events:</h2>
+<p>The main goal of the BitDust project is to create such an environment for the user, in which he would have full control over his own data and communication channels.</p>
 
-<pre><code>* all-network-transports-disabled
-* all-network-transports-ready
-* connection-done
-* gateway-is-not-started
-* got-network-info
-* init
-* internet-failed
-* internet-success
-* network-down
-* network-transport-state-changed
-* network-up
-* reconnect
-* timer-1hour
-* timer-5sec
-* upnp-done
+<p>However, in a world where people talk to each other via "black mirrors" more and more often, it is impossible to remain completely isolated in a such digital environment. In other words, we simply need to be able to work not only with our own data, but also with data coming to us from outside.</p>
+
+<p>So another very important goal of BitDust project is to create alternative ways to exchange digital data between users that will enable a higher level of privacy and control over such "common" or "shared" data.</p>
+
+<p>This article contains detailed information on how to control and provide access to your own data to other users of BitDust software.</p>
+
+<h2 id="master-key">Master Key</h2>
+
+<p>Since every piece of your personal data in BitDust network is stored on the machines of other users, it is always encrypted before leaving your computer - the method of protection is described in detail in the article <a href="security.html">Data Security</a>. Your main private key, here and below, we will refer to it as a "Master Key", used to encrypt and decrypt your personal data for storing on supplier machines.</p>
+
+<p>For your personal safety, you should make a backup copy of the Master Key in a safe place immediately after installing BitDust on your device. In any other cases, the Master Key should never leave your device and under no circumstances should be transferred to anyone else. Only Master Key protects your personal data and access to the BitDust network.</p>
+
+<h2 id="shared-keys">Shared keys</h2>
+
+<p>In addition to the Master key, there are other private keys in BitDust that you can use to work with the data. BitDust software implements extra logic to use same cryptographic methods but to make it possible to work with many different keys, which the user can use at any time by his own choice and completely under full own control.</p>
+
+<p>Using additional private and public keys in BitDust is very similar to real life actually - how you use a regular keychain that you lock/open the doors in your house. For example, if a new guest, your good firend, visited your place and you would like to settle him in one of your rooms, you will probably give him a copy of the key you have on the chain to be ably to unlock this room. but you will also leave the original key for yourself. Thus, both you and him will have access to the common space of the guest room. However, in your house, for example there may be another safe place for storing family documents or valuable things or a "private" room, and you never give the key to that place to anyone.</p>
+
+<p>In BitDust software you can at any time create a new additional private key and use it to encrypt some data that will be uploaded to your suppliers's machines. The data is stored in a distributed way, just as it happens when you encrypt it with your Master Key - this is described in detail in the article <a href="storage.html">Data Storage</a>, but you just switched from Master Key to the additional key when you are doing encryption.</p>
+
+<p>Later, you can transfer this additional key to another user who you trust and he will have the ability to download this particular piece of data and decrypt it on his own device. Thus, we can exchange personal data with each other and at the same time our suppliers only helps us during this process, but do not have access to data directly. Finally it makes our digital life depend on the "crowd" instead of single "service" provider. </p>
+
+<p>With BitDust software, you can perform the following actions with your additional keys:</p>
+
+<ul>
+<li>create a new key by giving it a name and store locally</li>
+<li>create a new key with a randomly generated name</li>
+<li>delete an existing private key</li>
+<li>backup and store the keys on your suppliers - will be encrypted with your Master Key</li>
+<li>send the public part of given key to another "un-trusted" user</li>
+<li>send the private part of given key to another "trusted" user</li>
+<li>view a list of all keys: created by you or received from other users</li>
+<li>perform "audit" process of given public key and verify that another user also posses exactly same copy of that public key</li>
+<li>perform "audit" of given private key and verify that another user also posses exactly same copy of that private key</li>
+<li>use a private key to encrypt data downloaded to the BitDust network</li>
+<li>use a private key to decrypt data downloaded from the network</li>
+</ul>
+
+<p>You will find your additional private keys in the <code>.bitdust/keys</code> folder,
+currently BitDust software is using <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA algorithm</a> which is widely used in the World.
+Those methods was implemented using <a href="https://pypi.org/project/pycrypto/">PyCrypto</a> library.</p>
+
+<h2 id="grant-access">Grant access</h2>
+
+<p>When transferring an additional key from one user to another, one of the text files from the <code>.bitdust/keys</code> folder is actually sent to the remote recipient's machine. The key is not transmitted in plaintext but it is encrypted using the public part of Master Key of the recipient before sending - only "trusted" user will be able to decrypt this text file and get a copy of the transmitted additional key. The BitDust program on his machine will receive the key and save it in the new text file in the <code>.bitdust/keys</code> folder. Then the user will be able to use it to work with the "shared" files.</p>
+
+<p>It is important to understand that this action is "irreversible"! You can not "take" the key back after you handed it to your friend, because only he controls his operating system and BitDust software running on his device. In fact, after you have passed the key to another user - both of you are almost completely are "fully equal" owners of the data that was encrypted with that additional key.</p>
+
+<p>We say you both posses "almost equal" ownership because the data is stored on your suppliers, but not his suppliers. So you have always "more rights" inside your own distributed storage than anyone else. For example, at any time you can requst your suppliers to delete this piece of data and by default they will do it for you.</p>
+
+<h2 id="audit-access">Audit access</h2>
+
+<p>The most important role of the supplier is to store and provide access to the files to you and other users, in fact it must be siad that way: "to make possible to download the fragments of the file at any time by authorized request". To acheive this, each supplier must have specific instructions and well-defined order of actions that he must perform at the time of the request to the distributed "shared" data on his device from you or a "trusted" user. Since all data that the supplier stores is encrypted, even if he is an "intruder" and "gives away" pieces of your data to everyone in a row without any control, you can still be calm - only those who posses the right key will be able to "read" your files.</p>
+
+<p>However, the BitDust software implements methods for filtering and validating such "access requests" to all data uploaded to the network - by default the supplier will "check" that the one who requests the piece of data does have the right additional key to decrypt the data. He must "audit" the user's key, which refers to it. To do this, he must keep the public part of the key, which was used to encrypt the data. This public key is usually received from you, exactly at the moment when you grant access to the data to the "trusted" user.</p>
+
+<p>To keep it short, below is the general plan implemented in BitDust software which executes on your device when you transfer one of your additional keys to another user:</p>
+
+<ol>
+<li>checking the connection status of the trusted user's computer</li>
+<li>audit of the master key of the trusted user</li>
+<li>sending the public part of the additional key to all your suppliers</li>
+<li>forwarding the private part of the additional key to a trusted user</li>
+<li>forwarding a list of file names that have already been encrypted with this additional key to a trusted user</li>
+</ol>
+
+<h2 id="receiving-shared-keys">Receiving shared keys</h2>
+
+<p>In the previous paragraphs, we described a methods for transferring access rights to your data to another user who you trust. Next, you will find a detailed info about what happens on his device and how he can use the additional key he received from you to download "shared" data to his device.</p>
+
+<p>It is assumed that the BitDust program  on both devices is already running and connected to other nodes of the BitDust network at the time of the transfer of an additional key was started. In case when "donor" or "recipient" was not connected to the network and did not have the opportunity to directly exchange service packages via BitDust "channels", the process will fail and no access will be granted at all.</p>
+
+<p>BitDust on the machine of the "trusted" user is constantly in a waiting state to receive incoming service data packets and is always ready to accept a new incoming access keys. After receiving and decrypting the file with the own Master Key, it will be stored in the <code>.bitdust/keys</code> folder. You can always find out the full list of all access keys have been passed to you from other users - each key has a unique global identifier that looks like that:</p>
+
+<pre><code>    share_0780f0d64b017303a0d81865eee009f1$veselin_penev@some-id-hostname.net
 </code></pre>
+
+<p>The initial part of the identifier before the character <code>$</code> is called "key alias" and serves to identify a particular key among a set of additional keys created by this user. The second part after the <code>$</code> character is the unique global identifier of the user who first generated the key. For more details about the identification of users in the BitDust network, you can read in the article <a href="identities.html">User Identification</a>.</p>
+
+<p>This method of identifying access keys always uniquely defines who is the creator of the data and on whose suppliers the encrypted fragments of files in the BitDust network are actually stored. In other words, having received a new access key from someone, you always know where the "shared" files are located.</p>
+
+<h2 id="reading-shared-data">Reading shared data</h2>
+
+<p>So to access the "foreign" files, you need to use the key identifier to determine the "location" of the data. We use the word "location" in a figurative sense, since all data is stored completely distributed on the suppliers' machines. For downloading fragments of files and decryption, it is necessary to determine the current active suppliers, connect to them and request all the fragments of data related to that given "common" file.</p>
+
+<p>In BitDust, the list of your suppliers is stored and maintained not only on your own device, but also in a distributed hash table - your suppliers automatically support and periodically update these "globally distributed" records. Thanks to this, any user always has the ability to "scan" the list of your suppliers and find out where he needs to go to download those files to which you "opened access to him." The process of "scanning" that list takes some time, depending on the number of your suppliers. In more detail, you can see how BitDust uses these service records in the article <a href="dht.html">Distributed Hash-table</a>.</p>
+
+<p>After connecting with the "foreign" suppliers, you can request them the necessary pieces of data related to a particular "shared" file. If the access key you received from the "donor" is valid, "external" suppliers will accept your request and BitDust software on your device will receive needed fragments, decrypt, combine into one chunk and create exactly same copy of "shared" file which "donor" granted you access.</p>
+
+<p><div class=fbcomments markdown="1">
+</div</p>
 
 
 </div>
