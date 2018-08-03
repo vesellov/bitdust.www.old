@@ -50,6 +50,20 @@
 
 <h1 id="how-to-start-a-new-identity-server-in-bitdust-network">How to start a new Identity Server in BitDust network</h1>
 
+<h2 id="intro">Intro</h2>
+
+<p>You need to create new identity for your own to be able to communicate with other nodes and access BitDust community.
+Identity files are distributed across identity servers in the network, other nodes holding and exposing copies of your identity.</p>
+
+<p>The third node can access that ID server and download your identity to be able to talk to you.
+So any node in the network can start own ID server and help to maintain network and make it more reliable.</p>
+
+<p>Your global IDURL is formed based on your nickname and DNS name (or IP address) of the first ID server.</p>
+
+<p>If one of your ID servers is down, you can find a fresh one and "propagate" your identity there
+and then remove dead ID server from the list of your sources: "identity migration" (not implemented yet).
+This process will be automated and network identification will become much more reliable.</p>
+
 <h2 id="install-and-configure-apache2">Install and configure apache2</h2>
 
 <p>Lets setup a hostname on your machine if you did not do it before:</p>
@@ -109,13 +123,13 @@
 
 <p>Now configure BitDust on your node to set domain name for this new identity server, run commands:</p>
 
-<pre><code>    bitdust set services/id-server/host my-own-identity-server.com
-    bitdust set services/id-server/enabled true
+<pre><code>    bitdust set services/identity-server/host my-own-identity-server.com
+    bitdust set services/identity-server/enabled true
 </code></pre>
 
 <p>You can manually set a port number for incoming connections using such command:</p>
 
-<pre><code>    bitdust set services/id-server/web-port 8084
+<pre><code>    bitdust set services/identity-server/web-port 8084
 </code></pre>
 
 <h2 id="run-standalone-identity-server">Run standalone Identity Server</h2>
@@ -143,6 +157,20 @@
 </code></pre>
 
 <p>Open your browser and go to <a href="http://127.0.0.1:8084">http://127.0.0.1:8084</a> or <a href="my-own-identity-server.com">my-own-identity-server.com</a> to check server status.</p>
+
+<h2 id="create-dedicated-identity">Create dedicated identity</h2>
+
+<p>Normally, when you creating a new identity, software will do all stuff for you automatically and just select few random ID servers, ping them and "propagate" your new identity to those nodes.</p>
+
+<p>But you can decide which ID servers you prefer, in case if you would like to control where your identity will be distributed exactly, and modify your "known" ID servers:</p>
+
+<pre><code>bitdust set services/identity-propagate/known-servers first-server.com:80:6661,second-host.net:8080:6661
+</code></pre>
+
+<p>Now if you will create a new identity with <code>bitdust id create my_dedicate_identity</code> command it will be "propagated" to <code>first-server.com</code> and <code>second-host.net</code> and your global IDURL can be like that:</p>
+
+<pre><code>http://first-server.com/my_dedicate_identity.xml
+</code></pre>
 
 <h2 id="support-bitdust-network">Support BitDust network</h2>
 
